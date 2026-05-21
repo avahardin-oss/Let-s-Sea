@@ -1,0 +1,379 @@
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --beige: #d4c9b2;
+  --beige-light: #e8e0d0;
+  --brown-dark: #5c2d1e;
+  --brown-mid: #8b7355;
+  --brown-text: #4a2c1a;
+  --white: #faf8f4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'EB Garamond', serif;
+  background-color: var(--beige);
+  color: var(--brown-text);
+}
+
+/* ── Shared ── */
+.section-title {
+  font-family: 'Cormorant SC', serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--brown-dark);
+}
+
+.cta-link {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brown-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.cta-link:hover {
+  opacity: 0.7;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--beige);
+  padding: 0 3rem 3rem;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--brown-mid);
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0 1rem;
+}
+
+.logo-svg {
+  width: 120px;
+  height: 80px;
+}
+
+.logo-text {
+  font-family: 'Cormorant', serif;
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 400;
+  fill: var(--brown-mid);
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.hero-title {
+  font-family: 'Cormorant SC', serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--brown-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  margin-top: 1.5rem;
+  color: var(--brown-dark);
+  max-width: 600px;
+}
+
+.hero-cta {
+  align-self: flex-end;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+}
+
+/* ── About ── */
+.about {
+  background-color: var(--beige);
+}
+
+.about-header {
+  background-color: var(--brown-mid);
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-header .section-title {
+  color: var(--white);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+}
+
+.about-logo {
+  font-family: 'Cormorant', serif;
+  font-style: italic;
+  font-size: 2.5rem;
+  color: var(--beige-light);
+  opacity: 0.6;
+}
+
+.about-body {
+  padding: 3rem;
+  max-width: 900px;
+}
+
+.about-body p {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: var(--brown-dark);
+}
+
+/* ── Membership ── */
+.membership {
+  padding: 3rem;
+  background-color: var(--beige);
+}
+
+.membership-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: var(--beige-light);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image {
+  height: 200px;
+  background-color: var(--brown-mid);
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(30%);
+}
+
+.card-image--foundation {
+  background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80');
+}
+
+.card-image--collective {
+  background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80');
+}
+
+.card-image--renewal {
+  background-image: url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80');
+}
+
+.card-content {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.card-name {
+  font-family: 'Cormorant SC', serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: var(--brown-dark);
+  margin-bottom: 0.4rem;
+}
+
+.card-price {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--brown-dark);
+  margin-bottom: 0.8rem;
+}
+
+.card-label {
+  font-size: 0.9rem;
+  color: var(--brown-mid);
+  margin-bottom: 0.4rem;
+}
+
+.card-features {
+  list-style: none;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--brown-dark);
+  padding-left: 0;
+  margin-bottom: 0.8rem;
+}
+
+.card-features li::before {
+  content: "· ";
+}
+
+.card-best {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--brown-mid);
+  margin-top: 0.5rem;
+}
+
+.card-btn {
+  display: block;
+  text-align: center;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--brown-dark);
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown-dark);
+  text-decoration: none;
+  margin: 0 1.5rem 1.5rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.card-btn:hover {
+  background-color: var(--brown-dark);
+  color: var(--beige-light);
+}
+
+/* ── Blog ── */
+.blog {
+  padding: 3rem;
+  background-color: var(--beige);
+}
+
+.blog-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 2rem;
+}
+
+.blog-card {
+  background-color: var(--beige-light);
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(40%) sepia(20%);
+}
+
+.blog-image--1 {
+  background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80');
+}
+
+.blog-image--2 {
+  background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80');
+}
+
+.blog-image--3 {
+  background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80');
+}
+
+.blog-content {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.blog-card-title {
+  font-family: 'Cormorant SC', serif;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--brown-dark);
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.blog-excerpt {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--brown-text);
+}
+
+/* ── Testimonials ── */
+.testimonials {
+  padding: 3rem;
+  background-color: var(--beige);
+}
+
+.testimonials-title {
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+}
+
+.testimonial-card {
+  border: 1px solid var(--brown-mid);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+}
+
+.testimonial-quote {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--brown-dark);
+  flex: 1;
+}
+
+.testimonial-author {
+  margin-top: 1.5rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--brown-mid);
+}
+
+/* ── Scroll fade-in ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 0 1.5rem 2rem;
+  }
+
+  .about-header,
+  .about-body,
+  .membership,
+  .blog,
+  .testimonials {
+    padding: 2rem 1.5rem;
+  }
+}
