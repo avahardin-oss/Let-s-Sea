@@ -1,0 +1,3 @@
+"use strict";(self["webpackChunkshopify_theme"]=self["webpackChunkshopify_theme"]||[]).push([[177],{861:(__unused_webpack_module,__unused_webpack___webpack_exports__,__webpack_require__)=>{
+var _featured_products__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(88);const logErrors=function(err){console.error(err)};(0,_featured_products__WEBPACK_IMPORTED_MODULE_0__.init)().catch(logErrors)}},__webpack_require__=>{
+var __webpack_exec__=moduleId=>__webpack_require__(__webpack_require__.s=moduleId);__webpack_require__.O(0,[351],(()=>__webpack_exec__(861)));var __webpack_exports__=__webpack_require__.O()}]);

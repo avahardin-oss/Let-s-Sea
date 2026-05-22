@@ -1,0 +1,21 @@
+{% assign icon_keys = "first,second,third,fourth" | split: "," %}
+
+<ul class="ProductIcons">
+    {% for key in icon_keys %}
+        {% assign icon_key = key | append: "_icon" %}
+        {% assign description_key = key | append: "_icon_description" %}
+
+        {% assign icon_image = product.metafields.custom.product_icons.value[icon_key] %}
+        {% assign icon_description = product.metafields.custom.product_icons.value[description_key] %}
+
+        <li class="ProductIcons-box">
+            {%- liquid
+                capture icon_image_sizes
+                render 'print-image-sizes', image: icon_image
+                endcapture
+            -%}
+            <img class="ProductIcons-image lazyload" srcset="{{ icon_image_sizes | strip_newlines | strip }}" alt="{{ icon_description | remove: '<br>' }}" />
+            {{ icon_description }}
+        </li>
+    {% endfor %}
+</ul>

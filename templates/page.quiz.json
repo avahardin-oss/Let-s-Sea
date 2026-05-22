@@ -1,0 +1,159 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": ["quiz"],
+  "sections": {
+    "quiz": {
+      "block_order": [
+        "result_HiqUtp",
+        "result_KAwpLQ",
+        "result_t7j3an",
+        "result_VAVDNB",
+        "result_nciLXk",
+        "result_pkPNg8",
+        "question_RPPFpW",
+        "question_XLWDa9",
+        "question_ibckD7"
+      ],
+      "blocks": {
+        "question_RPPFpW": {
+          "settings": {
+            "opt_1_icon": "",
+            "opt_1_label": "Leak Proof",
+            "opt_1_next": "Voyager",
+            "opt_2_icon": "",
+            "opt_2_label": "Taste",
+            "opt_2_next": "Voyager360",
+            "opt_3_icon": "",
+            "opt_3_label": "Hot Long",
+            "opt_3_next": "Sidekick",
+            "opt_4_icon": "",
+            "opt_4_label": "",
+            "opt_4_next": "",
+            "opt_5_icon": "",
+            "opt_5_label": "",
+            "opt_5_next": "",
+            "question_id": "hot",
+            "question_text": "Feature"
+          },
+          "type": "question"
+        },
+        "question_XLWDa9": {
+          "settings": {
+            "opt_1_icon": "",
+            "opt_1_label": "Home",
+            "opt_1_next": "Trek40",
+            "opt_2_icon": "",
+            "opt_2_label": "Work",
+            "opt_2_next": "Classic24",
+            "opt_3_icon": "",
+            "opt_3_label": "Car",
+            "opt_3_next": "Mesa30",
+            "opt_4_icon": "",
+            "opt_4_label": "",
+            "opt_4_next": "",
+            "opt_5_icon": "",
+            "opt_5_label": "",
+            "opt_5_next": "",
+            "question_id": "cold",
+            "question_text": "Where"
+          },
+          "type": "question"
+        },
+        "question_ibckD7": {
+          "settings": {
+            "opt_1_icon": "",
+            "opt_1_label": "Hot",
+            "opt_1_next": "hot",
+            "opt_2_icon": "",
+            "opt_2_label": "Cold",
+            "opt_2_next": "cold",
+            "opt_3_icon": "",
+            "opt_3_label": "",
+            "opt_3_next": "",
+            "opt_4_icon": "",
+            "opt_4_label": "",
+            "opt_4_next": "",
+            "opt_5_icon": "",
+            "opt_5_label": "",
+            "opt_5_next": "",
+            "question_id": "q1",
+            "question_text": "Hot or Cold?"
+          },
+          "type": "question"
+        },
+        "result_HiqUtp": {
+          "settings": {
+            "result_body": "",
+            "result_headline": "Your Perfect Match",
+            "result_id": "Trek40",
+            "result_product": "trek-tumbler-257"
+          },
+          "type": "result"
+        },
+        "result_KAwpLQ": {
+          "settings": {
+            "result_body": "",
+            "result_headline": "Your Perfect Match",
+            "result_id": "Classic24",
+            "result_product": "classic-tumbler-130"
+          },
+          "type": "result"
+        },
+        "result_VAVDNB": {
+          "settings": {
+            "result_body": "",
+            "result_headline": "Your Perfect Match",
+            "result_id": "Voyager360",
+            "result_product": "signature-voyager-35"
+          },
+          "type": "result"
+        },
+        "result_nciLXk": {
+          "settings": {
+            "result_body": "",
+            "result_headline": "Your Perfect Match",
+            "result_id": "Voyager",
+            "result_product": "voyager-with-clear-flip-lid-straw-16oz-60"
+          },
+          "type": "result"
+        },
+        "result_pkPNg8": {
+          "settings": {
+            "result_body": "",
+            "result_headline": "Your Perfect Match",
+            "result_id": "Sidekick",
+            "result_product": "sidekick-16oz-3"
+          },
+          "type": "result"
+        },
+        "result_t7j3an": {
+          "settings": {
+            "result_body": "",
+            "result_headline": "Your Perfect Match",
+            "result_id": "Mesa30",
+            "result_product": "mesa-loop-24oz-7"
+          },
+          "type": "result"
+        }
+      },
+      "settings": {
+        "accent_color": "#000000",
+        "bg_color": "#f8f7f5",
+        "max_depth": 2,
+        "quiz_intro": "Answer a few quick questions and we'll match you with your ideal Simple Modern drinkware.",
+        "quiz_title": "Find Your Perfect Bottle",
+        "show_progress": true,
+        "start_id": "q1"
+      },
+      "type": "quiz"
+    }
+  }
+}

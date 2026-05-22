@@ -1,0 +1,76 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "8633d93d-b04a-4bec-9884-de8264fc7655",
+    "1a4f980d-b2a4-4e67-b01d-4f930c2065af",
+    "main"
+  ],
+  "sections": {
+    "1a4f980d-b2a4-4e67-b01d-4f930c2065af": {
+      "settings": {
+        "categories_linklist": "tvg-collection-navgation"
+      },
+      "type": "collection-categories"
+    },
+    "8633d93d-b04a-4bec-9884-de8264fc7655": {
+      "settings": {},
+      "type": "collection-header"
+    },
+    "main": {
+      "block_order": [
+        "a78e736f-9230-4cf2-ab7a-7c08b1d329fc",
+        "6b03e11a-fe71-4d0a-bb52-18ce77d4c1a7",
+        "d38f9e92-95ba-4ef8-9610-670e57cdcc5f",
+        "f574cde7-1d02-4bcc-b9c3-ab2f8b5f2faa"
+      ],
+      "blocks": {
+        "6b03e11a-fe71-4d0a-bb52-18ce77d4c1a7": {
+          "settings": {
+            "key": "named_tags.solid",
+            "title": "Solid"
+          },
+          "type": "filter"
+        },
+        "a78e736f-9230-4cf2-ab7a-7c08b1d329fc": {
+          "settings": {
+            "key": "named_tags.volume",
+            "title": "Volume"
+          },
+          "type": "filter"
+        },
+        "d38f9e92-95ba-4ef8-9610-670e57cdcc5f": {
+          "settings": {
+            "key": "named_tags.pattern",
+            "title": "Pattern"
+          },
+          "type": "filter"
+        },
+        "f574cde7-1d02-4bcc-b9c3-ab2f8b5f2faa": {
+          "settings": {
+            "key": "named_tags.shimmering",
+            "title": "Shimmering"
+          },
+          "type": "filter"
+        }
+      },
+      "settings": {
+        "badge_background_color": "#f2f1f0",
+        "badge_color": "#000000",
+        "featured_column_position": "1",
+        "hits_per_page": 20,
+        "row_position": 2,
+        "title_color": "#ffffff"
+      },
+      "type": "collection-main"
+    }
+  },
+  "wrapper": "main.Collection[role='main']"
+}

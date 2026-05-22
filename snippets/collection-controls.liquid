@@ -1,0 +1,13 @@
+<div class="Collection-header">
+  <div class="Collection-header-title">
+    <h1>{{ collection.title }}</h1>
+  </div>
+  {% comment %}
+  <div class="Collection-header-actions">
+     {%- render 'collection-active-filters' -%}
+    <div class="Collection-filterButton">
+      <button class="Filter-button o-button js-offcanvas-trigger" data-drawer-name="filters">{{ 'collections.filter.button' | t }}</button>
+    </div>
+    {%- render 'collection-sort' -%}
+    </div> {% endcomment %}
+</div>

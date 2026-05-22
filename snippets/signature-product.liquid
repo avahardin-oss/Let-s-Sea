@@ -1,0 +1,9 @@
+<div class="signature-product {% if featured %}featured js-featured-signature-product{% endif %}">
+    {%- if product.tags contains 'coming_soon' -%}
+        <div class="rotating-coming-soon">
+            {%- render 'svg-icon-coming-soon' -%}
+        </div>
+    {%- endif -%}
+    {%- capture image_sizes %}{%- render 'print-image-sizes', image: product.featured_image -%}{% endcapture %}
+    <div class="js-signature-product-image signature-product__image lazyload {% if featured %}featured{% endif %}" data-bgset="{{ image_sizes }}" data-sizes="auto"></div>
+</div>

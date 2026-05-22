@@ -1,0 +1,171 @@
+<main class="Customer" role="main">
+  <div class="Customer-container">
+
+    <div class="Customer-titleWrapper">
+      <h1 class="Customer-pageTitle">
+        {{ 'customer.account.title' | t }}
+      </h1>
+
+      <p class="subheading">
+        {{ 'customer.account.log_out' | t | customer_logout_link }}
+      </p>
+    </div>
+  
+  </div>
+  <div class="Customer-pageWrapper">
+
+    <h2 class="Customer-sectionTitle">
+      {{ 'customer.orders.title' | t }}
+    </h2>
+    
+
+    <div class="Customer-pageWrapperContainer">
+      <div class="Customer-ordersHistory">
+        {% if customer.orders.size != 0 %}
+
+          <table class="Customer-desktopTable">
+            <thead>
+              <tr>
+                <th scope="col" data-type="date" class="Customer--dateRow">
+                  {{ 'customer.orders.date' | t }}
+                </th>
+                <th scope="col" data-type="order_number">
+                  {{ 'customer.orders.order_number' | t }}
+                </th>
+                <th scope="col" data-type="payment_status">
+                  {{ 'customer.orders.payment_status' | t }}
+                </th>
+                <th scope="col" data-type="fulfillment_status">
+                  {{ 'customer.orders.fulfillment_status' | t }}
+                </th>
+                <th scope="col" data-type="total" class="Customer--totalRow">
+                  {{ 'customer.orders.total' | t }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+                <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
+                  <th data-title="Date" class="Customer--dateRow">
+                    {{ order.created_at | date: '%F' | replace: '-', '/' }}
+                  </th>
+                  <td scope="row" data-title="Order" class="Customer--orderRow">
+                    {{ order.name | link_to: order.customer_url }}
+                    {% if order.cancelled %}
+                      {% assign cancellation_date = order.cancelled_at | date: format: 'month_day_year' %}
+                      <br />
+                      <small>
+                        {{ 'customer.order.cancelled' | t: date: cancellation_date }}
+                      </small>
+                    {% endif %}
+                  </td>
+                  <td data-title="Payment Status">
+                    <span class="status_{{ order.financial_status }}">
+                      {{ order.financial_status }}
+                    </span>
+                  </td>
+                  <td data-title="Fulfillment Status">
+                    <span class="status_{{ order.fulfillment_status }}">
+                      {{ order.fulfillment_status }}
+                    </span>
+                  </td>
+                  <td data-title="Total" class="Customer--totalRow">
+                    <span class="total money">
+                      {{ order.total_price | money }}
+                    </span>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p>
+            {{ 'customer.orders.none' | t }}
+          </p>
+        {% endif %}
+
+        <div class="Customer-mobileTable">
+          {% for order in customer.orders %}
+            <div class="Customer--order">
+              <div class="Customer--orderItem">
+                <span class="Customer--orderItemTitle">
+                  {{ 'customer.orders.date' | t }}
+                </span>
+                <span>
+                  {{ order.created_at | date: '%F' | replace: '-', '/' }}
+                </span>
+              </div>
+              <div class="Customer--orderItem">
+                <span class="Customer--orderItemTitle">
+                  {{ 'customer.orders.order_number' | t }}
+                </span>
+                <span>
+                  {{ order.name | link_to: order.customer_url }}
+                  {% if order.cancelled %}
+                    {% assign cancellation_date = order.cancelled_at | date: format: 'month_day_year' %}
+                    <br />
+                    <small>
+                      {{ 'customer.order.cancelled' | t: date: cancellation_date }}
+                    </small>
+                  {% endif %}
+                </span>
+              </div>
+              <div class="Customer--orderItem">
+                <span class="Customer--orderItemTitle">
+                  {{ 'customer.orders.payment_status' | t }}
+                </span>
+                <span>
+                  {{ order.financial_status }}
+                </span>
+              </div>
+              <div class="Customer--orderItem">
+                <span class="Customer--orderItemTitle">
+                  {{ 'customer.orders.fulfillment_status' | t }}
+                </span>
+                <span>
+                  {{ order.fulfillment_status }}
+                </span>
+              </div>
+              <div class="Customer--orderItem">
+                <span class="Customer--orderItemTitle">
+                  {{ 'customer.orders.total' | t }}
+                </span>
+                <span>
+                  {{ order.total_price | money }}
+                </span>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+
+      <div class="Customer-details">
+        <h2 class="Customer-sectionTitle">
+          {{ 'customer.account.details' | t }}
+        </h2>
+        <p>
+          {% if customer.name %}
+            {{ customer.name }}
+            <br />
+          {% endif %}
+          {{ customer.email }}
+        </p>
+          <div class="Customer--separation"></div>
+          <h2 class="Customer-sectionTitle">
+            Default Address
+          </h2>
+          {% if customer.default_address and customer.default_address != blank %}
+            {{ customer.default_address | format_address }}
+          {% if customer.default_address.phone != blank %}
+              <p>{{ customer.default_address.phone }}</p>
+          {% endif %}
+          {% endif %}
+          <a id="view_address" href="/account/addresses" class="btn reverse Customer--addressBtn">
+            {{ 'customer.account.view_addresses' | t }}
+          </a>
+      </div>
+    </div>
+
+  </div>
+</main>

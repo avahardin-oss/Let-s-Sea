@@ -1,0 +1,180 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": ["1a4f980d-b2a4-4e67-b01d-4f930c2065af", "main"],
+  "sections": {
+    "1a4f980d-b2a4-4e67-b01d-4f930c2065af": {
+      "settings": {
+        "categories_linklist": "filter-accessories"
+      },
+      "type": "collection-categories"
+    },
+    "main": {
+      "block_order": [
+        "a78e736f-9230-4cf2-ab7a-7c08b1d329fc",
+        "6b03e11a-fe71-4d0a-bb52-18ce77d4c1a7",
+        "d38f9e92-95ba-4ef8-9610-670e57cdcc5f",
+        "f574cde7-1d02-4bcc-b9c3-ab2f8b5f2faa",
+        "3f7b4347-5760-400f-9ff7-f6b3ac1b4b04",
+        "134fa280-7de3-4edf-a157-c54d1aefea37",
+        "8664443b-f701-4e8c-a84e-a44dbc68ffbf",
+        "1dedc77c-e1d2-4b8e-a44e-14a359390f4b",
+        "f978a088-f346-4336-9e8b-dfde3c5cb68e",
+        "abc9817f-f17f-44d5-93bc-278957330383",
+        "e111c4f0-ad15-49bb-bc90-ede2a5dad5ec",
+        "fd509082-eea4-4681-95d5-4269363dce56",
+        "6c3450cb-0b5f-4a04-ad88-f6149b36cab1",
+        "f8d1fa56-d872-4d31-ad13-ebfb8f6e4871",
+        "ccdcbe73-c60d-4c91-8f1e-9e99e3d2fa38",
+        "85450053-3697-490a-b20a-6e5c0f248067",
+        "f5690118-c415-4ca9-bf21-524ada18d061",
+        "528e4331-5bd0-4a03-914c-622f27c22e34"
+      ],
+      "blocks": {
+        "134fa280-7de3-4edf-a157-c54d1aefea37": {
+          "settings": {
+            "key": "named_tags.marvel",
+            "title": "Marvel"
+          },
+          "type": "filter"
+        },
+        "1dedc77c-e1d2-4b8e-a44e-14a359390f4b": {
+          "settings": {
+            "key": "named_tags.nfl",
+            "title": "NFL"
+          },
+          "type": "filter"
+        },
+        "3f7b4347-5760-400f-9ff7-f6b3ac1b4b04": {
+          "settings": {
+            "key": "named_tags.disney",
+            "title": "Disney"
+          },
+          "type": "filter"
+        },
+        "528e4331-5bd0-4a03-914c-622f27c22e34": {
+          "settings": {
+            "key": "named_tags.sadie",
+            "title": "Sadie Robertson"
+          },
+          "type": "filter"
+        },
+        "6b03e11a-fe71-4d0a-bb52-18ce77d4c1a7": {
+          "settings": {
+            "key": "named_tags.solid",
+            "title": "Solid"
+          },
+          "type": "filter"
+        },
+        "6c3450cb-0b5f-4a04-ad88-f6149b36cab1": {
+          "settings": {
+            "key": "named_tags.dc",
+            "title": "DC"
+          },
+          "type": "filter"
+        },
+        "85450053-3697-490a-b20a-6e5c0f248067": {
+          "settings": {
+            "key": "named_tags.dude",
+            "title": "Dude Perfect"
+          },
+          "type": "filter"
+        },
+        "8664443b-f701-4e8c-a84e-a44dbc68ffbf": {
+          "settings": {
+            "key": "named_tags.nba",
+            "title": "NBA"
+          },
+          "type": "filter"
+        },
+        "a78e736f-9230-4cf2-ab7a-7c08b1d329fc": {
+          "settings": {
+            "key": "named_tags.volume",
+            "title": "Volume"
+          },
+          "type": "filter"
+        },
+        "abc9817f-f17f-44d5-93bc-278957330383": {
+          "settings": {
+            "key": "named_tags.ncaa",
+            "title": "Collegiate"
+          },
+          "type": "filter"
+        },
+        "ccdcbe73-c60d-4c91-8f1e-9e99e3d2fa38": {
+          "settings": {
+            "key": "named_tags.starwars",
+            "title": "Star Wars"
+          },
+          "type": "filter"
+        },
+        "d38f9e92-95ba-4ef8-9610-670e57cdcc5f": {
+          "settings": {
+            "key": "named_tags.pattern",
+            "title": "Pattern"
+          },
+          "type": "filter"
+        },
+        "e111c4f0-ad15-49bb-bc90-ede2a5dad5ec": {
+          "settings": {
+            "key": "named_tags.nhl",
+            "title": "NHL"
+          },
+          "type": "filter"
+        },
+        "f5690118-c415-4ca9-bf21-524ada18d061": {
+          "settings": {
+            "key": "named_tags.harry",
+            "title": "Harry Potter"
+          },
+          "type": "filter"
+        },
+        "f574cde7-1d02-4bcc-b9c3-ab2f8b5f2faa": {
+          "settings": {
+            "key": "named_tags.shimmering",
+            "title": "Shimmering"
+          },
+          "type": "filter"
+        },
+        "f8d1fa56-d872-4d31-ad13-ebfb8f6e4871": {
+          "settings": {
+            "key": "named_tags.kids",
+            "title": "Kids"
+          },
+          "type": "filter"
+        },
+        "f978a088-f346-4336-9e8b-dfde3c5cb68e": {
+          "settings": {
+            "key": "named_tags.blocked",
+            "title": "Color Blocked"
+          },
+          "type": "filter"
+        },
+        "fd509082-eea4-4681-95d5-4269363dce56": {
+          "settings": {
+            "key": "named_tags.ombre",
+            "title": "Ombre"
+          },
+          "type": "filter"
+        }
+      },
+      "settings": {
+        "badge_background_color": "#f2f1f0",
+        "badge_color": "#000000",
+        "featured_column_position": "1",
+        "hits_per_page": 20,
+        "row_position": 2,
+        "title_color": "#ffffff"
+      },
+      "type": "collection-main"
+    }
+  },
+  "wrapper": "main.Collection[role='main']"
+}

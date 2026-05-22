@@ -1,0 +1,308 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/sections/hero-banner/section.liquid}] %}
+
+<style>
+.mod_hero_banner_cQfx9q_HeroBanner{background-color:#000;flex-direction:column;justify-content:flex-end;align-items:center;height:100dvh;padding:max(2.5rem,5.55556vw) max(1rem,2.77778vw);display:flex;position:relative;overflow:hidden}
+.mod_hero_banner_cQfx9q_HeroBanner[data-content-position=top]{justify-content:flex-start}
+.mod_hero_banner_cQfx9q_HeroBanner[data-content-position=center]{justify-content:center}
+.mod_hero_banner_cQfx9q_HeroBanner[data-content-position=bottom]{justify-content:flex-end}
+.mod_hero_banner_cQfx9q_HeroBanner__background{pointer-events:none;position:absolute;inset:0}
+.mod_hero_banner_cQfx9q_HeroBanner__image{background-position:50%;background-repeat:no-repeat;background-size:cover;position:absolute;inset:0}
+.mod_hero_banner_cQfx9q_HeroBanner__image--desktop{display:none}
+.mod_hero_banner_cQfx9q_HeroBanner__image--mobile{display:block}
+.mod_hero_banner_cQfx9q_HeroBanner__video{position:absolute;inset:0;overflow:hidden}
+.mod_hero_banner_cQfx9q_HeroBanner__video video{object-fit:cover;width:100%;height:100%}
+.mod_hero_banner_cQfx9q_HeroBanner__video--desktop{display:none}
+.mod_hero_banner_cQfx9q_HeroBanner__video--mobile{display:block}
+.mod_hero_banner_cQfx9q_HeroBanner__overlay{opacity:.4;background-color:#000;position:absolute;inset:0}
+.mod_hero_banner_cQfx9q_HeroBanner__content{z-index:1;text-align:center;flex-direction:column;align-items:center;gap:max(2rem,2.22222vw);width:100%;max-width:672px;display:flex;position:relative}
+.mod_hero_banner_cQfx9q_HeroBanner__textGroup{color:#fff;flex-direction:column;align-items:center;gap:8px;width:100%;display:flex}
+.mod_hero_banner_cQfx9q_HeroBanner__subheading{letter-spacing:0;text-transform:uppercase;color:#fff;margin:0;font-size:max(1rem,1.11111vw);font-weight:600;line-height:1.2}
+.mod_hero_banner_cQfx9q_HeroBanner__heading{letter-spacing:-.02em;color:#fff;margin:0;font-size:max(2.5rem,3.88889vw);font-weight:700;line-height:1}
+.mod_hero_banner_cQfx9q_HeroBanner__button{color:#000;text-transform:uppercase;background-color:#fff;border-radius:24px;justify-content:center;align-items:center;width:100%;height:40px;padding:0 max(1.5rem,2.22222vw);font-size:max(.875rem,1.11111vw);font-weight:600;line-height:1.2;text-decoration:none;transition:background-color .2s,color .2s,transform .2s;display:flex}
+.mod_hero_banner_cQfx9q_HeroBanner__button:hover{background-color:#ffffffe6}
+.mod_hero_banner_cQfx9q_HeroBanner__button:focus-visible{outline-offset:2px;outline:3px solid #ffffff80}
+.mod_hero_banner_cQfx9q_HeroBanner__button:active{transform:translateY(0)}
+@media print,screen and (width>=40em){.mod_hero_banner_cQfx9q_HeroBanner__image--desktop{display:block}
+.mod_hero_banner_cQfx9q_HeroBanner__image--mobile{display:none}
+.mod_hero_banner_cQfx9q_HeroBanner__video--desktop{display:block}
+.mod_hero_banner_cQfx9q_HeroBanner__video--mobile{display:none}
+}
+@media print,screen and (width>=64em){.mod_hero_banner_cQfx9q_HeroBanner{height:80dvh}
+.mod_hero_banner_cQfx9q_HeroBanner__heading{letter-spacing:-1.12px;max-width:max(31.25rem,34.7222vw)}
+.mod_hero_banner_cQfx9q_HeroBanner__button{width:auto;height:48px;font-size:16px}
+}
+</style>
+
+{%- liquid
+  assign subheading = section.settings.subheading | default: ''
+  assign heading = section.settings.heading | default: ''
+  assign button_text = section.settings.button_text | default: ''
+  assign button_link = section.settings.button_link | default: ''
+  assign media_type = section.settings.media_type | default: 'image'
+  assign desktop_image = section.settings.desktop_image
+  assign mobile_image = section.settings.mobile_image
+  assign desktop_video = section.settings.desktop_video
+  assign mobile_video = section.settings.mobile_video
+  assign tint_color = section.settings.tint_color | default: '#000000'
+  assign tint_strength = section.settings.tint_strength | default: '0.4'
+  assign content_position = section.settings.content_position | default: 'bottom'
+  assign height_mobile = section.settings.height_mobile | default: '100dvh'
+  assign height_desktop = section.settings.height_desktop | default: '80dvh'
+
+  capture desktop_image_sizes
+    render 'print-image-sizes', image: desktop_image
+  endcapture
+  capture mobile_image_sizes
+    render 'print-image-sizes', image: mobile_image
+  endcapture
+-%}
+
+<section
+  class="mod_hero_banner_cQfx9q_HeroBanner"
+  id="HeroBanner-{{ section.id }}"
+  data-content-position="{{ content_position }}"
+>
+  {%- comment -%} Background media {%- endcomment -%}
+  <div class="mod_hero_banner_cQfx9q_HeroBanner__background" aria-hidden="true">
+    {%- if media_type == 'video' -%}
+      {%- comment -%} Video background {%- endcomment -%}
+      {%- if desktop_video != blank -%}
+        <div class="mod_hero_banner_cQfx9q_HeroBanner__video mod_hero_banner_cQfx9q_HeroBanner__video--desktop">
+          {{-
+            desktop_video
+            | video_tag: image_size: '1920x', autoplay: true, loop: true, muted: true, playsinline: true
+          -}}
+        </div>
+      {%- endif -%}
+      {%- if mobile_video != blank -%}
+        <div class="mod_hero_banner_cQfx9q_HeroBanner__video mod_hero_banner_cQfx9q_HeroBanner__video--mobile">
+          {{-
+            mobile_video
+            | video_tag: image_size: '750x', autoplay: true, loop: true, muted: true, playsinline: true
+          -}}
+        </div>
+      {%- elsif desktop_video != blank -%}
+        <div class="mod_hero_banner_cQfx9q_HeroBanner__video mod_hero_banner_cQfx9q_HeroBanner__video--mobile">
+          {{-
+            desktop_video
+            | video_tag: image_size: '750x', autoplay: true, loop: true, muted: true, playsinline: true
+          -}}
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      {%- comment -%} Image background {%- endcomment -%}
+      {%- if desktop_image != blank -%}
+        <div
+          class="mod_hero_banner_cQfx9q_HeroBanner__image mod_hero_banner_cQfx9q_HeroBanner__image--desktop lazyload"
+          data-bgset="{{ desktop_image_sizes | strip_newlines | strip }}"
+          data-sizes="auto"
+        ></div>
+      {%- endif -%}
+      {%- if mobile_image != blank -%}
+        <div
+          class="mod_hero_banner_cQfx9q_HeroBanner__image mod_hero_banner_cQfx9q_HeroBanner__image--mobile lazyload"
+          data-bgset="{{ mobile_image_sizes | strip_newlines | strip }}"
+          data-sizes="auto"
+        ></div>
+      {%- elsif desktop_image != blank -%}
+        <div
+          class="mod_hero_banner_cQfx9q_HeroBanner__image mod_hero_banner_cQfx9q_HeroBanner__image--mobile lazyload"
+          data-bgset="{{ desktop_image_sizes | strip_newlines | strip }}"
+          data-sizes="auto"
+        ></div>
+      {%- endif -%}
+    {%- endif -%}
+    <div class="mod_hero_banner_cQfx9q_HeroBanner__overlay"></div>
+  </div>
+
+  {%- comment -%} Content {%- endcomment -%}
+  <div class="mod_hero_banner_cQfx9q_HeroBanner__content">
+    <div class="mod_hero_banner_cQfx9q_HeroBanner__textGroup">
+      {%- if subheading != blank -%}
+        <p class="mod_hero_banner_cQfx9q_HeroBanner__subheading">
+          {{- subheading | escape -}}
+        </p>
+      {%- endif -%}
+      {%- if heading != blank -%}
+        <h1 class="mod_hero_banner_cQfx9q_HeroBanner__heading">
+          {{- heading | escape -}}
+        </h1>
+      {%- endif -%}
+    </div>
+
+    {%- if button_text != blank -%}
+      <a
+        href="{{ button_link }}"
+        class="mod_hero_banner_cQfx9q_HeroBanner__button"
+      >
+        {{- button_text | escape -}}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  #HeroBanner-{{ section.id }} {
+    height: {{ height_mobile }};
+  }
+  #HeroBanner-{{ section.id }} .mod_hero_banner_cQfx9q_HeroBanner__overlay {
+    background-color: {{ tint_color }};
+    opacity: {{ tint_strength }};
+  }
+  @media (min-width: 990px) {
+    #HeroBanner-{{ section.id }} {
+      height: {{ height_desktop }};
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "class": "HeroBanner-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media type",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "video", "label": "Video" }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop image",
+      "info": "Recommended: 1920x650 or higher"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image",
+      "info": "Recommended: 750x900 or higher"
+    },
+    {
+      "type": "header",
+      "content": "Videos"
+    },
+    {
+      "type": "video",
+      "id": "desktop_video",
+      "label": "Desktop video",
+      "info": "Recommended: 1920x650 or higher. Auto-plays muted."
+    },
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Mobile video",
+      "info": "Recommended: 750x900 or higher. Auto-plays muted."
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Customize in minutes"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Create something uniquely yours"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Begin your design"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Content position",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "header",
+      "content": "Accessibility"
+    },
+    {
+      "type": "color",
+      "id": "tint_color",
+      "label": "Tint color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "tint_strength",
+      "label": "Tint strength",
+      "options": [
+        { "value": "0", "label": "No tint" },
+        { "value": "0.1", "label": "10%" },
+        { "value": "0.2", "label": "20%" },
+        { "value": "0.3", "label": "30%" },
+        { "value": "0.4", "label": "40%" },
+        { "value": "0.5", "label": "50%" },
+        { "value": "0.6", "label": "60%" },
+        { "value": "0.7", "label": "70%" },
+        { "value": "0.8", "label": "80%" },
+        { "value": "0.9", "label": "90%" }
+      ],
+      "default": "0.4"
+    },
+    {
+      "type": "select",
+      "id": "height_mobile",
+      "label": "Height (mobile)",
+      "options": [
+        { "value": "100dvh", "label": "Full height (100%)" },
+        { "value": "80dvh", "label": "80% height" }
+      ],
+      "default": "100dvh"
+    },
+    {
+      "type": "select",
+      "id": "height_desktop",
+      "label": "Height (desktop)",
+      "options": [
+        { "value": "100dvh", "label": "Full height (100%)" },
+        { "value": "80dvh", "label": "80% height" }
+      ],
+      "default": "80dvh"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}

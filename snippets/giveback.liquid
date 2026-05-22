@@ -1,0 +1,34 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/snippets/giveback/snippet.liquid}] %}
+
+<style>
+.mod_giveback_fw96Qq_Giveback{border-top:1px solid #000;flex-direction:row;justify-content:center;align-items:center;width:100%;padding:max(1.25rem,1.38889vw) 0;display:flex}
+.mod_giveback_fw96Qq_Giveback-wrapper{background-color:#e2e2db;border-radius:max(.5rem,.555556vw);flex-direction:row;justify-content:flex-start;align-items:flex-start;width:100%;padding:max(.875rem,.972222vw) max(.875rem,1.21528vw);display:flex}
+.mod_giveback_fw96Qq_Giveback-image{width:max(1.25rem,1.875vw);height:auto;margin-right:max(.25rem,.555556vw);display:flex}
+.mod_giveback_fw96Qq_Giveback-content{flex-direction:column;justify-content:flex-start;align-items:flex-start;display:flex}
+.mod_giveback_fw96Qq_Giveback-heading{text-transform:capitalize;letter-spacing:max(.005rem,.00555556vw);margin-bottom:max(.375rem,.416667vw);font-family:Gilroy,sans-serif;font-size:max(.875rem,1.11111vw);font-weight:600;line-height:1.2}
+.mod_giveback_fw96Qq_Giveback-content{margin-bottom:0;font-family:Gilroy,sans-serif;font-size:max(.875rem,.972222vw);line-height:1.4}
+</style>
+
+{% liquid
+  assign giveback_img = section.settings.giveback_img
+  assign giveback_heading = section.settings.giveback_heading
+  assign giveback_content = section.settings.giveback_content
+%}
+
+{% if giveback_img != blank or giveback_heading != blank or giveback_content != blank %}
+  <div class="mod_giveback_fw96Qq_Giveback">
+    <div class="mod_giveback_fw96Qq_Giveback-wrapper">
+      {% if giveback_img != blank %}
+        <img class="mod_giveback_fw96Qq_Giveback-image" src="{{giveback_img | img_url: '150x'}}">
+      {% endif %}
+      <div class="mod_giveback_fw96Qq_Giveback-content">
+        {% if giveback_heading != blank %}
+          <h3 class="mod_giveback_fw96Qq_Giveback-heading">{{giveback_heading}}</h3>
+        {% endif %}
+        {% if giveback_content != blank %}
+          <p class="mod_giveback_fw96Qq_Giveback-content">{{giveback_content}}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}

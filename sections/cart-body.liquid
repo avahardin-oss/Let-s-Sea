@@ -1,0 +1,408 @@
+{%- liquid
+  assign collection_handle = section.settings.collection_handle
+  assign product_engraving = all_products[settings.product_engraving].first_available_variant.sku
+  assign product_embroidery = all_products[settings.product_embroidery].first_available_variant.sku
+-%}
+<section>
+  <div class="CartHeader">
+    <div class="CartHeader-container">
+      <nav class="CartHeader-breadcrumbs">
+        <a class="CartHeader-breadcrumbItem" href="/">Home</a>
+        <span>/</span>
+        <span class="CartHeader-breadcrumbItem resultsTerm">Cart</span>
+      </nav>
+      <h1 class="CartHeader-title">
+        Shopping Cart
+      </h1>
+    </div>
+
+    <div class="Cart-header">
+      <div
+        class="ShippingBar js-shipping-bar"
+        data-free-shipping-price="{{ settings.free_shipping_price }}"
+        data-cart-price="{{ cart.original_total_price | money_without_currency }}">
+        <div class="ShippingBar-title"></div>
+        <div class="ShippingBar-progress-wrapper">
+          <div class="ShippingBar-progress"></div>
+        </div>
+      </div>
+
+      {%- if cart.item_count == 0 -%}
+        <div class="Cart-empty o-pageSubtext">
+          <div>{{ 'cart.general.empty' | t }}</div>
+          <a class="button button--dark">Continue shopping</a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+
+  {%- if cart.item_count > 0 -%}
+    <form
+      action="/cart"
+      method="post"
+      id="cartform"
+      class="Cart-form">
+
+      <div class="Cart-grid">
+        <div class="Cart-tableWrapper">
+          <div class="Cart-table js-cart-table">
+            {%- for item in cart.items -%}
+              {%- liquid
+                assign b2bDiscount = 0
+                assign b2bOriginalPrice = 0
+                assign b2bRetailPrice = 0
+                if customer
+                  for tag in customer.tags
+                    if tag contains 'wholesale:'
+                      assign b2bDiscount = tag | split: ':' | last | plus: 0
+                      assign b2bOriginalPrice = 100 | minus: b2bDiscount | times: 1.0
+                      assign b2bRetailPrice = item.line_price | divided_by: b2bOriginalPrice | times: 100
+                      break
+                    endif
+                  endfor
+                endif
+
+                assign customizableFullPrice = 0
+                assign property_size = item.properties | size
+                  if property_size > 0
+                    for p in item.properties
+                      if p.first contains 'Personalization Price'
+                      assign customizePrice = p.last | remove: '$' | plus: 0 | times: 100
+                      assign customizableFullPrice = customizePrice | plus: item.line_price
+                      break
+                      endif
+                    endfor
+                  endif
+                -%}
+              <div class="CartItem{% if item.sku == product_engraving or item.sku == product_embroidery %} u-vhide{% endif %}">
+                <div class="CartItem-imageWrapper">
+                  <span class="u-vhide">{{ item.title }}</span>
+                  <a class="CartItem-imageLink" href="{{ item.url }}">
+                    <img
+                      class="CartItem-image {% if item.image != blank %}lazyload{% endif %}"
+                      src="{% if item.properties._snapshot_0 != blank %}{{ item.properties._snapshot_0 }}{% else %}{{ item.image | image_url : width: 150 }}{% endif %}"
+                      width="{{ item.image.width }}"
+                      height="{{ item.image.height }}"
+                      loading="lazy"
+                      alt="{{ item.image.alt | default: item.title }}" />
+                  </a>
+                </div>
+
+                <div class="CartItem-info">
+                  <a class="CartItem-title" href="{{ item.url }}">
+                    {{ item.product.title }}{% if customizableFullPrice != 0 %}: <span>{{ item.line_price | money }}</span>{% endif %}
+                  </a>
+                  {%- unless item.variant.title contains 'Default' -%}
+                    <div class="CartItem-variantOptions">
+                      {% for option in item.options_with_values -%}
+                        <div>{{ option.value }}</div>
+                        {%- unless forloop.last -%}/{%- endunless -%}
+                      {%- endfor %}
+                    </div>
+                  {%- endunless -%}
+                  {%- if property_size > 0 -%}
+                    <dl class="CartItem-properties">
+                      {%- for p in item.properties -%}
+                        {%- unless p.first contains '_' -%}
+                          <div class="CartItem-properties-wrapper">
+                          <dt class="CartItem-propertyTitle">
+                            {{ p.first }}:
+                          </dt>
+                          <dd class="CartItem-propertyValue">
+                            {%- if p.last contains '/uploads/' -%}
+                              <a href="{{ p.last }}">
+                                {{ p.last | split: '/' | last | truncate: 156 }}
+                              </a>
+                            {%- else -%}
+                            {%- if p.last contains '0.00' -%}
+                              Free
+                              {%- else -%}
+                              {{ p.last }}
+                            {%- endif -%}
+                            {%- endif -%}
+                          </dd>
+                        </div>
+                        {% endunless %}
+                      {%- endfor -%}
+                    </dl>
+                  {%- endif -%}
+                  <div class="CartItem-info-actions mobileOnlyFlex">
+                    <div class="CartItem-total{% if customizableFullPrice != 0 %} customized{% endif %}">
+                      {% if item.product.type == 'gift' %}
+                        Free
+                      {% else %}
+                        {% if b2bRetailPrice > 0 %}
+                          <span>{{ item.line_price | money }}</span>
+                          <del>{{ b2bRetailPrice | money }}</del>
+                        {% elsif customizableFullPrice != 0 %}
+                          {{ customizableFullPrice | money }}
+                        {% else %}
+                          {{ item.line_price | money }}
+                        {% endif %}
+                      {% endif %}
+                    </div>
+                    <div class="CartItem-qtyWrapper">
+                      <div class="CartItem-section {% if customizableFullPrice != 0 %} u-vhide{% endif %}">
+                        <div class="CartItem-qty ProductForm-qtyControls o-qtyControls" data-product-id="{{ product.id }}">
+                          <input
+                            aria-label="{{ 'cart.label.qty' | t }}"
+                            class="CartItem-qty-input js-cart-item-qty"
+                            data-index="{{ forloop.index }}"
+                            type="number"
+                            min="1"
+                            required
+                            value="{{ item.quantity }}">
+                          <a
+                            class="CartItem-qty-plus js-qty-trigger"
+                            href="/cart/change?line={{ forloop.index }}&amp;quantity={% if item.quantity == 1 %}0{% else %}{{ item.quantity | minus: 1 }}{% endif %}"
+                            data-action="minus">
+                            <span class="u-vhide">
+                              {{ 'cart.general.reduce_quantity' | t }}
+                            </span>
+                            <div class="o-placeholder">
+                              {% render 'svg-cart-qty-reduce' %}
+                            </div>
+                          </a>
+                          <a
+                            class="CartItem-qty-minus js-qty-trigger"
+                            href="/cart/change?line={{ forloop.index }}&amp;quantity={{ item.quantity | plus: 1 }}"
+                            data-action="minus">
+                            <div class="o-placeholder">
+                              {%- render 'svg-cart-qty-increase' -%}
+                            </div>
+                            <span class="u-vhide">
+                              {{ 'cart.general.increase_quantity' | t }}
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="CartItem-remove mobileOnly">
+                    <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" data-action="remove">
+                      {% render 'svg-trash-can' %}
+                      REMOVE
+                    </a>
+                  </div>
+                </div>
+
+                <div class="CartItem-qtyWrapper desktopOnly">
+                  <div class="CartItem-section is-qty{% if customizableFullPrice != 0 %} u-vhide{% endif %}">
+                    <div class="CartItem-qty ProductForm-qtyControls o-qtyControls" data-product-id="{{ product.id }}">
+                      <input
+                        aria-label="{{ 'cart.label.qty' | t }}"
+                        class="CartItem-qty-input js-cart-item-qty"
+                        data-index="{{ forloop.index }}"
+                        type="number"
+                        min="1"
+                        required
+                        value="{{ item.quantity }}">
+                      <a
+                        class="CartItem-qty-plus js-qty-trigger"
+                        href="/cart/change?line={{ forloop.index }}&amp;quantity={% if item.quantity == 1 %}0{% else %}{{ item.quantity | minus: 1 }}{% endif %}"
+                        data-action="minus">
+                        <span class="u-vhide">
+                          {{ 'cart.general.reduce_quantity' | t }}
+                        </span>
+                        <div class="o-placeholder">
+                          {% render 'svg-cart-qty-reduce' %}
+                        </div>
+                      </a>
+                      <a
+                        class="CartItem-qty-minus js-qty-trigger"
+                        href="/cart/change?line={{ forloop.index }}&amp;quantity={{ item.quantity | plus: 1 }}"
+                        data-action="minus">
+                        <div class="o-placeholder">
+                          {%- render 'svg-cart-qty-increase' -%}
+                        </div>
+                        <span class="u-vhide">
+                          {{ 'cart.general.increase_quantity' | t }}
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="CartItem-total desktopOnly">
+                  <div class="CartItem-total-text">
+                    <div class="CartItem-info-total">
+                      {% if item.product.type == 'gift' %}
+                        Free
+                      {% else %}
+                        {% if b2bRetailPrice > 0 %}
+                          <span>{{ item.line_price | money }}</span>
+                          <del>{{ b2bRetailPrice | money }}</del>
+                        {% elsif customizableFullPrice != 0 %}
+                          {{ customizableFullPrice | money }}
+                        {% else %}
+                          {{ item.line_price | money }}
+                        {% endif %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="CartItem-remove desktopOnly">
+                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" data-action="remove">
+                    {% render 'svg-trash-can' %}
+                    REMOVE
+                  </a>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+
+          {% if collection_handle != blank %}
+            {% assign collection = collections[collection_handle] %}
+            {% if collection %}
+              <div class="Cart-upsells js-cart-upsells-section">
+                <h2 class="product-grid__title">
+                  You may like
+                </h2>
+                <div role="region" aria-label="carousel" class="swiper-container">
+                  <div class="swiper-wrapper">
+                    {% for product in collection.products %}
+                      <div class="CartItem swiper-slide">
+                        <a
+                          href="{{ product.url }}"
+                          title="{{ product.title }}"
+                          class="CartItem-imageLink">
+                          <div class="CartItem-imageWrapper">
+                            <img
+                              src="{{ product.featured_image.src | img_url: 'medium' }}"
+                              alt="{{ product.featured_image.alt | escape }}"
+                              class="product-grid__image {% if product.featured_image.src != blank %}lazyload{% endif %}">
+                          </div>
+                          <div class="CartItem-info Cart-upsells-info">
+                            <div class="CartItem-title">{{ product.title }}</div>
+
+                            <div class="CartItem-variantOptions">
+                              {% for option in product.variant.options_with_values -%}
+                                {% for value in option.values -%}
+                                    <div>{{ value }}</div>
+                                  {%- unless forloop.last -%}/{%- endunless -%}
+                                {%- endfor %}
+                              {%- endfor %}
+                            </div>
+
+                            <span class="CartItem-total">{{ product.price | money }}</span>
+
+                            {% assign current_variant = product.selected_or_first_available_variant %}
+                            <div class="js-product-details Product-details">
+                              <script type="application/json">
+                                {
+                                "currencyCode": {{ cart.currency.iso_code | json }},
+                                "moneyFormat": {{ shop.money_format | json }}
+                                }
+                              </script>
+
+                              {% if product.available %}
+                                <form
+                                  action="/cart/add"
+                                  method="post"
+                                  data-product-id="{{ product.id }}"
+                                  {% if settings.ajax_cart_enabled == false %}data-ajax-cart-disabled="disabled"{% endif %}>
+
+                                  <input
+                                    type="hidden"
+                                    name="variant_selector_dummy"
+                                    class="js-variant-selector-dummy single-option-selector"
+                                    data-product-id="{{ product.id }}"
+                                    value="{{ current_variant.id }}" />
+
+                                  {% render 'product-options', product: product %}
+
+
+                                  <button
+                                    type="submit"
+                                    class="ProductCard-button"
+                                    name="add"
+                                    {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                                    {{ 'products.product.add_to_cart' | t }}
+                                  </button>
+                                </form>
+                              {% endif %}
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    {% endfor %}
+                  </div>
+
+                  <div class="Cart-upsells-carousel-actions">
+                    <div class="Cart-upsells-carousel-scrollbar-wrapper">
+                      <div class="swiper-scrollbar"></div>
+                    </div>
+                    <button aria-label="Previous slide" class="swiper-button-prev">{%- render 'svg-arrow-prev' -%}</button>
+                    <button aria-label="Next slide" class="swiper-button-next">{%- render 'svg-arrow-next' -%}</button>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
+        </div>
+
+        <div class="Cart-sidebar">
+          <div class="Cart-summary">
+
+            <div class="Cart-summary-securePayments">
+              {% render 'svg-keylock' %}
+              100% Secure Online Payments
+            </div>
+
+            <div class="Cart-summaryItem">
+              <ul>
+                <li>
+                  <span>
+                    {{ 'cart.general.subtotal' | t }}
+                  </span>
+                  <span>{{ cart.total_price | money }}</span>
+                </li>
+              </ul>
+
+              <div class="Cart-taxes-messages">
+                Taxes and shipping calculated at checkout.
+              </div>
+
+              <button
+                class="Checkout-button"
+                type="submit"
+                id="checkout"
+                role="link"
+                name="checkout">
+                <span class="--text">
+                  CHECKOUT
+                </span>
+                <span class="--arrow"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  {%- endif -%}
+</section>
+
+{% schema %}
+  {
+    "name": "Cart Body",
+    "class": "Cart-section js-cart-section",
+    "enabled_on": { "templates": ["cart"] },
+    "settings": [
+      {
+        "type": "text",
+        "id": "collection_handle",
+        "label": "Select a collection for Upsells",
+        "info": "Select a collection to display on the cart page."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Cart Body",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

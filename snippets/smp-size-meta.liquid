@@ -1,0 +1,16 @@
+<script class="js-size-metaobject-json" type="application/json">
+    {
+{%- paginate shop.metaobjects.product_option.values by 100 -%}
+    {%- for product_size in shop.metaobjects.product_option.values -%}
+        {%- if product_size.icon != blank -%}
+            {{ product_size.system.handle | json }}: [
+                {
+                "size_icon": {{ product_size.icon | image_url: width: 128 | json }},
+                "size_name": {{ product_size.display_name | json }}
+                }
+            ]{%- unless forloop.last -%},{%- endunless -%}
+        {%- endif -%}
+    {%- endfor -%}
+    {%- endpaginate -%}
+    }
+</script>

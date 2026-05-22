@@ -1,0 +1,280 @@
+<main class="Customer" role="main">
+  <div class="Customer-container">
+
+    <div class="Customer-titleWrapper">
+      <h1 class="Customer-pageTitle">
+        {{ 'customer.account.title' | t }}
+      </h1>
+
+      <p class="subheading">
+        {{ 'customer.account.log_out' | t | customer_logout_link }}
+      </p>
+    </div>
+  
+  </div>
+
+  <div class="Customer-pageWrapper orderSummary">
+     
+    <div class="Customer-ordersTitle">
+      <h2 class="Customer-sectionTitle orderSummary">
+        {{ 'customer.order.title' | t: name: order.name }}
+      </h2>
+      {% assign creation_date = order.created_at | date: format: 'month_day_year' %}
+      <p>
+        {{ 'customer.order.date' | t: date: creation_date }}<br/>
+        {{ order.fulfillment_status | capitalize }}
+      </p>
+    </div>
+
+    <div class="Customer-pageWrapperContainer">    
+      <div class="Customer-ordersHistory orderSummary">
+    
+        {% if order.cancelled %}
+          {% assign cancellation_date = order.cancelled_at | date: format: 'month_day_year' %}
+          <p>
+            <strong>
+              {{ 'customer.order.cancelled' | t: date: cancellation_date }}
+              <br />
+              {{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason }}
+            </strong>
+          </p>
+        {% endif %}
+
+        <table class="Customer-desktopTable">
+          <thead>
+            <tr>
+              <th scope="col" class="Customer--paymentRow">
+                {{ 'customer.order.payment_status' | t }}
+              </th>
+              <th scope="col" class="Customer--billingRow">
+                {{ 'customer.order.billing_address' | t }}
+              </th>
+              <th scope="col" class="Customer--shippingRow">
+                {{ 'customer.order.shipping_address' | t }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="Customer--paymentRow">{{ order.financial_status | capitalize }}</td>
+              <td class="Customer--billingRow">
+                <p>
+                  {{ order.billing_address.address1 }}
+                  {% if order.billing_address.address2 != blank %}
+                    {{ order.billing_address.address2 }}
+                  {% endif %}
+                  <br />
+                  {{ order.billing_address.city }},
+                  {% if address.province_code %}
+                    {{ order.billing_address.province_code | append: ', ' }}
+                  {% endif %}
+                  {{ order.billing_address.zip }}
+                  {{ order.billing_address.country }}
+                  {% if order.default_address.phone and order.default_address.phone != blank %}
+                    <br />{{ order.default_address.phone }}
+                  {% endif %}
+                </p>
+              </td>
+              <td class="Customer--shippingRow">
+                <p>
+                  {{ order.shipping_address.address1 }}
+                  {% if order.shipping_address.address2 != blank %}
+                    {{ order.shipping_address.address2 }}
+                  {% endif %}
+                  <br />
+                  {{ order.shipping_address.city }},
+                  {% if address.province_code %}
+                    {{ order.shipping_address.province_code | append: ', ' }}
+                  {% endif %}
+                  {{ order.shipping_address.zip }}
+                  {{ order.shipping_address.country }}
+                  {% if order.default_address.phone and order.default_address.phone != blank %}
+                    <br />{{ order.default_address.phone }}
+                  {% endif %}
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="Customer-desktopTable">
+            {% for line_item in order.line_items %}
+              <tr>
+                <td colspan="2" data-title="{{ 'customer.order.product' | t }}" class="Customer--productRow">
+                  
+                  <div class="Customer--productImage">
+                    {{ line_item.image | img_url: '100x100' | img_tag }}
+                  </div>
+                  <div class="Customer--productInfo">
+                    <a href="{{ line_item.product.url }}" class="Customer--productTitle" title="{{ line_item.title }}">{{ line_item.title | split: "-" | first }}</a>
+                    <p class="Customer--productProperties"> 
+                      <!-- Line Item Properties -->
+                      {% assign properties = line_item.title | split: "-" %}
+                      {% for property in properties %}
+                        {% unless property == properties.first %}
+                          {{ property }}{% unless property == properties.last %} -{% endunless %}
+                        {% endunless %}
+                      {% endfor %}
+                    </p>
+                  </div>
+                  
+                </td>
+                <td colspan="1" data-title="{{ 'customer.order.quantity' | t }}"  class="Customer--quantityRow">
+                  Qty: {{ line_item.quantity }}
+                </td>
+                <td colspan="1" data-title="{{ 'customer.order.total' | t }}" class="Customer--totalRow">
+                  {{ line_item.line_price | money }}
+                </td>
+              </tr>
+            {% endfor %}
+            <tr class="order_summary note">
+              <td colspan="2" class="Customer--footerTitle">
+                {{ 'customer.order.subtotal' | t }}
+              </td>
+              <td class="Customer--totalRow">
+                {{ order.subtotal_price | money }}
+              </td>
+            </tr>
+
+            {% for shipping_method in order.shipping_methods %}
+              <tr class="order_summary note">
+                <td colspan="2" class="Customer--footerTitle">
+                  {{ shipping_method.title }}
+                </td>
+                <td class="Customer--totalRow">
+                  {{ shipping_method.price | money }}
+                </td>
+              </tr>
+            {% endfor %}
+
+            {% for tax_line in order.tax_lines %}
+              <tr class="order_summary note">
+                <td colspan="2" class="Customer--footerTitle">
+                  {{ tax_line.title }} {{ tax_line.rate | times: 100 | append: '%' }}
+                </td>
+                <td class="Customer--totalRow">
+                  {{ tax_line.price | money }}
+                </td>
+              </tr>
+            {% endfor %}
+
+            <tr class="order_summary order_total">
+              <td colspan="2" class="Customer--footerTitle">
+                {{ 'customer.order.total' | t }}
+              </td>
+              <td class="Customer--totalRow">
+                {{ order.total_price | money }}
+              </td>
+            </tr>
+        </table>
+      </div>
+        
+
+      <div class="Customer-mobileTable">
+
+        <div class="Customer--order">
+          <span class="Customer--orderItemTitle">{{ 'customer.order.payment_status' | t }}</span>
+          <span>{{ order.financial_status | capitalize }}</span>
+        </div>
+
+        <div class="Customer--order">
+          <span class="Customer--orderItemTitle">{{ 'customer.order.billing_address' | t }}</span>
+          <span>
+              {{ order.billing_address.address1 }}
+              {% if order.billing_address.address2 != blank %}
+                {{ order.billing_address.address2 }}
+              {% endif %}
+              <br />
+              {{ order.billing_address.city }},
+              {% if address.province_code %}
+                {{ order.billing_address.province_code | append: ', ' }}
+              {% endif %}
+              {{ order.billing_address.zip }}
+              {{ order.billing_address.country }}
+              {% if order.default_address.phone and order.default_address.phone != blank %}
+                <br />{{ order.default_address.phone }}
+              {% endif %}
+          </span>
+        </div>
+
+        <div class="Customer--order">
+          <span class="Customer--orderItemTitle">{{ 'customer.order.shipping_address' | t }}</span>
+          <span>
+              {{ order.shipping_address.address1 }}
+              {% if order.shipping_address.address2 != blank %}
+                {{ order.shipping_address.address2 }}
+              {% endif %}
+              <br />
+              {{ order.shipping_address.city }},
+              {% if address.province_code %}
+                {{ order.shipping_address.province_code | append: ', ' }}
+              {% endif %}
+              {{ order.shipping_address.zip }}
+              {{ order.shipping_address.country }}
+              {% if order.default_address.phone and order.default_address.phone != blank %}
+                <br />{{ order.default_address.phone }}
+              {% endif %}
+          </span>
+        </div>
+
+        {% for line_item in order.line_items %}
+          <div class="Customer--order Customer--productRow">
+            <div class="Customer--productImage">
+              {{ line_item.image | img_url: '100x100' | img_tag }}
+            </div>
+            <div class="Customer--productInfo">
+              <div>
+                <a href="{{ line_item.product.url }}" class="Customer--productTitle" title="{{ line_item.title }}">{{ line_item.title | split: "-" | first }}</a>
+                <p class="Customer--productProperties"> 
+                  <!-- Line Item Properties -->
+                  {% assign properties = line_item.title | split: "-" %}
+                  {% for property in properties %}
+                    {% unless property == properties.first %}
+                      {{ property }}{% unless property == properties.last %} -{% endunless %}
+                    {% endunless %}
+                  {% endfor %}
+                </p>
+              </div>
+              <div class="Customer--inlineDetails">
+              <span>Qty: {{ line_item.quantity }}</span>
+              <span>{{ line_item.line_price | money }}</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+
+      </div>
+
+
+      <div class="Customer-details">
+        <h2 class="Customer-sectionTitle">
+          {{ 'customer.account.details' | t }}
+        </h2>
+        <p>
+          {% if customer.name %}
+            {{ customer.name }}
+            <br />
+          {% endif %}
+          {{ customer.email }}
+        </p>
+          <div class="Customer--separation"></div>
+          <h2 class="Customer-sectionTitle">
+            Saved Address
+          </h2>
+          {% if customer.default_address and customer.default_address != blank %}
+            {{ customer.default_address | format_address }}
+          {% if customer.default_address.phone != blank %}
+              <p>{{ customer.default_address.phone }}</p>
+          {% endif %}
+          {% endif %}
+
+        <a class="btn reverse Customer--addressBtn" href="/account">
+          {{ 'customer.account.return' | t }}
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</main>

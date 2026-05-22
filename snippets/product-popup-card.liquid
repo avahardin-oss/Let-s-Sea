@@ -1,0 +1,220 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/snippets/product-popup-card/snippet.liquid}] %}
+
+{%- liquid
+  # Parameters
+  # variant: 'default' | 'customize' - Card style variant
+  # product: Product object (required)
+  # button_text: Custom button text (optional)
+  # show_features: Show feature tags (default: true for customize variant)
+  # show_badge: Show badge (default: false for customize variant)
+
+  assign card_variant = variant | default: 'default'
+  assign show_features = show_features | default: true
+  assign show_badge = show_badge | default: false
+  assign button_text = button_text | default: null
+
+  capture grid_item_image_sizes
+    render 'print-image-sizes', image: product.featured_image
+  endcapture
+  if product.metafields.custom.lifestyle_image != blank
+    assign secondary_image = product.metafields.custom.lifestyle_image.value
+  elsif product.images.size > 1
+    assign secondary_image = product.images[1]
+  else
+    assign secondary_image = product.featured_image
+  endif
+  capture grid_item_second_image_sizes
+    render 'print-image-sizes', image: secondary_image
+  endcapture
+  assign badge = product.metafields.custom.product_card_label
+  assign badge_color = product.metafields.custom.badge_color
+  assign current_variant = product.selected_or_first_available_variant
+
+  # Get product subtitle from metafield or variant title
+  assign subtitle = product.metafields.custom.subtitle | default: null
+  if subtitle == blank and product.has_only_default_variant == false
+    assign subtitle = current_variant.title
+  endif
+
+  # Get colors count from variants or metafield
+  assign colors_count = product.metafields.custom.colors_count | default: null
+  if colors_count == blank
+    assign colors_count = product.variants.size
+  endif
+
+  # Get feature highlights from metafield
+  assign feature_highlights = product.metafields.product_card.feature_highlight.value
+
+  # Check if product is customizable
+  assign is_customizable = false
+  for tag in product.tags
+    if tag contains 'customize:'
+      assign is_customizable = true
+      break
+    endif
+  endfor
+
+  assign has_badge_content = false
+  if badge != blank or is_customizable
+    assign has_badge_content = true
+  endif
+-%}
+
+{%- if card_variant == 'customize' -%}
+  {%- comment -%} Customize Card Variant {%- endcomment -%}
+  <div class="mod_product_popup_card_VNKdjW_ProductCardCustomize">
+    {%- comment -%} Badge {%- endcomment -%}
+    {%- if show_badge and has_badge_content -%}
+      <div class="mod_product_popup_card_VNKdjW_ProductCardCustomize__badge">
+        {%- if is_customizable -%}
+          <span class="mod_product_popup_card_VNKdjW_ProductCardCustomize__badgeGradient">Customizable</span>
+        {%- elsif badge != blank -%}
+          <span style="background-color: {{ badge_color }};">{{ badge }}</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Image {%- endcomment -%}
+    <a href="{{ product.url }}" title="{{ product.title }}" class="mod_product_popup_card_VNKdjW_ProductCardCustomize__imageLink">
+      <div class="mod_product_popup_card_VNKdjW_ProductCardCustomize__imageWrapper">
+        <img
+          class="mod_product_popup_card_VNKdjW_ProductCardCustomize__image lazyload"
+          data-sizes="auto"
+          srcset="{{ grid_item_image_sizes | strip_newlines | strip }}"
+          alt="{{ product.title }}"
+          loading="lazy"
+        >
+        <img
+          class="mod_product_popup_card_VNKdjW_ProductCardCustomize__imageHover lazyload"
+          data-sizes="auto"
+          srcset="{{ grid_item_second_image_sizes | strip_newlines | strip }}"
+          alt="{{ product.title }}"
+          loading="lazy"
+        >
+      </div>
+    </a>
+
+    {%- comment -%} Content {%- endcomment -%}
+    <div class="mod_product_popup_card_VNKdjW_ProductCardCustomize__content">
+      {%- comment -%} Title & Subtitle {%- endcomment -%}
+      <div class="mod_product_popup_card_VNKdjW_ProductCardCustomize__header">
+        <h3 class="mod_product_popup_card_VNKdjW_ProductCardCustomize__title">
+          <a href="{{ product.url }}">{{ product.title }}</a>
+        </h3>
+        {%- if subtitle != blank -%}
+          <p class="mod_product_popup_card_VNKdjW_ProductCardCustomize__subtitle">{{ subtitle }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Price & Colors {%- endcomment -%}
+      <div class="mod_product_popup_card_VNKdjW_ProductCardCustomize__priceRow">
+        <span class="mod_product_popup_card_VNKdjW_ProductCardCustomize__price">{{ product.price | money_without_currency }}</span>
+        {%- if colors_count > 1 -%}
+          <span class="mod_product_popup_card_VNKdjW_ProductCardCustomize__colors">{{ colors_count }} Colors Available</span>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Feature Tags {%- endcomment -%}
+      {%- if show_features and feature_highlights != blank -%}
+        <div class="mod_product_popup_card_VNKdjW_ProductCardCustomize__features">
+          {%- for feature in feature_highlights -%}
+            <span class="mod_product_popup_card_VNKdjW_ProductCardCustomize__feature">{{ feature }}</span>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} CTA Button {%- endcomment -%}
+      <div class="mod_product_popup_card_VNKdjW_ProductCardCustomize__cta">
+        <a href="{{ product.url }}" class="mod_product_popup_card_VNKdjW_ProductCardCustomize__button">
+          {%- if button_text != blank -%}
+            {{ button_text }}
+          {%- elsif is_customizable -%}
+            Customize
+          {%- else -%}
+            Shop Now
+          {%- endif -%}
+        </a>
+      </div>
+    </div>
+  </div>
+
+{%- else -%}
+  {%- comment -%} Default Card Variant {%- endcomment -%}
+  <form
+    action="/cart/add"
+    method="post"
+    class="ProductForm"
+    data-product-id="{{ product.id }}"
+    {% if settings.ajax_cart_enabled == false %}
+      data-ajax-cart-disabled="disabled"
+    {% endif %}
+  >
+    <div class="ProductCard-{{ product.id }} js-product-card mod_product_popup_card_VNKdjW_ProductCard">
+      <div class="mod_product_popup_card_VNKdjW_ProductCard__badge">
+        {% if badge != blank %}
+          <p style="background-color: {{ badge_color }};">{{ badge }}</p>
+        {% endif %}
+      </div>
+
+      <a
+        href="{{ product.url }}"
+        title="Link to {{ product.title }}"
+        class="js-product-card-link mod_product_popup_card_VNKdjW_ProductCard__imageLink"
+      >
+        <img
+          aria-label="{{ product.title }} view 1"
+          class="mod_product_popup_card_VNKdjW_ProductCard__image lazyload js-product-card-image"
+          data-sizes="auto"
+          srcset="{{ grid_item_image_sizes | strip_newlines | strip }}"
+          alt="{{ product.title }} view 1"
+          loading="lazy"
+        >
+
+        <img
+          aria-label="{{ product.title }} view 2"
+          class="mod_product_popup_card_VNKdjW_ProductCard__secondimage lazyload js-product-card-second-image"
+          data-sizes="auto"
+          srcset="{{ grid_item_second_image_sizes | strip_newlines | strip }}"
+          alt="{{ product.title }} view 2"
+          loading="lazy"
+        >
+      </a>
+
+      <div class="mod_product_popup_card_VNKdjW_ProductCard__content js-product-card-content">
+        <h3 class="mod_product_popup_card_VNKdjW_ProductCard__title">{{ product.title }}</h3>
+
+        {% unless product.has_only_default_variant %}
+          <span class="mod_product_popup_card_VNKdjW_ProductCard__variants">
+            {{ product.selected_or_first_available_variant.title }}
+          </span>
+        {% endunless %}
+
+        <p class="mod_product_popup_card_VNKdjW_ProductCard__price">{{ product.price | money }}</p>
+
+        <input type="hidden" name="quantity" value="1" min="1">
+        <input
+          type="hidden"
+          name="id"
+          class="js-variant-selector-dummy single-option-selector"
+          data-product-id="{{ product.id }}"
+          value="{{ current_variant.id }}"
+        >
+
+        <button
+          type="submit"
+          class="js-upsellAdded-submit mod_product_popup_card_VNKdjW_ProductCard__submitBtn btn reverse"
+          name="add"
+          {% unless current_variant.available %}
+            disabled="disabled"
+          {% endunless %}
+          data-id="{{ product.id }}"
+          data-variant="{{ product.selected_or_first_available_variant.id }}"
+          data-title="{{ product.title }}"
+          data-img="{{ product.featured_image | image_url: width: 40 }}"
+        >
+          {{ 'products.product.add_to_cart' | t }}
+        </button>
+      </div>
+    </div>
+  </form>
+{%- endif -%}

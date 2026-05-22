@@ -1,0 +1,289 @@
+{%- liquid
+  assign link = section.settings.link | default: '' | strip
+  assign tint_color = section.settings.tint_color
+  assign tint_strength = section.settings.tint_strength | default: '0.2'
+  assign caption_position = section.settings.caption_position | default: 'center middle'
+  assign overlay = section.settings.image_overlay
+  assign button_text = section.settings.cta
+  assign button_radius = section.settings.cta_radiu | default: '0.125'
+  assign cta_color = section.settings.cta_color | default: settings.color_white
+  assign cta_bg_color = section.settings.cta_bg_color | default: settings.color_button_background
+  assign cta_style = section.settings.cta_style | default: 'solid'
+  assign heading = section.settings.heading
+  assign heading_color = section.settings.heading_color | default: settings.color_white
+  assign label = section.settings.sub_heading
+  assign label_color = section.settings.sub_heading_color | default: settings.color_white
+  capture hero_image_desktop
+    render 'print-image-sizes', image: section.settings.imageDesktop
+  endcapture
+  capture hero_image_mobile
+    render 'print-image-sizes', image: section.settings.imageMobile
+  endcapture
+-%}
+<div
+  class="homepage-banner{% if link != blank %} link{% endif %} {% if overlay %} has-overlay {% endif %}"
+  {%- if link != blank -%}
+    onclick="location.href='{{ link }}';"
+  {%- endif -%}
+>
+  <div class="homepage-banner__desktop u-showMd">
+    {%- if section.settings.imageDesktop -%}
+      <img
+        class="homepage-banner__desktop--img"
+        srcset="{{ hero_image_desktop | strip_newlines | strip }}"
+        sizes="100vw"
+        src="{{ section.settings.imageDesktop | image_url: width: 1280 }}"
+        fetchpriority="high"
+        loading="eager"
+        alt=""
+        width="{{ section.settings.imageDesktop.width }}"
+        height="{{ section.settings.imageDesktop.height }}"
+      >
+    {%- endif -%}
+    <div class="homepage-banner__desktop--shadow"></div>
+  </div>
+  <div class="homepage-banner__mobile u-hideMd">
+    {%- if section.settings.imageMobile -%}
+      <img
+        class="homepage-banner__mobile--img"
+        srcset="{{ hero_image_mobile | strip_newlines | strip }}"
+        sizes="100vw"
+        src="{{ section.settings.imageMobile | image_url: width: 640 }}"
+        fetchpriority="high"
+        loading="eager"
+        alt=""
+        width="{{ section.settings.imageMobile.width }}"
+        height="{{ section.settings.imageMobile.height }}"
+      >
+    {%- endif -%}
+    <div class="homepage-banner__mobile--shadow"></div>
+  </div>
+  <div class="homepage-banner__content" data-position="{{ caption_position }}">
+    <h1 class="homepage-banner__content--heading">
+      {%- if label != '' -%}
+        <small class="homepage-banner__content--label">{{ label }}</small>
+      {%- endif -%}
+      {{ heading }}
+    </h1>
+    {%- if link != blank and button_text != blank -%}
+      <a href="{{ link }}" class="btn event-heroCTA homepage-banner__content--button {{ cta_style }}">
+        {{ button_text }}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .homepage-banner-section {
+    background-color: {{ tint_color }};
+  }
+  .homepage-banner:hover {
+    opacity: 0.6;
+  }
+  .homepage-banner__desktop--img,
+  .homepage-banner__mobile--img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .homepage-banner__desktop--shadow,
+  .homepage-banner__mobile--shadow {
+    position: absolute;
+    inset: 0;
+    background-color: {{ tint_color }};
+    opacity: {{ tint_strength }};
+  }
+  .homepage-banner__content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) translateZ(0);
+    width: 100%;
+    text-align: center;
+    transition: opacity 300ms ease-in-out 300ms;
+  }
+  @media (min-width: 640px) {
+    .homepage-banner__content[data-position~='top'] {
+      top: 10%;
+      transform: none;
+      padding: 10px 0 0 0;
+    }
+    .homepage-banner__content[data-position~='bottom'] {
+      top: auto;
+      bottom: 10%;
+      transform: none;
+      padding: 0 0 10px 0;
+    }
+    .homepage-banner__content[data-position~='left'] {
+      width: 50%;
+      text-align: left;
+      padding: 0 0 0 10px;
+    }
+    .homepage-banner__content[data-position~='right'] {
+      left: 50%;
+      width: 50%;
+      text-align: left;
+      padding: 0 10px 0 0;
+    }
+  }
+  .homepage-banner__content .homepage-banner__content--label {
+    color: {{ label_color }};
+  }
+  .homepage-banner__content .homepage-banner__content--button {
+    color: {{ cta_color }};
+    background-color: {{ cta_bg_color }};
+    border-radius: {{ button_radius }}rem;
+  }
+  .homepage-banner__content--button.hollow {
+    background-color: transparent;
+    border: solid 0.125em {{ cta_bg_color }};
+    color: {{ cta_bg_color }};
+  }
+  .homepage-banner__content--button.hollow:hover,
+  .homepage-banner__content--button.hollow:focus {
+    background-color: {{ cta_bg_color }};
+    border-color: {{ cta_bg_color }};
+    color: {{ cta_color }};
+  }
+</style>
+
+{%- schema %}
+{
+  "name": "Homepage Banner",
+  "class": "homepage-banner-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "40oz Trek Tumblers"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Label Text",
+      "default": "Back in Stock!"
+    },
+    {
+      "type": "color",
+      "id": "sub_heading_color",
+      "label": "Label color"
+    },
+    {
+      "type": "image_picker",
+      "id": "imageDesktop",
+      "label": "Image Desktop",
+      "info": "1920x650, Preferable 2x"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_overlay",
+      "label": "Image Overlay",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "imageMobile",
+      "label": "Image Mobile",
+      "info": "390x400, Preferable 3x"
+    },
+    {
+      "type": "color",
+      "id": "tint_color",
+      "label": "Tint color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "tint_strength",
+      "label": "Tint strength",
+      "options": [
+        { "value": "0", "label": "No tint" },
+        { "value": "0.1", "label": "10%" },
+        { "value": "0.2", "label": "20%" },
+        { "value": "0.3", "label": "30%" },
+        { "value": "0.4", "label": "40%" },
+        { "value": "0.5", "label": "50%" },
+        { "value": "0.6", "label": "60%" },
+        { "value": "0.7", "label": "70%" },
+        { "value": "0.8", "label": "80%" },
+        { "value": "0.9", "label": "90%" }
+      ],
+      "default": "0.2"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "cta",
+      "label": "Button text",
+      "default": "Shop Trek Tumblers"
+    },
+    {
+      "type": "select",
+      "id": "cta_radiu",
+      "label": "Button radius",
+      "options": [
+        { "value": "0", "label": "Square corners" },
+        { "value": "0.125", "label": "Smoothed corners" },
+        { "value": "5", "label": "Rounded" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "cta_color",
+      "label": "Button text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "cta_bg_color",
+      "label": "Button background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "radio",
+      "id": "cta_style",
+      "label": "Button style",
+      "options": [
+        { "value": "solid", "label": "Solid" },
+        { "value": "hollow", "label": "Hollow" }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "select",
+      "id": "caption_position",
+      "label": "Caption position",
+      "options": [
+        { "label": "Top left", "value": "left top" },
+        { "label": "Top center", "value": "center top" },
+        { "label": "Top right", "value": "right top" },
+        { "label": "Middle left", "value": "left middle" },
+        { "label": "Middle center", "value": "center middle" },
+        { "label": "Middle right", "value": "right middle" },
+        { "label": "Bottom left", "value": "left bottom" },
+        { "label": "Bottom center", "value": "center bottom" },
+        { "label": "Bottom right", "value": "right bottom" }
+      ],
+      "default": "center middle"
+    }
+  ],
+  "presets": [
+    {
+      "name": "HomePage Banner",
+      "settings": {}
+    }
+  ]
+}
+{%- endschema %}

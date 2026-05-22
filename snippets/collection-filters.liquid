@@ -1,0 +1,184 @@
+{%- comment -%}
+  Collection filters drawer
+  Renders the full filter drawer with all filter groups
+
+  @param {object} collection - The collection object
+  @param {object} smp_meta - SMP color metadata for swatches
+{%- endcomment -%}
+
+{%- liquid
+  # Count active filters
+  assign total_active_filters = 0
+  for filter in collection.filters
+    assign total_active_filters = total_active_filters | plus: filter.active_values.size
+  endfor
+
+  # Get product count
+  assign product_count = collection.products_count
+-%}
+
+<div
+  id="Collection__filters"
+  class="Collection__filters"
+  data-collection-filters
+  aria-hidden="true"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="filters-heading"
+>
+  {%- comment -%} Filter Header {%- endcomment -%}
+  <div class="Collection__filters__header">
+    <h2 id="filters-heading">Filters</h2>
+    <button
+      type="button"
+      id="close_filters"
+      class="Collection__filters__close-btn"
+      aria-label="Close filters"
+      data-filter-close
+    >
+      {%- render 'icon-close' -%}
+    </button>
+  </div>
+
+  {%- comment -%} Filter Content {%- endcomment -%}
+  <div class="Collection__filters__content">
+    {%- comment -%} Sort By - always expanded {%- endcomment -%}
+    {%- capture sort_content -%}
+      {%- render 'collection-sort', sort_options: collection.sort_options, current_sort: collection.sort_by -%}
+    {%- endcapture -%}
+
+    {%- render 'collection-filter-group',
+      title: 'Sort By',
+      is_expanded: true,
+      type: 'regular',
+      filter_id: 'sort-by',
+      content: sort_content
+    -%}
+
+    {%- comment -%} Dynamic Filters from Shopify {%- endcomment -%}
+    {%- for filter in collection.filters -%}
+      {%- liquid
+        # Determine filter type based on label or presentation
+        assign filter_type = 'checkbox'
+        assign filter_label_lower = filter.label | downcase
+
+        if filter_label_lower contains 'color'
+          assign filter_type = 'swatch'
+        endif
+
+        if filter.type == 'price_range'
+          assign filter_type = 'price'
+        endif
+      -%}
+
+      {%- case filter_type -%}
+        {%- when 'swatch' -%}
+          {%- render 'collection-filter-swatch', filter: filter, title: filter.label, smp_meta: smp_meta -%}
+
+        {%- when 'price' -%}
+          {%- comment -%} Price range filter - render custom slider {%- endcomment -%}
+          {%- capture price_content -%}
+            <div class="Collection__filters__price" data-price-filter>
+              <div class="Collection__filters__price__inputs">
+                <label for="filter-price-min" class="sr-only">Minimum price</label>
+                <input
+                  type="number"
+                  id="filter-price-min"
+                  name="{{ filter.min_value.param_name }}"
+                  value="{{ filter.min_value.value | divided_by: 100.0 | floor }}"
+                  min="{{ filter.range_min | divided_by: 100.0 | floor }}"
+                  max="{{ filter.range_max | divided_by: 100.0 | ceil }}"
+                  placeholder="{{ filter.range_min | money_without_currency }}"
+                  data-price-min
+                />
+                <span>to</span>
+                <label for="filter-price-max" class="sr-only">Maximum price</label>
+                <input
+                  type="number"
+                  id="filter-price-max"
+                  name="{{ filter.max_value.param_name }}"
+                  value="{{ filter.max_value.value | divided_by: 100.0 | ceil }}"
+                  min="{{ filter.range_min | divided_by: 100.0 | floor }}"
+                  max="{{ filter.range_max | divided_by: 100.0 | ceil }}"
+                  placeholder="{{ filter.range_max | money_without_currency }}"
+                  data-price-max
+                />
+              </div>
+            </div>
+          {%- endcapture -%}
+
+          {%- render 'collection-filter-group',
+            title: filter.label,
+            is_expanded: false,
+            type: 'regular',
+            filter_id: filter.param_name,
+            content: price_content
+          -%}
+
+        {%- else -%}
+          {%- comment -%} Default checkbox filter {%- endcomment -%}
+          {%- if filter.values.size > 0 -%}
+            {%- capture checkbox_content -%}
+              <fieldset>
+                <legend class="sr-only">{{ filter.label }}</legend>
+                <ul>
+                  {%- for value in filter.values -%}
+                    {%- unless value.label == 'False' -%}
+                      {%- render 'collection-filter-checkbox',
+                          filter_value: value,
+                          filter_param_name: filter.param_name,
+                          is_active: value.active,
+                          is_disabled: value.count == 0
+                      -%}
+                    {%- endunless -%}
+                  {%- endfor -%}
+                </ul>
+              </fieldset>
+            {%- endcapture -%}
+
+            {%- liquid
+              assign active_count = filter.active_values.size
+              assign display_title = filter.label
+              if active_count > 0
+                assign display_title = filter.label | append: ' (' | append: active_count | append: ')'
+              endif
+            -%}
+
+            {%- render 'collection-filter-group',
+              title: display_title,
+              is_expanded: false,
+              type: 'regular',
+              filter_id: filter.param_name,
+              content: checkbox_content
+            -%}
+          {%- endif -%}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+
+  {%- comment -%} Filter Footer {%- endcomment -%}
+  <div class="Collection__filters__footer">
+    <div class="Collection__filters__footer-selected" data-footer-active-filters>
+      {%- render 'collection-active-filters' -%}
+    </div>
+    <button
+      type="button"
+      class="Collection__filters__footer-applyBtn"
+      data-filter-apply
+    >
+      View {{ product_count }} Result{% if product_count != 1 %}s{% endif %}
+    </button>
+    {%- if total_active_filters > 0 -%}
+      <a
+        href="{{ collection.url }}?sort_by={{ collection.sort_by }}"
+        class="Collection__filters__footer-clearBtn"
+        data-filter-clear-all
+      >
+        Clear all
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- comment -%} Filter overlay backdrop {%- endcomment -%}
+<div class="Collection__filters__overlay" data-filter-overlay aria-hidden="true"></div>

@@ -1,0 +1,180 @@
+{% liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign b2bDiscount = 0
+  assign b2bOriginalPrice = 0
+  assign b2bRetailPrice = 0
+  if customer and customer.b2b? == true
+    assign b2bDiscount = 30
+    assign b2bOriginalPrice = 100 | minus: b2bDiscount | times: 1.0
+    assign b2bRetailPrice = product.price | divided_by: b2bOriginalPrice | times: 100
+  endif
+  # if customer
+  #   for tag in customer.tags
+  #   if tag contains 'wholesale:'
+  #     assign b2bDiscount = tag | split: ':' | last | plus: 0
+  #     assign b2bOriginalPrice = 100 | minus: b2bDiscount | times: 1.0
+  #     assign b2bRetailPrice = current_variant.price | divided_by: b2bOriginalPrice | times: 100
+  #     break
+  #   endif
+  #   endfor
+  # endif
+  assign tagDiscount = 0
+  assign tagDiscountedPrice = 0
+  for tag in product.tags
+    if tag contains 'discount:'
+      assign tagDiscount = tag | split: ':' | last | plus: 0
+      assign tagPercentage = 100 | minus: tagDiscount | times: 1.0
+      assign tagDiscountedPrice = current_variant.price | times: tagPercentage | divided_by: 100
+      break
+    endif
+  endfor
+
+  for tag in product.tags
+    if tag contains 'customize:embroidery'
+      assign customisePrice = all_products['personalized-embroidery'].price | money_without_trailing_zeros
+    elsif tag contains 'customize:engrave'
+      assign customisePrice = all_products['custom-water-bottle'].price | money_without_trailing_zeros
+    endif
+  endfor
+%}
+
+<div class="js-product-details Product-details">
+  <script type="application/json">
+    {
+      "currencyCode": {{ cart.currency.iso_code | json }},
+      "moneyFormat": {{ shop.money_format | json }}
+    }
+  </script>
+
+  <form
+    action="/cart/add"
+    method="post"
+    class="ProductForm js-product-main-form {% if is_replo %}js-replo-buy-box-form{% endif %}"
+    data-product-id="{{ product.id }}"
+    {% if settings.ajax_cart_enabled == false %}
+      data-ajax-cart-disabled="disabled"
+    {% endif %}
+  >
+    <input
+      type="hidden"
+      name="variant_selector_dummy"
+      class="js-variant-selector-dummy single-option-selector"
+      data-product-id="{{ product.id }}"
+      value="{{ current_variant.id }}"
+    >
+    {% render 'smp-swatches', product: product, material_title: material_title %}
+    {% render 'product-options', product: product %}
+
+    <div class="js-product-form-error ProductForm-error"></div>
+
+    <div class="ProductForm-controls">
+      {%- if section.settings.qty_selector == true -%}
+        <input type="hidden" name="quantity" value="1" min="1">
+        <div class="js-product-qty-controls ProductForm-qtyControls o-qtyControls" data-product-id="{{ product.id }}">
+          <button type="button" class="o-qtyControls-button" data-action="minus">
+            <span class="u-vhide">
+              {{ 'products.product.decrease_quantity' | t }}
+            </span>
+            <div class="o-placeholder">
+              {%- render 'svg-product-qty-reduce' -%}
+            </div>
+          </button>
+          <div class="o-qtyControls-indicator">
+            <span class="u-vhide">
+              {{ 'products.product.quantity' | t }}
+            </span>
+            <span class="js-qty-indicator">1</span>
+          </div>
+          <button type="button" class="o-qtyControls-button" data-action="plus">
+            <span class="u-vhide">
+              {{ 'products.product.increase_quantity' | t }}
+            </span>
+            <div class="o-placeholder">
+              {%- render 'svg-product-qty-increase' -%}
+            </div>
+          </button>
+        </div>
+      {%- else -%}
+        <div class="js-product-qty-controls ProductForm-qtyControls o-qtyControls" data-product-id="{{ product.id }}">
+          <input type="hidden" name="quantity" value="1" min="1">
+        </div>
+      {%- endif -%}
+      <div class="ProductForm-actions js-main-product-form">
+        {%- if customizable == true and current_variant.available -%}
+          {% unless customer.b2b? %}
+            <div class="ProductForm-customizable">
+              <p>Make it your own. Add text and personalize yours.</p>
+
+              {% comment %}
+                <button type="button" class="ProductForm-customizable-btn js-customizer-trigger gradient-btn btn" data-handle="{{ product.handle }}">
+                  <span>Customize <em>for {{customisePrice}}</em></span>
+                </button>
+              {% endcomment %}
+
+              {% render 'spectrum-customizer', product: product %}
+            </div>
+          {% endunless %}
+        {%- endif -%}
+
+        <button
+          type="submit"
+          class="ProductForm-submitButton btn reverse btn-atc event-pdpAddToCart"
+          name="add"
+          {% if current_variant.available == false or product.tags contains 'coming_soon' %}
+            disabled="disabled"
+          {% endif %}
+        >
+          <div class="ProductForm-price-variant">
+            <div class="js-price-preview current_price Product-price" data-product-id="{{ product.id }}">
+              {% if current_variant.available %}
+                {% if b2bRetailPrice > 0 %}
+                  {{ current_variant.price | money }}
+                  <del>{{ b2bRetailPrice | money }}</del>
+                {% elsif tagDiscountedPrice > 0 %}
+                  {{ tagDiscountedPrice | money }}
+                  <del>{{ current_variant.price | money }}</del>
+                {% elsif current_variant.price < current_variant.compare_at_price %}
+                  {{ current_variant.price | money }}
+                  <del>{{ current_variant.compare_at_price | money }}</del>
+                {% else %}
+                  {{ current_variant.price | money }}
+                {% endif %}
+                {% if product.tags contains 'coming_soon' %}
+                  Coming Soon
+                {% else %}
+                  {{ 'products.product.add_to_cart' | t }}
+                {% endif %}
+              {% else %}
+                <del>
+                  {{ current_variant.price | money }}
+                </del>
+                <strong>
+                  {%- if product.tags contains 'coming_soon' -%}
+                    Coming Soon
+                  {%- else -%}
+                    {{ 'products.product.sold_out' | t }}
+                  {%- endif -%}
+                </strong>
+              {% endif %}
+            </div>
+          </div>
+        </button>
+      </div>
+      {% if product.metafields.product.compare_table != blank %}
+        <div class="ProductForm-compare-anchor-link">
+          <a href="#pdp_compare_table">
+            <svg viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_1560_7420" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="92" height="92">
+                <rect width="92" height="92" fill="#D9D9D9"/>
+              </mask>
+              <g mask="url(#mask0_1560_7420)">
+                <path d="M37.4935 59.7483H12.459C11.6431 59.7483 10.9602 59.4732 10.4101 58.9232C9.85935 58.3724 9.58398 57.6891 9.58398 56.8733C9.58398 56.0574 9.85935 55.3744 10.4101 54.8244C10.9602 54.2736 11.6431 53.9983 12.459 53.9983H37.4935L28.6472 45.1519C28.1169 44.6216 27.8453 43.9645 27.8326 43.1806C27.8204 42.3967 28.092 41.7073 28.6472 41.1125C29.242 40.5177 29.9252 40.2203 30.697 40.2203C31.4682 40.2203 32.1511 40.5177 32.7459 41.1125L46.0821 54.4477C46.4405 54.8068 46.6935 55.1853 46.8411 55.5834C46.9887 55.9814 47.0625 56.4114 47.0625 56.8733C47.0625 57.3352 46.9887 57.7652 46.8411 58.1632C46.6935 58.5612 46.4405 58.9398 46.0821 59.2988L32.6875 72.6934C32.117 73.2633 31.4496 73.5444 30.6855 73.5368C29.9214 73.5298 29.242 73.2288 28.6472 72.634C28.092 72.0392 27.8045 71.3662 27.7847 70.6148C27.7655 69.8628 28.053 69.1895 28.6472 68.5947L37.4935 59.7483ZM54.5078 37.9644L63.3542 46.8108C63.8844 47.3417 64.156 47.9991 64.1687 48.783C64.1809 49.567 63.9093 50.2563 63.3542 50.8511C62.7593 51.4453 62.0761 51.7424 61.3043 51.7424C60.5331 51.7424 59.8502 51.4453 59.2554 50.8511L45.9192 37.515C45.5608 37.1565 45.3078 36.7783 45.1602 36.3803C45.0126 35.9823 44.9388 35.552 44.9388 35.0894C44.9388 34.6275 45.0126 34.1975 45.1602 33.7995C45.3078 33.4015 45.5608 33.0232 45.9192 32.6648L59.3138 19.2702C59.8843 18.7003 60.5517 18.4189 61.3158 18.4259C62.0799 18.4336 62.7593 18.7345 63.3542 19.3287C63.9093 19.9235 64.1969 20.5969 64.2167 21.3488C64.2358 22.1008 63.9483 22.7742 63.3542 23.369L54.5078 32.2154H79.5423C80.3582 32.2154 81.0412 32.4904 81.5912 33.0405C82.142 33.5912 82.4173 34.2742 82.4173 35.0894C82.4173 35.9053 82.142 36.5886 81.5912 37.1393C81.0412 37.6894 80.3582 37.9644 79.5423 37.9644H54.5078Z" fill="black"/>
+              </g>
+            </svg>
+            <span>Compare Items</span>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </form>
+</div>

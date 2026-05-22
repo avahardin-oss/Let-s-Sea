@@ -1,0 +1,148 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": ["1a4f980d-b2a4-4e67-b01d-4f930c2065af", "main"],
+  "sections": {
+    "1a4f980d-b2a4-4e67-b01d-4f930c2065af": {
+      "settings": {
+        "categories_linklist": "filter-kids"
+      },
+      "type": "collection-categories"
+    },
+    "main": {
+      "block_order": [
+        "a78e736f-9230-4cf2-ab7a-7c08b1d329fc",
+        "9815e4ef-2043-42a4-b40f-d737e9089aae",
+        "3f7b4347-5760-400f-9ff7-f6b3ac1b4b04",
+        "134fa280-7de3-4edf-a157-c54d1aefea37",
+        "e522ad87-8993-4ec6-8855-976883764b63",
+        "7a7458f5-5dfb-453d-86a8-882d1f50cdd8",
+        "9c1766b7-7351-47e2-9fea-a146d1db1577",
+        "6b03e11a-fe71-4d0a-bb52-18ce77d4c1a7",
+        "ea8071e8-665c-40ff-a481-d1998f115914",
+        "ac5f53cf-e40e-4e69-a4e5-0cd8b6a922a9",
+        "d38f9e92-95ba-4ef8-9610-670e57cdcc5f",
+        "f574cde7-1d02-4bcc-b9c3-ab2f8b5f2faa",
+        "8664443b-f701-4e8c-a84e-a44dbc68ffbf",
+        "1dedc77c-e1d2-4b8e-a44e-14a359390f4b"
+      ],
+      "blocks": {
+        "134fa280-7de3-4edf-a157-c54d1aefea37": {
+          "settings": {
+            "key": "named_tags.marvel",
+            "title": "Marvel"
+          },
+          "type": "filter"
+        },
+        "1dedc77c-e1d2-4b8e-a44e-14a359390f4b": {
+          "settings": {
+            "key": "named_tags.nfl",
+            "title": "NFL"
+          },
+          "type": "filter"
+        },
+        "3f7b4347-5760-400f-9ff7-f6b3ac1b4b04": {
+          "settings": {
+            "key": "named_tags.disney",
+            "title": "Disney"
+          },
+          "type": "filter"
+        },
+        "6b03e11a-fe71-4d0a-bb52-18ce77d4c1a7": {
+          "settings": {
+            "key": "named_tags.solid",
+            "title": "Solid"
+          },
+          "type": "filter"
+        },
+        "7a7458f5-5dfb-453d-86a8-882d1f50cdd8": {
+          "settings": {
+            "key": "named_tags.dc",
+            "title": "DC"
+          },
+          "type": "filter"
+        },
+        "8664443b-f701-4e8c-a84e-a44dbc68ffbf": {
+          "settings": {
+            "key": "named_tags.nba",
+            "title": "NBA"
+          },
+          "type": "filter"
+        },
+        "9815e4ef-2043-42a4-b40f-d737e9089aae": {
+          "settings": {
+            "key": "named_tags.kids",
+            "title": "Kids"
+          },
+          "type": "filter"
+        },
+        "9c1766b7-7351-47e2-9fea-a146d1db1577": {
+          "settings": {
+            "key": "named_tags.dude",
+            "title": "Dude Perfect"
+          },
+          "type": "filter"
+        },
+        "a78e736f-9230-4cf2-ab7a-7c08b1d329fc": {
+          "settings": {
+            "key": "named_tags.volume",
+            "title": "Volume"
+          },
+          "type": "filter"
+        },
+        "ac5f53cf-e40e-4e69-a4e5-0cd8b6a922a9": {
+          "settings": {
+            "key": "named_tags.ombre",
+            "title": "Ombre"
+          },
+          "type": "filter"
+        },
+        "d38f9e92-95ba-4ef8-9610-670e57cdcc5f": {
+          "settings": {
+            "key": "named_tags.pattern",
+            "title": "Pattern"
+          },
+          "type": "filter"
+        },
+        "e522ad87-8993-4ec6-8855-976883764b63": {
+          "settings": {
+            "key": "named_tags.starwars",
+            "title": "Star Wars"
+          },
+          "type": "filter"
+        },
+        "ea8071e8-665c-40ff-a481-d1998f115914": {
+          "settings": {
+            "key": "named_tags.blocked",
+            "title": "Color Blocked"
+          },
+          "type": "filter"
+        },
+        "f574cde7-1d02-4bcc-b9c3-ab2f8b5f2faa": {
+          "settings": {
+            "key": "named_tags.shimmering",
+            "title": "Shimmering"
+          },
+          "type": "filter"
+        }
+      },
+      "settings": {
+        "badge_background_color": "#f2f1f0",
+        "badge_color": "#000000",
+        "featured_column_position": "1",
+        "hits_per_page": 20,
+        "row_position": 2,
+        "title_color": "#ffffff"
+      },
+      "type": "collection-main"
+    }
+  },
+  "wrapper": "main.Collection[role='main']"
+}

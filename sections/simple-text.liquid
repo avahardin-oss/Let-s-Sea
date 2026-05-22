@@ -1,0 +1,57 @@
+{% assign background_color = section.settings.background_color %}
+{% assign heading = section.settings.heading %}
+{% assign richtext = section.settings.richtext %}
+{% assign custom_background_color = section.settings.custom_background_color %}
+
+<section class="simpleText">
+
+    <div class="simpleText-container{% if custom_background_color %} simpleText-containerBackground{% endif %}" {% if custom_background_color %}style="background-color:{{ background_color }}"{% endif %}>
+      {% if heading != blank %}
+        <div class="simpleText--title">
+            {{ heading }}
+        </div>
+      {% endif %}
+      {% if richtext != blank %}
+        <div class="simpleText--text">
+            {{ richtext }}
+        </div>
+      {% endif %}
+    </div>
+</section>
+
+{% schema %}
+  {
+  "name": "Simple text",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "custom_background_color",
+      "label": "Custom Background Color",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#E2E2DB"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<h2>About Simple Modern</h2>"
+    },
+    {
+      "type": "richtext",
+      "id": "richtext",
+      "label": "Richtext",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Simple text"
+    }
+  ]
+}
+{% endschema %}

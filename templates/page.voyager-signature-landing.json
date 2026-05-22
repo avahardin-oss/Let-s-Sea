@@ -1,0 +1,186 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": ["signature_product_QnC4tP", "signature_product_shoppable_XQgwhx"],
+  "sections": {
+    "signature_product_QnC4tP": {
+      "block_order": [
+        "feature_FEKnAX",
+        "feature_6fNNBq",
+        "feature_JTjMat",
+        "slide_C3rCr4",
+        "slide_rBBC8Y",
+        "slide_7fGkz4",
+        "slide_J7hqt7",
+        "slide_DYN3Tc",
+        "slide_JqiLbf"
+      ],
+      "blocks": {
+        "feature_6fNNBq": {
+          "settings": {
+            "left_feature": "360° Sipping",
+            "left_feature_image": "shopify://shop_images/SIG-HRV-pourongray2.jpg",
+            "right_feature": "Ceramic-Lined Interior",
+            "right_feature_image": "shopify://shop_images/SIG-HRV-ceramicongray.jpg"
+          },
+          "type": "feature"
+        },
+        "feature_FEKnAX": {
+          "settings": {
+            "left_feature": "100% Leak-Proof Lid",
+            "left_feature_image": "shopify://shop_images/SIG-HRV-upsidedownongray.jpg",
+            "right_feature": "Push-Button Lid",
+            "right_feature_image": "shopify://shop_images/SIG-HRV-LIDongray.jpg"
+          },
+          "type": "feature"
+        },
+        "feature_JTjMat": {
+          "settings": {
+            "left_feature": "Non-Slip Silicone Bottom",
+            "left_feature_image": "shopify://shop_images/SIG-HRV-siliconebaseongray.jpg",
+            "right_feature": "Hot for 4+ Hours",
+            "right_feature_image": "shopify://shop_images/voyager-sig-steam.jpg"
+          },
+          "type": "feature"
+        },
+        "slide_7fGkz4": {
+          "settings": {
+            "slide_description": "<p>The unique tapered shape of the Voyager Signature makes it the perfect reusable travel mug as it fits in most cars’ cup holders.</p>",
+            "slide_image": "shopify://shop_images/voyager-sig-1.jpg",
+            "slide_title": "Travel Friendly"
+          },
+          "type": "slide"
+        },
+        "slide_C3rCr4": {
+          "settings": {
+            "slide_description": "<p>Carry confidence on the go with the sleek looks and 100% leak-proof performance of the Voyager Signature. </p>",
+            "slide_image": "shopify://shop_images/voyager-sig-4.jpg",
+            "slide_title": "Locks out Leaks"
+          },
+          "type": "slide"
+        },
+        "slide_DYN3Tc": {
+          "settings": {
+            "slide_description": "<p>Land confidently with fewer slips, scuffs, or clinks. Voyager Signature sports a silicone grip base. </p>",
+            "slide_image": "shopify://shop_images/voyager-sig-3.jpg",
+            "slide_title": "Look Good, Feel Better"
+          },
+          "type": "slide"
+        },
+        "slide_J7hqt7": {
+          "settings": {
+            "slide_description": "<p>Whether you're drinking coffee, tea, or water, sip easy from any angle with the 360° push-button lid. </p>",
+            "slide_image": "shopify://shop_images/voyager-sig-2.jpg",
+            "slide_title": "Simple Sipping"
+          },
+          "type": "slide"
+        },
+        "slide_JqiLbf": {
+          "settings": {
+            "slide_description": "<p>Sleek ceramic meets Simple Modern's best-in-class vacuum insulation. Our ceramic-lined interior is easy to clean and keeps drinks hot for 4+ hours.</p>",
+            "slide_image": "shopify://shop_images/voyager-sig-6.jpg",
+            "slide_title": "No Compromise Design"
+          },
+          "type": "slide"
+        },
+        "slide_rBBC8Y": {
+          "settings": {
+            "slide_description": "<p>The ceramic-lined interior preserves the integrity of your coffee's flavor for even the most discerning palates.</p>",
+            "slide_image": "shopify://shop_images/voyager-sig-5.jpg",
+            "slide_title": "True Taste Technology"
+          },
+          "type": "slide"
+        }
+      },
+      "settings": {
+        "background_color": "#ffffff",
+        "color_mode": "light",
+        "featured_pretitle": "Your Go-To Tumbler is Back &",
+        "featured_product": "signature-voyager-1",
+        "featured_title": "Better Than Ever",
+        "features_pretitle": "",
+        "features_title": "Our Best Coffee Tumbler Ever ",
+        "hero_cta_label": "Shop Voyager Signature",
+        "hero_image": "shopify://shop_images/voyager-sig-hero-desktop.jpg",
+        "hero_image_mobile": "shopify://shop_images/voyager-sig-hero-mobile.jpg",
+        "hero_pretitle": "★★★★★",
+        "mobile_title": "\"Love it! This <br>truly does <br>not spill!\"",
+        "product_list": [
+          "signature-voyager-6",
+          "signature-voyager-5",
+          "signature-voyager-3",
+          "signature-voyager-4"
+        ],
+        "shadow_intensity": 0,
+        "title": "\"Love it! This truly <br>does not spill!\"",
+        "video_type": "shopify",
+        "youtube_url": ""
+      },
+      "type": "signature-product"
+    },
+    "signature_product_shoppable_XQgwhx": {
+      "block_order": [
+        "question_4RKfwU",
+        "question_wGFwVE",
+        "question_A6jd3N",
+        "question_y3fzV7",
+        "question_dLg4CQ"
+      ],
+      "blocks": {
+        "question_4RKfwU": {
+          "settings": {
+            "answer": "<p>The Voyager Signature is our best coffee vessel ever. It's designed with a leak-proof, push-button lid that's drinkable from any position and lined with ceramic coating to preserve the flavor of your coffee while keeping it hot or cold for hours.</p>",
+            "question": "DESCRIPTION"
+          },
+          "type": "question"
+        },
+        "question_A6jd3N": {
+          "settings": {
+            "answer": "<p><strong>Mouth: </strong>3.1 inches<br/><strong>Height:</strong> 6.1 inches<br/><strong>Base:</strong> 2.5 inches<br/><strong>Weight:</strong> 7.1 ounces</p>",
+            "question": "DIMENSIONS"
+          },
+          "type": "question"
+        },
+        "question_dLg4CQ": {
+          "settings": {
+            "answer": "<p>Limited Lifetime Warranty</p>",
+            "question": "WARRANTY"
+          },
+          "type": "question"
+        },
+        "question_wGFwVE": {
+          "settings": {
+            "answer": "<p><strong>Voyager Signature Features:</strong></p><ul><li>Leak-proof (with lid in closed position)</li><li>360° push-button lid is drinkable from any angle</li><li>Ceramic-lined interior preserves your drink's flavor</li><li>Silicone grip base prevents slipping<br/></li></ul><p><strong>Original Voyager with Clear Flip Lid Features Still Included:</strong></p><ul><li>Cupholder friendly</li><li>Double-wall insulation keeps your drink cold for hours </li><li>Made of durable premium 18/8 stainless steel</li></ul>",
+            "question": "COMPARE"
+          },
+          "type": "question"
+        },
+        "question_y3fzV7": {
+          "settings": {
+            "answer": "<p>Tumbler is dishwasher safe.<br/>Lid is top rack dishwasher safe.<br/>Leak-proof lid not for use with carbonated liquids.</p>",
+            "question": "CARE INSTRUCTIONS"
+          },
+          "type": "question"
+        }
+      },
+      "settings": {
+        "customizer_desc": "Making your own personalized tumbler is easy. Click on the image to add a text and create the perfect tumbler.",
+        "customizer_title": "Personalize your product",
+        "details_title": "FAQ",
+        "font_size": 2.5,
+        "readmore_link": "/pages/warranty-1",
+        "shoppable_product": "signature-voyager-1",
+        "upsell_title": "You may also like"
+      },
+      "type": "signature-product-shoppable"
+    }
+  },
+  "wrapper": "main.ContactPage[role='main']"
+}

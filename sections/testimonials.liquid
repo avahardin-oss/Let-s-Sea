@@ -1,0 +1,180 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/sections/testimonials/section.liquid}] %}
+
+<script class="json-portable-section-assets" type="application/json">
+{"sectionName":"testimonials"}
+</script>
+
+<style>
+.mod_testimonials_pcxtaW_Testimonials{padding:max(1.25rem,2.22222vw) max(1rem,2.77778vw)}
+.mod_testimonials_pcxtaW_Testimonials__wrapper{background-color:#fff;border-radius:max(.5rem,.555556vw);padding:max(2rem,2.22222vw) max(2rem,2.22222vw) max(1.5rem,1.66667vw)}
+.mod_testimonials_pcxtaW_Testimonials__testimonial{flex-direction:column;flex-grow:100;justify-content:space-between;gap:max(1rem,1.11111vw);display:flex}
+.mod_testimonials_pcxtaW_Testimonials__content{background-color:#fff;border-radius:max(.5rem,.555556vw);flex-direction:column;justify-content:flex-end;display:flex}
+.mod_testimonials_pcxtaW_Testimonials__content h3{margin-bottom:max(.5rem,1.66667vw);font-family:Gilroy,sans-serif;font-size:max(1.5rem,2.22222vw);font-weight:600;line-height:1.2}
+.mod_testimonials_pcxtaW_Testimonials__content h3 small{letter-spacing:.005em;text-transform:uppercase;color:#303030;opacity:.8;margin-bottom:max(.5rem,.555556vw);font-size:max(.875rem,1.11111vw);font-weight:600;line-height:1.2;display:block}
+.mod_testimonials_pcxtaW_Testimonials__content p{letter-spacing:max(.005625rem,.00625vw);margin:0 0 max(1.5rem,2.77778vw);font-size:max(1.125rem,1.38889vw);line-height:1.4}
+.mod_testimonials_pcxtaW_Testimonials__content .btn{text-transform:capitalize;max-width:fit-content}
+.mod_testimonials_pcxtaW_Testimonials__rating{margin:0}
+.mod_testimonials_pcxtaW_Testimonials__image{aspect-ratio:1;background-repeat:no-repeat;background-size:cover;border-radius:max(.5rem,.555556vw);min-height:max(14.875rem,16.5278vw)}
+.mod_testimonials_pcxtaW_Testimonials__carousel{overflow:hidden}
+.mod_testimonials_pcxtaW_Testimonials__carousel .swiper-slide{height:auto}
+.mod_testimonials_pcxtaW_Testimonials__carousel__actions{justify-content:space-between;align-items:center;margin-top:max(2rem,2.22222vw);display:flex;position:relative}
+:is(.mod_testimonials_pcxtaW_Testimonials__carousel__actions .swiper-button-prev,.mod_testimonials_pcxtaW_Testimonials__carousel__actions .swiper-button-next){color:#13294b;background-color:#0000;border:0;width:max(1.25rem,1.38889vw);height:max(1.25rem,1.38889vw);margin:0;transition:opacity .25s ease-in-out;position:relative;left:0}
+.mod_testimonials_pcxtaW_Testimonials__carousel__actions .swiper-button-prev:after{display:none}
+.mod_testimonials_pcxtaW_Testimonials__carousel__actions .swiper-button-next:after{display:none}
+:is(.mod_testimonials_pcxtaW_Testimonials__carousel__actions .swiper-button-prev svg,.mod_testimonials_pcxtaW_Testimonials__carousel__actions .swiper-button-next svg){width:100%;height:100%}
+.mod_testimonials_pcxtaW_Testimonials__carousel__actions .swiper-button-next{right:0;left:initial;order:2}
+.mod_testimonials_pcxtaW_Testimonials__carousel .swiper-pagination{color:#7b7b74;font-family:Gilroy,sans-serif;font-size:max(.75rem,.833333vw);font-weight:400;line-height:1.3;bottom:max(1rem,1.11111vw);left:0;right:0}
+.mod_testimonials_pcxtaW_Testimonials__carousel__scrollbar__wrapper{order:1;width:80%}
+.mod_testimonials_pcxtaW_Testimonials__carousel__scrollbar__wrapper .swiper-scrollbar{background:#aaa;width:100%;height:max(.125rem,.138889vw)}
+.mod_testimonials_pcxtaW_Testimonials__carousel__scrollbar__wrapper .swiper-scrollbar .swiper-scrollbar-drag{background:#000;height:100%}
+@media print,screen and (width>=64em){.mod_testimonials_pcxtaW_Testimonials__wrapper{background-color:#0000;padding:0}
+.mod_testimonials_pcxtaW_Testimonials__testimonial{grid-template-columns:repeat(2,1fr);justify-content:center;gap:max(1.5rem,1.66667vw);margin-top:max(2.5rem,2.77778vw);padding-top:0;display:grid}
+.mod_testimonials_pcxtaW_Testimonials__testimonial.odd div:first-of-type{order:1}
+.mod_testimonials_pcxtaW_Testimonials__testimonial:first-child{margin-top:0}
+.mod_testimonials_pcxtaW_Testimonials__content{display:initial;padding:max(4rem,4.44444vw)}
+.mod_testimonials_pcxtaW_Testimonials__content.mod_testimonials_pcxtaW_full-width{grid-column:1/3}
+.mod_testimonials_pcxtaW_Testimonials__image{min-height:max(29.25rem,32.5vw)}
+.mod_testimonials_pcxtaW_Testimonials__carousel .swiper-wrapper{display:block}
+.mod_testimonials_pcxtaW_Testimonials__carousel__actions{display:none}
+.mod_testimonials_pcxtaW_Testimonials__carousel__actions .swiper-button-next{order:0}
+.mod_testimonials_pcxtaW_Testimonials__carousel__scrollbar__wrapper{order:0;width:94%}
+}
+</style>
+
+{% assign navigation_id = section.settings.navigation_id | default: section.name | handleize %}
+<div class="mod_testimonials_pcxtaW_Testimonials js-navigation-id-{{ navigation_id }}">
+    <section class="mod_testimonials_pcxtaW_Testimonials__wrapper">
+      <div class="mod_testimonials_pcxtaW_Testimonials__carousel js-testimonial-carousel">
+        <div class="swiper-wrapper">
+          {%- for block in section.blocks -%}
+              {%- liquid
+                  assign testimonial_image = false
+                  assign stars = block.settings.stars
+                  unless block.settings.image == blank
+                  capture testimonial_image_sizes
+                      render 'print-image-sizes' with block.settings.image
+                  endcapture
+                  assign testimonial_image = true
+              endunless
+              -%}
+              <div class="swiper-slide mod_testimonials_pcxtaW_Testimonials__testimonial {% if block.settings.orientation == "right" %}odd{% endif %}">
+                  <div class="mod_testimonials_pcxtaW_Testimonials__content {% if testimonial_image == false %}full-width{% endif %}">
+                      <h3><small>{{ block.settings.label }}</small>{{ block.settings.title }}</h3>
+                      {%- unless stars == 0 -%}
+                      <div class="mod_testimonials_pcxtaW_Testimonials__rating">
+                        {%- for i in (1..stars) -%}
+                            <svg aria-labelledby="title27"  role="img" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <title id="title27">Star icon</title>
+                                <path d="M7.16229 0.37207L8.91686 4.59055L13.4711 4.95566L10.0012 7.92794L11.0613 12.3721L7.16229 9.99055L3.26325 12.3721L4.32334 7.92794L0.853516 4.95566L5.40772 4.59055L7.16229 0.37207Z" fill="black"/>
+                                </svg>
+                        {%- endfor -%}
+                      </div>
+                    {%- endunless -%}
+                      {{ block.settings.testimonial_text }}
+                      {%- if block.settings.button_link != blank and block.settings.button_label != blank -%}
+                        <a href="{{ block.settings.button_link }}" class="btn reverse">{{ block.settings.button_label }}</a>
+                      {%- endif -%}
+                  </div>
+                  {%- if testimonial_image == true -%}
+                      {%- assign alt_text = '' -%}
+                      {%- if block.settings.image.alt != blank -%}
+                        {%- assign alt_text = block.settings.image.alt -%}
+                      {%- elsif block.settings.title != blank -%}
+                        {%- assign alt_text = block.settings.title -%}
+                      {%- elsif block.settings.label != blank -%}
+                        {%- assign alt_text = block.settings.label -%}
+                      {%- endif -%}
+                      <div class="mod_testimonials_pcxtaW_Testimonials__image lazyload" role="img" aria-label="{{ alt_text | escape }}" data-alt="{{ alt_text | escape }}" data-bgset="{{ testimonial_image_sizes }}" data-sizes="auto"></div>
+                  {%- endif -%}
+              </div>
+          {%- endfor -%}
+        </div>
+        <div class="mod_testimonials_pcxtaW_Testimonials__carousel__actions">
+          <div class="swiper-pagination"></div>
+          <div class="mod_testimonials_pcxtaW_Testimonials__carousel__scrollbar__wrapper">
+            <div class="swiper-scrollbar"></div>
+          </div>
+          <button aria-label="Previous slide" class="swiper-button-prev">{%- render 'svg-arrow-prev', class: 'testimonials' -%}</button>
+          <button aria-label="Next slide" class="swiper-button-next">{%- render 'svg-arrow-next', class: 'testimonials' -%}</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+{%- schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "js-smp-reload js-testimonials",
+  "settings":[
+    {
+      "type": "text",
+      "id": "navigation_id",
+      "label": "Navigation anchor",
+      "default": "product-testimonials"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Main Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Feature Label"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "S",
+          "label": "Stars",
+          "default": 4
+        },
+        {
+          "type": "richtext",
+          "id": "testimonial_text",
+          "label": "Testimonial Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Url"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label"
+        },
+        {
+          "type": "radio",
+          "id": "orientation",
+          "label": "Orientation",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        }
+      ]
+    }
+],
+"presets": [{
+  "name": "Testimonials",
+  "settings": {}
+}]
+}
+{% endschema -%}

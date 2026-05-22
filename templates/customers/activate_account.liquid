@@ -1,0 +1,58 @@
+<main class="Customer" role="main">
+  <div class="Customer-container">
+    <h1 class="Customer-formTitle">
+      {{ 'customer.activate_account.heading' | t }}
+    </h1>
+
+    <div class="Customer-form">
+      <p>
+        {{ 'customer.activate_account.subhead' | t }}
+      </p>
+
+      {% form 'activate_customer_password' %}
+        {% if form.errors %}
+          <div class="o-formErrors">
+            <p>{{ 'general.form.errors_were_encountered' | t }}</p>
+            {{ form.errors | default_errors }}
+          </div>
+        {% endif %}
+
+        <label for="password" class="Customer--label">
+          {{ 'customer.activate_account.password' | t }}
+        </label>
+        <input
+          type="password"
+          class="Customer--input"
+          name="customer[password]"
+          id="password"
+          class="Customer-field"
+          value=""
+        >
+
+        <label for="password_confirmation" class="Customer--label">
+          {{ 'customer.activate_account.password_confirm' | t }}
+        </label>
+        <input
+          type="password"
+          class="Customer--input"
+          name="customer[password_confirmation]"
+          id="password_confirmation"
+          class="Customer-field"
+          value=""
+        >
+
+        <button
+          type="submit"
+          class="btn reverse Customer--submit"
+          aria-label="{{ 'customer.activate_account.submit' | t }}"
+        >
+          {{ 'customer.activate_account.submit' | t }}
+        </button>
+
+        <a class="Customer--cancelLink" href="/">
+          {{ 'customer.activate_account.cancel' | t }}
+        </a>
+      {% endform %}
+    </div>
+  </div>
+</main>

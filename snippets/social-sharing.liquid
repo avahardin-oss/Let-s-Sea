@@ -1,0 +1,65 @@
+{% liquid
+  assign shared_url = ''
+  assign shared_text = ''
+  assign shared_image = ''
+  assign twitter_hashtags = ''
+
+  if product
+    assign shared_url = shop.url | append: product.url | url_param_escape
+    assign shared_text = product.title | url_param_escape
+    if product.featured_image
+      assign shared_image = product.featured_image | image_url: width: 2048, height: 2048 | url_param_escape
+    endif
+    assign twitter_hashtags = shop.name | handle | replace: '-', '' | url_param_escape
+  endif
+
+  if template contains 'article' or template contains 'blog'
+    assign shared_url = shop.url | append: article.url | url_param_escape
+    assign shared_text = article.title | url_param_escape
+    if article.image
+      assign shared_image = article.image | image_url: width: 2048, height: 2048 | url_param_escape
+    endif
+    assign twitter_hashtags = shop.name | handle | replace: '-', '' | url_param_escape
+  endif %}
+
+{% capture share_links %}
+  Facebook -- https://www.facebook.com/sharer.php?u={{ shared_url }}
+| Twitter -- https://twitter.com/intent/tweet?url={{ shared_url }}&text={{ shared_text }}&hashtags={{ twitter_hashtags }}
+| Google Plus -- https://plus.google.com/share?url={{ shared_url }}
+| Pinterest -- https://www.pinterest.com/pin/create/button/?url={{ shared_url }}&description={{ shared_text }}&media={{ shared_image }}
+{% endcapture %}
+{% assign share_links = share_links | strip_newlines | strip | split: '|' %}
+
+<aside class="SocialSharing">
+  <h4 class="SocialSharing-title">
+    {{ 'general.social_sharing.title' | t }}
+  </h4>
+  <ul class="SocialSharing-items">
+    {% for share_link in share_links %}
+      {% assign share_name = share_link | strip | split: '--' | first %}
+      {% assign share_handle = share_name | handle %}
+      {% assign share_url = share_link | strip | split: '--' | last | strip %}
+
+      <li class="SocialSharing-item">
+        <a class="SocialSharing-link" href="{{ share_url }}" target="_blank">
+          <div class="o-placeholder">
+            {% liquid
+              case share_handle
+                when 'facebook'
+                  render 'svg-social-sharing-facebook'
+                when 'twitter'
+                  render 'svg-social-sharing-twitter'
+                when 'google-plus'
+                  render 'svg-social-sharing-google-plus'
+                when 'pinterest'
+                  render 'svg-social-sharing-pinterest'
+              endcase %}
+          </div>
+          <div class="u-vhide">
+            {{ 'general.social_sharing.share_on' | t: name: share_name | strip }}
+          </div>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</aside>

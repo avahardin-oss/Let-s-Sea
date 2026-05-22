@@ -1,0 +1,326 @@
+{%- liquid
+  assign newsletter_title = section.settings.newsletter_title | default: ''
+  assign newsletter_info = section.settings.newsletter_info | default: ''
+  assign klaviyo_id = section.settings.newsletter_form | default: 'XdeGeF'
+-%}
+{%- capture social_links -%}
+  <div class="FooterSocial">
+    {% assign social_networks = "facebook,twitter,tiktok,threads,instagram,pinterest,snapchat,youtube" | split: ',' %}
+
+    <ul class="FooterSocial-items">
+      {% for network_name in social_networks %}
+        {% if settings[network_name] and settings[network_name] != blank %}
+          <li class="FooterSocial-item">
+            <a class="FooterSocial-itemLink" href="{{ settings[network_name] }}" target="_blank" aria-label="{{network_name}}">
+              <div class="o-placeholder">
+                {% liquid
+                  case network_name
+                    when 'facebook'
+                      render 'svg-social-network-facebook'
+                    when 'twitter'
+                      render 'svg-social-network-twitter'
+                    when 'tiktok'
+                      render 'svg-social-network-tiktok'
+                    when 'threads'
+                      render 'svg-social-network-threads'
+                    when 'instagram'
+                      render 'svg-social-network-instagram'
+                    when 'pinterest'
+                      render 'svg-social-network-pinterest'
+                    when 'snapchat'
+                      render 'svg-social-network-snapchat'
+                    when 'youtube'
+                      render 'svg-social-network-youtube'
+                  endcase %}
+              </div>
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+{%- endcapture -%}
+<footer class="Footer-container {% if shop.permanent_domain contains 'custom' %}Footer-custom{% endif %}" role="contentinfo">
+  <div class="Footer-sections">
+    {% unless shop.permanent_domain contains 'custom' %}
+      <div class="Footer-section Footer-section--left">
+        <div class="FooterNewsletter">
+          {%- if newsletter_title and newsletter_title != blank -%}
+            <h2 class="FooterNewsletter-header">
+              {{ newsletter_title }}
+            </h2>
+          {%- endif -%}
+          {%- if newsletter_info and newsletter_info != blank -%}
+            <div class="FooterNewsletter-info">
+              {{ newsletter_info }}
+            </div>
+          {%- endif -%}
+          {%- if klaviyo_id != blank -%}
+            <form class="FooterNewsletter-form" id="klaviyo" data-js-newsletter data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" action="//manage.kmail-lists.com/subscriptions/subscribe" target="_blank"
+              novalidate="novalidate" data-js-newsletter
+              data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="POST">
+              <input type="hidden" name="g" value="{{ klaviyo_id }}">
+              <p class="FooterNewsletter-success">
+                {{ 'general.newsletter_form.confirmation' | t }}
+              </p>
+
+              <div class="FooterNewsletter-inputContainer">
+                <input
+                  id="footer-newsletter-email"
+                  name="email"
+                  class="FooterNewsletter-input"
+                  required
+                  autocomplete="email"
+                  aria-label="Email Address"
+                  placeholder="Enter your email"
+                  type="email">
+              </div>
+              <div class="FooterNewsletter-inputContainer">
+                <input
+                  id="footer-newsletter-phone"
+                  name="phone"
+                  class="FooterNewsletter-input"
+                  aria-label="Enter your phone number"
+                  placeholder="Enter your phone number (Optional)"
+                  pattern="[0-9]+"
+                  title="Please enter valid phone number"
+                  maxlength="12"
+                  onfocus="validateInput(this)"
+                  oninput="validateInput(this)"
+                  type="tel">
+                  <div id="FooterNewsletter-error" class="error hidden">Please enter a valid phone number. +1 000 000 0000</div>
+              </div>
+              <script>
+              function validateInput(input) {
+                  if (!!input.value) {
+                    input.value = input.value.replace(/[^+\d]/g, '');
+                    input.value = input.value.replace(/^(?=\+.*\+).*$/, '');
+                    if (/^\d/.test(input.value)) {
+                      input.value = '+1' + input.value.substring(1);
+                    }
+                  } else {
+                    input.value = '+1'
+                  }
+                }
+              </script>
+              <div class="Checkbox" style="display: none">
+                <input id="js-bts-checkbox" name="checkbox-1" type="checkbox">
+                <label for="js-bts-checkbox" class="Checkbox__label">
+                  I accept to receive marketing text messages at the number provided, including messages sent by autodialer. Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link.
+                    <a href="/pages/privacy-policy">Privacy Policy</a> & <a href="/pages/terms-of-service">Terms of Sevice.</a>
+                </label>
+              </div>
+              <div class="Checkbox__error">*This field is required</div>
+              <button
+                type="submit"
+                class="FooterNewsletter-btn btn"
+                aria-label="Submit Newsletter form">
+                  Subscribe
+              </button>
+            </form>
+          {%- endif -%}
+        </div>
+        <div style="display: flex; flex-direction:column;">
+        {% if section.settings.social_icons_enabled %}
+          {{ social_links }}
+        {% endif %}
+           <div class="download__now-text">Download our App:</div>
+          <div class="footer__store-buttons">
+            <a href="https://play.google.com/store/apps/details?id=co.tapcart.app.id_P2IsI59ulY" target="_blank">
+              <img
+                src="https://cdn.fuego.io/google-play.png"
+                alt="Get it on Google Play"
+                style="display: block; height: 40px; object-fit:contain; width:135px"
+                width="135px"
+                height="40px"
+              >
+            </a>
+            <a href="https://apps.apple.com/app/6458345718" target="_blank">
+              <img
+                src="https://cdn.fuego.io/app-store.png"
+                alt="Download on the App Store"
+                style="display: block; height: 40px; object-fit:contain; width:135px"
+                width="135px"
+                height="40px"
+              >
+            </a>
+          </div>
+        </div>
+        <div class="FooterContacts">
+          {% assign email = section.settings.email | default: '' %}
+          {% if email != blank %}
+            <div class="FooterContacts-email {% if email.size > 24 %}FooterContacts-email--long{% endif %}">
+              {{ email }}
+            </div>
+          {% endif %}
+          {% assign phone = section.settings.phone | default: '' %}
+          {% if phone != blank %}
+            <div class="FooterContacts-phone">
+              {{ phone }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="Footer-section Footer-section--right">
+        {% for menu_index in (1..3) %}
+          {%- liquid
+            assign menu_prefix = 'menu_'
+            if customer.b2b? == true
+              assign menu_prefix = 'b2b_menu_'
+            endif
+            assign menu_poi = menu_prefix | append: menu_index
+            assign menu_handle = section.settings[menu_poi] | default: ''
+            assign menu = linklists[menu_handle]
+          -%}
+          {%- if menu != blank and menu.links.size > 0 -%}
+            <div class="FooterMenu">
+              {%- unless forloop.first -%}
+                <h3 class="FooterMenu-header close js-footer-title"  attr-no="{{ forloop.index }}">{{ menu.title }}</h3>
+              {%- endunless -%}
+              <div class="FooterMenu-content{% unless forloop.first %} close js-footer-list{% endunless %}" attr-no="{{ forloop.index }}">
+              <ul class="FooterMenu-items">
+                {% for link in menu.links %}
+                  <li class="FooterMenu-item">
+                    <a class="FooterMenu-itemLink event-footerLink" href="{{ link.url }}">
+                      {{ link.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+            </div>
+          {%- endif -%}
+        {% endfor %}
+      </div>
+    {% endunless %}
+  </div>
+
+  <div class="Footer-lowerContainer">
+    <div class="Footer-lowerSections">
+      <div class="Footer-lowerSection FooterLogo">
+        {% render 'svg-logo-footer' %}
+        {%- unless shop.permanent_domain contains 'custom'-%}
+          <img src="{{ 'logo-allyant.png' | asset_img_url: '160x' }}" width="80" height="80" loading="lazy" class="Footer-lowerSection__allyant u-showMobile__inline" />
+        {%- endunless -%}
+      </div>
+      {%- if shop.permanent_domain contains 'custom' -%}
+        {{ social_links }}
+
+        {%- if section.settings.footer_copy != blank -%}
+          <div class="Footer-lowerSection FooterCopy">
+            <p>{{ section.settings.footer_copy }} </p>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+      <div class="Footer-lowerSection Credits">
+        <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | link_to: shop.url }}. All Rights Reserved.</p>
+        {%-  unless shop.permanent_domain contains 'custom' -%}
+          {% if section.settings.designed_by_link_enabled %}
+            <p>
+              {{ 'footer.credits.designed_by_html' | t }}
+              {{ powered_by_link }}
+            </p>
+          {% endif %}
+          <img tabindex="0" src="{{ 'logo-allyant.png' | asset_img_url: '160x' }}" width="80" height="80" loading="lazy" class="Footer-lowerSection__allyant u-showMd__inline" alt="Reviewed by Allyant for accessibility"/>
+        {%- endunless -%}
+      </div>
+    </div>
+  </div>
+   <!-- AXON Pixel Integration -->
+  <script>
+  window.ALBSS = {
+    event_key: '8becabd1-3897-4c76-87a0-d6dbbd4d1609'
+    };
+  </script>
+  <script src="https://c.albss.com/p/l/loader.iife.js" async></script>
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "class": "Footer",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "footer_copy",
+        "label": "Footer Copy"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_title",
+        "label": "Newsletter Title"
+      },
+      {
+        "type": "richtext",
+        "id": "newsletter_info",
+        "label": "Newsletter information"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form",
+        "label": "Newsletter form ID",
+        "default": "Y5LHLK"
+      },
+      {
+        "type": "header",
+        "content": "Regular Customer Menu"
+      },
+      {
+        "type": "link_list",
+        "id": "menu_1",
+        "label": "Menu 1",
+        "default": "footer"
+      },
+      {
+        "type": "link_list",
+        "id": "menu_2",
+        "label": "Menu 2"
+      },
+      {
+        "type": "link_list",
+        "id": "menu_3",
+        "label": "Menu 3"
+      },
+      {
+        "type": "header",
+        "content": "B2B Customer Menu"
+      },
+      {
+        "type": "link_list",
+        "id": "b2b_menu_1",
+        "label": "B2B Menu 1",
+        "default": "footer"
+      },
+      {
+        "type": "link_list",
+        "id": "b2b_menu_2",
+        "label": "B2B Menu 2"
+      },
+      {
+        "type": "link_list",
+        "id": "b2b_menu_3",
+        "label": "B2B Menu 3"
+      },
+      {
+        "type": "header",
+        "content": "Social"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_icons_enabled",
+        "label": "Show social media icons",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "designed_by_link_enabled",
+        "label": "Show \"Designed by\" link",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

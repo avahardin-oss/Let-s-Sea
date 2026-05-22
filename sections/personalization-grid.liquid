@@ -1,0 +1,70 @@
+<div class="personalization-container">
+
+  <h2 class="__heading"> {{section.settings.heading}} </h2>
+  <h3 class="__description"> {{section.settings.sub_heading}} </h3>
+
+  <ul class="__content">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign image = block.settings.image
+        assign link = block.settings.link | default: '' | strip
+        assign button_text = block.settings.cta
+      -%}
+        <li class="--block" role="group" aria-label="ctegory">
+          <img src="{{ image | img_url: '600x' }}" width="23" height="72" alt="" loading="lazy">
+          <a href="{{ link }}" class="-button"> {{button_text}} </a>
+        </li>
+      {%- endfor -%}
+  </ul>
+
+</div>
+
+  {%- schema %}
+  {
+    "name": "Personalization Grid",
+    "max_blocks" : 4,
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Personalization is Back!"
+      },
+      {
+        "type": "text",
+        "id": "sub_heading",
+        "label": "Heading",
+        "default": "Start choosing a category to make it unique by adding a name or monogram with personalized laser engraving."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "icon_badge",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Button Link"
+          },
+          {
+            "type": "text",
+            "id": "cta",
+            "label": "Button text",
+            "default": "Customize Summit Bottle"
+          }
+        ]
+      }
+    ],
+
+    "presets": [{
+        "name": "Personalization Grid",
+        "settings": {}
+      }]
+  }
+  {% endschema -%}

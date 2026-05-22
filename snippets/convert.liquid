@@ -1,0 +1,25 @@
+{%- if template.name == 'collection' -%}
+  <!-- begin Convert Experiences code -->
+  <script type="text/javascript">
+    // fill in the values for the variables that you want to use
+    var _conv_page_type = 'Collection'
+    var _conv_category_id = '{{ collection.id }}'
+    var _conv_category_name = '{{ collection.title }}'
+  </script>
+{%- endif -%}
+{% comment %}
+  <script
+    type='text/javascript'
+    src='//cdn-4.convertexperiments.com/js/10034754-10034273.js'
+  ></script>
+{% endcomment %}
+<!-- begin Convert Experiences code -->
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    var convertScript = document.createElement('script')
+    convertScript.type = 'text/javascript'
+    convertScript.src = '//cdn-4.convertexperiments.com/v1/js/10034754-10034273.js?environment=production'
+    document.head.appendChild(convertScript)
+  })
+</script>
+<!-- end Convert Experiences code -->

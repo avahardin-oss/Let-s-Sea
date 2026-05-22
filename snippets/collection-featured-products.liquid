@@ -1,0 +1,14 @@
+<section class="js-featured-products">
+  <div class="Collection__header">
+    <div class="Collection__header-title">
+      <h1>{{ collection.title }}</h1>
+    </div>
+  </div>
+  <ul class="Collection__wrapper Grid Grid--alignLeft" role="list">
+    {%- for product in featured_products.value -%}
+      <li class="ProductCard">
+        {%- render 'product-card', product: product -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>

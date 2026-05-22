@@ -1,0 +1,218 @@
+{%- liquid
+  assign header = section.settings.header
+-%}
+
+{%- if section.blocks.size > 0 -%}
+  <section class="Category-slider">
+    {%- if header and header != blank -%}
+      <h2 class="Category-slider-header">
+        {{ header }}
+      </h2>
+    {%- endif -%}
+
+    <div class="swiper js-category-slider-carousel Category-slider-carousel desktop-only">
+      <div class="swiper-wrapper Category-slider-wrapper" carousel>
+        <p class="sr-only">This is a carousel with scrollable slides. Use Next and Previous buttons to navigate.</p>
+
+        {%- for block in section.blocks -%}
+          {%- liquid
+                assign title = block.settings.category_title
+                assign coll_help = block.settings.coll | default: ''
+                assign coll = collections[coll_help] | default: ''
+                assign prod_handle = block.settings.prod | default: ''
+                assign prod = all_products[prod_handle]
+                assign category_image = block.settings.category_image
+            -%}
+
+          <div
+            class="swiper-slide Category-slider-slide"
+            role="group"
+            aria-label="card">
+            <div class="Category-slider--featured-wrapper">
+              {%- if coll != blank -%}
+                <a href="{{ coll.url }}">
+                  {%- if category_image != blank -%}
+                    {%- capture category_image -%}
+                      {%- render 'print-image-sizes', image: category_image -%}
+                    {%- endcapture -%}
+
+                    <div
+                      class="Category-slider--image lazyload"
+                      data-sizes="auto"
+                      data-bgset="{{ category_image | strip_newlines | strip }}"></div>
+                  {%- elsif coll.featured_image != blank -%}
+                    {%- capture category_image -%}
+                      {%- render 'print-image-sizes', image: coll.featured_image.src -%}
+                    {%- endcapture -%}
+
+                    <div
+                      class="Category-slider--image lazyload"
+                      data-sizes="auto"
+                      data-bgset="{{ category_image | strip_newlines | strip }}"></div>
+                  {%- endif -%}
+
+                  <h3 class="Category-slider--title">{{ title }}</h3>
+                </a>
+
+              {%- elsif prod != blank -%}
+                <a href="{{ prod.url }}">
+                  {%- if category_image != blank -%}
+                    {%- capture category_image -%}
+                      {%- render 'print-image-sizes', image: category_image -%}
+                    {%- endcapture -%}
+
+                    <div
+                      class="Category-slider--image lazyload"
+                      data-sizes="auto"
+                      data-bgset="{{ category_image | strip_newlines | strip }}"></div>
+                  {%- elsif prod.images.first != blank -%}
+                    {%- capture product_image -%}
+                      {%- render 'print-image-sizes', image: prod.images.first -%}
+                    {%- endcapture -%}
+
+                    <div
+                      class="Category-slider--image lazyload"
+                      data-sizes="auto"
+                      data-bgset="{{ product_image | strip_newlines | strip }}"></div>
+                  {%- endif -%}
+
+                  <h3 class="Category-slider--title">{{ title }}</h3>
+                </a>
+
+              {%- endif -%}
+
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="Category-slider-carousel-actions">
+        <div class="Category-slider-carousel-scrollbar-wrapper">
+          <div class="swiper-scrollbar"></div>
+        </div>
+        <button aria-label="Previous slide" class="swiper-button-prev"></button>
+        <button aria-label="Next slide" class="swiper-button-next"></button>
+      </div>
+    </div>
+
+    <div class="Category-slider-carousel mobile-only">
+      <div class="Category-slider-wrapper" carousel>
+        {%- for block in section.blocks -%}
+          {%- liquid
+                assign title = block.settings.category_title
+                assign coll_help = block.settings.coll | default: ''
+                assign coll = collections[coll_help] | default: ''
+                assign prod_handle = block.settings.prod | default: ''
+                assign prod = all_products[prod_handle]
+                assign category_image = block.settings.category_image
+            -%}
+
+          <div
+            class="Category-slider-slide"
+            role="group"
+            aria-label="card">
+            <div class="Category-slider--featured-wrapper">
+              {%- if coll != blank -%}
+                <a href="{{ coll.url }}">
+                  {%- if category_image != blank -%}
+                    {%- capture category_image -%}
+                      {%- render 'print-image-sizes', image: category_image -%}
+                    {%- endcapture -%}
+
+                    <div
+                      class="Category-slider--image lazyload"
+                      data-sizes="auto"
+                      data-bgset="{{ category_image | strip_newlines | strip }}"></div>
+                  {%- elsif coll.featured_image != blank -%}
+                    {%- capture category_image -%}
+                      {%- render 'print-image-sizes', image: coll.featured_image.src -%}
+                    {%- endcapture -%}
+
+                    <div
+                      class="Category-slider--image lazyload"
+                      data-sizes="auto"
+                      data-bgset="{{ category_image | strip_newlines | strip }}"></div>
+                  {%- endif -%}
+
+                  <h3 class="Category-slider--title">{{ title }}</h3>
+                </a>
+
+              {%- elsif prod != blank -%}
+                <a href="{{ prod.url }}">
+                  {%- if category_image != blank -%}
+                    {%- capture category_image -%}
+                      {%- render 'print-image-sizes', image: category_image -%}
+                    {%- endcapture -%}
+
+                    <div
+                      class="Category-slider--image lazyload"
+                      data-sizes="auto"
+                      data-bgset="{{ category_image | strip_newlines | strip }}"></div>
+                  {%- elsif prod.images.first != blank -%}
+                    {%- capture product_image -%}
+                      {%- render 'print-image-sizes', image: prod.images.first -%}
+                    {%- endcapture -%}
+
+                    <div
+                      class="Category-slider--image lazyload"
+                      data-sizes="auto"
+                      data-bgset="{{ product_image | strip_newlines | strip }}"></div>
+                  {%- endif -%}
+
+                  <h3 class="Category-slider--title">{{ title }}</h3>
+                </a>
+
+              {%- endif -%}
+
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Category Slider",
+    "class": "HomepageCategorySlider-section js-home-category-slider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "card",
+        "name": "Category",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "category_image",
+            "label": "Category Image (optional)"
+          }, {
+            "type": "text",
+            "id": "category_title",
+            "label": "Category title"
+          }, {
+            "type": "collection",
+            "id": "coll",
+            "label": "Collection"
+          }, {
+            "type": "product",
+            "id": "prod",
+            "label": "Product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Category Slider",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

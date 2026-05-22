@@ -1,0 +1,135 @@
+{%- liquid
+  assign header = section.settings.header
+-%}
+
+{%- if section.blocks.size > 0 -%}
+  <section class="Card-slider">
+    {%- if header and header != blank -%}
+      <h2 class="Card-slider-header">
+        {{ header }}
+      </h2>
+    {%- endif -%}
+
+    <div class="Card-slider-carousel desktop-only">
+      <div class="Card-slider-wrapper" carousel>
+        {%- for block in section.blocks -%}
+          {%- liquid
+                assign desc = block.settings.card_title
+                assign cta_url = block.settings.cta_url
+                assign cta = block.settings.cta
+                capture featured_card_desktop
+                  render 'print-image-sizes', image: block.settings.card_image
+                endcapture
+            -%}
+
+          <div
+            class="Card-slider-slide"
+            role="group"
+            aria-label="card">
+            <div class="Card-slider--featured-wrapper">
+              <div class="Card-slider--content">
+                <h3 class="Card-slider--title">{{ desc }}</h3>
+                <a href="{{ cta_url }}" class="btn">{{ cta }}</a>
+              </div>
+
+              <div
+                class="Card-slider--featured lazyload"
+                data-sizes="auto"
+                data-bgset="{{ featured_card_desktop | strip_newlines | strip }}"></div>
+              <div class="Card-slider--featured-overlay"></div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="swiper js-card-slider-carousel Card-slider-carousel mobile-only">
+      <div class="swiper-wrapper Card-slider-wrapper" carousel>
+        <p class="sr-only">This is a carousel with scrollable slides. Use Next and Previous buttons to navigate.</p>
+
+        {%- for block in section.blocks -%}
+          {%- liquid
+                assign desc = block.settings.card_title
+                assign cta_url = block.settings.cta_url
+                assign cta = block.settings.cta
+                capture featured_card_desktop
+                  render 'print-image-sizes', image: block.settings.card_image
+                endcapture
+            -%}
+
+          <div
+            class="swiper-slide Card-slider-slide"
+            role="group"
+            aria-label="card">
+            <div class="Card-slider--featured-wrapper">
+              <div class="Card-slider--content">
+                <h3 class="Card-slider--title">{{ desc }}</h3>
+                <a href="{{ cta_url }}" class="btn">{{ cta }}</a>
+              </div>
+
+              <div
+                class="Card-slider--featured lazyload"
+                data-sizes="auto"
+                data-bgset="{{ featured_card_desktop | strip_newlines | strip }}"></div>
+              <div class="Card-slider--featured-overlay"></div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="Card-slider-carousel-actions">
+        <div class="Card-slider-carousel-scrollbar-wrapper">
+          <div class="swiper-scrollbar"></div>
+        </div>
+        <button aria-label="Previous slide" class="swiper-button-prev"></button>
+        <button aria-label="Next slide" class="swiper-button-next"></button>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Card Slider",
+    "class": "HomepageCardSlider-section js-home-card-slider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "card",
+        "name": "Card",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "card_image",
+            "label": "Featured Card Image"
+          }, {
+            "type": "text",
+            "id": "card_title",
+            "label": "Card title"
+          }, {
+            "type": "url",
+            "id": "cta_url",
+            "label": "CTA URL"
+          }, {
+            "type": "text",
+            "id": "cta",
+            "label": "CTA Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Card Slider",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

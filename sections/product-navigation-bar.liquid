@@ -1,0 +1,106 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+<section class="ProductNavigationBar-wrapper">
+  <div class="ProductNavigationBar-product">
+    {%- if section.settings.display_reviews == true -%}
+      {% render 'okendo-reviews-product-rating-summary', product: product %}
+    {%- endif -%}
+    <h1>
+      {{ product.title -}}
+      <small class="js-product-navigation-variant-title">
+        {{- product.selected_or_first_available_variant.title | replace: 'Default Title', '' -}}
+      </small>
+    </h1>
+  </div>
+  {% comment %}
+    <ul class='ProductNavigationBar-elements ab-test-accordions-hide'>
+      {%- for block in section.blocks -%}
+        <li>
+          <a
+            href='#{{ block.settings.section_anchor }}'
+            class='ProductNavigationBar-elementLink event-pdpNavigation'
+            title='{{ block.settings.title }}'
+          >
+            {{- block.settings.title -}}
+          </a>
+        </li>
+      {%- endfor -%}
+      {%- if section.settings.display_atc == true -%}
+        <li>
+          <button class='btn reverse btn-atc js-product-navigation-atc' {% if current_variant.available == false or product.tags contains 'coming_soon' %}disabled="disabled"{% endif %}>
+            {% if product.tags contains 'coming_soon' %}
+              <del>
+                {{- product.selected_or_first_available_variant.price | money -}}
+              </del>
+              Coming Soon
+            {% elsif current_variant.available == false%}
+            <del>
+              {{- product.selected_or_first_available_variant.price | money -}}
+            </del>
+            {{ 'products.product.sold_out' | t }}
+            {% else  %}
+            <span>
+              {{- product.selected_or_first_available_variant.price | money -}}
+            </span>
+            {{ 'products.product.add_to_cart' | t }}
+          {% endif %}
+          </button>
+        </li>
+      {%- endif -%}
+    </ul>
+  {% endcomment %}
+</section>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    display: none;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product Nav Bar",
+  "tag": "section",
+  "class": "js-smp-reload js-product-navigation ProductNavigationBar ab-test-pdp-hide",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "display_reviews",
+      "label": "Display Reviews",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "display_atc",
+      "label": "Display Add to Cart",
+      "default": true,
+      "info": "Visible on scroll, only desktop"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "navigation",
+      "name": "Navigation",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Navigation Title"
+        },
+        {
+          "type": "text",
+          "id": "section_anchor",
+          "label": "Section Anchor",
+          "info": "Scroll to section identifier",
+          "placeholder": "#faq"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Nav Bar",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

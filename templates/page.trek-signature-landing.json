@@ -1,0 +1,197 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "main",
+    "signature_product_eBYKGx",
+    "signature_product_shoppable_BKC8zD"
+  ],
+  "sections": {
+    "main": {
+      "disabled": true,
+      "settings": {},
+      "type": "page"
+    },
+    "signature_product_eBYKGx": {
+      "block_order": [
+        "feature_FDcWMY",
+        "feature_eqb9Em",
+        "feature_z3NTTb",
+        "feature_WYy4Gi",
+        "slide_gGLnRp",
+        "slide_RwRKyh",
+        "slide_tV4Tqp",
+        "slide_KWbVcJ",
+        "slide_cLTApz"
+      ],
+      "blocks": {
+        "feature_FDcWMY": {
+          "settings": {
+            "left_feature": "Leak-Proof Straw Lid",
+            "left_feature_image": "shopify://shop_images/Sig-Trek-1-gray2.jpg",
+            "right_feature": "Push to Lock",
+            "right_feature_image": "shopify://shop_images/Gray-ForLander.gif"
+          },
+          "type": "feature"
+        },
+        "feature_WYy4Gi": {
+          "settings": {
+            "left_feature": "Easy-to-Grip Handle",
+            "left_feature_image": "shopify://shop_images/Sig-Trek-4-gray.jpg",
+            "right_feature": "Easy-to-Clean Removable Straw",
+            "right_feature_image": "shopify://shop_images/Sig_Trek_3-gray.jpg"
+          },
+          "type": "feature"
+        },
+        "feature_eqb9Em": {
+          "settings": {
+            "left_feature": "Flexible Silicone Straw",
+            "left_feature_image": "shopify://shop_images/Sig-Trek-2-gray_a7edd4f2-6821-4922-92ab-b7a73e3e0f2d.jpg",
+            "right_feature": "Non-Slip Silicone Bottom",
+            "right_feature_image": "shopify://shop_images/Sig-Trek-5-gray.jpg"
+          },
+          "type": "feature"
+        },
+        "feature_z3NTTb": {
+          "settings": {
+            "left_feature": "Ceramic-Lined Interior",
+            "left_feature_image": "shopify://shop_images/Sig-Trek-6-gray.jpg",
+            "right_feature": "Cold for 24+ Hours",
+            "right_feature_image": "shopify://shop_images/ice_8ebbfee3-98bf-4af7-b15f-058389faa126.jpg"
+          },
+          "type": "feature"
+        },
+        "slide_KWbVcJ": {
+          "settings": {
+            "slide_description": "<p>With the easy-to-grip handle your hydration goals have never been easier to grasp.</p>",
+            "slide_image": "shopify://shop_images/hydration-handled2.jpg",
+            "slide_title": "Hydration Handled"
+          },
+          "type": "slide"
+        },
+        "slide_RwRKyh": {
+          "settings": {
+            "slide_description": "<p>Easy to grip, easy to sip. An all new silicone straw provides a more flexible way to hydrate.</p>",
+            "slide_image": "shopify://shop_images/sig-trek-image-2.jpg",
+            "slide_title": "A Softer Sip"
+          },
+          "type": "slide"
+        },
+        "slide_cLTApz": {
+          "settings": {
+            "slide_description": "<p>Sleek ceramic meets Simple Modern’s best-in-class vacuum insulation. Our ceramic-lined interior is easy to clean and keeps away metallic taste.</p>",
+            "slide_image": "shopify://shop_images/ceramic-lined.jpg",
+            "slide_title": "No Compromise Design"
+          },
+          "type": "slide"
+        },
+        "slide_gGLnRp": {
+          "settings": {
+            "slide_description": "<p>Carry confidence on the go with the sleek looks and 100% leak-proof performance of Trek Signature.</p>",
+            "slide_image": "shopify://shop_images/sig-trek-image-4.jpg",
+            "slide_title": "No Leak, All Chic"
+          },
+          "type": "slide"
+        },
+        "slide_tV4Tqp": {
+          "settings": {
+            "slide_description": "<p>Land confidently with fewer slips, scuffs, or clinks. Trek Signature sports a silicone grip base.</p>",
+            "slide_image": "shopify://shop_images/sig-trek-image-5.jpg",
+            "slide_title": "Look Good, Feel Better"
+          },
+          "type": "slide"
+        }
+      },
+      "settings": {
+        "background_color": "#ffffff",
+        "color_mode": "light",
+        "featured_pretitle": "Goodbye Leaks,",
+        "featured_product": "signature-trek-tumbler-4",
+        "featured_title": "Hello Sleek",
+        "features_image": "shopify://shop_images/landing_page_shaded_image_63066da6-8778-4a0f-bfb0-ccb2405bc055.png",
+        "features_pretitle": "",
+        "features_title": "Leave The Drip Behind",
+        "hero_cta_label": "Shop Trek Signature",
+        "hero_image": "shopify://shop_images/1B8A1311-Edit2.jpg",
+        "hero_image_mobile": "shopify://shop_images/1B8A13112.jpg",
+        "hero_pretitle": "★★★★★",
+        "mobile_title": "\"My favorite<br>tumbler just <br>got better!\"",
+        "product_list": [
+          "signature-trek-tumbler-8",
+          "signature-trek-tumbler-6",
+          "signature-trek-tumbler-7",
+          "signature-trek-tumbler-10"
+        ],
+        "shadow_intensity": 0,
+        "title": "\"My favorite tumbler <br>just got better!\"",
+        "video_type": "shopify",
+        "youtube_url": ""
+      },
+      "type": "signature-product"
+    },
+    "signature_product_shoppable_BKC8zD": {
+      "block_order": [
+        "question_HPa8PF",
+        "question_yiijqy",
+        "question_nh6hgU",
+        "question_xciAfq",
+        "question_bCBeBN"
+      ],
+      "blocks": {
+        "question_HPa8PF": {
+          "settings": {
+            "answer": "<p>Our best-selling Trek Tumbler just got even better. Introducing Trek Signature, with all the features you love from the original, plus our Signature upgrades like a leak-proof lid to avoid spills, ceramic lining to preserve your drink's flavor, and a silicone base for added durability.</p>",
+            "question": "DESCRIPTION"
+          },
+          "type": "question"
+        },
+        "question_bCBeBN": {
+          "settings": {
+            "answer": "<p>Limited Lifetime Warranty</p>",
+            "question": "WARRANTY"
+          },
+          "type": "question"
+        },
+        "question_nh6hgU": {
+          "settings": {
+            "answer": "<p><strong>Mouth:</strong> 3.5 inches<br/><strong>Height: </strong>10.1 inches<br/><strong>Base:</strong> 3 inches<br/><strong>Weight: </strong>20.3 ounces</p>",
+            "question": "DIMENSIONS"
+          },
+          "type": "question"
+        },
+        "question_xciAfq": {
+          "settings": {
+            "answer": "<p>Tumbler is dishwasher safe.<br/>Lid is top rack dishwasher safe.<br/>Leak-proof lid not for use with carbonated liquids.</p>",
+            "question": "CARE INSTRUCTIONS"
+          },
+          "type": "question"
+        },
+        "question_yiijqy": {
+          "settings": {
+            "answer": "<p><strong>Trek Signature Features:</strong></p><ul><li>Leak-proof straw lid</li><li>Silicone straw</li><li>Ceramic-lined interior preserves your drink's flavor</li><li>Silicone grip base prevents slipping</li><li>More comfortable handle</li></ul><p><strong>Original Trek Features Still Included:</strong></p><ul><li>Cupholder friendly</li><li>Double-wall insulation keeps your drink cold for hours </li><li>Made of durable premium 18/8 stainless steel</li></ul>",
+            "question": "COMPARE"
+          },
+          "type": "question"
+        }
+      },
+      "settings": {
+        "customizer_desc": "Making your own personalized tumbler is easy. Click on the image to add a text and create the perfect tumbler.",
+        "customizer_title": "Personalize your product",
+        "details_title": "Details",
+        "font_size": 2.5,
+        "readmore_link": "/pages/warranty-1",
+        "shoppable_product": "signature-trek-tumbler-6",
+        "upsell_title": "Try a bottle with another lid"
+      },
+      "type": "signature-product-shoppable"
+    }
+  },
+  "wrapper": "main.Page[role='main']"
+}

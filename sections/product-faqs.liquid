@@ -1,0 +1,96 @@
+{%- assign navigation_id = section.settings.navigation_id | default: section.name | handleize -%}
+
+<section class="ProductFAQs js-navigation-id-{{ navigation_id }} js-accordion-section js-ab-faq-siena">
+  <div class="ProductFAQs-container">
+    {% if section.settings.title != blank %}
+      <h2 class="ProductFAQs-heading">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    {% for block in section.blocks %}
+      {% liquid
+        assign category = block.settings.category
+        assign question = block.settings.question
+        assign answer = block.settings.answer
+      %}
+
+      {% if question != blank and answer != blank %}
+        <div class="FAQAccordion">
+          <h3 class="FAQAccordion__title" id="accordion-heading-{{ section.id }}-{{ forloop.index }}">
+            <button
+              type="button"
+              class="FAQAccordion__trigger js-accordion-trigger"
+              aria-expanded="false"
+              aria-controls="accordion-body-{{ section.id }}-{{ forloop.index }}"
+              data-show-one="true"
+            >
+              {{ question }}
+
+              <span class="FAQAccordion__icon"></span>
+            </button>
+          </h3>
+
+          <div
+            class="FAQAccordion__body"
+            id="accordion-body-{{ section.id }}-{{ forloop.index }}"
+            aria-labelledby="accordion-heading-{{ section.id }}-{{ forloop.index }}"
+          >
+            <div class="FAQAccordion__inner">
+              <div class="FAQAccordion__text">
+                {{ answer }}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "FAQs accordion",
+    "enabled_on": {
+      "templates": ["product"]
+    },
+    "class": "js-smp-reload",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title",
+        "default": "FAQ"
+      },
+      {
+        "type": "text",
+        "id": "navigation_id",
+        "label": "Navigation anchor",
+        "default": "product-faq"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Question",
+        "type": "question",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question",
+            "default": "Lorem ipsum?"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer",
+            "default": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [{
+      "name": "FAQs accordion"
+    }]
+  }
+{% endschema %}

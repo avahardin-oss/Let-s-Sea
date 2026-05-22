@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkshopify_theme"]=self["webpackChunkshopify_theme"]||[]).push([[748],{922:()=>{const logErrors=function(err){console.error(err)}}},__webpack_require__=>{
+var __webpack_exec__=moduleId=>__webpack_require__(__webpack_require__.s=moduleId);var __webpack_exports__=__webpack_exec__(922)}]);

@@ -1,0 +1,114 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/sections/text-with-background/section.liquid}] %}
+
+<style>
+.TextWithBackground{background-color:#fff;padding-top:max(1rem,5.55556vw)}
+.mod_text_with_background_KoaQma_TextWithBackground{padding-top:max(1rem,5.55556vw)}
+.mod_text_with_background_KoaQma_TextWithBackground__section{flex-direction:column;display:flex}
+.mod_text_with_background_KoaQma_TextWithBackground__textContainer{padding-bottom:max(1rem,5.55556vw);padding-left:max(1rem,5.55556vw);padding-right:max(1rem,2.77778vw)}
+.mod_text_with_background_KoaQma_TextWithBackground__textContainer h1{text-transform:uppercase;margin-bottom:max(1rem,2.22222vw);font-size:max(2rem,2.77778vw);font-style:normal;line-height:1}
+.mod_text_with_background_KoaQma_TextWithBackground__textContainer p{letter-spacing:max(.005rem,.00555556vw);margin:0 0 max(.5rem,.555556vw);font-size:max(1rem,1.25vw);font-style:normal;line-height:1.4}
+.mod_text_with_background_KoaQma_TextWithBackground__buttonContainer{grid-template-columns:repeat(2,1fr);gap:0 max(1rem,1.11111vw);width:50%;display:grid}
+.mod_text_with_background_KoaQma_TextWithBackground__imageContainer{background-position:100% 100%;background-repeat:no-repeat;background-size:contain;padding-bottom:100%}
+.Footer{margin-top:0!important}
+@media print,screen and (width>=64em){.mod_text_with_background_KoaQma_TextWithBackground__section{flex-direction:row}
+.mod_text_with_background_KoaQma_TextWithBackground__textContainer{width:50%}
+.mod_text_with_background_KoaQma_TextWithBackground__imageContainer{width:50%;padding-bottom:0}
+}
+</style>
+
+{% liquid
+  assign layout = section.settings.layout | default: 'right'
+  assign heading = section.settings.heading | default: ''
+  assign text = section.settings.text | default: ''
+  assign backgroundImage = section.settings.image | default: ''
+  assign app_store_link = section.settings.app_store_link | default: ''
+  assign play_store_link = section.settings.play_store_link | default: ''
+  capture background_image_sizes
+    render 'print-image-sizes' with image: backgroundImage
+  endcapture
+%}
+<section
+  class='mod_text_with_background_KoaQma_TextWithBackground__section'>
+    <div class='mod_text_with_background_KoaQma_TextWithBackground__textContainer'>
+      {%- if heading != '' -%}
+        <h1>{{ heading }}</h1>
+      {%- endif -%}
+      {%- if text != '' -%}
+        {{ text }}
+      {%- endif -%}
+      {%- if app_store_link != '' and play_store_link != '' -%}
+        <div class='mod_text_with_background_KoaQma_TextWithBackground__buttonContainer'>
+            {%- if app_store_link -%}
+                <a href='{{ app_store_link }}'>
+                {%- render 'icon-app-store' -%}
+                </a>
+            {%- endif -%}
+            {%- if play_store_link -%}
+                <a href='{{ play_store_link }}'>
+                {%- render 'icon-play-store' -%}
+                </a>
+            {%- endif -%}
+        </div>
+      {%- endif -%}
+  </div>
+  {%- if backgroundImage != blank -%}
+  <div class='mod_text_with_background_KoaQma_TextWithBackground__imageContainer lazyload' data-bgset='{{ background_image_sizes }}' data-sizes='auto'></div>
+{%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Text With Background",
+  "class": "TextWithBackground",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "left",
+          "label": "Background on left"
+        },
+        {
+          "value": "right",
+          "label": "Background on right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Image with text"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "url",
+      "id": "app_store_link",
+      "label": "App Store link"
+    },
+    {
+      "type": "url",
+      "id": "play_store_link",
+      "label": "Play Store link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Background with text",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

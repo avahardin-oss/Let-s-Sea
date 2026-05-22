@@ -1,0 +1,275 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/sections/personalization-carousel/section.liquid}] %}
+
+<script class="json-portable-section-assets" type="application/json">
+{"sectionName":"personalization-carousel"}
+</script>
+
+<style>
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel{padding:max(4rem,5.55556vw) max(1rem,2.77778vw);overflow:hidden}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__header{text-align:center;flex-direction:column;gap:max(1rem,1.11111vw);margin-bottom:max(2rem,2.77778vw);display:flex}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__heading{letter-spacing:-.02em;color:#000;margin:0;font-family:Gilroy,sans-serif;font-size:max(2rem,2.22222vw);font-weight:600;line-height:1.1}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__description{color:#000;margin:0;font-family:Gilroy,sans-serif;font-size:max(.875rem,1.11111vw);font-weight:400;line-height:1.2}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__slider-container{flex-direction:column;gap:max(1.5rem,1.66667vw);display:flex}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__carousel{width:100%;overflow:visible}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__wrapper{display:flex}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__slide{flex-direction:column;flex-shrink:0;width:max(15.9375rem,17.7083vw);height:auto;display:flex}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__card{flex-direction:column;flex:1;gap:max(1rem,1.66667vw);display:flex}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__card--clickable{color:inherit;cursor:pointer;text-decoration:none}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__card--clickable:hover .mod_personalization_carousel_8YZMRG_PersonalizationCarousel__image{transform:scale(1.03)}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__image-wrapper{aspect-ratio:1;background-color:#000;border-radius:max(.25rem,.555556vw);width:100%;overflow:hidden}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__image-wrapper--placeholder{background-color:#f0f0f0}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__image{object-fit:cover;width:100%;height:100%;transition:transform .3s;display:block}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__content{flex-direction:column;gap:max(.25rem,.555556vw);padding-right:max(2rem,2.22222vw);display:flex}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__card-title{color:#000;text-transform:uppercase;margin:0;font-family:Gilroy,sans-serif;font-size:max(1rem,1.38889vw);font-weight:600;line-height:1.2}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__card-description{color:#000;margin:0;font-family:Gilroy,sans-serif;font-size:max(.875rem,1.11111vw);font-weight:400;line-height:1.2}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__actions{align-items:center;gap:max(1rem,1.11111vw);width:100%;display:flex}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__actions.is-controls-hidden{display:none}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__scrollbar-wrapper{background-color:var(--mod_personalization_carousel_8YZMRG_scrollbar-bg-color,#ccc);flex:1;height:max(.125rem,.138889vw);position:relative}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__scrollbar-wrapper .swiper-scrollbar{background:0 0;width:100%;height:100%;position:absolute;top:0;left:0}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__scrollbar-wrapper .swiper-scrollbar .swiper-scrollbar-drag{background-color:var(--mod_personalization_carousel_8YZMRG_scrollbar-color,#000);border-radius:0;height:100%}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__nav{flex-shrink:0;align-items:center;gap:max(.5rem,.555556vw);display:flex}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__nav-button{border:1px solid var(--mod_personalization_carousel_8YZMRG_arrows-color,#ccc);cursor:pointer;width:max(2rem,2.22222vw);height:max(2rem,2.22222vw);color:var(--mod_personalization_carousel_8YZMRG_arrows-color,#ccc);background-color:#0000;border-radius:50%;justify-content:center;align-items:center;padding:0;transition:opacity .2s;display:flex}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__nav-button:hover{opacity:.7}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__nav-button:disabled{opacity:.3;cursor:not-allowed}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__nav-button svg{width:auto;height:max(.625rem,.833333vw)}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__nav-button svg path{stroke:currentColor}
+@media print,screen and (width>=64em){.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__header{text-align:left;flex-direction:row;align-items:flex-start;gap:max(1rem,1.11111vw)}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__heading,.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__description{flex:1;min-width:0}
+.mod_personalization_carousel_8YZMRG_PersonalizationCarousel__slide{width:max(20.5rem,22.7778vw)}
+}
+</style>
+
+{%- liquid
+  assign heading = section.settings.heading
+  assign description = section.settings.description
+-%}
+
+<section class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel">
+  {%- if heading != blank or description != blank -%}
+    <div class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__header">
+      {%- if heading != blank -%}
+        <h2 class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__heading">{{ heading | escape }}</h2>
+      {%- endif -%}
+      {%- if description != blank -%}
+        <p class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__description">{{ description | escape }}</p>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__slider-container">
+      <div
+        role="region"
+        aria-label="personalization options carousel"
+        class="swiper js-personalization-carousel mod_personalization_carousel_8YZMRG_PersonalizationCarousel__carousel"
+      >
+        <p class="sr-only">This is a carousel with scrollable slides. Use Next and Previous buttons to navigate.</p>
+
+        <div class="swiper-wrapper mod_personalization_carousel_8YZMRG_PersonalizationCarousel__wrapper">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign block_title = block.settings.title
+              assign block_description = block.settings.description
+              assign block_image = block.settings.image
+              assign block_link = block.settings.link
+            -%}
+
+            <div
+              {{ block.shopify_attributes }}
+              class="swiper-slide mod_personalization_carousel_8YZMRG_PersonalizationCarousel__slide"
+              role="group"
+              aria-label="personalization option"
+            >
+              {%- if block_link != blank -%}
+                <a
+                  href="{{ block_link }}"
+                  class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__card mod_personalization_carousel_8YZMRG_PersonalizationCarousel__card--clickable"
+                >
+              {%- else -%}
+                <div class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__card">
+              {%- endif -%}
+
+              {%- if block_image != blank -%}
+                <div class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__image-wrapper">
+                  <img
+                    src="{{ block_image | image_url: width: 656 }}"
+                    srcset="
+                      {{ block_image | image_url: width: 255 }} 255w,
+                      {{ block_image | image_url: width: 328 }} 328w,
+                      {{ block_image | image_url: width: 510 }} 510w,
+                      {{ block_image | image_url: width: 656 }} 656w
+                    "
+                    sizes="(max-width: 767px) 255px, 328px"
+                    alt="{{ block_image.alt | default: block_title | escape }}"
+                    width="{{ block_image.width }}"
+                    height="{{ block_image.height }}"
+                    loading="lazy"
+                    class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__image"
+                  >
+                </div>
+              {%- else -%}
+                <div
+                  class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__image-wrapper mod_personalization_carousel_8YZMRG_PersonalizationCarousel__image-wrapper--placeholder"
+                ></div>
+              {%- endif -%}
+
+              <div class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__content">
+                {%- if block_title != blank -%}
+                  <h3 class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__card-title">{{ block_title | escape }}</h3>
+                {%- endif -%}
+                {%- if block_description != blank -%}
+                  <p class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__card-description">
+                    {{ block_description | escape }}
+                  </p>
+                {%- endif -%}
+              </div>
+
+              {%- if block_link != blank -%}
+                </a>
+              {%- else -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__actions js-personalization-carousel-controls">
+        <div class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__scrollbar-wrapper">
+          <div class="swiper-scrollbar js-personalization-carousel-scrollbar"></div>
+        </div>
+        <div class="mod_personalization_carousel_8YZMRG_PersonalizationCarousel__nav">
+          <button
+            aria-label="Previous slide"
+            class="js-personalization-carousel-prev mod_personalization_carousel_8YZMRG_PersonalizationCarousel__nav-button"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" fill="none">
+              <path d="M6.70703 0.353577L0.707031 6.35358L6.70703 12.3536" stroke="currentColor"/>
+            </svg>
+          </button>
+          <button
+            aria-label="Next slide"
+            class="js-personalization-carousel-next mod_personalization_carousel_8YZMRG_PersonalizationCarousel__nav-button"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="13" viewBox="0 0 8 13" fill="none">
+              <path d="M0.353516 0.353577L6.35352 6.35358L0.353516 12.3536" stroke="currentColor"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+
+<style>
+  .mod_personalization_carousel_8YZMRG_PersonalizationCarousel {
+    --mod_personalization_carousel_8YZMRG_arrows-color: {{ settings.arrows_color | default: '#000000' }};
+    --mod_personalization_carousel_8YZMRG_scrollbar-color: {{ section.settings.scrollbar_color }};
+    --mod_personalization_carousel_8YZMRG_scrollbar-bg-color: {{ section.settings.scrollbar_bg_color }};
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Personalization Carousel",
+  "class": "js-personalization-carousel-section PersonalizationCarousel-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Endless Ways to Personalize"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "From laser engraving to vibrant colors and patterns, choose the details that make your bottle, tumbler, or accessory uniquely yours. Whether it's a name, monogram, team logo, or full event setup—your ideas become reality."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "scrollbar_color",
+      "label": "Scrollbar progress color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "scrollbar_bg_color",
+      "label": "Scrollbar background color",
+      "default": "#cccccc"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1:1 aspect ratio recommended"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Personalization Carousel",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "title": "LASER ENGRAVING",
+            "description": "Crisp, permanent detail with a premium finish."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "COLOR & PATTERN SELECTION",
+            "description": "Choose from our most-loved hues and exclusive collections."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "TEXT & MONOGRAM OPTIONS",
+            "description": "Add initials, names, dates, or meaningful quotes."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "LOGOS & BRANDING",
+            "description": "Perfect for teams, companies, and events."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,11 @@
+{%- assign text = feature_text | default: '' -%}
+{%- if text != '' -%}
+  <svg viewBox='0 0 500 500' data-duration='5'>
+    <path id="textcircle" fill="none" stroke="#FF9800" stroke-width="0" data-duration="5"
+          d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250">
+    </path>
+    <text dy="-25">
+      <textPath xlink:href="#textcircle">{{ text }}</textPath>
+    </text>
+  </svg>
+{%- endif -%}

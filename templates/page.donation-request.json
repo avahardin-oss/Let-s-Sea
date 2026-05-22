@@ -1,0 +1,94 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "main",
+    "9cc21898-86fc-417f-8d1c-d229660c8c4d",
+    "0fdfd795-f39f-4ced-a019-8c383f205c11"
+  ],
+  "sections": {
+    "0fdfd795-f39f-4ced-a019-8c383f205c11": {
+      "block_order": [
+        "ff6c5a25-57ca-4ad3-a5a8-755a8385cc9a",
+        "9d55f630-df52-4769-82f1-24843004de81"
+      ],
+      "blocks": {
+        "9d55f630-df52-4769-82f1-24843004de81": {
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "image": "shopify://shop_images/donations-info5.jpg",
+            "label": "",
+            "orientation": "right",
+            "stars": 0,
+            "testimonial_text": "<p>“We have reached our in kind giving capacity for the near future. We will re-open submissions when we have inventory available again. Thank you so much for investing in your community generously!”</p>",
+            "title": "Request a Product Donation"
+          },
+          "type": "testimonial"
+        },
+        "ff6c5a25-57ca-4ad3-a5a8-755a8385cc9a": {
+          "settings": {
+            "button_label": "Apply Now",
+            "button_link": "shopify://pages/giving-partner-application",
+            "image": "shopify://shop_images/donations-info6.jpg",
+            "label": "",
+            "orientation": "left",
+            "stars": 0,
+            "testimonial_text": "",
+            "title": "Become a Giving Partner"
+          },
+          "type": "testimonial"
+        }
+      },
+      "settings": {
+        "navigation_id": "product-testimonials"
+      },
+      "type": "testimonials"
+    },
+    "9cc21898-86fc-417f-8d1c-d229660c8c4d": {
+      "block_order": [
+        "2ddb10be-9011-4c66-88bf-a8018a156ce7",
+        "d919eec4-93a5-4a55-8199-c58ca0f8d135"
+      ],
+      "blocks": {
+        "2ddb10be-9011-4c66-88bf-a8018a156ce7": {
+          "settings": {
+            "cta": "Apply Now",
+            "custom_label": "",
+            "heading": "Become a Giving Partner",
+            "image": "shopify://shop_images/donations-info6.jpg",
+            "link": "shopify://pages/giving-partner-application",
+            "sub_heading": ""
+          },
+          "type": "image"
+        },
+        "d919eec4-93a5-4a55-8199-c58ca0f8d135": {
+          "settings": {
+            "cta": "",
+            "custom_label": "",
+            "heading": "Request a Product Donation",
+            "image": "shopify://shop_images/donations-info5.jpg",
+            "link": "",
+            "sub_heading": "We have reached our in kind giving capacity for the near future. We will re-open submissions when we have inventory available again. Thank you so much for investing in your community generously!"
+          },
+          "type": "image"
+        }
+      },
+      "disabled": true,
+      "settings": {},
+      "type": "collection-panels"
+    },
+    "main": {
+      "settings": {},
+      "type": "page"
+    }
+  },
+  "wrapper": "main.Page[role='main']"
+}

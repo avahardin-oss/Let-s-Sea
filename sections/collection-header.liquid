@@ -1,0 +1,52 @@
+{% liquid
+  assign featured_block_logo = collection.metafields.custom.collection_header_logo.value
+  assign featured_image = false
+  unless collection.featured_image == blank or collection.featured_image contains 'products'
+    capture collection_header_image_sizes
+      render 'print-image-sizes' with collection.featured_image
+    endcapture
+    assign featured_image = true
+  endunless
+%}
+{% if featured_image == true %}
+  <section>
+    <div class="column">
+      <div class="CollectionHeader-background">
+        <img
+          class="CollectionHeader-background-img"
+          src="{{ collection.featured_image | image_url: width: 1280 }}"
+          srcset="{{ collection.featured_image | image_url: width: 640 }} 640w, {{ collection.featured_image | image_url: width: 1280 }} 1280w, {{ collection.featured_image | image_url: width: 1800 }} 1800w"
+          sizes="100vw"
+          alt="{{ collection.title }}"
+          width="{{ collection.featured_image.width }}"
+          height="{{ collection.featured_image.height }}"
+          loading="eager"
+          fetchpriority="high"
+        >
+        <div class="CollectionHeader-overlay"></div>
+        {%- if featured_block_logo != blank -%}
+          <img
+            alt="logo image"
+            src="{{ featured_block_logo | img_url: 'master' }}"
+            width="{{ featured_block_logo.width | divided_by: 2 }}"
+            height="{{ featured_block_logo.height | divided_by: 2 }}"
+            loading="lazy"
+          >
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+{% endif %}
+{% schema %}
+{
+  "name": "Collection Header",
+  "class": "CollectionHeader u-showMd",
+  "enabled_on": { "templates": ["collection"] },
+  "presets": [
+    {
+      "name": "Collection Header",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

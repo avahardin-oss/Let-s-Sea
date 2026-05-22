@@ -1,0 +1,151 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "main",
+    "10d14fb5-6fcc-4bdd-893f-3c42a574bbb3",
+    "790c82ff-5219-4ee4-8152-cb10d9f30b66",
+    "fbdb32a5-c8a6-4f7b-9c09-ef0612908129",
+    "9b58af7f-703a-4e0a-a9f6-ae30c5b0ae34",
+    "676449d1-3833-40b1-a2ea-7dd42c4e41cc",
+    "c6aa9632-430e-45d7-a0d9-c07d298c783f",
+    "89e7dd7e-57b3-4d96-8976-0028770ff1df",
+    "ca4e2021-1bf5-49f3-988d-a49062278ad4",
+    "6afa3db9-0ee5-498e-9cee-c5cc36adbe1d",
+    "016886e2-88b5-4f42-a6be-821b2c0bba37",
+    "561f51b5-55f5-463c-92e0-5860e587b4f7"
+  ],
+  "sections": {
+    "016886e2-88b5-4f42-a6be-821b2c0bba37": {
+      "block_order": ["3652caf1-210c-4f3a-b4b6-22fba9cb27f4"],
+      "blocks": {
+        "3652caf1-210c-4f3a-b4b6-22fba9cb27f4": {
+          "settings": {
+            "image": "shopify://shop_images/Commerce_0123_SimpleModern_106.jpg"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "10d14fb5-6fcc-4bdd-893f-3c42a574bbb3": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": false,
+        "heading": "<h2>Five things you need to know about Simple Modern.</h2>",
+        "richtext": ""
+      },
+      "type": "simple-text"
+    },
+    "561f51b5-55f5-463c-92e0-5860e587b4f7": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": true,
+        "heading": "<p><strong>#5 Last year, Simple Modern began manufacturing some of our products in Oklahoma City.</strong></p>",
+        "richtext": "<p>In 2022, Simple Modern began domestic manufacturing in Oklahoma City with a focus on plastic water bottles. To date, Simple Modern has invested more than $6 million in domestic manufacturing, and the goal is to domestically produce more than 1.5 million units in Oklahoma in 2023. In the near future, we plan to expand our domestically-manufactured products to include lids and tumblers.</p><p>Our company has chosen to invest in domestic manufacturing for a variety of reasons. This challenging yet worthwhile endeavor has positioned us to create high-quality jobs and employ more Oklahomans; give current employees more leadership opportunities; and better serve our customers, retail partners, and the greater Oklahoma City community. Domestic manufacturing also reduces complexities and unnecessary logistics that add costs to customers and pollution to the environment. </p>"
+      },
+      "type": "simple-text"
+    },
+    "676449d1-3833-40b1-a2ea-7dd42c4e41cc": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": true,
+        "heading": "<p><strong>#2 Simple Modern exists to give generously.</strong></p>",
+        "richtext": "<p>When Simple Modern’s three co-founders started the company in 2015, they didn’t know what product or service that they wanted to sell. However, they had a very clear vision for what they wanted the company’s culture to look like. They envisioned a company where relationships, excellence and generosity were priorities. This shared vision eventually led to our simple<br/>yet powerful mission statement: We exist to give generously.  </p><p> From day one, Simple Modern has<br/>donated 10% of annual profits to nonprofit organizations. To date, the company has given millions of dollars to nonprofit organizations who are positively impacting communities around the world. Many of these nonprofits work within one of our core giving areas: clean water supply, education, the fight to end human trafficking, support for marginalized communities, and homelessness. </p>"
+      },
+      "type": "simple-text"
+    },
+    "6afa3db9-0ee5-498e-9cee-c5cc36adbe1d": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": true,
+        "heading": "<p><strong>#4 Simple Modern partners with some of the world’s top licensors.</strong></p>",
+        "richtext": "<p>Though Simple Modern began with a single local collegiate license in 2017, our company now holds licensing agreements with some of the world’s leading licensors. This has allowed our company to expand our product portfolio and offer our customers a wide variety of world-class licensed products.</p><p>Among Simple Modern’s fan-favorite licenses are Disney, Paramount, STAR WARS™, Marvel, Harry Potter, DC, Dude Perfect, Hasbro, Epic Games, NBA, NFL, MLB, NHL, and a wide array of collegiate licenses.</p>"
+      },
+      "type": "simple-text"
+    },
+    "790c82ff-5219-4ee4-8152-cb10d9f30b66": {
+      "block_order": ["2b933a23-19cb-4a3e-bdce-a62bf3c84441"],
+      "blocks": {
+        "2b933a23-19cb-4a3e-bdce-a62bf3c84441": {
+          "settings": {
+            "image": "shopify://shop_images/Simple_Modern_Headquarters.jpg"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "89e7dd7e-57b3-4d96-8976-0028770ff1df": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": true,
+        "heading": "<p><strong>#3 Simple Modern products can be purchased all over the United States.</strong></p>",
+        "richtext": "<p>You may have seen Simple Modern products online on Amazon or simplemodern.com. Or perhaps you’ve seen our products on shelves at your local Target, Walmart, or Sam’s Club. Or all of the above!</p><p>Over the last eight years, Simple Modern has established itself as a leading omnichannel drinkware company and has grown into a category leader for retail partners Amazon, Target, Walmart, and Sam’s Club. Simplemodern.com is also the one-stop-shop for all things Simple Modern and features our most extensive product offerings.</p>"
+      },
+      "type": "simple-text"
+    },
+    "9b58af7f-703a-4e0a-a9f6-ae30c5b0ae34": {
+      "block_order": ["f729120d-f5a8-4547-87f2-5da56f8d5b25"],
+      "blocks": {
+        "f729120d-f5a8-4547-87f2-5da56f8d5b25": {
+          "settings": {
+            "image": "shopify://shop_images/hero-banner1_9d730505-715c-4ba1-831b-6f8b5cf647a2.jpg"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "c6aa9632-430e-45d7-a0d9-c07d298c783f": {
+      "block_order": ["220a34a5-ffc9-40c9-a38b-815de1c0c5b3"],
+      "blocks": {
+        "220a34a5-ffc9-40c9-a38b-815de1c0c5b3": {
+          "settings": {
+            "image": "shopify://shop_images/Simple_Modern_Walmart_1.jpg"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "ca4e2021-1bf5-49f3-988d-a49062278ad4": {
+      "block_order": ["849a4551-b997-48d0-963d-e86d90510e63"],
+      "blocks": {
+        "849a4551-b997-48d0-963d-e86d90510e63": {
+          "settings": {
+            "image": "shopify://shop_images/Hasbro-hero-banner.jpg"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "fbdb32a5-c8a6-4f7b-9c09-ef0612908129": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": true,
+        "heading": "<p>#1 Simple Modern was founded in Oklahoma in 2015.</p>",
+        "richtext": "<p>You may have never been to Oklahoma, but this great state is the birthplace of Simple Modern. Simple Modern was co-founded in 2015 by Mike Beckham, Bryan Porter, and Micah Ames—three friends and graduates from the University of Oklahoma—who wanted to start a company together. Eight years later, our company is still proudly headquartered in the Oklahoma City<br/>metroplex.</p>"
+      },
+      "type": "simple-text"
+    },
+    "main": {
+      "settings": {},
+      "type": "article"
+    }
+  },
+  "wrapper": "main.Article[role='main']"
+}

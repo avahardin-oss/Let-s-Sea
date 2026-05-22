@@ -1,0 +1,218 @@
+{% liquid
+  assign navigation_id = section.settings.navigation_id | default: section.name | handleize
+  assign customizable = false
+  assign material_title = section.settings.material_title
+  assign readmore_link = section.settings.readmore_link
+  if product.tags contains 'customize:engrave' or product.tags contains 'customize:embroidery'
+    assign customizable = true
+  endif
+  assign short_description = product.metafields.custom.short_description.value
+%}
+<div tabindex="1" id="ProductGalleryModal" class="NewProductGallery-modal js-product-gallery-modal">
+  <img class="NewProductGallery-modal-content js-modal-image" id="img01">
+</div>
+<div class="Product-info-block pdp-info-mobile">
+  {% render 'okendo-reviews-product-rating-summary', product: product %}
+  <div class="Product-title-price">
+    <h2 class="Product-info-title">{{ product.title }}</h2>
+    <div class="Product-price-block">
+      <span class="Product-price">{{- product.selected_or_first_available_variant.price | money -}}</span>
+    </div>
+  </div>
+</div>
+<div class="Product-container js-navigation-id-{{ navigation_id }}">
+  {% render 'product-card-data-json', product: product %}
+  <div class="Product-sections {% if product.images.size == 0 %}Product-sections--noImages{% endif %}">
+    {% if product.images.size > 0 %}
+      <section class="Product-section--images-new pdp_gallery_ab_test__new">
+        {% render 'product-images-new' %}
+      </section>
+    {% endif %}
+
+    <section class="Product-section Product-section--details">
+      <div class="Product-info-block pdp-info-desktop">
+        {% render 'okendo-reviews-product-rating-summary', product: product %}
+        <div class="Product-title-price">
+          <h2 class="Product-info-title">{{ product.title }}</h2>
+          <div class="Product-price-block">
+            <span class="Product-price">{{- product.selected_or_first_available_variant.price | money -}}</span>
+          </div>
+        </div>
+        <div class="Product-shop-pay">
+          {% form 'product', product %}
+            {{ form | payment_terms }}
+          {% endform %}
+        </div>
+      </div>
+      {% comment %} {% render 'product-description' %} {% endcomment %}
+      {% render 'product-details',
+        customizable: customizable,
+        readmore_link: readmore_link,
+        material_title: material_title
+      %}
+      {%- if product.metafields.custom.product_icons != blank -%}
+        {% render 'product-icons' %}
+      {%- endif -%}
+      {% render 'product-accordions', section: section, product: product %}
+      {% render 'giveback', section: section, product: product %}
+      {% if section.settings.social_sharing_enabled %}
+        {% render 'social-sharing' %}
+      {% endif %}
+      {% if section.settings.show_upsell %}
+        {% render 'product-upsell' %}
+      {% endif %}
+      {% if section.settings.rebuy_id != blank %}
+        {% render 'rebuy-upsell', rebuy_id: section.settings.rebuy_id, title: section.settings.rebuy_title %}
+      {% endif %}
+      <div class="js-ab-upsell-siena-chat"></div>
+    </section>
+  </div>
+</div>
+{% render 'product-popup-stylesheet' %}
+{% render 'product-popup' %}
+
+{%- schema %}
+{
+  "name": "Product Main",
+  "tag": "section",
+  "class": "js-smp-reload js-product-main Product",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_upsellpopup",
+      "label": "Enable upsell popup",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "social_sharing_enabled",
+      "label": "Show social sharing buttons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "qty_selector",
+      "label": "Display Quantity Selector",
+      "default": false
+    },
+
+    {
+      "type": "text",
+      "id": "navigation_id",
+      "label": "Navigation anchor",
+      "default": "product-main"
+    },
+    {
+      "type": "header",
+      "content": "Product Upsell"
+    },
+    {
+      "type": "text",
+      "id": "upsell_title",
+      "label": "Product Upsell Title",
+      "default": "Try a bottle with another lid"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_upsell",
+      "label": "Show Product Upsell",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "details_title",
+      "label": "Product Details Title",
+      "default": "Details"
+    },
+    {
+      "type": "text",
+      "id": "customizer_title",
+      "label": "Customizer Title",
+      "default": "Personalize your product"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 2,
+      "max": 10,
+      "step": 0.5,
+      "unit": "rem",
+      "label": "Customizer Font Size",
+      "default": 2.5,
+      "info": "1rem: 16px"
+    },
+    {
+      "type": "text",
+      "id": "customizer_desc",
+      "label": "Customizer Description",
+      "default": "Making your own personalized tumbler is easy. Click on the image to add a text and create the perfect tumbler."
+    },
+    {
+      "type": "text",
+      "id": "readmore_link",
+      "label": "Read More URL",
+      "default": "/pages/warranty-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "giveback_img",
+      "label": "Select giveback image"
+    },
+    {
+      "type": "text",
+      "id": "giveback_heading",
+      "label": "Enter Giveback heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "giveback_content",
+      "label": "Enter Giveback Content"
+    },
+    {
+      "type": "header",
+      "content": "Rebuy Upsell"
+    },
+    {
+      "type": "text",
+      "id": "rebuy_title",
+      "label": "Rebuy Title",
+      "default": "Frequently Added Together"
+    },
+    {
+      "type": "number",
+      "id": "rebuy_id",
+      "label": "Rebuy ID",
+      "info": "Enter the Rebuy ID for the Rebuy Upsell (Frequently Bought Together widget)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_description",
+      "name": "Accordion Description",
+      "settings": [
+        {
+          "type": "text",
+          "id": "accordion_title",
+          "label": "Enter Description Title"
+        }
+      ]
+    },
+    {
+      "type": "accordion_item",
+      "name": "Accordion Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "accordion_title",
+          "label": "Enter Accordion Title"
+        },
+        {
+          "type": "richtext",
+          "id": "accordion_content",
+          "label": "Accordion Content"
+        }
+      ]
+    }
+  ]
+}
+{%- endschema %}

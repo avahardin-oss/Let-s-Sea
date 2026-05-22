@@ -1,0 +1,187 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": ["category_page_header_yhNN3h", "categories_blocks_HPA88G"],
+  "sections": {
+    "categories_blocks_HPA88G": {
+      "block_order": [
+        "theme_3UQCed",
+        "theme_LdL8QA",
+        "theme_XqBcaU",
+        "theme_7DJGd6",
+        "theme_BhQQ87",
+        "theme_K6YAME",
+        "theme_c4U3dV",
+        "theme_dPEK4d",
+        "theme_hCU9bw",
+        "theme_WXbHXh",
+        "theme_4rCWEA",
+        "theme_b7JnKM"
+      ],
+      "blocks": {
+        "theme_3UQCed": {
+          "settings": {
+            "alt": "Elphaba and Glinda Wicked character themed Voyager travel mugs",
+            "background_image": "shopify://shop_images/WickedSecondary1.jpg",
+            "description": "The Wicked: For Good Collection is here — emerald greens, rosy pinks, bold designs inspired by Elphaba & Glinda.",
+            "link": "shopify://collections/wicked",
+            "logo": "shopify://shop_images/WFG2_LOGO_LINE_ART_OV.png",
+            "logo_alt": "Wicked logo",
+            "logo_text": ""
+          },
+          "type": "theme"
+        },
+        "theme_4rCWEA": {
+          "settings": {
+            "alt": "Baby holding Nickelodeon bottle",
+            "background_image": "shopify://shop_images/nick.png",
+            "description": "Take your favorite Nickelodeon stars along on every adventure.",
+            "link": "shopify://collections/nick",
+            "logo": "shopify://shop_images/Nick.svg",
+            "logo_alt": "Nickelodeon logo",
+            "logo_text": ""
+          },
+          "type": "theme"
+        },
+        "theme_7DJGd6": {
+          "settings": {
+            "alt": "Marvel stylized bottles",
+            "background_image": "shopify://shop_images/ironman_c5f2b61b-6b03-4694-b879-fd5ac0c18b35.png",
+            "description": "The MARVEL Collection starring the iconic crusaders from the blockbuster franchise.",
+            "link": "shopify://collections/marvel",
+            "logo": "shopify://shop_images/Marvel.svg",
+            "logo_alt": "Marvel logo",
+            "logo_text": ""
+          },
+          "type": "theme"
+        },
+        "theme_BhQQ87": {
+          "settings": {
+            "alt": "Harry Potter stylized bottles",
+            "background_image": "shopify://shop_images/harry-potter.png",
+            "description": "Discover the magic with the new Harry Potter™️ Collection of drinkware.",
+            "link": "shopify://collections/harry-potter",
+            "logo": "shopify://shop_images/Harry_Potter_Logo_1.svg",
+            "logo_alt": "Harry Potter logo",
+            "logo_text": ""
+          },
+          "type": "theme"
+        },
+        "theme_K6YAME": {
+          "settings": {
+            "alt": "",
+            "background_image": "shopify://shop_images/melon-image.png",
+            "description": "Little Learners, Big Adventures. The CoComelon Collection.",
+            "link": "shopify://collections/cocomelon",
+            "logo": "shopify://shop_images/Coco_Melon.svg",
+            "logo_alt": "Cocomelon logo",
+            "logo_text": ""
+          },
+          "type": "theme"
+        },
+        "theme_LdL8QA": {
+          "settings": {
+            "alt": "Girl wearing disney backpack",
+            "background_image": "shopify://shop_images/disney.png",
+            "description": "The growing Disney collection has designs fans of all ages will love.",
+            "link": "shopify://collections/disney",
+            "logo": "shopify://shop_images/Frame_4191.svg",
+            "logo_alt": "Disney logo",
+            "logo_text": ""
+          },
+          "type": "theme"
+        },
+        "theme_WXbHXh": {
+          "settings": {
+            "alt": "Star Wars stylized bottles",
+            "background_image": "shopify://shop_images/star_wars.png",
+            "description": "Embrace the Dark Side with drinkware from the Star Wars Collection.",
+            "link": "shopify://collections/star-wars",
+            "logo": "shopify://shop_images/Star_Wars.svg",
+            "logo_alt": "Star Wars logo",
+            "logo_text": ""
+          },
+          "type": "theme"
+        },
+        "theme_XqBcaU": {
+          "settings": {
+            "alt": "Girl wearing and holding Bluey products",
+            "background_image": "shopify://shop_images/bluey.png",
+            "description": "Check out our Bluey collection featuring all the essentials for your little adventurer.",
+            "link": "shopify://collections/bluey",
+            "logo": "shopify://shop_images/Bluey_Logo_Black_1.svg",
+            "logo_alt": "Bluey logo",
+            "logo_text": ""
+          },
+          "type": "theme"
+        },
+        "theme_b7JnKM": {
+          "settings": {
+            "alt": "Man holding Blippi stylized bottles",
+            "background_image": "shopify://shop_images/blippi.png",
+            "description": "Join the adventure. The Blippi Collection.",
+            "link": "shopify://collections/blippi",
+            "logo": "shopify://shop_images/Blippi.svg",
+            "logo_alt": "Blippi logo",
+            "logo_text": ""
+          },
+          "type": "theme"
+        },
+        "theme_c4U3dV": {
+          "settings": {
+            "alt": "DC stylized bottles",
+            "background_image": "shopify://shop_images/dc_bottle.png",
+            "description": "Stay hydrated with the iconic crime-fighting heroes.",
+            "link": "shopify://collections/the-dc-collection",
+            "logo": "shopify://shop_images/DC.svg",
+            "logo_alt": "DC logo",
+            "logo_text": ""
+          },
+          "type": "theme"
+        },
+        "theme_dPEK4d": {
+          "settings": {
+            "alt": "Fortnite stylized bottles",
+            "background_image": "shopify://shop_images/fortnite_bottle.png",
+            "description": "The Battle Bus has reached it’s destination!",
+            "link": "shopify://collections/fortnite",
+            "logo": "shopify://shop_images/Fortnite.svg",
+            "logo_alt": "Fortnite logo",
+            "logo_text": ""
+          },
+          "type": "theme"
+        },
+        "theme_hCU9bw": {
+          "settings": {
+            "alt": "Girl holding Hasbro bottle",
+            "background_image": "shopify://shop_images/hasbro.png",
+            "description": "The latest addition to our licensed kids’ drinkware lineup.",
+            "link": "shopify://collections/the-hasbro-collection",
+            "logo": "shopify://shop_images/Hasbro.svg",
+            "logo_alt": "Hasbro logo",
+            "logo_text": ""
+          },
+          "type": "theme"
+        }
+      },
+      "settings": {
+        "header": ""
+      },
+      "type": "categories-blocks"
+    },
+    "category_page_header_yhNN3h": {
+      "settings": {
+        "header": "Collections"
+      },
+      "type": "categories-page-header"
+    }
+  },
+  "wrapper": "main.Page[role='main']"
+}

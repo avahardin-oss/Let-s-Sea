@@ -1,0 +1,60 @@
+<div class="ArticleImageSlider">
+  <div role="region" aria-label="carousel" class="swiper-container ArticleImageSlider-carousel">
+    <div class="swiper-wrapper ArticleImageSlider-wrapper">
+      {%- for block in section.blocks -%}
+        {%- assign image_sizes = '' -%}
+        {%- if block.settings.image != blank -%}
+          <div class="swiper-slide ArticleImageSlider-slide swiper-lazy">
+            {%- capture image_sizes -%}
+              {%- render 'print-image-sizes', image: block.settings.image -%}
+            {%- endcapture -%}
+
+            <div
+              class="ArticleImageSlider-image {% if image_sizes != blank %}lazyload{% endif %}"
+              data-bgset="{{ image_sizes }}"
+              data-sizes="auto"
+            ></div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <div class="ArticleImageSlider-carousel-actions">
+      <div class="ArticleImageSlider-carousel-scrollbar-wrapper">
+        <div class="swiper-scrollbar"></div>
+      </div>
+      <button aria-label="Previous slide" class="swiper-button-prev">
+        {%- render 'icon-arrow-prev' -%}
+      </button>
+      <button aria-label="Next slide" class="swiper-button-next">
+        {%- render 'icon-arrow-next' -%}
+      </button>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Article Image Slider",
+  "class": "ArticleImageSlider-section js-article-image-slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Article Image Slider",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

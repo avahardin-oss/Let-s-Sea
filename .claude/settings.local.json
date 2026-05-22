@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.simplemodern.com)",
+      "mcp__claude_ai_Google_Drive__create_file",
+      "WebFetch(domain:canva.link)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "WebSearch",
+      "Bash(dir *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Code\\\\Lets Sea\\\\images\" -Recurse -File | Where-Object { $_.Extension -match '\\\\.\\(png|jpg|jpeg|webp\\)$' } | Select-Object FullName)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Code\\\\Lets Sea\" -Recurse -Name | Where-Object { $_ -notmatch '\\\\.git' })",
+      "Bash(python *)",
+      "Bash(pip install *)",
+      "Bash(start index.html)",
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\Ava Hardin\\\\Downloads\")",
+      "Bash(Sort-Object LastWriteTime -Descending)",
+      "Bash(Select-Object -First 5)",
+      "Bash(Format-Table Name, LastWriteTime)",
+      "PowerShell(Rename-Item *)",
+      "Bash(cp \"c:\\\\Users\\\\Ava Hardin\\\\Downloads\\\\Boss Fight.jpg\" \"C:\\\\Code\\\\Lets Sea\\\\images\\\\About\\\\boss-fight.jpg\")",
+      "Bash(cp \"c:\\\\Users\\\\Ava Hardin\\\\Downloads\\\\SOHO STUDIOS.jpg\" \"C:\\\\Code\\\\Lets Sea\\\\images\\\\About\\\\soho-studios.jpg\")",
+      "Bash(cp \"c:\\\\Users\\\\Ava Hardin\\\\Downloads\\\\Coastal granddaughter.jpg\" \"C:\\\\Code\\\\Lets Sea\\\\images\\\\About\\\\coastal.jpg\")",
+      "Bash(cp \"c:\\\\Users\\\\Ava Hardin\\\\Downloads\\\\Cartier Eyewear - Première De Cartier Rimless Rectangle-frame Gold-tone Optical Glasses - One size.jpg\" \"C:\\\\Code\\\\Lets Sea\\\\images\\\\About\\\\cartier.jpg\")",
+      "Bash(cp \"c:\\\\Users\\\\Ava Hardin\\\\Downloads\\\\Lauren Elizabeth's Amazon Page - Southern Europe lookbook.jpg\" \"C:\\\\Code\\\\Lets Sea\\\\images\\\\About\\\\lauren-elizabeth.jpg\")"
+    ]
+  }
+}

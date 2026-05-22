@@ -1,0 +1,71 @@
+<section>
+  <div class="column">
+    {%- render 'collection-controls' -%}
+    <div class="Collection-products">
+        {%- if collection.products.size > 0 -%}
+          {%- render 'collection-grid', collection_settings: section.settings -%}
+        {%- else -%}
+          <div class="Collection--empty">
+            <p>{{ 'collections.general.empty_html' | t: url: '/collections/all' }}</p>
+          </div>
+        {%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Default Collection",
+    "class": "Collection-section",
+    "enabled_on": {
+      "templates": ["collection"]
+    },
+    "settings": [
+    {
+      "type": "header",
+      "content": "Featured Block"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Featured Block text color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "badge_color",
+      "label": "Featured Block badge text color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "badge_background_color",
+      "label": "Featured Block badge background",
+      "default": "#F2F1F0"
+    },
+    {
+      "type": "radio",
+      "id": "featured_column_position",
+      "label": "Featured Block alignment",
+      "options": [
+        { "value": "1", "label": "First" },
+        { "value": "2", "label": "Last" }
+      ],
+      "default": "1",
+      "info": "Featured block position in row"
+    },
+    {
+      "type": "range",
+      "id": "row_position",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "unit": "row",
+      "label": "Featured Block row position",
+      "default": 2
+    }],
+    "presets": [{
+      "name": "Default Collection",
+      "settings": {}
+    }]
+  }
+{% endschema %}

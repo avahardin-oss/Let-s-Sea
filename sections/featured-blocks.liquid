@@ -1,0 +1,59 @@
+<section>
+  <ul class="featuredBlocks">
+    {% for blocks in section.blocks %}
+      {% assign icon = blocks.settings.icon %}
+      {% assign title = blocks.settings.title %}
+      {% assign text = blocks.settings.text %}
+      <li class="featuredBlocks-block">
+          {% if icon != blank %}
+              <div class="featuredBlocks--icon">
+                  <img src="{{ icon | img_url: 'master' }}" loading="lazy" width="{{ icon.width }}" height="{{ icon.height }}" alt="">
+              </div>
+          {% endif %}
+          <div class="featuredBlocks-info">
+              {% if title != blank %}
+                  <span class="featuredBlocks--title">{{ title }}</span>
+              {% endif %}
+              {% if text != blank %}
+                  <div class="featuredBlocks--text">{{ text }}</div>
+              {% endif %}
+          </div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% schema %}
+  {
+  "name": "Featured Blocks",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Block",
+      "type": "block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Blocks"
+    }
+  ]
+}
+{% endschema %}

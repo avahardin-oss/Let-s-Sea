@@ -1,0 +1,110 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "1a4f980d-b2a4-4e67-b01d-4f930c2065af",
+    "replo_wicked_for_good_NWAx7E",
+    "main"
+  ],
+  "sections": {
+    "1a4f980d-b2a4-4e67-b01d-4f930c2065af": {
+      "disabled": true,
+      "settings": {
+        "categories_linklist": "filter-coffee"
+      },
+      "type": "collection-categories"
+    },
+    "main": {
+      "block_order": [
+        "a78e736f-9230-4cf2-ab7a-7c08b1d329fc",
+        "6b03e11a-fe71-4d0a-bb52-18ce77d4c1a7",
+        "d38f9e92-95ba-4ef8-9610-670e57cdcc5f",
+        "f574cde7-1d02-4bcc-b9c3-ab2f8b5f2faa",
+        "3f7b4347-5760-400f-9ff7-f6b3ac1b4b04",
+        "134fa280-7de3-4edf-a157-c54d1aefea37",
+        "8664443b-f701-4e8c-a84e-a44dbc68ffbf",
+        "1dedc77c-e1d2-4b8e-a44e-14a359390f4b"
+      ],
+      "blocks": {
+        "134fa280-7de3-4edf-a157-c54d1aefea37": {
+          "settings": {
+            "key": "named_tags.marvel",
+            "title": "Marvel"
+          },
+          "type": "filter"
+        },
+        "1dedc77c-e1d2-4b8e-a44e-14a359390f4b": {
+          "settings": {
+            "key": "named_tags.nfl",
+            "title": "NFL"
+          },
+          "type": "filter"
+        },
+        "3f7b4347-5760-400f-9ff7-f6b3ac1b4b04": {
+          "settings": {
+            "key": "named_tags.disney",
+            "title": "Disney"
+          },
+          "type": "filter"
+        },
+        "6b03e11a-fe71-4d0a-bb52-18ce77d4c1a7": {
+          "settings": {
+            "key": "named_tags.solid",
+            "title": "Solid"
+          },
+          "type": "filter"
+        },
+        "8664443b-f701-4e8c-a84e-a44dbc68ffbf": {
+          "settings": {
+            "key": "named_tags.nba",
+            "title": "NBA"
+          },
+          "type": "filter"
+        },
+        "a78e736f-9230-4cf2-ab7a-7c08b1d329fc": {
+          "settings": {
+            "key": "named_tags.volume",
+            "title": "Volume"
+          },
+          "type": "filter"
+        },
+        "d38f9e92-95ba-4ef8-9610-670e57cdcc5f": {
+          "settings": {
+            "key": "named_tags.pattern",
+            "title": "Pattern"
+          },
+          "type": "filter"
+        },
+        "f574cde7-1d02-4bcc-b9c3-ab2f8b5f2faa": {
+          "settings": {
+            "key": "named_tags.shimmering",
+            "title": "Shimmering"
+          },
+          "type": "filter"
+        }
+      },
+      "settings": {
+        "badge_background_color": "#f2f1f0",
+        "badge_color": "#000000",
+        "featured_column_position": "1",
+        "hits_per_page": 30,
+        "row_position": 2,
+        "title_color": "#ffffff"
+      },
+      "type": "collection-main"
+    },
+    "replo_wicked_for_good_NWAx7E": {
+      "name": "Wicked For Good",
+      "settings": {},
+      "type": "replo-wicked-for-good"
+    }
+  },
+  "wrapper": "main.Collection[role='main']"
+}

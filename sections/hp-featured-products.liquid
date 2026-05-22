@@ -1,0 +1,112 @@
+{%- liquid
+  assign header = section.settings.header | default: 'Product Lines'
+-%}
+{%- if section.blocks.size > 0 -%}
+  <section class="HomepageFeaturedProducts">
+    {%- if header and header != blank -%}
+      <h2 class="HomepageFeaturedProducts-header">
+        {{ header }}
+      </h2>
+    {%- endif -%}
+
+    <div class="HomepageFeaturedProducts-nav" role="tablist">
+      <div class="HomepageFeaturedProducts-nav-content js-featured-products-nav">
+        {%- for block in section.blocks -%}
+          {%- assign coll_help = block.settings.coll | default: '' -%}
+          {%- assign coll = collections[coll_help] | default: '' -%}
+          {%- assign title = block.settings.title | default: '' -%}
+
+          <button
+            class="HomepageFeaturedProducts-navItem js-featured-products-nav-item"
+            title="Show {{ title }} collection"
+            role="tab"
+            tabindex="0"
+            collection-name="{{ coll.handle }}"
+            collection-url="{{ coll.url }}"
+            aria-selected="{{ forloop.first | json }}"
+            aria-controls="featured-products-carousel-{{ forloop.index0 }}"
+          >
+            {{ title }}
+          </button>
+        {%- endfor -%}
+        <a
+          href="{{ collections[section.blocks[0].settings.coll].url }}"
+          class="js-featured-products-nav-all HomepageFeaturedProducts-navAll"
+          >discover all</a
+        >
+      </div>
+    </div>
+
+    <div role="tabpanel">
+      <div
+        role="region"
+        aria-label="carousel"
+        class="swiper js-featured-products-carousel HomepageFeaturedProducts-carousel"
+      >
+        <div class="swiper-wrapper HomepageFeaturedProducts-wrapper js-featured-products-carousel-content"></div>
+        <div
+          class="HomepageFeaturedProducts-carousel-actions"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="u-hide" id="SwiperLive"></div>
+
+          <div class="HomepageFeaturedProducts-carousel-scrollbar-wrapper">
+            <div class="swiper-scrollbar"></div>
+          </div>
+
+          <button aria-label="Previous slide" class="swiper-button-prev">{%- render 'icon-arrow-prev' -%}</button>
+          <button aria-label="Next slide" class="swiper-button-next">{%- render 'icon-arrow-next' -%}</button>
+        </div>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Featured products",
+  "class": "HomepageFeaturedProducts-section js-home-featured-products-carousel js-smp-reload",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Header"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "collection",
+          "id": "coll",
+          "label": "Collection"
+        },
+        {
+          "type": "range",
+          "id": "products",
+          "min": 4,
+          "max": 12,
+          "step": 1,
+          "unit": "P",
+          "label": "Products to show",
+          "default": 6
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured products",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,17 @@
+<svg
+  aria-labelledby="title31-{{class}}"
+  aria-hidden="true"
+  role="img"
+  viewBox="0 0 24 25"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg">
+  <title id="title31-{{class}}">Arrow left</title>
+  <path
+    d="M12 2.07776L1.45036 12.6274L12 23.177"
+    stroke="black"
+    stroke-width="1.5" />
+  <path
+    d="M1.45028 12.6275H21.2309"
+    stroke="black"
+    stroke-width="1.5" />
+</svg>

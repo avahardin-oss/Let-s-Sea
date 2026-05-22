@@ -1,0 +1,93 @@
+{% capture breadcrumb_arrow %}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13.25 10L6.109 2.58a.697.697 0 0 1 0-.979.68.68 0 0 1 .969 0l7.83 7.908a.697.697 0 0 1 0 .979l-7.83 7.908a.68.68 0 0 1-.969 0 .697.697 0 0 1 0-.979L13.25 10z" style="fill: #a3a3a3; fill: {{ settings.color_gray_40 }};" /></svg>{% endcapture %}
+
+<style>
+.Breadcrumbs-item::after {
+  background-image: url('{{ breadcrumb_arrow | strip | url_param_escape | prepend: "data:image/svg+xml," }}');
+}
+</style>
+
+{% assign breadcrumbs_enabled = false %}
+{% if template contains 'product' or template contains 'collection' or template contains 'article' or template contains 'page' or template contains 'customer' or template contains 'blog' or template contains 'search' %}
+  {% assign breadcrumbs_enabled = true %}
+{% endif %}
+
+{% if breadcrumbs_enabled %}
+  <nav class="Breadcrumbs" role="navigation" aria-label="breadcrumbs">
+    <div class="column">
+
+      {% comment %} <p id="breadcrumblabel" class="u-vhide">
+        {{ 'general.breadcrumbs.title' | t }}
+      </p> {% endcomment %}
+
+      <ol class="Breadcrumbs-items" aria-labelledby="breadcrumblabel">
+        <li class="Breadcrumbs-item is-home">
+          <a href="{{ shop.url }}" title="{{ 'general.breadcrumbs.home_link_title' | t }}">
+            {{ 'general.breadcrumbs.home' | t }}
+          </a>
+        </li>
+
+        {% if template contains "product" %}
+          {% if collection and collection.handle %}
+            <li class="Breadcrumbs-item">{{ collection.title | link_to: collection.url }}</li>
+            {% if settings.show_collection_tags and product.tags.size > 0 %}
+              <li class="Breadcrumbs-item">
+                <a href="{{ collection.url }}/{{ product.tags.first | handle }}">
+                  {{ product.tags.first }}
+                </a>
+              </li>
+            {% endif %}
+          {% endif %}
+          <li class="Breadcrumbs-item Breadcrumbs-item--highlighted">{{ product.title }}</li>
+        {% endif %}
+
+        {% if template contains 'collection' %}
+          {% if current_tags.size > 0 %}
+            <li class="Breadcrumbs-item">
+              <a href="/collections/{{ collection.handle }}">
+                {{ collection.title }}
+              </a>
+            </li>
+            <li class="Breadcrumbs-item Breadcrumbs-item--highlighted">{{ current_tags.first }}</li>
+          {% else %}
+            <li class="Breadcrumbs-item">{{ collection.title }}</li>
+          {% endif %}
+        {% endif %}
+
+        {% if template contains 'article' %}
+          <li class="Breadcrumbs-item">
+            {{ blog.title | link_to: blog.url }}
+          </li>
+          <li class="Breadcrumbs-item Breadcrumbs-item--highlighted">
+            {{ article.title }}
+          </li>
+        {% endif %}
+
+
+        {% if template contains 'page' %}
+          <li class="Breadcrumbs-item Breadcrumbs-item--highlighted">
+            {{ page.title }}
+          </li>
+        {% endif %}
+
+        {% if template contains 'customer' %}
+          <li class="Breadcrumbs-item Breadcrumbs-item--highlighted">
+            Account
+          </li>
+        {% endif %}
+
+        {% if template contains 'blog' %}
+          <li class="Breadcrumbs-item">
+            {{ blog.title | link_to: blog.url }}
+          </li>
+        {% endif %}
+
+        {% if template contains 'search' %}
+          <li class="Breadcrumbs-item">
+            Search
+          </li>
+        {% endif %}
+
+      </ol>
+    </div>
+  </nav>
+{% endif %}

@@ -1,0 +1,444 @@
+<!doctype html>
+{% assign site_lang = shop.locale | default: 'en' %}
+<!--[if lt IE 9]> <html class="lt-ie9" lang="{{ site_lang }}"> <![endif]-->
+<!--[if IE 9]> <html class="lt-ie10" lang="{{ site_lang }}"> <![endif]-->
+<!-- [if gt IE 9]><! -->
+<html lang="{{ site_lang }}">
+  <!-- <![endif] -->
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    {% if request.design_mode %}<meta name="em-cache" content="no-cache">{% endif %}
+    {% if template.name == 'index' %}
+      {% comment %} LCP preload immediately after viewport meta — media queries require viewport to be known {% endcomment %}
+      <link
+        rel="preload"
+        as="image"
+        href="https://assets.replocdn.com/projects/fb4c8314-1306-4a2e-a4a3-a8eb3d87659c/5d61188c-d98f-4db3-b874-edb14d417324?width=820"
+        media="(max-width: 640px)"
+        fetchpriority="high"
+      >
+      <link
+        rel="preload"
+        as="image"
+        href="https://assets.replocdn.com/projects/fb4c8314-1306-4a2e-a4a3-a8eb3d87659c/5d61188c-d98f-4db3-b874-edb14d417324?width=1024"
+        media="(min-width: 641px) and (max-width: 1024px)"
+        fetchpriority="high"
+      >
+      <link
+        rel="preload"
+        as="image"
+        href="https://assets.replocdn.com/projects/fb4c8314-1306-4a2e-a4a3-a8eb3d87659c/5d61188c-d98f-4db3-b874-edb14d417324?width=1800"
+        media="(min-width: 1025px)"
+        fetchpriority="high"
+      >
+    {% endif %}
+    {% if template.name == 'product' %}
+      {% comment %} Preload first gallery image for LCP — must match the image rendered by product-images-carousel snippet {% endcomment %}
+      {%- assign lcp_product_image = product.media | where: 'media_type', 'image' | first -%}
+      {%- unless lcp_product_image -%}
+        {%- assign lcp_product_image = product.featured_image -%}
+      {%- endunless -%}
+      {%- if lcp_product_image -%}
+        <link
+          rel="preload"
+          as="image"
+          imagesrcset="{{ lcp_product_image | image_url: width: 640 }} 320w, {{ lcp_product_image | image_url: width: 750 }} 375w, {{ lcp_product_image | image_url: width: 960 }} 480w, {{ lcp_product_image | image_url: width: 1024 }} 600w, {{ lcp_product_image | image_url: width: 2048 }} 1024w"
+          imagesizes="100vw"
+          fetchpriority="high"
+        >
+      {%- endif -%}
+    {% endif %}
+    {% render 'yett-blocker' %}
+
+    <!-- Avada Cookie Bar GCM Integration -->
+    <script async src="{{ 'avada-cookiebar-gcm-integration.js' | asset_url }}"></script>
+    <!-- End Avada Cookie Bar GCM Integration -->
+    {% render 'replo-head' %}
+    {% render 'replo-shared-styles' %}
+    <style>
+      /* Fix Replo carousel SVG className error: SVG elements return SVGAnimatedString for .className,
+         which Replo's publishCustomEvent doesn't handle. Prevent clicks from landing on SVG children
+         so the event target is always the <button> element with a plain string className. */
+      [data-replo-part='nav-button'] svg,
+      [data-replo-part='nav-button'] svg * {
+        pointer-events: none;
+      }
+    </style>
+    <!-- Google Tag Manager -->
+    <script>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-WVDTK2G')
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta property="og:title" content="Stylish Water Bottles, Travel Mugs, Food Storage, and Backpacks">
+    <meta property="og:image" id="js-og_meta" content="{{ page_image | image_url: width: 1200 }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta
+      property="og:description"
+      content="Simple Modern offers a stylish selection of stainless steel insulated water bottles, tumblers, food containers, backpacks, & more. Find your favorites here."
+    >
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stylish Water Bottles, Travel Mugs, Food Storage, and Backpacks">
+    <meta
+      name="twitter:description"
+      content="Simple Modern offers a stylish selection of stainless steel insulated water bottles, tumblers, food containers, backpacks, & more. Find your favorites here."
+    >
+    <meta name="twitter:image" id="js-twitter_meta" content="{{ page_image | image_url: width: 1200 }}">
+    <!-- Resource hints -->
+    <link rel="preconnect" href="https://cdn.shopify.com">
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      crossorigin
+    >
+    {% comment %} Convert preconnect removed — script deferred by Yett {% endcomment %}
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    >
+    <link rel="preconnect" href="https://assets.replocdn.com" crossorigin>
+    <link rel="preconnect" href="https://replocdn.com">
+
+    <link
+      rel="preload"
+      href="{{ 'gilroy-regular.otf' | asset_url }}"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    >
+    <link
+      rel="preload"
+      href="{{ 'gilroy-semibold.otf' | asset_url }}"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    >
+    <link
+      rel="preload"
+      href="{{ 'gilroy-black.otf' | asset_url }}"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    >
+
+    <!-- Meta -->
+    {% liquid
+      render 'meta'
+      unless template contains 'blank'
+        render 'meta-twitter-card'
+        render 'meta-fb-open-graph'
+        render 'meta-json-ld'
+      endunless
+    %}
+
+    <!-- Stylesheets: inline critical first, then external -->
+    {% capture select_triangle %}<svg viewBox="0 0 72 27" xmlns="http://www.w3.org/2000/svg"><path d="M18 0h36L36 27z" style="fill: #a3a3a3; fill: {{ settings.color_gray_40 }};" fill-rule="evenodd" /></svg>{% endcapture %}
+
+    {% capture lazy_placeholder %}<svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M872,192 L152,192 C129.88,192 112,209.88 112,232 L112,792 C112,814.08 129.88,832 152,832 L872,832 C894.12,832 912,814.08 912,792 L912,232 C912,209.92 894.12,192 872,192 L872,192 L872,192 Z M832,752 L192,752 L192,272 L832,272 L832,752 L832,752 L832,752 Z M684.6,547.08 L555.36,611.28 L404.56,367.24 L272,672 L752,672 L684.6,547.08 L684.6,547.08 L684.6,547.08 Z M642,472 C669.6,472 692,449.6 692,422 C692,394.4 669.6,372 642,372 C614.4,372 592,394.4 592,422 C592,449.6 614.4,472 642,472 L642,472 L642,472 Z" style="fill: #efefef; fill: {{ settings.color_gray_70 }};"></path></svg>{% endcapture %}
+
+    {% liquid
+      assign product_image_placeholder_width = settings.product_image_placeholder_width | default: 1024
+      assign product_image_placeholder_height = settings.product_image_placeholder_height | default: 1024
+      assign product_image_placeholder_padding = 100 | times: 100 | times: product_image_placeholder_height | divided_by: product_image_placeholder_width | money_without_currency | append: '%' | escape
+      assign product_image_size = settings.product_image_size | default: 'contain'
+      assign hover_opacity = settings.hover_opacity | divided_by: 100.0 | default: 0.6
+    %}
+    <style>
+      :root {
+        --arrows-color: {{ settings.arrows_color | default: '#000000' }};
+      }
+
+      select {
+        background-image: url('{{ select_triangle | strip | url_param_escape | prepend: "data:image/svg+xml," }}');
+      }
+
+      .CartItem-imagePlaceholder,
+      .GridItem-imagePlaceholder,
+      .GridItem-secondImagePlaceholder,
+      .GridItem-thumbImagePlaceholder {
+        --product-image-placeholder-padding: {{ product_image_placeholder_padding }};
+        --product-image-size: {{ product_image_size }};
+      }
+
+      a {
+        --hover-opacity: {{ hover_opacity }};
+      }
+
+      .o-placeholder.has-icon::before {
+        background-image: url('{{ lazy_placeholder | strip | url_param_escape | prepend: "data:image/svg+xml," }}');
+      }
+
+      .pswp__button,
+      .pswp__button--arrow--left:before,
+      .pswp__button--arrow--right:before {
+        background: url("{{ 'photoswipe.png' | asset_url }}") 0 0 no-repeat;
+      }
+
+      @media (-webkit-min-device-pixel-ratio: 1.1),
+        (min-resolution: 105dpi),
+        (min-resolution: 1.1dppx) {
+        /* Serve SVG sprite if browser supports SVG and resolution is more than 105dpi */
+        .pswp--svg .pswp__button,
+        .pswp--svg .pswp__button--arrow--left:before,
+        .pswp--svg .pswp__button--arrow--right:before {
+          background-image: url("{{ 'photoswipe.svg' | asset_url }}");
+        }
+      }
+    </style>
+    {% render 'inline-css' %}
+    {% render 'fonts-css' %}
+    {{ 'main.css' | asset_url | stylesheet_tag }}
+    {{ 'wc-ssr.css' | asset_url | stylesheet_tag }}
+
+    <!-- Custom header content -->
+    {{ content_for_header }}
+    <!-- End of custom header content -->
+    {% if template.type == 'product' %}
+      {% render 'gsf-conversion-pixels' %}
+    {% endif %}
+    <script
+      src="https://cdn-widgetsrepository.yotpo.com/v1/loader/TeMKOwCIGnPscx83dptsew"
+      async
+    ></script>
+    <!-- Survey Sparrow -->
+    <div id="ss_survey_widget"></div>
+    <script id="SS_SCRIPT">
+      function sparrowLaunch(opts) {
+        var e = 'ss-widget',
+          t = 'script',
+          a = document,
+          r = window,
+          l = localStorage
+        var s,
+          n,
+          c,
+          rm = a.getElementById('SS_SCRIPT')
+        r.SS_WIDGET_TOKEN = 'tt-eJgTwrojE4JKHnBzy1nVpL'
+        r.SS_ACCOUNT = 'vaangroup.surveysparrow.com'
+        r.SS_SURVEY_NAME = 'Simple-Modern--Tote-Bag-Value-Props'
+        if (!a.getElementById(e) && !l.getItem('removed-ss-widget-tt-eJgTwrojE4JKHnBzy1nVpL')) {
+          var S = function () {
+            S.update(arguments)
+          }
+          S.args = []
+          S.update = function (e) {
+            S.args.push(e)
+          }
+          r.SparrowLauncher = S
+          s = a.getElementsByTagName(t)
+          c = s[s.length - 1]
+          n = a.createElement(t)
+          n.type = 'text/javascript'
+          n.async = !0
+          n.id = e
+          n.src = [
+            'https://',
+            'vaangroup.surveysparrow.com/widget/',
+            r.SS_WIDGET_TOKEN,
+            '?',
+            'customParams=',
+            JSON.stringify(opts)
+          ].join('')
+          c.parentNode.insertBefore(n, c)
+          r.SS_VARIABLES = opts
+          rm.parentNode.removeChild(rm)
+        }
+      }
+    </script>
+    <script>
+      ;(
+        window.requestIdleCallback ||
+        function (cb) {
+          setTimeout(cb, 1)
+        }
+      )(function () {
+        sparrowLaunch({
+          /*add custom params here*/
+        })
+      })
+    </script>
+    <!-- End Survey -->
+  </head>
+  {% assign template_name = template | handleize %}
+  <body
+    class="js-body {{ template | handle | split: '-' | first | prepend: 'template-' }} {% if template == blank %}no-template{% endif %} {% if shop.permanent_domain contains 'custom' %}custom-shop {% endif %}"
+    data-shopify-template="{{ template | handleize }}"
+    data-pdp-ab-test="false"
+    data-shop-pay-test="false"
+    data-accordion-test="false"
+    data-gallery-test="true"
+    data-pdp-gallery-test="false"
+    data-pdp-anchor-test="false"
+    data-upsell-popup-test="false"
+  >
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WVDTK2G"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    {% render 'skip-to-content-stylesheet' %}
+    {% render 'skip-to-content' %}
+
+    <div class="header-content">
+      {% section 'announcement-bar' %}
+      {% section 'header-new' %}
+    </div>
+
+    {%- section 'json-cart' -%}
+
+    <div class="hiddenContent">
+      {% section 'search-bar-content' %}
+    </div>
+
+    <!-- Begin content -->
+    {% if template == blank %}
+      <div class="column row">
+    {% endif %}
+    <main id="content">
+      {{ content_for_layout }}
+    </main>
+    {% if template == blank %}
+      </div>
+    {% endif %}
+    <!-- End content -->
+
+    {% section 'footer' %}
+
+    <div class="js-customizer-modal" aria-label="Product Customizer Modal"></div>
+
+    {% render 'photoswipe-placeholder' %}
+    {%- render 'analytics-events' -%}
+    {% render 'scripts' %}
+    {% render 'cookie-banner' %}
+    {% render 'yett-unblocker' %}
+    <script>
+      ;(function () {
+        function initReploCarouselFallbacks() {
+          document.querySelectorAll('[data-replo-carousel="true"]').forEach(function (carouselRoot) {
+            var track = carouselRoot.querySelector('[data-replo-part="slide-track"]')
+            if (!track) return
+
+            var hasReactFiber = Object.keys(track).some(function (k) {
+              return k.startsWith('__reactFiber') || k.startsWith('__reactInternalInstance')
+            })
+            if (hasReactFiber) return
+            if (carouselRoot.dataset.reploFallbackInit) return
+            carouselRoot.dataset.reploFallbackInit = 'true'
+
+            var slides = Array.from(carouselRoot.querySelectorAll('[data-replo-part="slide"]'))
+            if (slides.length === 0) return
+
+            var currentIndex = 0
+
+            function getSlideWidth() {
+              return track.parentElement ? track.parentElement.offsetWidth : window.innerWidth
+            }
+
+            function goToSlide(idx) {
+              var total = slides.length
+              idx = ((idx % total) + total) % total
+              currentIndex = idx
+              var slideWidth = getSlideWidth()
+              track.style.transitionDuration = '300ms'
+              track.style.transitionProperty = 'transform'
+              track.style.transform = 'translate3d(' + -idx * slideWidth + 'px, 0px, 0px)'
+              slides.forEach(function (slide, i) {
+                slide.dataset.isActive = i === idx ? 'true' : 'false'
+                slide.setAttribute('tabindex', i === idx ? '0' : '-1')
+              })
+              carouselRoot.querySelectorAll('[aria-label^="Go to slide"]').forEach(function (dot, i) {
+                dot.setAttribute('aria-current', i === idx ? 'true' : 'false')
+                if (i === idx) {
+                  dot.classList.add('r-1i4bncz')
+                } else {
+                  dot.classList.remove('r-1i4bncz')
+                }
+              })
+            }
+
+            var nextBtn = carouselRoot.querySelector('[data-replo-part="nav-button"][data-direction="next"]')
+            var prevBtn = carouselRoot.querySelector('[data-replo-part="nav-button"][data-direction="previous"]')
+            if (nextBtn) {
+              nextBtn.addEventListener('click', function () {
+                goToSlide(currentIndex + 1)
+              })
+            }
+            if (prevBtn) {
+              prevBtn.addEventListener('click', function () {
+                goToSlide(currentIndex - 1)
+              })
+            }
+
+            carouselRoot.querySelectorAll('[aria-label^="Go to slide"]').forEach(function (dot, i) {
+              dot.addEventListener('click', function () {
+                goToSlide(i)
+              })
+            })
+
+            var touchStartX = null
+            track.addEventListener(
+              'touchstart',
+              function (e) {
+                touchStartX = e.touches[0].clientX
+              },
+              { passive: true }
+            )
+            track.addEventListener(
+              'touchend',
+              function (e) {
+                if (touchStartX === null) return
+                var delta = e.changedTouches[0].clientX - touchStartX
+                touchStartX = null
+                if (Math.abs(delta) > 50) goToSlide(delta < 0 ? currentIndex + 1 : currentIndex - 1)
+              },
+              { passive: true }
+            )
+
+            window.addEventListener('resize', function () {
+              var slideWidth = getSlideWidth()
+              track.style.transitionDuration = '0ms'
+              track.style.transform = 'translate3d(' + -currentIndex * slideWidth + 'px, 0px, 0px)'
+            })
+
+            goToSlide(0)
+          })
+        }
+
+        window.addEventListener('load', function () {
+          setTimeout(initReploCarouselFallbacks, 800)
+        })
+      })()
+    </script>
+    {% if template_name == 'page-contact' %}
+      <script async src="https://chat.siena.cx/dist/webchat.js?appKey=bd1e796b-6afe-40a3-b42f-77e4eb72e175"></script>
+    {% endif %}
+    {% if template.name == 'product' %}
+      {% section 'product-sticky-atc' %}
+    {% endif %}
+  </body>
+  <style>
+    #cannellamedia {
+      display: none;
+    }
+  </style>
+</html>

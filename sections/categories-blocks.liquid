@@ -1,0 +1,146 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/sections/categories-blocks/section.liquid}] %}
+
+<style>
+.mod_categories_blocks_69MN7W_CategoriesBlocks{height:auto;padding:0 max(1rem,2.77778vw) max(1.25rem,2.77778vw)}
+.mod_categories_blocks_69MN7W_CategoriesBlocks__grid{grid-template-columns:repeat(4,1fr);gap:2.5rem 1rem;margin:0;list-style:none;display:grid}
+.mod_categories_blocks_69MN7W_CategoriesBlocks__image_wrapper{border-radius:.5rem .5rem 0 0;display:block;overflow:hidden}
+.mod_categories_blocks_69MN7W_CategoriesBlocks__image_wrapper img{aspect-ratio:1;object-fit:cover}
+.mod_categories_blocks_69MN7W_CategoriesBlocks__logo_wrapper{justify-content:flex-start;align-items:center;height:max(2.25rem,3.125vw);display:flex}
+.mod_categories_blocks_69MN7W_CategoriesBlocks__logo_wrapper img{width:auto;height:100%}
+.mod_categories_blocks_69MN7W_CategoriesBlocks__logo_wrapper h4{margin:0;font-size:max(1rem,1.38889vw);font-weight:500;line-height:120%}
+.mod_categories_blocks_69MN7W_CategoriesBlocks__block_description{font-size:max(.875rem,1.11111vw)}
+.mod_categories_blocks_69MN7W_CategoriesBlocks__block{flex-direction:column;display:flex}
+.mod_categories_blocks_69MN7W_CategoriesBlocks__block>a{flex-direction:column;height:100%;display:flex}
+.mod_categories_blocks_69MN7W_CategoriesBlocks__block_content{background-color:#fff;border-radius:0 0 .5rem .5rem;flex-direction:column;flex-grow:1;gap:8px;margin:0;padding:max(.75rem,1.66667vw);display:flex}
+.mod_categories_blocks_69MN7W_CategoriesBlocks__block_content p{margin:0}
+@media print,screen and (width<=64em){.mod_categories_blocks_69MN7W_CategoriesBlocks__grid{grid-template-columns:repeat(2,1fr);gap:1rem .5rem}
+}
+</style>
+
+<div class='mod_categories_blocks_69MN7W_CategoriesBlocks'>
+  <ul class='mod_categories_blocks_69MN7W_CategoriesBlocks__grid'>
+    {% for block in section.blocks %}
+      <li class='mod_categories_blocks_69MN7W_CategoriesBlocks__block'>
+        <a href='{{ block.settings.link }}'>
+          <div
+            class='mod_categories_blocks_69MN7W_CategoriesBlocks__image_wrapper'
+          >
+            {% if block.settings.background_image != blank %}
+            <img
+              src='{{ block.settings.background_image | image_url: width: 800 }}'
+              alt='{{ block.settings.alt }}'
+            >
+            {% else %}
+              {% assign collection_url = block.settings.link %}
+              {% assign handle = collection_url | split: '/collections/' | last | split: '/' | first %}
+              {% assign collection = collections[handle] %}
+              {% if collection.featured_image != blank %}
+              <img
+                src='{{ collection.featured_image | image_url: width: 800 }}'
+                alt='{{ collection.featured_image.alt }}'
+              >
+              {% endif %}
+            {% endif %}
+          </div>
+          <div
+            class='mod_categories_blocks_69MN7W_CategoriesBlocks__block_content'
+          >
+            <div class='mod_categories_blocks_69MN7W_CategoriesBlocks__logo_wrapper'>
+              {% if block.settings.logo != blank %}
+                <img
+                  src='{{ block.settings.logo | image_url: width: 500 }}'
+                  alt='{{ block.settings.logo_alt }}'
+                >
+              {% else %}
+                <h4 class=''>
+                  {{ block.settings.logo_text }}
+                </h4>
+              {% endif %}
+            </div>
+            <p class='mod_categories_blocks_69MN7W_CategoriesBlocks__block_description'>
+              {{ block.settings.description }}
+            </p>
+          </div>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Categories Blocks",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Header"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "theme",
+      "name": "Shop By Theme",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt Text - Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "logo_text",
+          "label": "Logo as Text",
+          "info": "This will be used as logo if no logo image is uploaded"
+        },
+        {
+          "type": "text",
+          "id": "logo_alt",
+          "label": "Alt Text - Brand Logo"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Shop our collection of products that are perfect for you"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Categories Blocks",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "theme"
+        },
+        {
+          "type": "theme"
+        },
+        {
+          "type": "theme"
+        },
+        {
+          "type": "theme"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

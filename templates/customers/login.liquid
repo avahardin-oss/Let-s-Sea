@@ -1,0 +1,166 @@
+<main class="Customer" role="main">
+  <div class="Customer-container">
+    <div id="js-reset-success-message" class="o-formSuccess" style="display:none;">
+      {% comment %}
+        If a user has successfully requested a new password, the
+        form.posted_successfully? variable is set to true within the
+        'recover_customer_password' form only.
+
+        Within that form you'll see the data payload which is passed to JS code
+        to reveal the success message.
+      {% endcomment %}
+      {{ 'customer.recover_password.success' | t }}
+    </div>
+
+    <section id="js-login-form">
+      <h1 class="Customer-formTitle">
+        {{ 'customer.login.title' | t }}
+      </h1>
+
+      <div class="Customer-form">
+        {% form 'customer_login' %}
+          {% if form.errors %}
+            <div class="o-formErrors">
+              <p>{{ 'general.form.errors_were_encountered' | t }}</p>
+              {{ form.errors | default_errors }}
+            </div>
+          {% endif %}
+
+          <label for="CustomerEmail" class="Customer--label">
+            {{ 'customer.login.email' | t }}
+          </label>
+          <input
+            type="email"
+            required
+            class="Customer--input"
+            name="customer[email]"
+            id="CustomerEmail"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            autofocus
+          >
+
+          {% if form.password_needed %}
+            <label for="CustomerPassword" class="Customer--label"> {{ 'customer.login.password' | t }}* </label>
+            <input
+              type="password"
+              required
+              class="Customer--input"
+              value=""
+              name="customer[password]"
+              id="CustomerPassword"
+            >
+          {% endif %}
+
+          {% if form.password_needed %}
+            <p class="Customer--recoverLink">
+              <a href="#recover">
+                {{ 'customer.login.forgot_password' | t }}
+              </a>
+            </p>
+          {% endif %}
+
+          <button
+            type="submit"
+            class="btn reverse Customer--submit event-loginAccount"
+            aria-label="{{ 'customer.login.sign_in' | t }}"
+          >
+            {{ 'customer.login.sign_in' | t }}
+          </button>
+
+          <p class="Customer--registerLink">
+            <!--
+              <a href="/">
+                {{ 'customer.login.cancel' | t }}
+              </a>
+              <br />
+            -->
+            Don't have an account? {{ 'general.customer.create_account' | t | customer_register_link }}
+          </p>
+        {% endform %}
+      </div>
+    </section>
+
+    <aside id="js-recover-password" style="display: none;">
+      <h2 class="Customer-formTitle">
+        {{ 'customer.recover_password.title' | t }}
+      </h2>
+
+      <div class="Customer-form">
+        <p class="Customer--formInfo">{{ 'customer.recover_password.subtext' | t }}</p>
+        {% form 'recover_customer_password' %}
+          {% if form.errors %}
+            <div class="o-formErrors">
+              <p>{{ 'general.form.errors_were_encountered' | t }}</p>
+              {{ form.errors | default_errors }}
+            </div>
+          {% endif %}
+
+          <script id="js-customer-recover-password-status" type="application/json">
+            {
+              "recoverPasswordFormPostedSuccessfully": {% liquid
+                if form.posted_successfully?
+                  echo true | json
+                else
+                  echo false | json
+                endif %},
+              "recoverPasswordErrorsFound": {% liquid
+                if form.errors
+                  echo true | json
+                else
+                  echo false | json
+                endif %}
+            }
+          </script>
+
+          <label for="RecoverEmail" class="Customer--label">
+            {{ 'customer.recover_password.email' | t }}
+          </label>
+          <input
+            type="email"
+            required
+            class="Customer--input"
+            value=""
+            name="email"
+            id="RecoverEmail"
+            autocorrect="off"
+            autocapitalize="off"
+          >
+
+          <button
+            type="submit"
+            class=" Customer--submit btn reverse"
+            aria-label="{{ 'customer.recover_password.submit' | t }}"
+          >
+            {{ 'customer.recover_password.submit' | t }}
+          </button>
+
+          <button type="button" id="js-hide-recover-form" class="Customer--cancelLink">
+            <p>{{ 'customer.recover_password.cancel' | t }}</p>
+          </button>
+        {% endform %}
+      </div>
+    </aside>
+
+    {% comment %}
+      If accounts are set as optional, the following will be shown as an option
+      during checkout, not on the default /login page.
+    {% endcomment %}
+    {% if shop.checkout.guest_login %}
+      <hr>
+
+      <h2>{{ 'customer.login.guest_title' | t }}</h2>
+
+      {% form 'guest_login' %}
+        <button
+          type="submit"
+          class="btn reverse"
+          aria-label="{{ 'customer.login.guest_continue' | t }}"
+        >
+          {{ 'customer.login.guest_continue' | t }}
+        </button>
+      {% endform %}
+    {% endif %}
+  </div>
+</main>

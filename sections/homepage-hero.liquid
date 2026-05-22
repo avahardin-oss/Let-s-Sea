@@ -1,0 +1,733 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/sections/homepage-hero/section.liquid}] %}
+
+<script class="json-portable-section-assets" type="application/json">
+{"sectionName":"homepage-hero"}
+</script>
+
+<style>
+.mod_homepage_hero_ILaONW_HpBannerSection{background-color:#000;overflow:hidden}
+.mod_homepage_hero_ILaONW_HpBannerSection .slider-homepage-banner{padding:0}
+.mod_homepage_hero_ILaONW_HpBannerSection .slider-homepage-banner:before{content:none}
+.mod_homepage_hero_ILaONW_HpBannerSection h1{max-width:70%;margin:auto auto max(1.25rem,1.38889vw);font-weight:700;font-size:42px!important}
+.mod_homepage_hero_ILaONW_HpBannerSection__wrapper{cursor:pointer;justify-content:flex-start;align-items:flex-end;height:max(25rem,37.5vw);display:flex;position:relative}
+.mod_homepage_hero_ILaONW_HpBannerSection__carousel{width:100%;height:100%}
+.mod_homepage_hero_ILaONW_HpBannerSection__carousel .homepage-banner__mobile--slide{background-position:50%;background-repeat:no-repeat;background-size:cover;width:100%;height:100%}
+.mod_homepage_hero_ILaONW_HpBannerSection__carousel .js-carousel-homepage-delay{display:none}
+.mod_homepage_hero_ILaONW_HpBannerSection__carousel .homepage-banner__desktop--slide-video{overflow:hidden}
+.mod_homepage_hero_ILaONW_HpBannerSection__carousel .homepage-banner__desktop--slide-video video{width:-webkit-fill-available}
+.mod_homepage_hero_ILaONW_HpBannerSection__carousel .homepage-banner__mobile--slide-video{overflow:hidden}
+.mod_homepage_hero_ILaONW_HpBannerSection__carousel .homepage-banner__mobile--slide-video video{height:-webkit-fill-available}
+.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation{z-index:1;justify-content:space-between;width:98%;display:flex;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+:is(.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-prev,.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-next){color:#fff;cursor:pointer;background-color:#0000;justify-content:center;align-items:center;width:max(2.5rem,3.33333vw);height:max(2.5rem,3.33333vw);padding:0;transition:opacity .2s;display:flex;transform:translateZ(0)}
+:is(.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-prev:hover,.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-next:hover){opacity:.7}
+:is(.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-prev:disabled,.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-prev.swiper-button-disabled,.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-next:disabled,.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-next.swiper-button-disabled){opacity:.3;cursor:not-allowed}
+:is(.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-prev.swiper-button-lock,.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-next.swiper-button-lock){display:none}
+.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-prev:after{display:none}
+.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-next:after{display:none}
+:is(.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-prev svg,.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-next svg){width:100%;height:100%;overflow:visible}
+:is(.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-prev svg path:first-child,.mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation .swiper-next svg path:first-child){stroke:#ffffff80}
+.mod_homepage_hero_ILaONW_HpBannerSection__carousel__pagination .swiper-pagination-bullet{background-color:#0000;border:2px solid #fff;width:15px;height:15px}
+.mod_homepage_hero_ILaONW_HpBannerSection__carousel__pagination .swiper-pagination-bullet.swiper-pagination-bullet-active{background-color:#fff}
+@media print,screen and (width>=64em){.mod_homepage_hero_ILaONW_HpBannerSection h1{max-width:unset}
+}
+</style>
+
+{%- liquid
+  assign link = section.settings.link | default: '' | strip
+  assign tint_color = section.settings.tint_color
+  assign tint_strength = section.settings.tint_strength | default: '0.2'
+  assign caption_position = section.settings.caption_position | default: 'center middle'
+  assign button_text = section.settings.cta
+  assign button_radius = section.settings.cta_radiu | default: '0.125'
+  assign cta_color = section.settings.cta_color | default: settings.color_white
+  assign cta_bg_color = section.settings.cta_bg_color | default: settings.color_button_background
+  assign cta_style = section.settings.cta_style | default: 'solid'
+  assign heading = section.settings.heading
+  assign heading_color = section.settings.heading_color | default: settings.color_white
+  assign label = section.settings.sub_heading
+  assign label_color = section.settings.sub_heading_color | default: settings.color_white
+  assign slider_delay = section.settings.slider_delay | times: 1000
+  capture hero_image_desktop
+    render 'print-image-sizes', image: section.blocks[0].settings.desktop_image
+  endcapture
+  capture hero_image_mobile
+    render 'print-image-sizes', image: section.blocks[0].settings.mobile_image
+  endcapture
+-%}
+
+<section class="mod_homepage_hero_ILaONW_HpBannerSection">
+  {% unless section.settings.multiple_slides %}
+    <div
+      class="homepage-banner{% if link != blank %} link{% endif %}"
+      {%- if link != blank -%}
+        onclick="location.href='{{ link }}';"
+      {%- endif -%}
+    >
+  {% else %}
+    <div
+      class="mod_homepage_hero_ILaONW_HpBannerSection__wrapper homepage-banner slider-homepage-banner{% if link != blank %} link{% endif %}"
+      {%- if link != blank -%}
+        onclick="location.href='{{ link }}';"
+      {%- endif -%}
+    >
+  {% endunless %}
+  {% unless section.settings.multiple_slides %}
+    {% comment %} One image {% endcomment %}
+    <div class="homepage-banner__desktop u-showMd">
+      {%- if section.blocks[0].settings.desktop_image -%}
+        <img
+          class="homepage-banner__desktop--img"
+          srcset="{{ hero_image_desktop | strip_newlines | strip }}"
+          sizes="100vw"
+          src="{{ section.blocks[0].settings.desktop_image | image_url: width: 1280 }}"
+          fetchpriority="high"
+          loading="eager"
+          alt=""
+          width="{{ section.blocks[0].settings.desktop_image.width }}"
+          height="{{ section.blocks[0].settings.desktop_image.height }}"
+        >
+      {%- endif -%}
+      <div class="homepage-banner__desktop--shadow"></div>
+    </div>
+    <div class="homepage-banner__mobile u-hideMd">
+      {%- if section.blocks[0].settings.mobile_image -%}
+        <img
+          class="homepage-banner__mobile--img"
+          srcset="{{ hero_image_mobile | strip_newlines | strip }}"
+          sizes="100vw"
+          src="{{ section.blocks[0].settings.mobile_image | image_url: width: 640 }}"
+          fetchpriority="high"
+          loading="eager"
+          alt=""
+          width="{{ section.blocks[0].settings.mobile_image.width }}"
+          height="{{ section.blocks[0].settings.mobile_image.height }}"
+        >
+      {%- endif -%}
+      <div class="homepage-banner__mobile--shadow"></div>
+    </div>
+    <div class="homepage-banner__content" data-position="{{ caption_position }}">
+  {% else %}
+    {% comment %} Slider {% endcomment %}
+    <div class="js-carousel-homepage-hero mod_homepage_hero_ILaONW_HpBannerSection__carousel">
+      <div class="swiper-wrapper">
+        <span class="js-carousel-homepage-delay">{{ slider_delay }}</span>
+        {% for block in section.blocks %}
+          {% assign block_heading = block.settings.heading %}
+          {% assign block_label = block.settings.sub_heading %}
+          {% assign block_link = block.settings.link %}
+          {% assign block_button_text = block.settings.cta %}
+          {% assign block_button_radius = block.settings.cta_radiu %}
+          {% assign block_cta_color = block.settings.cta_color %}
+          {% assign block_cta_bg_color = block.settings.cta_bg_color %}
+          {% assign block_cta_style = block.settings.cta_style %}
+          {% assign block_caption_position = block.settings.caption_position %}
+
+          {% if block.type == 'slide_image' %}
+            {%- liquid
+              capture slider_image_desktop
+                render 'print-image-sizes', image: block.settings.desktop_image
+              endcapture
+              capture slider_image_mobile
+                render 'print-image-sizes', image: block.settings.mobile_image
+              endcapture
+            -%}
+            {% if forloop.index0 == 0 %}
+              <div class="swiper-slide homepage-banner__desktop--slide u-showMd">
+                {%- if block.settings.desktop_image -%}
+                  <img
+                    class="homepage-banner__desktop--img"
+                    srcset="{{ slider_image_desktop | strip_newlines | strip }}"
+                    sizes="100vw"
+                    src="{{ block.settings.desktop_image | image_url: width: 1280 }}"
+                    fetchpriority="high"
+                    loading="eager"
+                    alt=""
+                    width="{{ block.settings.desktop_image.width }}"
+                    height="{{ block.settings.desktop_image.height }}"
+                  >
+                {%- endif -%}
+                <div class="homepage-banner__content" data-position="{{ block_caption_position }}">
+                  {% if block_heading != blank or block_label != blank %}
+                    <h1 class="homepage-banner__content--heading">
+                      {%- if block_label != '' -%}
+                        <small class="homepage-banner__content--label">{{ block_label }}</small>
+                      {%- endif -%}
+                      {{ block_heading }}
+                    </h1>
+                  {% endif %}
+                  {%- if block_link != blank and block_button_text != blank -%}
+                    <a
+                      href="{{ block_link }}"
+                      class="btn event-heroCTA homepage-banner__content--button"
+                      {% unless block_cta_style == 'hollow' %}
+                        style="
+                          color: {{ block_cta_color }};
+                          background-color: {{ block_cta_bg_color }};
+                          border-radius: {{ block_button_radius }}rem;
+                        "
+                      {% else %}
+                        style="
+                          color: {{ block_cta_bg_color }};
+                          background-color: transparent;
+                          border: solid 0.125em {{ block_cta_bg_color }};
+                          border-radius: {{ block_button_radius }}rem;
+                        "
+                      {% endunless %}
+                    >
+                      {{ block_button_text }}
+                    </a>
+                  {%- endif -%}
+                </div>
+                <div class="homepage-banner__desktop--shadow"></div>
+              </div>
+              <div class="swiper-slide homepage-banner__mobile--slide u-hideMd">
+                {%- if block.settings.mobile_image -%}
+                  <img
+                    class="homepage-banner__mobile--img"
+                    srcset="{{ slider_image_mobile | strip_newlines | strip }}"
+                    sizes="100vw"
+                    src="{{ block.settings.mobile_image | image_url: width: 640 }}"
+                    fetchpriority="high"
+                    loading="eager"
+                    alt=""
+                    width="{{ block.settings.mobile_image.width }}"
+                    height="{{ block.settings.mobile_image.height }}"
+                  >
+                {%- endif -%}
+                <div class="homepage-banner__content" data-position="{{ block_caption_position }}">
+                  {% if block_heading != blank or block_label != blank %}
+                    <h1 class="homepage-banner__content--heading">
+                      {%- if block_label != '' -%}
+                        <small class="homepage-banner__content--label">{{ block_label }}</small>
+                      {%- endif -%}
+                      {{ block_heading }}
+                    </h1>
+                  {% endif %}
+                  {%- if block_link != blank and block_button_text != blank -%}
+                    <a
+                      href="{{ block_link }}"
+                      class="btn event-heroCTA homepage-banner__content--button {{ block_cta_style }}"
+                      {% unless block_cta_style == 'hollow' %}
+                        style="
+                          color: {{ block_cta_color }};
+                          background-color: {{ block_cta_bg_color }};
+                          border-radius: {{ block_button_radius }}rem;
+                        "
+                      {% else %}
+                        style="
+                          color: {{ block_cta_bg_color }};
+                          background-color: transparent;
+                          border: solid 0.125em {{ block_cta_bg_color }};
+                          border-radius: {{ block_button_radius }}rem;
+                        "
+                      {% endunless %}
+                    >
+                      {{ block_button_text }}
+                    </a>
+                  {%- endif -%}
+                </div>
+                <div class="homepage-banner__mobile--shadow"></div>
+              </div>
+            {% else %}
+              <div
+                class="swiper-slide homepage-banner__desktop--slide u-showMd lazyload"
+                data-sizes="auto"
+                data-bgset="{{ slider_image_desktop | strip_newlines | strip }}"
+              >
+                <div class="homepage-banner__content" data-position="{{ block_caption_position }}">
+                  {% if block_heading != blank or block_label != blank %}
+                    <h1 class="homepage-banner__content--heading">
+                      {%- if block_label != '' -%}
+                        <small class="homepage-banner__content--label">{{ block_label }}</small>
+                      {%- endif -%}
+                      {{ block_heading }}
+                    </h1>
+                  {% endif %}
+                  {%- if block_link != blank and block_button_text != blank -%}
+                    <a
+                      href="{{ block_link }}"
+                      class="btn event-heroCTA homepage-banner__content--button"
+                      {% unless block_cta_style == 'hollow' %}
+                        style="
+                          color: {{ block_cta_color }};
+                          background-color: {{ block_cta_bg_color }};
+                          border-radius: {{ block_button_radius }}rem;
+                        "
+                      {% else %}
+                        style="
+                          color: {{ block_cta_bg_color }};
+                          background-color: transparent;
+                          border: solid 0.125em {{ block_cta_bg_color }};
+                          border-radius: {{ block_button_radius }}rem;
+                        "
+                      {% endunless %}
+                    >
+                      {{ block_button_text }}
+                    </a>
+                  {%- endif -%}
+                </div>
+                <div class="homepage-banner__desktop--shadow"></div>
+              </div>
+              <div
+                class="swiper-slide homepage-banner__mobile--slide u-hideMd lazyload"
+                data-sizes="auto"
+                data-bgset="{{ slider_image_mobile | strip_newlines | strip }}"
+              >
+                <div class="homepage-banner__content" data-position="{{ block_caption_position }}">
+                  {% if block_heading != blank or block_label != blank %}
+                    <h1 class="homepage-banner__content--heading">
+                      {%- if block_label != '' -%}
+                        <small class="homepage-banner__content--label">{{ block_label }}</small>
+                      {%- endif -%}
+                      {{ block_heading }}
+                    </h1>
+                  {% endif %}
+                  {%- if block_link != blank and block_button_text != blank -%}
+                    <a
+                      href="{{ block_link }}"
+                      class="btn event-heroCTA homepage-banner__content--button {{ block_cta_style }}"
+                      {% unless block_cta_style == 'hollow' %}
+                        style="
+                          color: {{ block_cta_color }};
+                          background-color: {{ block_cta_bg_color }};
+                          border-radius: {{ block_button_radius }}rem;
+                        "
+                      {% else %}
+                        style="
+                          color: {{ block_cta_bg_color }};
+                          background-color: transparent;
+                          border: solid 0.125em {{ block_cta_bg_color }};
+                          border-radius: {{ block_button_radius }}rem;
+                        "
+                      {% endunless %}
+                    >
+                      {{ block_button_text }}
+                    </a>
+                  {%- endif -%}
+                </div>
+
+                <div class="homepage-banner__mobile--shadow"></div>
+              </div>
+            {% endif %}
+          {% else %}
+            <div class="swiper-slide homepage-banner__desktop--slide-video u-showMd">
+              <div class="homepage-banner__content" data-position="{{ block_caption_position }}">
+                {% if block_heading != blank or block_label != blank %}
+                  <h1 class="homepage-banner__content--heading">
+                    {%- if block_label != '' -%}
+                      <small class="homepage-banner__content--label">{{ block_label }}</small>
+                    {%- endif -%}
+                    {{ block_heading }}
+                  </h1>
+                {% endif %}
+                {%- if block_link != blank and block_button_text != blank -%}
+                  <a
+                    href="{{ block_link }}"
+                    class="btn event-heroCTA homepage-banner__content--button {{ block_cta_style }}"
+                    {% unless block_cta_style == 'hollow' %}
+                      style="
+                        color: {{ block_cta_color }};
+                        background-color: {{ block_cta_bg_color }};
+                        border-radius: {{ block_button_radius }}rem;
+                      "
+                    {% else %}
+                      style="
+                        color: {{ block_cta_bg_color }};
+                        background-color: transparent;
+                        border: solid 0.125em {{ block_cta_bg_color }};
+                        border-radius: {{ block_button_radius }}rem;
+                      "
+                    {% endunless %}
+                  >
+                    {{ block_button_text }}
+                  </a>
+                {%- endif -%}
+              </div>
+              <div class="homepage-banner__desktop--video-shadow"></div>
+              {{
+                block.settings.video_desktop
+                | video_tag: image_size: '1920x', autoplay: true, loop: true, muted: true, class: 'lazyload'
+              }}
+            </div>
+
+            <div class="swiper-slide homepage-banner__mobile--slide-video u-hideMd">
+              <div class="homepage-banner__content" data-position="{{ block_caption_position }}">
+                {% if block_heading != blank or block_label != blank %}
+                  <h1 class="homepage-banner__content--heading">
+                    {%- if block_label != '' -%}
+                      <small class="homepage-banner__content--label">{{ block_label }}</small>
+                    {%- endif -%}
+                    {{ block_heading }}
+                  </h1>
+                {% endif %}
+                {%- if block_link != blank and block_button_text != blank -%}
+                  <a
+                    href="{{ block_link }}"
+                    class="btn event-heroCTA homepage-banner__content--button {{ block_cta_style }}"
+                    {% unless block_cta_style == 'hollow' %}
+                      style="
+                        color: {{ block_cta_color }};
+                        background-color: {{ block_cta_bg_color }};
+                        border-radius: {{ block_button_radius }}rem;
+                      "
+                    {% else %}
+                      style="
+                        color: {{ block_cta_bg_color }};
+                        background-color: transparent;
+                        border: solid 0.125em {{ block_cta_bg_color }};
+                        border-radius: {{ block_button_radius }}rem;
+                      "
+                    {% endunless %}
+                  >
+                    {{ block_button_text }}
+                  </a>
+                {%- endif -%}
+              </div>
+
+              <div class="homepage-banner__mobile--video-shadow"></div>
+              {{
+                block.settings.video_mobile
+                | video_tag: image_size: '400x', autoplay: true, loop: true, muted: true, class: 'lazyload'
+              }}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="mod_homepage_hero_ILaONW_HpBannerSection__carousel__navigation">
+        <div class="swiper-prev">{% render 'icon-arrow-prev' %}</div>
+        <div class="swiper-next">{% render 'icon-arrow-next' %}</div>
+      </div>
+      <div class="swiper-pagination mod_homepage_hero_ILaONW_HpBannerSection__carousel__pagination"></div>
+    </div>
+  {% endunless %}
+  {% unless section.settings.multiple_slides %}
+    </div>
+  {% endunless %}
+  {% unless section.settings.multiple_slides %}
+    </div>
+  {% else %}
+    </div>
+  {% endunless %}
+</section>
+
+<style>
+  .homepage-banner__desktop--img,
+  .homepage-banner__mobile--img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .homepage-banner__desktop--slide,
+  .homepage-banner__mobile--slide {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+  }
+  .homepage-banner__desktop--shadow,
+  .homepage-banner__desktop--video-shadow,
+  .homepage-banner__mobile--video-shadow,
+  .homepage-banner__mobile--shadow {
+    position: absolute;
+    inset: 0;
+    background-color: {{ tint_color }};
+    opacity: {{ tint_strength }};
+  }
+  .homepage-banner__desktop--video-shadow,
+  .homepage-banner__mobile--video-shadow {
+      width: 100%;
+  }
+  .homepage-banner-section {
+    background-color: {{ tint_color }};
+  }
+  .homepage-banner__mobile {
+    background-position: center;
+  }
+  .homepage-banner__content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) translateZ(0);
+    width: 100%;
+    text-align: center;
+    transition: opacity 300ms ease-in-out 300ms;
+  }
+  @media (min-width: 640px) {
+    .homepage-banner__content[data-position~='top'] {
+      top: 10%;
+      transform: none;
+      padding: 10px 0 0 0;
+    }
+    .homepage-banner__content[data-position~='bottom'] {
+      top: auto;
+      bottom: 10%;
+      transform: none;
+      padding: 0 0 10px 0;
+    }
+    .homepage-banner__content[data-position~='left'] {
+      width: 50%;
+      text-align: left;
+      padding: 0 0 0 40px;
+    }
+    .homepage-banner__content[data-position~='right'] {
+      left: 50%;
+      width: 50%;
+      text-align: left;
+      padding: 0 10px 0 0;
+    }
+  }
+  .homepage-banner__content .homepage-banner__content--label {
+    color: {{ label_color }};
+  }
+
+  .homepage-banner__content--button.hollow {
+    background-color: transparent;
+    border: solid 0.125em {{ cta_bg_color }};
+    color: {{ cta_bg_color }};
+  }
+  .homepage-banner__content--button.hollow:hover,
+  .homepage-banner__content--button.hollow:focus {
+    background-color: {{ cta_bg_color }};
+    border-color: {{ cta_bg_color }};
+    color: {{ cta_color }};
+  }
+</style>
+
+{%- schema %}
+{
+  "name": "HP Banner",
+  "class": "js-homepage-hero HpBannerSection",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "multiple_slides",
+      "label": "Slider mode: Use multiple images",
+      "info": "If deactivated, shows only the image from the first block"
+    },
+    {
+      "type": "range",
+      "id": "slider_delay",
+      "min": 1,
+      "max": 9,
+      "step": 1,
+      "label": "Slider delay",
+      "info": "Time between slides (expressed in seconds)",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "tint_color",
+      "label": "Tint color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "tint_strength",
+      "label": "Tint strength",
+      "options": [
+        { "value": "0", "label": "No tint" },
+        { "value": "0.1", "label": "10%" },
+        { "value": "0.2", "label": "20%" },
+        { "value": "0.3", "label": "30%" },
+        { "value": "0.4", "label": "40%" },
+        { "value": "0.5", "label": "50%" },
+        { "value": "0.6", "label": "60%" },
+        { "value": "0.7", "label": "70%" },
+        { "value": "0.8", "label": "80%" },
+        { "value": "0.9", "label": "90%" }
+      ],
+      "default": "0.2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide_image",
+      "name": "Slide (image)",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Slide image (Desktop)",
+          "info": "1920x650, Preferable 2x"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Slide image (Mobile)",
+          "info": "390x400, Preferable 3x"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "40oz Trek Tumblers"
+        },
+        {
+          "type": "text",
+          "id": "sub_heading",
+          "label": "Label Text",
+          "default": "Back in Stock!"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "Button text",
+          "default": "Shop Trek Tumblers"
+        },
+        {
+          "type": "select",
+          "id": "cta_radiu",
+          "label": "Button radius",
+          "options": [
+            { "value": "0", "label": "Square corners" },
+            { "value": "0.125", "label": "Smoothed corners" },
+            { "value": "5", "label": "Rounded" }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "cta_color",
+          "label": "Button text color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "cta_bg_color",
+          "label": "Button background color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "radio",
+          "id": "cta_style",
+          "label": "Button style",
+          "options": [
+            { "value": "solid", "label": "Solid" },
+            { "value": "hollow", "label": "Hollow" }
+          ],
+          "default": "solid"
+        },
+        {
+          "type": "select",
+          "id": "caption_position",
+          "label": "Caption position",
+          "options": [
+            { "label": "Top left", "value": "left top" },
+            { "label": "Top center", "value": "center top" },
+            { "label": "Top right", "value": "right top" },
+            { "label": "Middle left", "value": "left middle" },
+            { "label": "Middle center", "value": "center middle" },
+            { "label": "Middle right", "value": "right middle" },
+            { "label": "Bottom left", "value": "left bottom" },
+            { "label": "Bottom center", "value": "center bottom" },
+            { "label": "Bottom right", "value": "right bottom" }
+          ],
+          "default": "center middle"
+        }
+      ]
+    },
+    {
+      "type": "slide_video",
+      "name": "Slide (video)",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video_desktop",
+          "label": "Slide video (Desktop)",
+          "info": "1920x650, Preferable 2x"
+        },
+        {
+          "type": "video",
+          "id": "video_mobile",
+          "label": "Slide video (Mobile)",
+          "info": "390x400, Preferable 3x"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "40oz Trek Tumblers"
+        },
+        {
+          "type": "text",
+          "id": "sub_heading",
+          "label": "Label Text",
+          "default": "Back in Stock!"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "Button text",
+          "default": "Shop Trek Tumblers"
+        },
+        {
+          "type": "select",
+          "id": "cta_radiu",
+          "label": "Button radius",
+          "options": [
+            { "value": "0", "label": "Square corners" },
+            { "value": "0.125", "label": "Smoothed corners" },
+            { "value": "5", "label": "Rounded" }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "cta_color",
+          "label": "Button text color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "cta_bg_color",
+          "label": "Button background color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "radio",
+          "id": "cta_style",
+          "label": "Button style",
+          "options": [
+            { "value": "solid", "label": "Solid" },
+            { "value": "hollow", "label": "Hollow" }
+          ],
+          "default": "solid"
+        },
+        {
+          "type": "select",
+          "id": "caption_position",
+          "label": "Caption position",
+          "options": [
+            { "label": "Top left", "value": "left top" },
+            { "label": "Top center", "value": "center top" },
+            { "label": "Top right", "value": "right top" },
+            { "label": "Middle left", "value": "left middle" },
+            { "label": "Middle center", "value": "center middle" },
+            { "label": "Middle right", "value": "right middle" },
+            { "label": "Bottom left", "value": "left bottom" },
+            { "label": "Bottom center", "value": "center bottom" },
+            { "label": "Bottom right", "value": "right bottom" }
+          ],
+          "default": "center middle"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HP Banner",
+      "settings": {}
+    }
+  ]
+}
+{%- endschema %}

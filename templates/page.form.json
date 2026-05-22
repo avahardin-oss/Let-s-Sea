@@ -1,0 +1,77 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "8e7d0d47-8ba7-43c5-b150-778abf03876d",
+    "3cd511ad-b3d8-4e0a-b021-d4213966120c"
+  ],
+  "sections": {
+    "3cd511ad-b3d8-4e0a-b021-d4213966120c": {
+      "block_order": [
+        "d70837c6-d3b6-4c90-86c3-72df50b52bb1",
+        "a53248a0-6a65-4815-af81-f4781381b605",
+        "41f4f721-6350-4f51-91e6-72a948f2b32b",
+        "4d52b10c-ec29-4383-8096-b2b3d824a757"
+      ],
+      "blocks": {
+        "41f4f721-6350-4f51-91e6-72a948f2b32b": {
+          "settings": {
+            "small_text": "<p>Please note: We're not currently accepting any new international retail or wholesale orders, international distributor inquiries, or e-commerce dealer requests.</p>",
+            "text": "<p><a href=\"/pages/faqs\" title=\"FAQs\">Click here</a> for more information.</p>",
+            "title": "Wholesale Account Inquiry"
+          },
+          "type": "block"
+        },
+        "4d52b10c-ec29-4383-8096-b2b3d824a757": {
+          "settings": {
+            "small_text": "",
+            "text": "<p>For media and PR inquiries, please reach out to us at <a href=\"mailto:pr@simplemodern.com\" target=\"_blank\" title=\"mailto:pr@simplemodern.com\">PR@simplemodern.com</a></p>",
+            "title": "Media and PR Inquiries"
+          },
+          "type": "block"
+        },
+        "a53248a0-6a65-4815-af81-f4781381b605": {
+          "settings": {
+            "small_text": "",
+            "text": "<p>Please have your order number and shipping address ready so we can best assist you.</p><h3></h3><h3>1 (855) 746-7506</h3><p><strong>Hours: 9:00 AM - 5:00 PM Central (Mon-Fri)</strong></p>",
+            "title": "Phone"
+          },
+          "type": "block"
+        },
+        "d70837c6-d3b6-4c90-86c3-72df50b52bb1": {
+          "settings": {
+            "small_text": "<p>If you've reached out and haven't heard back from us in awhile, please check your spam folder.</p>",
+            "text": "<p><a href=\"mailto:support@simplemodern.com\" target=\"_blank\" title=\"mailto:support@simplemodern.com\">support@simplemodern.com</a></p>",
+            "title": "Email"
+          },
+          "type": "block"
+        }
+      },
+      "custom_css": [],
+      "settings": {
+        "description": "<p>We strive for every customer to feel like they have received exceptional quality, style, and value out of each purchase they make from Simple Modern. If you have any problems with your order you can contact us in the following ways:</p>",
+        "heading": "Leave Us a message"
+      },
+      "type": "contact"
+    },
+    "8e7d0d47-8ba7-43c5-b150-778abf03876d": {
+      "settings": {
+        "banner_height": "small",
+        "color_palette": "dark",
+        "heading": "Contact",
+        "image_as_background": true,
+        "show_breadcrumbs": true,
+        "text": ""
+      },
+      "type": "image-text-banner"
+    }
+  },
+  "wrapper": "main.ContactPage[role='main']"
+}

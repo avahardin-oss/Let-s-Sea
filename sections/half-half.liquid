@@ -1,0 +1,83 @@
+<section class="HalfHalf">
+    
+    {% for blocks in section.blocks %}
+        {%- liquid 
+            assign image_to_the_left = blocks.settings.image_to_the_left 
+            assign label = blocks.settings.label
+            assign heading = blocks.settings.heading
+            assign text = blocks.settings.text
+            assign image = blocks.settings.image
+          -%} 
+
+        <div class="HalfHalf-container {% if image_to_the_left %} revert{% endif %}">
+            <div class="HalfHalf-textWrapper">
+              {% if label %}
+                <p class="HalfHalf--label">{{ label }}</p>
+              {% endif %}
+              {% if heading %}
+                <h2 class="HalfHalf--heading">{{ heading }}</h2>
+              {% endif %}
+              {% if text %}
+                <div class="HalfHalf--text">{{ text }}</div>
+              {% endif %}
+            </div>
+
+            {% if image %}
+            <div class="HalfHalf-imageWrapper">
+                {%- capture image_sizes -%}
+                    {%- render 'print-image-sizes' with image -%}
+                {%- endcapture -%}
+                <div class="HalfHalf-image {% if image_sizes != blank %}lazyload{% endif %}" data-bgset="{{ image_sizes }}" data-sizes="auto"></div>
+            </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+</section>
+
+
+{% schema %}
+  {
+  "name": "Half-Half blocks",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Block",
+      "type": "block",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "image_to_the_left",
+          "label": "Image to the left",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Half-Half blocks"
+    }
+  ]
+}  
+{% endschema %}

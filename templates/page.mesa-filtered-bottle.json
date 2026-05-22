@@ -1,0 +1,243 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "main",
+    "06f36713-2d8d-4ea0-a4fa-3a752ae9ea34",
+    "8e012793-97c3-4261-96ac-6a2b6ff16979",
+    "17bbf7ce-fd6f-428d-995b-63e79038641b",
+    "472e62e1-e48b-4be5-b1cc-ae8b71e3c006",
+    "a342e8d9-fbc7-4877-b615-43bc468abb1a",
+    "8775e4ff-7ffd-4ad3-82cb-980076a61203",
+    "d7d37899-561f-4839-8d90-c2b0dd9efc2c",
+    "18cc0d66-8880-4997-8f62-d207489a5933"
+  ],
+  "sections": {
+    "06f36713-2d8d-4ea0-a4fa-3a752ae9ea34": {
+      "disabled": true,
+      "settings": {
+        "cta": "Shop Trek Tumblers",
+        "heading": "The Mesa",
+        "imageDesktop": "shopify://shop_images/Mesa-Hero4_198dc2cd-b098-4f80-abd6-878d423e43ab.jpg",
+        "imageMobile": "shopify://shop_images/Mesa9_f8313720-1dfd-4cc7-acd9-d4a79060816e.jpg",
+        "image_overlay": false,
+        "link": "",
+        "sub_heading": "Filtered Water Bottle"
+      },
+      "type": "hp-banner"
+    },
+    "17bbf7ce-fd6f-428d-995b-63e79038641b": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": true,
+        "heading": "<h2>Hydration Meets Filtration</h2>",
+        "richtext": "<p>The Mesa Filtered Water Bottle is our most advanced water bottle yet, as it features a sleek design, improved temperature-controlling technology, and a specially designed water filter. The internal carbon water filter enhances your experience by delivering cleaner, better-tasting water with every sip.</p>"
+      },
+      "type": "simple-text"
+    },
+    "18cc0d66-8880-4997-8f62-d207489a5933": {
+      "block_order": [
+        "5fa742a5-75d3-40fc-9c80-edb9d83d488a",
+        "a40dfb18-10f9-4068-a0a1-ef39fc74d728"
+      ],
+      "blocks": {
+        "5fa742a5-75d3-40fc-9c80-edb9d83d488a": {
+          "settings": {
+            "image": "shopify://shop_images/Mesa1.jpg",
+            "link": "shopify://products/mesa-with-simple-flip-flter-straw-lid-34oz-3"
+          },
+          "type": "image"
+        },
+        "a40dfb18-10f9-4068-a0a1-ef39fc74d728": {
+          "settings": {
+            "image": "shopify://shop_images/Mesa7.jpg",
+            "link": "shopify://products/mesa-with-simple-flip-flter-straw-lid-34oz-9"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "472e62e1-e48b-4be5-b1cc-ae8b71e3c006": {
+      "block_order": [
+        "ebbb19a6-f5df-4675-b7a5-b1cd4f4e10da",
+        "74be3ac7-034f-41d8-9b8f-8847a126656a",
+        "1e81026a-03de-474a-976d-fea167c64fce",
+        "b97fbe27-3c5d-4091-9034-9cc40b24257d",
+        "d60a033e-3be9-485e-a2d2-2f45542b40f7",
+        "b5678fe7-2cc0-4e65-bd97-a17b0425be82"
+      ],
+      "blocks": {
+        "1e81026a-03de-474a-976d-fea167c64fce": {
+          "settings": {
+            "articleimage": "shopify://shop_images/Mesa13.jpg",
+            "articlelink": "shopify://products/mesa-with-simple-flip-flter-straw-lid-24oz-9",
+            "articletitle": "Cupholder Friendly  -  24oz only"
+          },
+          "type": "article"
+        },
+        "74be3ac7-034f-41d8-9b8f-8847a126656a": {
+          "settings": {
+            "articleimage": "shopify://shop_images/Mesa-TBH-4.jpg",
+            "articlelink": "shopify://products/mesa-with-simple-flip-flter-straw-lid-34oz-9",
+            "articletitle": "100% Leakproof"
+          },
+          "type": "article"
+        },
+        "b5678fe7-2cc0-4e65-bd97-a17b0425be82": {
+          "settings": {
+            "articleimage": "shopify://shop_images/Mesa10.jpg",
+            "articlelink": "shopify://products/mesa-with-simple-flip-flter-straw-lid-24oz-5",
+            "articletitle": "Two Sizes Available"
+          },
+          "type": "article"
+        },
+        "b97fbe27-3c5d-4091-9034-9cc40b24257d": {
+          "settings": {
+            "articleimage": "shopify://shop_images/Mesa5.jpg",
+            "articlelink": "shopify://products/mesa-with-simple-flip-flter-straw-lid-34oz-9",
+            "articletitle": "Sleek Design"
+          },
+          "type": "article"
+        },
+        "d60a033e-3be9-485e-a2d2-2f45542b40f7": {
+          "settings": {
+            "articleimage": "shopify://shop_images/Mesa14.jpg",
+            "articlelink": "shopify://products/mesa-with-simple-flip-flter-straw-lid-24oz-9",
+            "articletitle": "Wide Mouth Opening"
+          },
+          "type": "article"
+        },
+        "ebbb19a6-f5df-4675-b7a5-b1cd4f4e10da": {
+          "settings": {
+            "articleimage": "shopify://shop_images/Mesa-TBH-2.jpg",
+            "articlelink": "shopify://products/mesa-with-simple-flip-flter-straw-lid-34oz-11",
+            "articletitle": "Carbon Filtered Straw"
+          },
+          "type": "article"
+        }
+      },
+      "settings": {
+        "cta": "shop now",
+        "featuredCardHeading": "A New Era of Hydration",
+        "featuredCardImage": "shopify://shop_images/Mesa3.jpg",
+        "featuredCardSubHeading": "",
+        "link": "shopify://products/mesa-with-simple-flip-flter-straw-lid-24oz-11"
+      },
+      "type": "blog-slider"
+    },
+    "8775e4ff-7ffd-4ad3-82cb-980076a61203": {
+      "block_order": [
+        "e4315974-e0e3-4f71-a7b3-cb790efd229b",
+        "4ff4d7e1-01ab-4f89-b097-6b192b233afa"
+      ],
+      "blocks": {
+        "4ff4d7e1-01ab-4f89-b097-6b192b233afa": {
+          "settings": {
+            "image": "shopify://shop_images/Mesa-Tech3_036cf830-004c-4579-9ca1-6f3f77ba7d49.jpg",
+            "link": "shopify://products/mesa-with-simple-flip-flter-straw-lid-34oz-9"
+          },
+          "type": "image"
+        },
+        "e4315974-e0e3-4f71-a7b3-cb790efd229b": {
+          "settings": {
+            "image": "shopify://shop_images/Mesa-Tech2_ec8a91ea-c46e-492e-b13f-c5ba371b7059.jpg",
+            "link": "shopify://products/mesa-with-simple-flip-flter-straw-lid-240z-10"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "8e012793-97c3-4261-96ac-6a2b6ff16979": {
+      "block_order": [
+        "template--14631630766152__8e012793-97c3-4261-96ac-6a2b6ff16979-image-3"
+      ],
+      "blocks": {
+        "template--14631630766152__8e012793-97c3-4261-96ac-6a2b6ff16979-image-3": {
+          "settings": {
+            "bg_color": "#dddedc",
+            "caption_position": "left bottom",
+            "cta": "",
+            "cta_bg_color": "#ffffff",
+            "cta_color": "#000000",
+            "cta_style": "hollow",
+            "heading": "The Mesa",
+            "heading_color": "",
+            "image": "shopify://shop_images/Mesa-Hero4.jpg",
+            "link": "",
+            "mobile_image": "shopify://shop_images/Mesa9.jpg",
+            "subhead": "Filtered water bottle",
+            "subhead_color": "",
+            "tint_color": "#000000",
+            "tint_strength": "0.2"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": "5000",
+        "slideshow_height": "1000",
+        "slideshow_width": "1920"
+      },
+      "type": "slideshow"
+    },
+    "a342e8d9-fbc7-4877-b615-43bc468abb1a": {
+      "block_order": [
+        "ace62624-65d2-4004-95dc-4dd930b97591",
+        "f97e2ea1-89c7-4c46-9d44-32f2e51d6748"
+      ],
+      "blocks": {
+        "ace62624-65d2-4004-95dc-4dd930b97591": {
+          "settings": {
+            "image": "shopify://shop_images/Mesa6.jpg",
+            "link": "shopify://products/mesa-with-simple-flip-flter-straw-lid-34oz-9"
+          },
+          "type": "image"
+        },
+        "f97e2ea1-89c7-4c46-9d44-32f2e51d6748": {
+          "settings": {
+            "image": "shopify://shop_images/Mesa4.jpg",
+            "link": "shopify://products/mesa-with-simple-flip-flter-straw-lid-24oz-11"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "d7d37899-561f-4839-8d90-c2b0dd9efc2c": {
+      "block_order": ["4d3307e3-ac23-46a1-999a-f2e359fbabda"],
+      "blocks": {
+        "4d3307e3-ac23-46a1-999a-f2e359fbabda": {
+          "settings": {
+            "coll": "mesa",
+            "products": 12,
+            "title": "Mesa"
+          },
+          "type": "collection"
+        }
+      },
+      "settings": {
+        "header": "Shop the Full Collection"
+      },
+      "type": "featured-products"
+    },
+    "main": {
+      "disabled": true,
+      "settings": {},
+      "type": "page"
+    }
+  },
+  "wrapper": "main.Page[role='main']"
+}

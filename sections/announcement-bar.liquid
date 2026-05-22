@@ -1,0 +1,117 @@
+{%- assign s = section.settings -%}
+
+{%- comment -%}
+  Resolve announcement text for the current market.
+  If a market_text block matches localization.market.handle, use its text.
+  Otherwise fall back to the global section text setting.
+{%- endcomment -%}
+{%- assign current_market_handle = localization.market.handle -%}
+{%- assign announcement_text = s.text -%}
+{%- for block in section.blocks -%}
+  {%- if block.type == 'market_text'
+    and block.settings.market_handle == current_market_handle
+    and block.settings.text != blank
+  -%}
+    {%- assign announcement_text = block.settings.text -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if s.show_announcement and announcement_text != blank -%}
+  <div
+    style="--announcement-bar-bg: {{- s.background_color | default: '#ce0f69' -}}; --announcement-bar-link-hover: {{- s.link_hover_color | default: '#F5F5F1' -}};"
+    class="AnnouncementBar-wrapper"
+  >
+    <div class="AnnouncementBar-text">
+      {{- announcement_text -}}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="AnnouncementBar-links">
+        {%- for block in section.blocks -%}
+          {%- assign b = block.settings -%}
+
+          {%- if b.url != blank and b.text != blank -%}
+            <a href="{{- b.url -}}" class="AnnouncementBar-link">
+              {{- b.text -}}
+
+              {%- unless forloop.last -%}
+                <span class="AnnouncementBar-link-separator"></span>
+              {%- endunless -%}
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "class": "AnnouncementBar",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show Announcement",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Get Free Shipping on Orders over $50"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ce0f69"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link Hover Color",
+      "default": "#F5F5F1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "market_text",
+      "name": "Market Text Override",
+      "settings": [
+        {
+          "type": "text",
+          "id": "market_handle",
+          "label": "Market Handle",
+          "info": "Enter the market handle to override (e.g. 'us', 'ca', 'international'). Find handles in Shopify Admin → Settings → Markets."
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "info": "Announcement text shown for this market. Overrides the default Text setting above."
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

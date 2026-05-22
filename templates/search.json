@@ -1,0 +1,67 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": ["main"],
+  "sections": {
+    "main": {
+      "block_order": [
+        "filter_pill_gUkU9Y",
+        "filter_pill_9GhtMR",
+        "filter_pill_kckLCj",
+        "filter_pill_MDJ4et",
+        "filter_pill_ULB79T"
+      ],
+      "blocks": {
+        "filter_pill_9GhtMR": {
+          "settings": {
+            "label": "Marvel",
+            "tag_value": "Marvel"
+          },
+          "type": "filter_pill"
+        },
+        "filter_pill_MDJ4et": {
+          "settings": {
+            "label": "Cupholder",
+            "tag_value": "Cupholder"
+          },
+          "type": "filter_pill"
+        },
+        "filter_pill_ULB79T": {
+          "settings": {
+            "label": "Straw",
+            "tag_value": "Straw"
+          },
+          "type": "filter_pill"
+        },
+        "filter_pill_gUkU9Y": {
+          "settings": {
+            "label": "Disney",
+            "tag_value": "Disney"
+          },
+          "type": "filter_pill"
+        },
+        "filter_pill_kckLCj": {
+          "settings": {
+            "label": "360",
+            "tag_value": "360"
+          },
+          "type": "filter_pill"
+        }
+      },
+      "settings": {
+        "bestsellers_collection": "best-sellers-1",
+        "bestsellers_heading": "Check Our Bestsellers",
+        "hits_per_page": 24
+      },
+      "type": "search"
+    }
+  },
+  "wrapper": "main.Search[role='main']"
+}

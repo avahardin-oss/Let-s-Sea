@@ -1,0 +1,512 @@
+<header class="Header-container js-header-container" role="banner">
+  <div class="column">
+    <div class="Header-sections">
+      <div class="Header-section is-left">
+        <button
+          class="Header-mobButton Header-mobileMenu Icon js-offcanvas-trigger"
+          data-drawer-name="menu"
+          title="{{ 'general.nav_icons.browse' | t }}"
+          aria-label="Menu"
+        >
+          <span class="u-vhide">{{ 'general.nav_icons.browse' | t }}</span>
+          <div class="Header-hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+        <div class="Header-logo">
+          <a class="Header-logoLink" href="{{ shop.url }}">
+            {% if section.settings.logo %}
+              <div class="Header-logoImagePlaceholder o-placeholder">
+                {% if template == 'index' %}
+                  <h1 class="u-vhide">
+                    {{ shop.name }}
+                  </h1>
+                {% else %}
+                  <div class="u-vhide">
+                    {{ shop.name }}
+                  </div>
+                {% endif %}
+              </div>
+              <style>
+                .Header-logoImagePlaceholder {
+                  background-image: url("{{ section.settings.logo | image_url: width: 640 }}");
+                }
+              </style>
+            {% else %}
+              <div class="Header-logoFallbackText">
+                <svg
+                  aria-labelledby="title28"
+                  role="img"
+                  viewBox="0 0 116 45"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <title id="title28">Simple Modern Homepage</title>
+
+                  <path d="M14.7653 26.3621H17.1389V44.3137H14.9426V30.0866L8.91621 39.6099H8.21494L2.18859 30.0866V44.3137H0V26.3621H2.35043L8.56172 36.1476L14.773 26.3621H14.7653ZM38.8399 35.068C38.8399 31.0274 35.5338 27.8581 31.3185 27.8581C27.1031 27.8581 23.7971 31.0274 23.7971 35.068C23.7971 39.1087 27.1031 42.278 31.3185 42.278C35.5338 42.278 38.8399 39.1087 38.8399 35.068ZM31.3185 25.8223C36.7668 25.8223 41.0361 29.8861 41.0361 35.068C41.0361 40.2499 36.7668 44.3137 31.3185 44.3137C25.8701 44.3137 21.6008 40.2499 21.6008 35.068C21.6008 29.8861 25.8701 25.8223 31.3185 25.8223ZM58.622 35.3379C58.622 31.3666 55.7167 28.3747 51.8712 28.3747H46.8698V42.3011H51.8712C55.7167 42.3011 58.622 39.3092 58.622 35.3379ZM51.8712 26.3621C56.9574 26.3621 60.7874 30.2254 60.7874 35.3379C60.7874 40.4504 56.9497 44.3137 51.8712 44.3137H44.6812V26.3621H51.8712ZM67.9466 36.271H76.1924V34.2583H67.9466V28.3747H76.8397V26.3621H65.758V44.3137H76.9707V42.3011H67.9543V36.271H67.9466ZM85.1317 35.2608H90.4645C92.4219 35.2608 94.0171 33.7186 94.0171 31.8293C94.0171 29.9401 92.4219 28.3747 90.4645 28.3747H85.1317V35.2608ZM96.2134 31.8293C96.2134 34.1118 94.6953 36.1399 92.4527 36.9341L97.0457 44.3137H94.5103L90.1793 37.2734H85.1317V44.3137H82.9354V26.3621H90.4645C93.6318 26.3621 96.2134 28.8142 96.2134 31.8293ZM113.445 26.3621V40.2499L103.403 26.3621H101.585V44.3137H103.781V30.4259L113.792 44.3137H115.633V26.3621H113.445ZM6.35001 20.5479C3.85316 20.5479 2.05759 19.476 1.4642 17.7641L0.0308253 18.5584C0.832282 20.5864 3.02088 22.067 6.35001 22.067C9.91033 22.067 12.307 20.17 12.307 17.5713C12.307 11.7802 2.22713 14.2787 2.22713 10.0375C2.22713 8.14057 4.05352 7.061 6.219 7.061C8.0454 7.061 9.77932 7.82441 10.4729 9.46689L11.8677 8.7112C10.9661 6.7834 8.90851 5.54961 6.21129 5.54961C2.82822 5.54961 0.562561 7.54681 0.562561 10.0452C0.562561 15.7438 10.6424 13.2762 10.6424 17.5791C10.6424 19.5762 8.67732 20.5556 6.35001 20.5556M37.3294 5.54961C35.0406 5.54961 32.8597 6.59062 31.6267 8.86542C30.7405 6.72171 28.7908 5.54961 26.3017 5.54961C24.1131 5.54961 22.0709 6.45953 20.8071 8.70349V5.91204H19.0963V22.1595H20.8071V13.0911C20.8071 8.93482 23.2962 7.11498 26.1013 7.11498C28.7292 7.11498 30.4708 8.77289 30.4708 11.8574V22.1595H32.1816V13.0911C32.1816 8.93482 34.4318 7.11498 37.3063 7.11498C39.9727 7.11498 41.8453 8.77289 41.8453 11.8574V22.1595H43.5561V11.8574C43.5561 7.79357 40.9591 5.54961 37.3448 5.54961M81.3017 7.07643C77.4948 7.07643 74.7205 9.59027 74.3891 13.1143H87.8212C87.4513 9.23556 84.5769 7.07643 81.3017 7.07643ZM88.7151 18.5507C87.3434 20.7098 84.7387 22.1441 81.4327 22.1441C76.2849 22.1441 72.6475 18.6432 72.6475 13.8468C72.6475 9.05049 76.1924 5.54961 81.3017 5.54961C86.411 5.54961 89.5551 9.55943 89.5551 13.9085C89.5551 14.163 89.5243 14.4175 89.5243 14.6719H74.3891C74.7898 18.2654 77.6643 20.6173 81.4712 20.6173C84.2069 20.6173 86.2799 19.4066 87.2509 17.7256L88.7228 18.5507M69.8963 22.1903C70.7748 22.1903 71.6996 21.7894 72.1157 21.5195L72.3315 21.3807L71.6996 20.0389L71.3991 20.2009C71.1139 20.3628 70.4589 20.6095 69.904 20.6095C68.671 20.6095 68.2934 20.0312 68.2934 18.1497V0.313721H66.6365V18.0726C66.6365 20.679 67.1683 22.1903 69.904 22.1903M16.3605 0.69928H14.7499V24.6194H16.3605V0.69928ZM55.316 20.517C59.2462 20.517 62.321 17.5636 62.321 13.816C62.321 10.0684 59.2462 7.11498 55.316 7.11498C51.3857 7.11498 48.3109 10.0684 48.3109 13.816C48.3109 17.5636 51.3857 20.517 55.316 20.517ZM55.4161 5.6113C60.1401 5.6113 63.9779 9.16616 63.9779 13.8237C63.9779 18.4813 60.1478 22.0361 55.4161 22.0361C52.2103 22.0361 49.6672 20.463 48.3109 18.0417V24.6348H46.6618V5.95831H48.3109V9.60569C49.6672 7.18438 52.2103 5.6113 55.4161 5.6113Z" fill="black" />
+                </svg>
+              </div>
+            {% endif %}
+          </a>
+        </div>
+      </div>
+      <nav aria-label="Primary" class="Header-section is-middle">
+        {%- liquid
+          assign main_menu = linklists[section.settings.main_linklist]
+          if customer.b2b? == true
+            assign main_menu = linklists[section.settings.main_b2b_linklist]
+          endif
+        -%}
+        <div
+          id="js-header-menu"
+          class="HeaderMenu"
+          role="navigation"
+        >
+          <ul class="HeaderMenu-items">
+            {% liquid
+              assign megamenu_threshold = section.settings.megamenu_threshold | default: 75 | times: 1
+              assign third_level_percentage = 0
+            %}
+
+            {% for toplink in main_menu.links %}
+              {% liquid
+                assign toplink_utf_handle = toplink.title | strip | replace: ' ', '-' | url_encode | handle
+
+                assign midlist = false
+                for linklist in linklists
+                  assign list_utf_handle = linklist.title | strip | replace: ' ', '-' | url_encode | handle
+                  if list_utf_handle == toplink_utf_handle
+                    assign midlist = linklist
+                  endif
+                endfor
+              %}
+
+              {% comment %}
+                Calculate megamenu activation breakpoint
+              {% endcomment %}
+              {% liquid
+                if midlist and midlist.links.size > 1
+                  assign third_level_lists = 0
+                  for midlink in midlist.links
+                    assign midlink_utf_handle = midlink.title | strip | replace: ' ', '-' | url_encode | handle
+                    if midlink_utf_handle == toplink_utf_handle
+                      continue
+                    endif
+
+                    assign bottomlist = false
+                    for linklist in linklists
+                      assign list_utf_handle = linklist.title | strip | replace: ' ', '-' | url_encode | handle
+                      if list_utf_handle == midlink_utf_handle
+                        assign bottomlist = linklist
+                      endif
+                    endfor
+
+                    if bottomlist and bottomlist.links.size > 0
+                      assign third_level_lists = third_level_lists | plus: 1
+                    endif
+                  endfor
+                  assign third_level_percentage = third_level_lists | times: 100 | divided_by: midlist.links.size
+                endif
+              %}
+
+              <li
+                class="js-header-menu-item HeaderMenu-item {% if midlist and midlist.links.size > 0 %}has-dropdown {% if third_level_percentage >= megamenu_threshold %}has-megaMenu js-mega-menu-trigger{% endif %}{% endif %}"
+                data-megamenu-percentage="{{ third_level_percentage }}"
+                data-mega-menu="{{ toplink.title | handleize }}"
+                aria-label="{{ toplink.title | handleize }} menu"
+                tabindex="0"
+              >
+                <a
+                  class="HeaderMenu-itemLink event-navLink{% if toplink.active %} is-active{% endif %}"
+                  href="{{ toplink.url }}"
+                  id="header-menu-item-{{ toplink.title | handleize }}"
+                >
+                  {{ toplink.title }}
+                  {% if midlist and midlist.links.size > 0 %}
+                    <svg
+                      aria-labelledby="title41-{{toplink.title}}"
+                      role="img"
+                      width="12"
+                      height="7"
+                      viewBox="0 0 12 7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <title id="title41-{{ toplink.title }}">Arrow down icon</title>
+
+                      <path
+                        d="M1.00195 0.813476L6.00195 5.81348L11.002 0.813476"
+                        stroke="black"
+                        stroke-width="1.5" />
+                    </svg>
+                  {% endif %}
+                </a>
+                {% render 'header-dropdown', toplink: toplink, themes: section.blocks %}
+              </li>
+            {% endfor %}
+          </ul>
+          {% comment %}
+            <button type="button" class="js-header-menu-toggle HeaderMenu-toggle is-hidden">
+              <span class="u-vhide">
+              {{ 'header.menu.toggle' | t }}
+              </span>
+              <div class="o-placeholder">
+              {% render 'svg-header-menu-toggle' %}
+              </div>
+              <div class="js-header-menu-toggle-dropdown HeaderDropdown"></div>
+            </button>
+          {% endcomment %}
+        </div>
+      </nav>
+      <nav aria-label="Action" class="Header-section is-right">
+        <div class="u-pos-static">
+          {%- comment -%}
+            Real search button — server-rendered, always visible from first paint.
+            React attaches its click handler here; no duplicate button is rendered.
+          {%- endcomment -%}
+          <button
+            type="button"
+            class="Header__link-icon Header__link-icon--search js-search-btn"
+            aria-label="Search"
+          >
+            <div class="Header-icon">
+              <div class="o-placeholder">
+                <svg width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <title>Magnifying glass icon</title>
+                  <circle cx="11.6863" cy="12" r="8" transform="rotate(-45 11.6863 12)" stroke="black" fill="#fff" />
+                  <path d="M16.9287 17.6569L22.5856 23.3137" stroke="black" />
+                </svg>
+              </div>
+            </div>
+            <div class="Header-iconText">Search</div>
+          </button>
+          {%- comment -%} React mounts only the search modal overlay here {%- endcomment -%}
+          <div class="js-search-container"></div>
+        </div>
+
+        {% capture header_icons %}
+          account,/account,{{ 'general.nav_icons.account' | t }};
+          cart,/cart,{{ 'general.nav_icons.cart' | t }},offcanvas
+        {% endcapture %}
+        {% assign header_icons = header_icons | strip_newlines | strip | split: ';' %}
+
+        {% for item in header_icons %}
+          {% liquid
+            assign item_parts = item | strip | split: ','
+            assign item_name = item_parts[0]
+            assign item_url = item_parts[1]
+            assign item_text = item_parts[2]
+
+            if item_name == 'account' and shop.customer_accounts_enabled == false
+              continue
+            endif
+          %}
+
+          <a
+            class="Header-iconLink{% if item_name == 'cart' %} event-navCart{% elsif item_name == 'account' %} event-navAccount{% endif %}{% if item_parts[3] and settings.ajax_cart_enabled == true %} js-offcanvas-trigger{% endif %}"
+            href="{{ item_url }}"
+            {% if item_parts[3] %}
+              data-drawer-name="{{ item_name }}"
+            {% endif %}
+            title="{{ item_text | escape }}"
+          >
+            <div class="Header-icon">
+              {% if item_name == 'cart' %}
+                <div
+                  class="js-cart-item-count Header-cartItemCount"
+                  data-item-count="{{ cart.item_count }}"
+                  aria-label="{{ cart.item_count }} products in the cart"
+                ></div>
+              {% endif %}
+
+              <div class="o-placeholder {% if item_name == 'cart' %}Header-iconCart{% elsif item_name == 'search' %}Header-iconSearch{% endif %}">
+                {%- liquid
+                  case item_name
+                    when 'account'
+                      render 'svg-header-nav-account'
+                    when 'cart'
+                      render 'svg-header-nav-cart'
+                  endcase
+                -%}
+              </div>
+            </div>
+            {% if section.settings.icon_labels_enabled %}
+              <div class="Header-iconText {% if item_name == 'cart' %}Header-iconText-cart{% elsif item_name == 'search' %}Header-iconText-search{% endif %}">
+                {{ item_text }}
+              </div>
+            {% endif %}
+          </a>
+        {% endfor %}
+      </nav>
+    </div>
+  </div>
+</header>
+
+{% unless template contains 'page'
+  or template contains 'blog'
+  or template contains 'article'
+  or template contains 'product'
+%}
+  {% render 'breadcrumbs' %}
+{% endunless %}
+
+{% assign tab_bar_items = linklists[section.settings.featured_links] %}
+{% if tab_bar_items != blank and request.page_type == 'index' %}
+  <nav class="MobileTabFeatured">
+    <ul class="MobileTabFeatured-items">
+      {% for item in tab_bar_items.links limit: 3 %}
+        <li class="MobileTabFeatured-item">
+          <a
+            class="MobileTabFeatured-itemLink"
+            href="{{ item.url }}"
+            title="{{ item.title | escape }}"
+          >
+            {{- item.title -}}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}
+{% render 'offcanvas' %}
+<div class="ProductCustomizer-wrapper js-customizer-wrapper" data-customizer-close="true">
+  <div id="spectrum-customizer"></div>
+</div>
+{% schema %}
+{
+  "name": "Header",
+  "class": "js-header Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "header",
+      "content": "Regular Customer Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": "Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "mobile_linklist",
+      "label": "Mobile Extra Menu"
+    },
+    {
+      "type": "header",
+      "content": "B2B Customer Menu"
+    },
+    {
+      "type": "link_list",
+      "id": "main_b2b_linklist",
+      "label": "B2B Menu"
+    },
+    {
+      "type": "select",
+      "id": "megamenu_threshold",
+      "label": "Show dropdown as mega-menu",
+      "options": [
+        {
+          "value": "0",
+          "label": "Always"
+        },
+        {
+          "value": "25",
+          "label": "if 1/4 of second level items have sublists"
+        },
+        {
+          "value": "50",
+          "label": "if half of second level items have sublists"
+        },
+        {
+          "value": "75",
+          "label": "if 3/4 of second level items have sublists"
+        },
+        {
+          "value": "100",
+          "label": "if all second level items have sublists"
+        },
+        {
+          "value": "200",
+          "label": "Never"
+        }
+      ],
+      "default": "75"
+    },
+    {
+      "type": "checkbox",
+      "id": "icon_labels_enabled",
+      "label": "Show text labels under icons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_marquee",
+      "label": "Enable header bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "bar_text",
+      "label": "Bar Heading Text",
+      "default": "Get Free Shipping on Orders over $50"
+    },
+    {
+      "type": "link_list",
+      "id": "bar_links",
+      "label": "Select Links to display on Header Bar"
+    },
+    {
+      "type": "link_list",
+      "id": "featured_links",
+      "label": "Select Links to display on Featured Bar"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "theme",
+      "name": "Shop By Theme",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "name": "Dropdown Banner",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner_background",
+          "label": "Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "banner_logo",
+          "label": "Logo"
+        },
+        {
+          "type": "richtext",
+          "id": "banner_description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "banner_link",
+          "label": "Banner Link"
+        },
+        {
+          "type": "text",
+          "id": "banner_label",
+          "label": "Banner CTA Label",
+          "placeholder": "Shop All ..."
+        },
+        {
+          "type": "text",
+          "id": "banner_parent",
+          "label": "Banner Parent Handle",
+          "info": "Parent element handle",
+          "placeholder": "collection-handle"
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Mobile Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "title_url",
+          "label": "Title URL"
+        },
+        {
+          "type": "link_list",
+          "id": "mobile_menu",
+          "label": "Mobile Menu"
+        },
+        {
+          "type": "link_list",
+          "id": "ab_test_mobile_menu",
+          "label": "A/B Test Mobile Menu"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_icon",
+          "label": "Menu Parent Icon"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_menu_background",
+          "label": "Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_menu_logo",
+          "label": "Logo"
+        },
+        {
+          "type": "richtext",
+          "id": "mobile_menu_description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "mobile_menu_link",
+          "label": "Banner Link"
+        },
+        {
+          "type": "text",
+          "id": "mobile_menu_label",
+          "label": "Banner CTA Label",
+          "placeholder": "Shop All ..."
+        },
+        {
+          "type": "header",
+          "content": "B2B Settings Menu"
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile_b2b_display",
+          "label": "Display this option for B2B Customers",
+          "default": true
+        },
+        {
+          "type": "link_list",
+          "id": "mobile_b2b_menu",
+          "label": "Mobile B2B Menu"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

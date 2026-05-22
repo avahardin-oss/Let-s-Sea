@@ -1,0 +1,129 @@
+{% assign navigation_id = section.settings.navigation_id | default: section.name | handleize %}
+<div class="js-navigation-id-{{ navigation_id }}">
+    <section class="ProductTestimonials-wrapper">
+      <div class="ProductTestimonials-carousel js-product-testimonial-carousel">
+        <div class="swiper-wrapper">
+          {%- for block in section.blocks -%}
+              {%- liquid
+                  assign testimonial_image = false
+                  assign stars = block.settings.stars
+                  unless block.settings.image == blank
+                  capture testimonial_image_sizes
+                      render 'print-image-sizes' with block.settings.image
+                  endcapture
+                  assign testimonial_image = true
+              endunless
+              -%}
+              <div class="swiper-slide ProductTestimonials-testimonial {% if block.settings.orientation == "right" %}odd{% endif %}">
+                  <div class="ProductTestimonials-content {% if testimonial_image == false %}full-width{% endif %}">
+                      <h3><small>{{ block.settings.label }}</small>{{ block.settings.title }}</h3>
+                      {%- unless stars == 0 -%}
+                      <div class="ProductTestimonials-rating">
+                        {%- for i in (1..stars) -%}
+                            <svg aria-labelledby="title27"  role="img" width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <title id="title27">Star icon</title>
+                                <path d="M7.16229 0.37207L8.91686 4.59055L13.4711 4.95566L10.0012 7.92794L11.0613 12.3721L7.16229 9.99055L3.26325 12.3721L4.32334 7.92794L0.853516 4.95566L5.40772 4.59055L7.16229 0.37207Z" fill="black"/>
+                                </svg>
+                        {%- endfor -%}
+                      </div>
+                    {%- endunless -%}
+                      {{ block.settings.testimonial_text }}
+                      {%- if block.settings.button_link != blank and block.settings.button_label != blank -%}
+                        <a href="{{ block.settings.button_link }}" class="btn reverse">{{ block.settings.button_label }}</a>
+                      {%- endif -%}
+                  </div>
+                  {%- if testimonial_image == true -%}
+                      <div class="ProductTestimonials-image lazyload" data-bgset="{{ testimonial_image_sizes }}" data-sizes="auto"></div>
+                  {%- endif -%}
+              </div>
+          {%- endfor -%}
+        </div>
+        <div class="ProductTestimonials-carousel-actions">
+          <div class="swiper-pagination"></div>
+          <div class="ProductTestimonials-carousel-scrollbar-wrapper">
+            <div class="swiper-scrollbar"></div>
+          </div>
+          <button aria-label="Previous slide" class="swiper-button-prev">{%- render 'svg-arrow-prev', class: 'testimonials' -%}</button>
+          <button aria-label="Next slide" class="swiper-button-next">{%- render 'svg-arrow-next', class: 'testimonials' -%}</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+{%- schema %}
+{
+  "name": "Product Testimonials",
+  "tag": "section",
+  "class": "js-smp-reload js-product-testimonials ProductTestimonials",
+  "settings":[
+    {
+      "type": "text",
+      "id": "navigation_id",
+      "label": "Navigation anchor",
+      "default": "product-testimonials"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Main Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Feature Label"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "S",
+          "label": "Stars",
+          "default": 4
+        },
+        {
+          "type": "richtext",
+          "id": "testimonial_text",
+          "label": "Testimonial Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Url"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label"
+        },
+        {
+          "type": "radio",
+          "id": "orientation",
+          "label": "Orientation",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        }
+      ]
+    }
+],
+"presets": [{
+  "name": "Product Testimonials",
+  "settings": {}
+}]
+}
+{% endschema -%}

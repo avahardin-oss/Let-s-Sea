@@ -1,0 +1,62 @@
+<link rel="preload" href="{{ 'gilroy-regular.otf' | asset_url }}" as="font" type="font/otf" crossorigin="anonymous">
+<link rel="preload" href="{{ 'gilroy-semibold.otf' | asset_url }}" as="font" type="font/otf" crossorigin="anonymous">
+<link rel="preload" href="{{ 'gilroy-black.otf' | asset_url }}" as="font" type="font/otf" crossorigin="anonymous">
+
+<style>
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 900;
+  src: url("{{ 'gilroy-black.otf' | asset_url }}") format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 400;
+  src: url("{{ 'gilroy-regular.otf' | asset_url }}") format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 600;
+  src: url("{{ 'gilroy-semibold.otf' | asset_url }}") format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Articulat CF';
+  font-style: normal;
+  font-weight: 400;
+  src: url("{{ 'ArticulatCF-Normal.otf' | asset_url }}") format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Articulat CF';
+  font-style: normal;
+  font-weight: 500;
+  src: url("{{ 'ArticulatCF-Medium.otf' | asset_url }}") format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Articulat CF';
+  font-style: normal;
+  font-weight: 600;
+  src: url("{{ 'ArticulatCF-Bold.otf' | asset_url }}") format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Articulat CF';
+  font-style: normal;
+  font-weight: 900;
+  src: url("{{ 'ArticulatCF-ExtraBold.otf' | asset_url }}") format('opentype');
+  font-display: swap;
+}
+</style>
+

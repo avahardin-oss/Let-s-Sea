@@ -1,0 +1,66 @@
+{%- liquid
+  capture grid_item_image_sizes
+    render 'print-image-sizes', image: product.featured_image
+  endcapture
+  if product.metafields.custom.lifestyle_image != blank
+    assign secondary_image = product.metafields.custom.lifestyle_image.value
+  elsif product.images.size > 1
+    assign secondary_image = product.images[1]
+  else
+    assign secondary_image = product.featured_image
+  endif
+  capture grid_item_second_image_sizes
+    render 'print-image-sizes', image: secondary_image
+  endcapture
+  assign badge = product.metafields.custom.product_card_label
+  assign badge_color = product.metafields.custom.badge_color
+
+  if title_tag
+    assign title_tag = title_tag
+  else
+    assign title_tag = 'h4'
+  endif
+-%}
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+<form action="/cart/add" method="post" class="ProductForm" data-product-id="{{ product.id }}" {% if settings.ajax_cart_enabled == false %}data-ajax-cart-disabled="disabled"{% endif %}>
+  {% render 'product-badges', product: product %}
+
+  <div class="ProductCard upsell ProductCard-{{ product.id }} js-product-card">
+    <div class="ProductCard-Badge">
+      {% if badge != blank %}
+          <p style="background-color: {{ badge_color }};">{{ badge }}</p>
+      {% endif %}
+    </div>
+      <a href="{{ product.url }}" class="ProductCard-image-link js-product-card-link">
+          <img aria-label="{{ product.title }} first image" class="ProductCard-image lazyload js-product-card-image" alt="{{ product.title }} first image"  data-sizes="auto" srcset="{{ grid_item_image_sizes | strip_newlines | strip }}" />
+          <img aria-label="{{ product.title }} second image" class="ProductCard-secondimage lazyload js-product-card-second-image" alt="{{ product.title }} second image" data-sizes="auto" srcset="{{ grid_item_second_image_sizes | strip_newlines | strip }}" />
+      </a>
+
+      <div class="ProductCard-elements">
+          <div class="ProductCard-content js-product-card-content">
+              <{{ title_tag }} class="ProductCard-title">{{ product.title }}</{{ title_tag }}>
+
+                  {% unless product.has_only_default_variant %}
+                      <span class="ProductCard-variants">
+                          {{ product.selected_or_first_available_variant.title }}
+                          {% assign variant_count = product.variants | size %}
+                          {% if variant_count > 1 %}
+                          <span class="ProductCard-variants-more u-showMd"> +{{ variant_count | minus: 1 }} more colors </span>
+                          {% endif %}
+                      </span>
+                  {% endunless %}
+                  <div class="ProductCard-bottom">
+                    <p class="ProductCard-price">{{ product.price | money }}</p>
+                    {% render 'okendo-reviews-product-rating-summary', product: product %}
+              </div>
+
+              <input type="hidden" name="quantity" value="1" min="1" />
+              <input type="hidden" name="id" class="js-variant-selector-dummy single-option-selector" data-product-id="{{ product.id }}" value="{{ current_variant.id }}" />
+              <button type="submit" class="ProductForm-submitButton btn reverse" name="add" {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                {{ 'products.product.add_to_cart' | t }}
+              </button>
+          </div>
+      </div>
+  </div>
+</form>

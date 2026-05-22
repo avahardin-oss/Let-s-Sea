@@ -1,0 +1,57 @@
+{%- liquid
+    assign current_size = ''
+    assign current_color = ''
+    assign smp_sizes = section.settings.size_tag | split: ','
+    for tag in product.tags
+        if tag contains 'size_'
+            assign current_size = tag
+        endif
+
+        if tag contains 'color_'
+            assign current_color = tag
+        endif
+    endfor
+-%}
+
+<div id="ProductSizeApp"></div>
+<script id="js-size-json" type="application/json">
+  {
+    "current_size": {{ current_size | json }},
+    "current_color": {{ current_color | json }},
+    "product_type": {{ product.type | json }},
+    "size_tags": [
+      {%- for tag in smp_sizes -%}
+        {%- liquid
+        assign meta_size = tag | remove: 'size_' | replace: "_", "-"
+        if tag != '' and shop.metaobjects['product_option'][meta_size].icon.value != blank
+            assign product_size_image = shop.metaobjects['product_option'][meta_size].icon.value | image_url | escape
+        endif
+        -%}
+        {
+          "size_tag": {{ tag | json }},
+          "size_icon": {{ product_size_image | json }}
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+</script>
+{% schema %}
+  {
+    "name": "Product Sizes",
+    "tag": "section",
+    "class": "js-product-size js-smp-reload",
+    "settings": [
+        {
+            "type": "text",
+            "id": "size_tag",
+            "label": "Size Tags",
+            "placeholder":"i.e. size_24_oz",
+            "info": "Size tags present in products, separated by comma"
+        }
+    ],
+    "presets": [{
+      "name": "Product Sizes",
+      "settings": {}
+    }]
+  }
+{% endschema %}

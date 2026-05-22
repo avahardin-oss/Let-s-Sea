@@ -1,0 +1,133 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/snippets/global-video/snippet.liquid}] %}
+
+<div class="portable-snippet" data-snippet-name="global-video">
+
+{% comment %}
+  Usage:
+
+  {% render 'global-video',
+    video: video,
+    video_mobile: video_mobile,
+    background_color: '#000000',
+    lazy_load: true
+  %}
+
+  Required:
+  - video: The video object to render
+
+  Optional:
+  - video_mobile: The mobile video object to render
+  - poster: Image placeholder to replace the default poster
+  - class: Adds a custom class to video element
+  - controls: To show video controls
+  - loop: To loop the video
+  - muted: To mute the video
+  - autoplay: To autoplay the video
+  - background_color: The background color for the video container
+  - lazy_load: Use "true" to lazy load the video when scrolled into view with Intersection Observer API
+{% endcomment %}
+
+{% if background_color %}
+  <style>
+    .video-container {
+      background-color: {{ background_color }};
+    }
+  </style>
+{% endif %}
+
+{% liquid
+  assign video = video | default: null
+  assign video_poster_src = video_poster | default: video.preview_image.src | default: null
+  assign video_poster_url = shop.url | append: '/cdn/shop/' | append: video_poster_src
+
+  assign video_mobile = video_mobile | default: null
+  assign video_mobile_poster_src = video_mobile.preview_image.src | default: null
+  assign video_mobile_poster_url = shop.url | append: '/cdn/shop/' | append: video_mobile_poster_src
+
+  assign is_relative = is_relative | default: false
+  assign class = class | default: ''
+  assign preload = preload | default: 'none'
+  assign controls = controls | default: false
+  assign loop = loop | default: false
+  assign muted = muted | default: false
+  assign autoplay = autoplay | default: false
+  assign playsinline = playsinline | default: false
+  assign background_color = background_color | default: null
+  assign lazy_load = lazy_load | default: false
+  assign classes = class
+  assign desktop_classes = desktop_classes | default: ''
+  assign mobile_classes = mobile_classes | default: ''
+
+  if lazy_load
+    assign classes = classes | append: ' js-video-lazyload'
+  endif
+%}
+
+{% render 'global-video-stylesheet' %}
+
+{% capture video_markup %}
+  {%- if video -%}
+    <div class="mod_global_video_ax0cmG_Video {% if is_relative %} mod_global_video_ax0cmG_Video__is-relative{% endif %} {% if video_mobile %} mod_global_video_ax0cmG_Video-desktop{% endif %}">
+      <video
+        class="{{ classes }} {{ desktop_classes }}"
+        {% if autoplay %}autoplay{% endif %}
+        {% if loop %}loop{% endif %}
+        {% if muted %}muted{% endif %}
+        {% if controls %}controls{% endif %}
+        {% if playsinline %}playsinline{% endif %}
+        {% if preload %}preload="{{ preload }}"{% endif %}
+        aria-label="{{ video.alt }}"
+        {% if video_poster_url %}
+        poster="{{ video_poster_url }}"
+        {% endif %}
+      >
+        {% for source in video.sources %}
+          <source
+            {% if lazy_load %}
+              data-src="{{ source.url }}"
+            {% else %}
+              src="{{ source.url }}"
+            {% endif %}
+            type="{{ source.mime_type }}"
+          >
+        {% endfor %}
+      </video>
+    </div>
+  {%- endif -%}
+{% endcapture %}
+
+{% capture video_mobile_markup %}
+  {%- if video_mobile -%}
+    <div class="mod_global_video_ax0cmG_Video {% if is_relative %} mod_global_video_ax0cmG_Video__is-relative{% endif %} mod_global_video_ax0cmG_Video-mobile">
+      <video
+        class="{{ classes }} {{ mobile_classes }}"
+        {% if autoplay %}autoplay{% endif %}
+        {% if loop %}loop{% endif %}
+        {% if muted %}muted{% endif %}
+        {% if controls %}controls{% endif %}
+        {% if playsinline %}playsinline{% endif %}
+        {% if preload %}preload="{{ preload }}"{% endif %}
+        aria-label="{{ video_mobile.alt }}"
+        {% if video_mobile_poster_url %}
+        poster="{{ video_mobile_poster_url }}"
+        {% endif %}
+      >
+        {% for source in video_mobile.sources %}
+          <source
+            {% if lazy_load %}
+              data-src="{{ source.url }}"
+            {% else %}
+              src="{{ source.url }}"
+            {% endif %}
+            type="{{ source.mime_type }}"
+          >
+        {% endfor %}
+      </video>
+    </div>
+  {%- endif -%}
+{% endcapture %}
+
+{{ video_markup }}
+{{ video_mobile_markup }}
+
+</div>

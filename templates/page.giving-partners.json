@@ -1,0 +1,506 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "ab7f2ca6-eba2-4a00-a165-5eb51a001fb1",
+    "57608069-9d79-4655-a1a8-d6eea677621d",
+    "547c7016-8efa-4aa0-b3e7-22ac26e22bdd",
+    "8a8d8df3-e096-4327-a975-22cb10b2582c",
+    "f8ffeec0-871e-46a3-9bc0-aaa114be7329",
+    "59f6d19a-6c46-4bd9-bf41-d79b27a66e3b",
+    "fe563657-bf9f-4c10-a069-4e3dabaf7a41",
+    "bb17ad39-2b35-4ad0-a53e-c481f5518b9e",
+    "b701e6c5-36ed-4b69-b8c7-03595051d071",
+    "0b5bdfdd-6525-47d1-bfd5-10bc699d2c75",
+    "72f2043e-9ee2-42fa-8ff5-f393af3b99b8",
+    "4275005b-ac0e-48cc-887f-b34985586809",
+    "358d4d77-9b41-4bf8-a7d6-8081eb937e4d",
+    "4f6496d8-3ffc-4e9d-835d-d5768aff979f"
+  ],
+  "sections": {
+    "0b5bdfdd-6525-47d1-bfd5-10bc699d2c75": {
+      "block_order": [
+        "827c9390-947c-4677-ade7-537c944f4fd6",
+        "c1e0e72e-296a-4de1-aeba-cac831f63d5d",
+        "1803f08a-d3e0-4a11-bcac-9ef5759da233"
+      ],
+      "blocks": {
+        "1803f08a-d3e0-4a11-bcac-9ef5759da233": {
+          "settings": {
+            "image": "shopify://shop_images/all-access.jpg",
+            "link": "https://www.allaccessinternational.org/"
+          },
+          "type": "image"
+        },
+        "827c9390-947c-4677-ade7-537c944f4fd6": {
+          "settings": {
+            "image": "shopify://shop_images/HIA.jpg",
+            "link": "https://hopeisalive.net/"
+          },
+          "type": "image"
+        },
+        "c1e0e72e-296a-4de1-aeba-cac831f63d5d": {
+          "settings": {
+            "image": "shopify://shop_images/New-Story.jpg",
+            "link": "https://www.newstoryhomes.org/"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "358d4d77-9b41-4bf8-a7d6-8081eb937e4d": {
+      "block_order": [
+        "512a4ed1-273c-4e64-b268-dd488457b170",
+        "28594ba6-853b-4411-9c75-739526407020",
+        "c86dd8cd-abec-4cd7-80f6-e83a999cd3d8"
+      ],
+      "blocks": {
+        "28594ba6-853b-4411-9c75-739526407020": {
+          "settings": {
+            "image": "shopify://shop_images/Make-A-Wish-OK.jpg",
+            "link": "https://wish.org/oklahoma"
+          },
+          "type": "image"
+        },
+        "512a4ed1-273c-4e64-b268-dd488457b170": {
+          "settings": {
+            "image": "shopify://shop_images/LJI.jpg",
+            "link": "https://www.lovejustice.ngo/"
+          },
+          "type": "image"
+        },
+        "c86dd8cd-abec-4cd7-80f6-e83a999cd3d8": {
+          "settings": {
+            "image": "shopify://shop_images/Abbott-House.jpg",
+            "link": "https://www.abbott-house.org/"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "4275005b-ac0e-48cc-887f-b34985586809": {
+      "block_order": [
+        "baba92dd-887a-47d3-a2cd-b11a0999cf1c",
+        "7f66421b-737d-41f9-b532-7f74ddfac153",
+        "e49f3a7b-303f-428f-abfd-1e70f12a70f4"
+      ],
+      "blocks": {
+        "7f66421b-737d-41f9-b532-7f74ddfac153": {
+          "settings": {
+            "image": "shopify://shop_images/Spero.jpg",
+            "link": "https://www.thesperoproject.com/"
+          },
+          "type": "image"
+        },
+        "baba92dd-887a-47d3-a2cd-b11a0999cf1c": {
+          "settings": {
+            "image": "shopify://shop_images/Angels-Foster.jpg",
+            "link": "https://angelsfosterokc.org/"
+          },
+          "type": "image"
+        },
+        "e49f3a7b-303f-428f-abfd-1e70f12a70f4": {
+          "settings": {
+            "image": "shopify://shop_images/Palomar.jpg",
+            "link": "https://palomarokc.org/"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "4f6496d8-3ffc-4e9d-835d-d5768aff979f": {
+      "block_order": [
+        "064196cc-be66-418d-b7b1-bfb0f9ecd6ce",
+        "ce8b27e2-f26c-4b64-aced-294819ca96d3",
+        "38690cae-90ca-47b0-8234-e2d4284c0fe3"
+      ],
+      "blocks": {
+        "064196cc-be66-418d-b7b1-bfb0f9ecd6ce": {
+          "settings": {
+            "image": "shopify://shop_images/casa.jpg",
+            "link": "https://okcountycasa.org/"
+          },
+          "type": "image"
+        },
+        "38690cae-90ca-47b0-8234-e2d4284c0fe3": {
+          "settings": {
+            "image": "shopify://shop_images/St-Pauls.jpg",
+            "link": "https://spcsokc.org/"
+          },
+          "type": "image"
+        },
+        "ce8b27e2-f26c-4b64-aced-294819ca96d3": {
+          "settings": {
+            "image": "shopify://shop_images/Hope-House.jpg",
+            "link": "https://www.hopehouseokc.com/"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "547c7016-8efa-4aa0-b3e7-22ac26e22bdd": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": false,
+        "heading": "<h2>Giving Focus Areas</h2>",
+        "richtext": "<p>From day one, Simple Modern has donated 10% of annual profits to nonprofit organizations. To date, the company has given millions of dollars to nonprofit organizations who are positively impacting communities around the world. Many of these nonprofits work within one of our core giving areas:</p><ul><li>Clean Drinking Water</li><li>Education</li><li>Supporting Marginalized Communities</li><li>Mental/Behavioral Health, Addiction, Foster/Adoption, Community Development, Refugees</li><li>Human Trafficking</li><li>Homelessness</li></ul>"
+      },
+      "type": "simple-text"
+    },
+    "57608069-9d79-4655-a1a8-d6eea677621d": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": true,
+        "heading": "<h2>Why We Give</h2>",
+        "richtext": "<p>When Simple Modern’s three co-founders started the company in 2015, they didn’t know what product or service that they wanted to sell. However, they had a very clear vision for what they wanted the company’s culture to look like. They envisioned a company where relationships, excellence and generosity were priorities. This shared vision eventually led to our simple yet powerful mission statement: We exist to give generously.  </p>"
+      },
+      "type": "simple-text"
+    },
+    "59f6d19a-6c46-4bd9-bf41-d79b27a66e3b": {
+      "block_order": [
+        "90c64b18-ca0c-4beb-9100-2612e7451cba",
+        "2594b2b9-bc8a-421b-b581-48268c5889ef",
+        "aebeb9d7-f8db-45df-9dc0-f8fb77e2877a",
+        "4800bbf9-487f-473d-84ba-5f15ba819327",
+        "4a966cac-9ae0-4410-9e77-b5667959eb82"
+      ],
+      "blocks": {
+        "2594b2b9-bc8a-421b-b581-48268c5889ef": {
+          "settings": {
+            "button_text": "Shop Tumblers",
+            "button_url": "",
+            "collection_title": "Education",
+            "description": "<p>This is the default description.</p>",
+            "shadow_intensity": 50,
+            "stars": 0
+          },
+          "type": "text"
+        },
+        "4800bbf9-487f-473d-84ba-5f15ba819327": {
+          "settings": {
+            "button_text": "Shop Tumblers",
+            "button_url": "",
+            "collection_title": "Human Trafficking ",
+            "description": "<p>This is the default description.</p>",
+            "shadow_intensity": 50,
+            "stars": 0
+          },
+          "type": "text"
+        },
+        "4a966cac-9ae0-4410-9e77-b5667959eb82": {
+          "settings": {
+            "button_text": "Shop Tumblers",
+            "button_url": "",
+            "collection_title": "Homelessness",
+            "description": "<p>This is the default description.</p>",
+            "shadow_intensity": 50,
+            "stars": 0
+          },
+          "type": "text"
+        },
+        "90c64b18-ca0c-4beb-9100-2612e7451cba": {
+          "settings": {
+            "button_text": "Shop Tumblers",
+            "button_url": "",
+            "collection_title": "Clean Drinking Water",
+            "description": "<p>This is the default description.</p>",
+            "shadow_intensity": 50,
+            "stars": 0
+          },
+          "type": "text"
+        },
+        "aebeb9d7-f8db-45df-9dc0-f8fb77e2877a": {
+          "settings": {
+            "button_text": "Shop Tumblers",
+            "button_url": "",
+            "collection_title": "Marginalized Communities",
+            "description": "<p>This is the default description.</p>",
+            "shadow_intensity": 50,
+            "stars": 0
+          },
+          "type": "text"
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "title": "Our Giving Categories"
+      },
+      "type": "discover-category"
+    },
+    "72f2043e-9ee2-42fa-8ff5-f393af3b99b8": {
+      "block_order": [
+        "174fb471-1768-4603-bea9-b8722a4639b9",
+        "bd15d5ff-4ef7-4023-9adf-947eabdaa025",
+        "addeb556-ff32-4105-ac24-ad312af36b13"
+      ],
+      "blocks": {
+        "174fb471-1768-4603-bea9-b8722a4639b9": {
+          "settings": {
+            "image": "shopify://shop_images/111-project.jpg",
+            "link": "https://www.111project.org/"
+          },
+          "type": "image"
+        },
+        "addeb556-ff32-4105-ac24-ad312af36b13": {
+          "settings": {
+            "image": "shopify://shop_images/dragonfly.jpg",
+            "link": "https://www.thedragonflyhome.org/"
+          },
+          "type": "image"
+        },
+        "bd15d5ff-4ef7-4023-9adf-947eabdaa025": {
+          "settings": {
+            "image": "shopify://shop_images/City-Care.jpg",
+            "link": "https://www.citycareokc.org/"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "8a8d8df3-e096-4327-a975-22cb10b2582c": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": true,
+        "heading": "<h2>Meet Our Giving Partners</h2>",
+        "richtext": ""
+      },
+      "type": "simple-text"
+    },
+    "ab7f2ca6-eba2-4a00-a165-5eb51a001fb1": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": false,
+        "heading": "<h1>We Exist to Give Generously</h1>",
+        "richtext": "<p>Our core value of generosity is at the heart of everything we do, from how we treat our employees, partners, vendors, and customers, to our affordable prices, warranties, and replacement policies.</p><p>We are also committed to giving away at least 10% of profits to various non-profit organizations, through a process that seeks input and contribution from every employee.</p>"
+      },
+      "type": "simple-text"
+    },
+    "b701e6c5-36ed-4b69-b8c7-03595051d071": {
+      "block_order": [
+        "fbab3b11-01e3-494e-b21c-f2b4a0a695d2",
+        "d3cc3bd5-5f30-459a-b4cb-53795622f3fa",
+        "46a9fd28-7ca5-448a-b9ab-39eb6b67d484"
+      ],
+      "blocks": {
+        "46a9fd28-7ca5-448a-b9ab-39eb6b67d484": {
+          "settings": {
+            "image": "shopify://shop_images/Restore-OKC.jpg",
+            "link": "https://www.restoreokc.org/"
+          },
+          "type": "image"
+        },
+        "d3cc3bd5-5f30-459a-b4cb-53795622f3fa": {
+          "settings": {
+            "image": "shopify://shop_images/Pearl-House.jpg",
+            "link": "https://thepearlhouse.org/"
+          },
+          "type": "image"
+        },
+        "fbab3b11-01e3-494e-b21c-f2b4a0a695d2": {
+          "settings": {
+            "image": "shopify://shop_images/Cristo-Rey.jpg",
+            "link": "https://www.cristoreyokc.org/"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "bb17ad39-2b35-4ad0-a53e-c481f5518b9e": {
+      "block_order": [
+        "a3c7f76c-3eac-48cb-996f-e3978b7eda58",
+        "fb640d8a-67ad-450e-b30e-8a45ad77aced"
+      ],
+      "blocks": {
+        "a3c7f76c-3eac-48cb-996f-e3978b7eda58": {
+          "settings": {
+            "image": "shopify://shop_images/Water4_b98f31a9-1f85-4134-9bf5-324548aba3b6.jpg",
+            "link": "https://water4.org/"
+          },
+          "type": "image"
+        },
+        "fb640d8a-67ad-450e-b30e-8a45ad77aced": {
+          "settings": {
+            "image": "shopify://shop_images/Positive-Tomorrows_4e2fbf57-c79c-43bb-bd89-05d908488ea4.jpg",
+            "link": "https://www.positivetomorrows.org/"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "f8ffeec0-871e-46a3-9bc0-aaa114be7329": {
+      "block_order": [
+        "160944cd-6da9-49ab-a712-569eb1512684",
+        "02838c22-1010-4db3-bccb-1cbffa9b8070",
+        "88f4b8dd-2558-4622-b48f-579f6e3a357e"
+      ],
+      "blocks": {
+        "02838c22-1010-4db3-bccb-1cbffa9b8070": {
+          "settings": {
+            "icon": "shopify://shop_images/Group_1092.png",
+            "text": "<p>Worth of bottles donated</p>",
+            "title": "$1M"
+          },
+          "type": "block"
+        },
+        "160944cd-6da9-49ab-a712-569eb1512684": {
+          "settings": {
+            "icon": "shopify://shop_images/Group_1091.png",
+            "text": "<p>In monetary donations</p>",
+            "title": "$2M"
+          },
+          "type": "block"
+        },
+        "88f4b8dd-2558-4622-b48f-579f6e3a357e": {
+          "settings": {
+            "icon": "shopify://shop_images/Group_1093.png",
+            "text": "<p>Profits given</p><p>away annually</p>",
+            "title": "10%"
+          },
+          "type": "block"
+        }
+      },
+      "disabled": true,
+      "settings": {},
+      "type": "featured-blocks"
+    },
+    "fe563657-bf9f-4c10-a069-4e3dabaf7a41": {
+      "block_order": [
+        "629cec32-d436-4ebf-bbce-92429c1967c3",
+        "2d4de7a6-a465-40af-822e-116ca216a377",
+        "0b300a2f-dff5-4cd0-be48-0ac106f878ab",
+        "e4957a3c-b732-4e2d-9161-4e6291bd4635",
+        "b5e4ff1f-7f2e-4701-aefb-98bb400b2839",
+        "b2dfbf47-a5fd-4bc7-b25b-757830c642f0",
+        "e1773887-ca68-4a41-ad10-441a7d8a3d01",
+        "6df83314-e0db-46a3-a0da-f9a2986cd8e2",
+        "8cf8d173-e6f5-43f4-9ee3-1215d94a8a23",
+        "45a4c406-6692-46d0-b7fb-ad038d14d038",
+        "fd90f541-5ff0-42cb-8427-41d2efbb186d",
+        "c37f6338-701e-4b82-ba45-ff871a823767"
+      ],
+      "blocks": {
+        "0b300a2f-dff5-4cd0-be48-0ac106f878ab": {
+          "settings": {
+            "icon": "shopify://shop_images/Water4_e9afaa04-60c3-404f-96d0-98bc1a50519e.png",
+            "text": "",
+            "title": ""
+          },
+          "type": "block"
+        },
+        "2d4de7a6-a465-40af-822e-116ca216a377": {
+          "settings": {
+            "icon": "shopify://shop_images/Water4_e9afaa04-60c3-404f-96d0-98bc1a50519e.png",
+            "text": "",
+            "title": ""
+          },
+          "type": "block"
+        },
+        "45a4c406-6692-46d0-b7fb-ad038d14d038": {
+          "settings": {
+            "icon": "shopify://shop_images/Water4_e9afaa04-60c3-404f-96d0-98bc1a50519e.png",
+            "text": "",
+            "title": ""
+          },
+          "type": "block"
+        },
+        "629cec32-d436-4ebf-bbce-92429c1967c3": {
+          "settings": {
+            "icon": "shopify://shop_images/Water4_e9afaa04-60c3-404f-96d0-98bc1a50519e.png",
+            "text": "<p><a href=\"https://water4.org/\" title=\"https://water4.org/\"> </a></p>",
+            "title": ""
+          },
+          "type": "block"
+        },
+        "6df83314-e0db-46a3-a0da-f9a2986cd8e2": {
+          "settings": {
+            "icon": "shopify://shop_images/Water4_e9afaa04-60c3-404f-96d0-98bc1a50519e.png",
+            "text": "",
+            "title": ""
+          },
+          "type": "block"
+        },
+        "8cf8d173-e6f5-43f4-9ee3-1215d94a8a23": {
+          "settings": {
+            "icon": "shopify://shop_images/Water4_e9afaa04-60c3-404f-96d0-98bc1a50519e.png",
+            "text": "",
+            "title": ""
+          },
+          "type": "block"
+        },
+        "b2dfbf47-a5fd-4bc7-b25b-757830c642f0": {
+          "settings": {
+            "icon": "shopify://shop_images/Water4_e9afaa04-60c3-404f-96d0-98bc1a50519e.png",
+            "text": "",
+            "title": ""
+          },
+          "type": "block"
+        },
+        "b5e4ff1f-7f2e-4701-aefb-98bb400b2839": {
+          "settings": {
+            "icon": "shopify://shop_images/Water4_e9afaa04-60c3-404f-96d0-98bc1a50519e.png",
+            "text": "",
+            "title": ""
+          },
+          "type": "block"
+        },
+        "c37f6338-701e-4b82-ba45-ff871a823767": {
+          "settings": {
+            "icon": "shopify://shop_images/Water4_e9afaa04-60c3-404f-96d0-98bc1a50519e.png",
+            "text": "",
+            "title": ""
+          },
+          "type": "block"
+        },
+        "e1773887-ca68-4a41-ad10-441a7d8a3d01": {
+          "settings": {
+            "icon": "shopify://shop_images/Water4_e9afaa04-60c3-404f-96d0-98bc1a50519e.png",
+            "text": "",
+            "title": ""
+          },
+          "type": "block"
+        },
+        "e4957a3c-b732-4e2d-9161-4e6291bd4635": {
+          "settings": {
+            "icon": "shopify://shop_images/Water4_e9afaa04-60c3-404f-96d0-98bc1a50519e.png",
+            "text": "",
+            "title": ""
+          },
+          "type": "block"
+        },
+        "fd90f541-5ff0-42cb-8427-41d2efbb186d": {
+          "settings": {
+            "icon": "shopify://shop_images/Water4_e9afaa04-60c3-404f-96d0-98bc1a50519e.png",
+            "text": "",
+            "title": ""
+          },
+          "type": "block"
+        }
+      },
+      "disabled": true,
+      "settings": {},
+      "type": "featured-blocks"
+    }
+  },
+  "wrapper": "main.Page[role='main']"
+}

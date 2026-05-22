@@ -1,0 +1,137 @@
+<h2>{{ section.settings.title }}</h2>
+<div class="accordeon" role="tablist">
+  {%- for block in section.blocks -%}
+    {%- liquid
+            assign title = block.settings.collection_title
+            assign desc = block.settings.description
+            assign button = block.settings.button_text
+            assign link = block.settings.button_url
+            assign shadow_intensity = block.settings.shadow_intensity
+            assign stars = block.settings.stars
+            assign reviews_count = block.settings.reviews_count
+            capture image_block
+              render 'print-image-sizes', image: block.settings.image
+            endcapture
+          -%}
+
+    {% comment %} Accordeon Desktop {% endcomment %}
+    <div class="link" role="tab" onclick="location.href='{{ link }}';">
+      <div class="card-shadow" style="background-color: rgba(0, 0, 0, {{ shadow_intensity }}%)"></div>
+      <div
+        class="homepage-discover__image lazyload"
+        data-sizes="auto"
+        data-bgset="{{ image_block | strip_newlines | strip }}"></div>
+      <div class="short">
+        {{ title }}
+      </div>
+      <div class='full'>
+        <div class="content">
+          <h3>
+            {{ title }}
+          </h3>
+          <hr/>
+          {%- unless stars == 0 -%}
+            <div class="ProductTestimonials-rating">
+              {%- for i in (1..stars) -%}
+                <svg aria-labelledby="titleDiscover" role="img"width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <title id="titleDiscover">Discover by category stars</title>
+                  <path d="M7.16229 0.37207L8.91686 4.59055L13.4711 4.95566L10.0012 7.92794L11.0613 12.3721L7.16229 9.99055L3.26325 12.3721L4.32334 7.92794L0.853516 4.95566L5.40772 4.59055L7.16229 0.37207Z" fill="#ffffff"/>
+                </svg>
+              {%- endfor -%}
+
+              {%- if reviews_count != blank -%}
+                <span class="ProductTestimonials-rating-count">
+                  {{ reviews_count }}
+                </span>
+              {%- endif -%}
+            </div>
+          {%- endunless -%}
+          {{ desc }}
+        </div>
+        {%- if link != blank and button != blank -%}
+          <a href="{{ link }}" class="btn">
+            {{ button }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
+{%- schema %}
+  {
+    "name": "Discover by Categoy",
+    "class": "homepage-discover",
+    "max_blocks": 6,
+    "settings": [{
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Discover by Category"
+    }],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Collection",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "collection_title",
+            "label": "Collection Title",
+            "default": "Tumblers"
+          },
+          {
+            "type": "richtext",
+            "label": "Description",
+            "id": "description",
+            "default": "<p>This is the default description.</p>"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Collection CTA text",
+            "default": "Shop Tumblers"
+          }, {
+            "type": "url",
+            "id": "button_url",
+            "label": "CTA Link"
+          }, {
+            "type": "range",
+            "id": "shadow_intensity",
+            "label": "Shadow Intensity",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "default": 50
+          },
+          {
+            "type": "range",
+            "id": "stars",
+            "min": 0,
+            "max": 5,
+            "step": 1,
+            "unit": "S",
+            "label": "Stars",
+            "default": 4
+          },
+          {
+            "type": "number",
+            "id": "reviews_count",
+            "label": "Reviews Count"
+          }
+        ]
+      }
+    ],
+
+    "presets": [
+      {
+        "name": "Discover by Category",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema -%}

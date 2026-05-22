@@ -1,0 +1,43 @@
+<script src="{{ 'option_selection.js' | shopify_asset_url }}" defer></script>
+
+{%- if template.name == 'collection' or template.name == 'search' -%}
+  {%- render 'smp-color-meta' -%}
+{%- endif -%}
+
+{%- if template.name == 'product' -%}
+  {%- render 'smp-size-meta' -%}
+{%- endif -%}
+
+{% if template contains 'customer' %}
+  <script id="js-customer-input-4b1bed9b28254d1bb50e8b0d8c44afd9" type="application/json">
+    {
+      "currentTemplateName": {{ template.directory | append: '/' | append: template.name | handle | json }}
+    }
+  </script>
+
+  <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
+  <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
+{% endif %}
+
+{% render 'asset-loader' %}
+
+<!-- Klaviyo Start -->
+<script src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=RmJ3Li" defer></script>
+<script src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js" defer></script>
+<!-- Klaviyo End -->
+
+<!-- OneTrust Cookies Consent Notice start for simplemodern.com -->
+{% comment %}
+  <script type="text/javascript" src="https://cdn.cookielaw.org/consent/8dbe1338-3f28-45cd-8f98-bde94256302e-test/OtAutoBlock.js" defer></script>
+  <script
+    src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+    type="text/javascript"
+    charset="UTF-8"
+    data-domain-script="8dbe1338-3f28-45cd-8f98-bde94256302e-test"
+    defer>
+  </script>
+  <script type="text/javascript">function OptanonWrapper() { }</script>
+{% endcomment %}
+<!-- OneTrust Cookies Consent Notice end for simplemodern.com -->
+
+<!-- Clarity is loaded via Google Tag Manager (GTM-WVDTK2G) -->

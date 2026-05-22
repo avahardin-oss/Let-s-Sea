@@ -1,0 +1,53 @@
+{%- comment -%}
+  Collection filter checkbox item
+  Renders a single checkbox filter option
+
+  @param {object} filter_value - The filter value object from Shopify
+  @param {string} filter_param_name - The filter URL parameter name
+  @param {boolean} is_active - Whether this filter is currently active
+  @param {boolean} is_disabled - Whether this filter is disabled (no matching products)
+{%- endcomment -%}
+
+{%- liquid
+  assign is_active = is_active | default: false
+  assign is_disabled = is_disabled | default: false
+  assign input_id = filter_param_name | append: '-' | append: filter_value.value | handle
+  assign count_display = filter_value.count
+  if count_display > 999
+    assign count_display = count_display | divided_by: 1000 | append: 'k'
+  endif
+-%}
+
+<li class="Collection__filters__filter__item{% if is_disabled %} Collection__filters__filter__item__disabled{% endif %}">
+  <input
+    class="Collection__filters__checkbox__hidden"
+    tabindex="-1"
+    type="checkbox"
+    role="group"
+    aria-label="{{ filter_value.label }}"
+    name="{{ filter_param_name }}"
+    value="{{ filter_value.value }}"
+    id="{{ input_id }}"
+    {% if is_active %}
+      checked
+    {% endif %}
+    {% if is_disabled %}
+      disabled
+    {% endif %}
+    data-filter-checkbox
+  >
+  <label
+    for="{{ input_id }}"
+    tabindex="0"
+    title="{{ filter_value.label }}"
+    class="event-collectionFilter"
+  >
+    <div class="Collection__filters__checkbox__wrapper">
+      <div class="Collection__filters__checkbox{% if is_active %} Collection__filters__checkbox__checked{% endif %}">
+        {%- render 'icon-check' -%}
+      </div>
+      <span>{{ filter_value.label }}</span>
+    </div>
+    <span>({{ count_display }})</span>
+  </label>
+</li>

@@ -1,0 +1,168 @@
+{% comment %} {% assign toplink_utf_handle = toplink.title | strip | replace: ' ', '-' | url_encode | handle %}
+
+{% assign midlist = false %}
+{% for linklist in linklists %}
+  {% assign list_utf_handle = linklist.title
+    | strip
+    | replace: ' ', '-'
+    | url_encode
+    | handle
+  %}
+  {% if list_utf_handle == toplink_utf_handle %}
+    {% assign midlist = linklist %}
+  {% endif %}
+{% endfor %} {% endcomment %}
+
+{% assign toplink_links = toplink.links %}
+
+{% if toplink_links.size > 0 %}
+  <div class="js-header-dropdown HeaderDropdown-wrapper" role="region" aria-labelledby="header-menu-item-{{ toplink.title | handleize }}" tabindex="0" aria-label="{{ toplink.title | handleize }} menu" data-mega-menu="{{ toplink.title | handleize }}">
+    <div class="HeaderDropdown">
+      <div class="HeaderDropdown-navigation">
+        <h3 class="HeaderDropdown-title">Shop by category</h3>
+        <ul class="HeaderDropdown-items">
+          {% for midlink in toplink_links %}
+            {% liquid
+              assign midlink_utf_handle = midlink.title | strip | replace: ' ', '-' | url_encode | handle
+              assign bottomlist = false
+                for linklist in linklists
+                  assign list_utf_handle = linklist.title | strip | replace: ' ', '-' | url_encode | handle
+                    if list_utf_handle == midlink_utf_handle
+                      assign bottomlist = linklist
+                    endif
+                endfor
+              assign item_has_subitems = false
+              if bottomlist and bottomlist.links.size > 0 and midlink_utf_handle != toplink_utf_handle
+                assign item_has_subitems = true
+              endif
+              assign midlinkImage = blank
+              if midlink.object.metafields.custom.navigation_icon.value != blank
+                assign midlinkImage = midlink.object.metafields.custom.navigation_icon.value
+              elsif midlink.object.featured_image != blank
+                assign midlinkImage = midlink.object.featured_image
+              endif
+            %}
+            <li class="HeaderDropdown-item {% if item_has_subitems %}has-subitems{% endif %}">
+              <a
+                class='HeaderDropdown-itemLink event-navMegaMenu {% if midlink.active %}is-active{% endif %} {% if forloop.last and midlink.title contains 'All' %} HeaderDropdown-itemLink__last{% endif %}'
+                href='{{ midlink.url }}'
+                title='{{ midlink.title }}'
+              >
+                {{ midlink.title }}
+                {% if midlinkImage != blank %}
+                  <img
+                    {% comment %} Leaving alt text empty since images are decorative and it might be redundant for screen readers {% endcomment %}
+                    alt=''
+                    src='{{ midlinkImage | image_url: width: 128 }}'
+                    width='64'
+                    height='64'
+                    loading='lazy'
+                  >
+                {%- endif %}
+              </a>
+              {% comment %}
+                {% if item_has_subitems %}
+                  <ul class="HeaderDropdown-subItems">
+                  {% for bottomlink in bottomlist.links %}
+                  <li class="HeaderDropdown-subItem">
+                  <a class="HeaderDropdown-subItemLink {% if bottomlink.active %}is-active{% endif %}" href="{{ bottomlink.url }}" title="{{ bottomlink.title }}">
+                  {{ bottomlink.title }}
+                  </a>
+                  </li>
+                  {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endcomment %}
+            </li>
+          {% endfor %}
+          {% comment %} <li>
+            <a class="HeaderDropdown-itemLink shop-all event-navMegaMenu" href="{{ toplink.url }}">
+              Shop All {{ toplink.title }}
+              <svg aria-labelledby="title50-toplink.title" role="img" width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title id="title50-header">Arrow right</title>
+                <path d="M9 21.6274L17 13.6274L9 5.62744" stroke="black" />
+              </svg>
+            </a>
+          </li> {% endcomment %}
+        </ul>
+      </div>
+      <div class="HeaderDropdown-theme">
+        <h3 class="HeaderDropdown-title">Shop by theme</h3>
+        <div class="HeaderDropdown-themes">
+          {%- for block in section.blocks -%}
+            {% if block.type == 'theme' %}
+              {%- liquid
+                capture header_theme_image
+                  render 'print-image-sizes' with block.settings.background_image
+                endcapture
+              -%}
+              <a class="HeaderDropdown-themeLink" href="{{ block.settings.link }}">
+                <span class="HeaderDropdown-themeBox">
+                  <span
+                    class="HeaderDropdown-themeLinkBackground lazyload"
+                    data-bgset="{{ header_theme_image }}"
+                    data-sizes="auto"></span>
+                  <img
+                    alt=" {{ block.settings.logo.alt }}"
+                    src="{{ block.settings.logo | img_url: 'master' }}"
+                    width="{{ block.settings.logo.width | divided_by: 2 }}"
+                    height="{{ block.settings.logo.height | divided_by: 2 }}"
+                    loading="lazy"
+                    />
+              </span>
+            </a>
+          {% endif %}
+        {%- endfor -%}
+      </div>
+    </div>
+    {% liquid
+      assign featured_block = false
+      assign featured_block_logo = blank
+      assign featured_block_description = blank
+      assign featured_block_button_label = blank
+      for banner in section.blocks
+        if banner.settings.banner_background != blank and toplink.url contains banner.settings.banner_parent
+          capture featured_block_image_sizes
+            render 'print-image-sizes' with banner.settings.banner_background
+          endcapture
+          assign featured_block_logo = banner.settings.banner_logo
+          assign featured_block_description = banner.settings.banner_description
+          assign featured_block_button_label = banner.settings.banner_label
+          assign featured_block_button_url = banner.settings.banner_link
+          assign featured_block = true
+          break
+        endif
+      endfor
+    %}
+    {% if featured_block == true %}
+      <div
+        class="HeaderDropdown-banner lazyload"
+        data-bgset="{{ featured_block_image_sizes }}"
+        data-sizes="auto"
+      >
+      <div class="HeaderDropdown-dimmer"></div>
+        {%- if featured_block_logo != blank -%}
+          <img
+            src='{{ featured_block_logo | img_url: 'master' }}'
+            width='{{ featured_block_logo.width | divided_by: 2 }}'
+            height='{{ featured_block_logo.height | divided_by: 2 }}'
+            alt='Product logo'
+            loading='lazy'
+          >
+        {%- endif -%}
+        {%- if featured_block_description != blank -%}
+          <div class='featured-description'>
+            {{ featured_block_description }}
+          </div>
+        {%- endif -%}
+        {%- if featured_block_button_label != blank
+          and featured_block_button_url != blank
+        -%}
+          <a href='{{ featured_block_button_url }}' class='btn'>
+            {{- featured_block_button_label -}}
+          </a>
+        {%- endif -%}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

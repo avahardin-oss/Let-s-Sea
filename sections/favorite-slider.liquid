@@ -1,0 +1,197 @@
+{%- liquid
+  assign header = section.settings.header | default: 'Find your Favorite Collection'
+  assign smp_colors = shop.metaobjects.smp_tags.color.tags.value | split: ','
+-%}
+{%- if section.blocks.size > 0 -%}
+  <section class="favorite-slider">
+    {%- if header and header != blank -%}
+      <h2 class="favorite-slider-header">
+        {{ header }}
+      </h2>
+    {%- endif -%}
+
+    {% comment %} Navigation Slider  {% endcomment %}
+    <div class="favorite-slider-nav">
+      <div class="favorite-slider-nav-content" role="tablist">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign nav_image = block.settings.mainCollectionImage
+            assign coll = collections[block.settings.coll] | default: ''
+          -%}
+          {%- if coll != '' -%}
+            <div
+              class="favorite-slider-navItem js-favorite-slider-nav-item"
+              role="tab"
+              aria-controls="tabpanel-{{ coll.handle }}"
+              aria-selected="{{ forloop.first | default: 'false' }}"
+              tabindex="0"
+              collection-name="{{ coll.handle }}"
+            >
+              <img
+                src="{{ nav_image | image_url }}"
+                width="{{ nav_image.width }}"
+                height="{{ nav_image.height }}"
+                alt="{{ coll.handle }} logo"
+                loading="lazy"
+              >
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    {% comment %} Mobile Featured Card  {% endcomment %}
+    <div class="mobile featured-card-wrapper">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign coll_handle = collections[block.settings.coll].handle | default: ''
+          assign nav_image = block.settings.mainCollectionImage
+          capture featured_card_mobile
+            render 'print-image-sizes', image: block.settings.featuredCard
+          endcapture
+        -%}
+        {%- if coll_handle != '' -%}
+          <div
+            class="js-featured-card-mobile favorite-slider--featured-wrapper u-hideMd__flex u-vhide"
+            data-collection="{{ coll_handle }}"
+            onclick="location.href='/collections/{{ coll_handle }}';"
+          >
+            <div class="favorite-slider--content">
+              <div class="favorite-slider--logo block-{{ block.id }}"></div>
+              <a href="{{ block.settings.link }}" class="btn">{{ block.settings.cta }}</a>
+            </div>
+            <div
+              class="favorite-slider--featured lazyload"
+              data-sizes="auto"
+              data-bgset="{{ featured_card_mobile | strip_newlines | strip }}"
+            ></div>
+            <div class="favorite-slider--featured-overlay"></div>
+          </div>
+          <style>
+            .favorite-slider--logo.block-{{ block.id }} {-webkit-mask: url({{ nav_image | image_url }}) no-repeat bottom;mask: url({{ nav_image | image_url }}) no-repeat bottom;}
+          </style>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {% comment %} Desktop Slider  {% endcomment %}
+    <div
+      role="tabpanel"
+      tabindex="0"
+      aria-labelledby="{{ coll.handle }}"
+      class="swiper js-favorite-slider-carousel favorite-slider-carousel"
+    >
+      <div
+        role="region"
+        aria-label="carousel"
+        class="swiper-wrapper favorite-slider-wrapper js-favorite-slider-carousel-content"
+        carousel
+      >
+        <p class="sr-only">This is a carousel with scrollable slides. Use Next and Previous buttons to navigate.</p>
+      </div>
+      <div class="favorite-slider-carousel-actions">
+        <div class="favorite-slider-carousel-scrollbar-wrapper">
+          <div class="swiper-scrollbar"></div>
+        </div>
+        <button aria-label="Previous slide" class="swiper-button-prev">{%- render 'icon-arrow-prev' -%}</button>
+        <button aria-label="Next slide" class="swiper-button-next">{%- render 'icon-arrow-next' -%}</button>
+      </div>
+    </div>
+  </section>
+  <script class="js-favorite-slider-featured-block" type="application/json">
+    {
+    {%- for block in section.blocks -%}
+        {%- liquid
+            assign coll = collections[block.settings.coll] | default: ''
+            assign desc = block.settings.featuredCardDescription
+            assign link = block.settings.link
+            assign cta = block.settings.cta
+            capture featured_card_desktop
+              render 'print-image-sizes', image: block.settings.featuredCard
+            endcapture
+        -%}
+        {%- if coll != '' -%}
+          {{ coll.handle | json }}:[
+              {
+              "block_id": {{ block.id | json }},
+              "block_desc": {{ desc | json }},
+              "block_link": {{ link | json }},
+              "block_cta": {{ cta | json }},
+              "block_image": {{ featured_card_desktop | json }}
+              }
+          ]{%- unless forloop.last -%},{%- endunless -%}
+        {%- endif -%}
+        {%- endfor -%}
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Favorite Slider",
+  "class": "HomepageFavoriteSlider-section js-home-favorite-slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Header"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "mainCollectionImage",
+          "label": "Main Collection Thumb"
+        },
+        {
+          "type": "image_picker",
+          "id": "featuredCard",
+          "label": "Featured Card Image"
+        },
+        {
+          "type": "text",
+          "id": "featuredCardDescription",
+          "label": "Featured Card Description",
+          "default": "Exclusive new designs starring the iconic crusaders from the blockbuster franchise."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "CTA URL"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "CTA Text",
+          "default": "Shop All Marvel"
+        },
+        {
+          "type": "collection",
+          "id": "coll",
+          "label": "Collection"
+        },
+        {
+          "type": "range",
+          "id": "products",
+          "min": 4,
+          "max": 12,
+          "step": 1,
+          "unit": "P",
+          "label": "Products to show",
+          "default": 6
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Favorite Slider",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

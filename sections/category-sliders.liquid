@@ -1,0 +1,322 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/sections/category-sliders/section.liquid}] %}
+
+<script class="json-portable-section-assets" type="application/json">
+{"sectionName":"category-sliders"}
+</script>
+
+<style>
+.mod_category_sliders_O1h5Dq_CategorySlider{background-color:#f5f5f5;padding:max(2.125rem,2.77778vw) max(1rem,2.77778vw) max(1rem,4.16667vw)}
+.mod_category_sliders_O1h5Dq_CategorySlider__header{color:#000;margin-bottom:max(1.5rem,1.66667vw);font-family:Gilroy,sans-serif;font-size:max(1.5rem,2.22222vw);font-style:normal;font-weight:600;line-height:120%}
+.mod_category_sliders_O1h5Dq_CategorySlider__slide{background:#e2e2db;border-radius:max(.4375rem,.486111vw);align-items:center;width:100%;height:max(3.5rem,3.88889vw);padding:max(.5rem,.555556vw);display:flex}
+.mod_category_sliders_O1h5Dq_CategorySlider__slide__mobile{aspect-ratio:4/5;flex-direction:column;justify-content:center;height:auto;padding:0}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel__actions{display:none}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel__scrollbar__wrapper{order:1;width:80%}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel .swiper-wrapper.centered{justify-content:center}
+:is(.mod_category_sliders_O1h5Dq_CategorySlider__carousel .swiper-button-prev,.mod_category_sliders_O1h5Dq_CategorySlider__carousel .swiper-button-next){color:#13294b;z-index:100;background-color:#0000;border:0;width:max(1.25rem,1.38889vw);height:max(1.25rem,1.38889vw);margin:0;transition:opacity .25s ease-in-out;position:relative;left:0}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel .swiper-button-prev:after{display:none}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel .swiper-button-next:after{display:none}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel .swiper-button-next{right:0;left:initial;order:2}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel .swiper-scrollbar{background:var(--mod_category_sliders_O1h5Dq_scrollbar-bg-color);width:100%;height:max(.125rem,.138889vw)}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel .swiper-scrollbar .swiper-scrollbar-drag{background:var(--mod_category_sliders_O1h5Dq_scrollbar-color);height:100%}
+.mod_category_sliders_O1h5Dq_CategorySlider__wrapper{grid-template-columns:1fr 1fr;gap:max(.5rem,.555556vw);display:grid}
+.mod_category_sliders_O1h5Dq_CategorySlider__wrapper__mobile{gap:0;display:flex}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel__mobile .swiper-wrapper{display:flex}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel__mobile a{flex-direction:column;gap:max(.75rem,.833333vw);margin:max(1rem,1.11111vw)}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel__actions__mobile{justify-content:space-between;align-items:center;margin-top:max(1rem,1.11111vw);display:flex;position:relative}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel__actions__mobile path{stroke:var(--mod_category_sliders_O1h5Dq_arrows-color,#000)}
+.mod_category_sliders_O1h5Dq_CategorySlider__featured__wrapper{align-items:center;display:flex;position:relative}
+.mod_category_sliders_O1h5Dq_CategorySlider a{align-items:center;gap:max(.625rem,.694444vw);display:flex}
+.mod_category_sliders_O1h5Dq_CategorySlider__logo{background-color:#fff;width:max(8.75rem,9.72222vw);height:max(4rem,4.44444vw)}
+.mobile{display:block}
+.desktop-only{visibility:hidden;display:none}
+.mobile-only{visibility:visible;display:block}
+@media print,screen and (width>=64em){.mod_category_sliders_O1h5Dq_CategorySlider__header{line-height:110%}
+.mod_category_sliders_O1h5Dq_CategorySlider__slide{justify-content:center;max-width:max(12.5rem,13.8889vw);height:max(15.625rem,17.3611vw);padding:0}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel__actions{justify-content:space-between;align-items:center;margin-top:max(1.5rem,1.66667vw);display:flex;position:relative}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel__actions path{stroke:var(--mod_category_sliders_O1h5Dq_arrows-color,#000)}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel__scrollbar__wrapper{order:0;width:94%}
+:is(.mod_category_sliders_O1h5Dq_CategorySlider__carousel .swiper-button-prev,.mod_category_sliders_O1h5Dq_CategorySlider__carousel .swiper-button-next){width:max(1.5rem,1.66667vw);height:max(1.5rem,1.66667vw)}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel .swiper-button-next{order:0}
+.mod_category_sliders_O1h5Dq_CategorySlider__wrapper{gap:0;display:flex}
+.mod_category_sliders_O1h5Dq_CategorySlider__carousel__actions__mobile{display:none}
+.mod_category_sliders_O1h5Dq_CategorySlider a{flex-direction:column;gap:max(1.5rem,1.66667vw);margin:max(1.5rem,1.66667vw)}
+.mobile{display:none}
+.desktop-only{visibility:visible;display:block}
+.mobile-only{visibility:hidden;display:none}
+}
+</style>
+
+{%- liquid
+  assign header = section.settings.header
+  assign mobile_layout = section.settings.mobile_layout | default: 'grid'
+-%}
+
+{%- if section.blocks.size > 0 -%}
+  <section class="mod_category_sliders_O1h5Dq_CategorySlider">
+    {%- if header and header != blank -%}
+      <h2 class="mod_category_sliders_O1h5Dq_CategorySlider__header">
+        {{ header }}
+      </h2>
+    {%- endif -%}
+
+    <div
+      role="region"
+      aria-label="category carousel"
+      class="swiper js-category-slider-carousel mod_category_sliders_O1h5Dq_CategorySlider__carousel desktop-only"
+    >
+      <div
+        class="swiper-wrapper mod_category_sliders_O1h5Dq_CategorySlider__wrapper {% if section.blocks.size < 5 %}centered{% endif %}"
+        carousel
+      >
+        <p class="sr-only">This is a carousel with scrollable slides. Use Next and Previous buttons to navigate.</p>
+
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign title = block.settings.category_title
+            assign coll = block.settings.coll
+            assign prod = block.settings.prod
+            assign category_image = block.settings.category_image
+            assign image_alt = block.settings.category_image.alt
+          -%}
+
+          <div
+            class="swiper-slide mod_category_sliders_O1h5Dq_CategorySlider__slide"
+            role="group"
+            aria-label="card"
+          >
+            <div class="mod_category_sliders_O1h5Dq_CategorySlider__carousel__scrollbar__wrapper">
+              {%- if coll != blank -%}
+                {%- render 'category-slider-card',
+                  url: coll.url,
+                  title: title,
+                  image: category_image,
+                  image_alt: image_alt,
+                  fallback_image: coll.featured_image,
+                  fallback_title: coll.title
+                -%}
+              {%- elsif prod != blank -%}
+                {%- render 'category-slider-card',
+                  url: prod.url,
+                  title: title,
+                  image: category_image,
+                  image_alt: image_alt,
+                  fallback_image: prod.images.first,
+                  fallback_title: prod.title
+                -%}
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="mod_category_sliders_O1h5Dq_CategorySlider__carousel__actions">
+        <div class="mod_category_sliders_O1h5Dq_CategorySlider__carousel__scrollbar__wrapper">
+          <div class="swiper-scrollbar"></div>
+        </div>
+        <button aria-label="Previous slide" class="swiper-button-prev">
+          {%- render 'svg-arrow-prev', class: 'favorite-slider' -%}
+        </button>
+        <button aria-label="Next slide" class="swiper-button-next">
+          {%- render 'svg-arrow-next', class: 'favorite-slider' -%}
+        </button>
+      </div>
+    </div>
+
+    {%- if mobile_layout == 'slider' -%}
+      <div
+        role="region"
+        aria-label="category carousel"
+        class="swiper js-category-slider-mobile mod_category_sliders_O1h5Dq_CategorySlider__carousel mod_category_sliders_O1h5Dq_CategorySlider__carousel__mobile mobile-only"
+      >
+        <div
+          class="swiper-wrapper mod_category_sliders_O1h5Dq_CategorySlider__wrapper mod_category_sliders_O1h5Dq_CategorySlider__wrapper__mobile"
+          carousel
+        >
+          <p class="sr-only">This is a carousel with scrollable slides. Use Next and Previous buttons to navigate.</p>
+
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign title = block.settings.category_title
+              assign coll = block.settings.coll
+              assign prod = block.settings.prod
+              assign category_image = block.settings.category_image
+              assign image_alt = block.settings.category_image.alt
+            -%}
+
+            <div
+              class="swiper-slide mod_category_sliders_O1h5Dq_CategorySlider__slide mod_category_sliders_O1h5Dq_CategorySlider__slide__mobile"
+              role="group"
+              aria-label="card"
+            >
+              <div class="mod_category_sliders_O1h5Dq_CategorySlider__featured__wrapper">
+                {%- if coll != blank -%}
+                  {%- render 'category-slider-card',
+                    url: coll.url,
+                    title: title,
+                    image: category_image,
+                    image_alt: image_alt,
+                    fallback_image: coll.featured_image,
+                    fallback_title: coll.title,
+                    variant: 'mobile'
+                  -%}
+                {%- elsif prod != blank -%}
+                  {%- render 'category-slider-card',
+                    url: prod.url,
+                    title: title,
+                    image: category_image,
+                    image_alt: image_alt,
+                    fallback_image: prod.images.first,
+                    fallback_title: prod.title,
+                    variant: 'mobile'
+                  -%}
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="mod_category_sliders_O1h5Dq_CategorySlider__carousel__actions__mobile">
+          <div class="mod_category_sliders_O1h5Dq_CategorySlider__carousel__scrollbar__wrapper">
+            <div class="swiper-scrollbar"></div>
+          </div>
+          <button aria-label="Previous slide" class="swiper-button-prev">
+            {%- render 'svg-arrow-prev', class: 'favorite-slider' -%}
+          </button>
+          <button aria-label="Next slide" class="swiper-button-next">
+            {%- render 'svg-arrow-next', class: 'favorite-slider' -%}
+          </button>
+        </div>
+      </div>
+    {%- else -%}
+      <div class="mod_category_sliders_O1h5Dq_CategorySlider__carousel mobile-only">
+        <div class="mod_category_sliders_O1h5Dq_CategorySlider__wrapper" carousel>
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign title = block.settings.category_title
+              assign coll = block.settings.coll
+              assign prod = block.settings.prod
+              assign category_image = block.settings.category_image
+              assign image_alt = block.settings.category_image.alt
+            -%}
+
+            <div
+              class="mod_category_sliders_O1h5Dq_CategorySlider__slide"
+              role="group"
+              aria-label="card"
+            >
+              <div class="mod_category_sliders_O1h5Dq_CategorySlider__featured__wrapper">
+                {%- if coll != blank -%}
+                  {%- render 'category-slider-card',
+                    url: coll.url,
+                    title: title,
+                    image: category_image,
+                    image_alt: image_alt,
+                    fallback_image: coll.featured_image,
+                    fallback_title: coll.title
+                  -%}
+                {%- elsif prod != blank -%}
+                  {%- render 'category-slider-card',
+                    url: prod.url,
+                    title: title,
+                    image: category_image,
+                    image_alt: image_alt,
+                    fallback_image: prod.images.first,
+                    fallback_title: prod.title
+                  -%}
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </section>
+{%- endif -%}
+
+<style>
+  .mod_category_sliders_O1h5Dq_CategorySlider {
+    --mod_category_sliders_O1h5Dq_arrows-color: {{ settings.arrows_color | default: '#000000' }};
+    --mod_category_sliders_O1h5Dq_scrollbar-color: {{ section.settings.scrollbar_color }};
+    --mod_category_sliders_O1h5Dq_scrollbar-bg-color: {{ section.settings.scrollbar_background_color }};
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Category Sliders",
+  "class": "HomepageCategorySlider-section js-home-category-slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Header"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "slider",
+          "label": "Slider"
+        }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "header",
+      "content": "General color settings"
+    },
+    {
+      "type": "color",
+      "id": "scrollbar_color",
+      "label": "Scrollbar progress color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "scrollbar_background_color",
+      "label": "Scrollbar background color",
+      "default": "#aaa"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "category_image",
+          "label": "Category Image (optional)"
+        },
+        {
+          "type": "text",
+          "id": "category_title",
+          "label": "Category title"
+        },
+        {
+          "type": "collection",
+          "id": "coll",
+          "label": "Collection"
+        },
+        {
+          "type": "product",
+          "id": "prod",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category Sliders",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

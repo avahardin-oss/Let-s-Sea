@@ -1,0 +1,172 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": ["1a4f980d-b2a4-4e67-b01d-4f930c2065af", "main"],
+  "sections": {
+    "1a4f980d-b2a4-4e67-b01d-4f930c2065af": {
+      "settings": {
+        "categories_linklist": ""
+      },
+      "type": "collection-categories"
+    },
+    "main": {
+      "block_order": [
+        "a78e736f-9230-4cf2-ab7a-7c08b1d329fc",
+        "6b03e11a-fe71-4d0a-bb52-18ce77d4c1a7",
+        "0d5306f0-2ad4-4df7-9e88-ac532266319b",
+        "f0a05409-9b48-4830-9500-48d4b5006db0",
+        "d38f9e92-95ba-4ef8-9610-670e57cdcc5f",
+        "f574cde7-1d02-4bcc-b9c3-ab2f8b5f2faa",
+        "c648fa29-5456-4199-8498-0193efe33303",
+        "3f7b4347-5760-400f-9ff7-f6b3ac1b4b04",
+        "134fa280-7de3-4edf-a157-c54d1aefea37",
+        "65d636a1-b4ac-400b-adb1-c92d3399e9f1",
+        "b8a83e7c-dfe0-4a7c-b807-44013150be91",
+        "d5905c7c-11b1-4576-a1f2-8f39a6605e47",
+        "cdbab38b-cfdf-45ae-a3f5-290878eb1f39",
+        "1dedc77c-e1d2-4b8e-a44e-14a359390f4b",
+        "22d1f553-28ac-481b-a65d-df77869932d5",
+        "8664443b-f701-4e8c-a84e-a44dbc68ffbf",
+        "2c4567b1-11a7-4343-8311-bf8dbb88248b"
+      ],
+      "blocks": {
+        "0d5306f0-2ad4-4df7-9e88-ac532266319b": {
+          "settings": {
+            "key": "named_tags.blocked",
+            "title": "Color Blocked"
+          },
+          "type": "filter"
+        },
+        "134fa280-7de3-4edf-a157-c54d1aefea37": {
+          "settings": {
+            "key": "named_tags.marvel",
+            "title": "Marvel"
+          },
+          "type": "filter"
+        },
+        "1dedc77c-e1d2-4b8e-a44e-14a359390f4b": {
+          "settings": {
+            "key": "named_tags.nfl",
+            "title": "NFL"
+          },
+          "type": "filter"
+        },
+        "22d1f553-28ac-481b-a65d-df77869932d5": {
+          "settings": {
+            "key": "named_tags.ncaa",
+            "title": "Collegiate"
+          },
+          "type": "filter"
+        },
+        "2c4567b1-11a7-4343-8311-bf8dbb88248b": {
+          "settings": {
+            "key": "named_tags.nhl",
+            "title": "NHL"
+          },
+          "type": "filter"
+        },
+        "3f7b4347-5760-400f-9ff7-f6b3ac1b4b04": {
+          "settings": {
+            "key": "named_tags.disney",
+            "title": "Disney"
+          },
+          "type": "filter"
+        },
+        "65d636a1-b4ac-400b-adb1-c92d3399e9f1": {
+          "settings": {
+            "key": "named_tags.starwars",
+            "title": "Star Wars"
+          },
+          "type": "filter"
+        },
+        "6b03e11a-fe71-4d0a-bb52-18ce77d4c1a7": {
+          "settings": {
+            "key": "named_tags.solid",
+            "title": "Solid"
+          },
+          "type": "filter"
+        },
+        "8664443b-f701-4e8c-a84e-a44dbc68ffbf": {
+          "settings": {
+            "key": "named_tags.nba",
+            "title": "NBA"
+          },
+          "type": "filter"
+        },
+        "a78e736f-9230-4cf2-ab7a-7c08b1d329fc": {
+          "settings": {
+            "key": "named_tags.volume",
+            "title": "Volume"
+          },
+          "type": "filter"
+        },
+        "b8a83e7c-dfe0-4a7c-b807-44013150be91": {
+          "settings": {
+            "key": "named_tags.harry",
+            "title": "Harry Potter"
+          },
+          "type": "filter"
+        },
+        "c648fa29-5456-4199-8498-0193efe33303": {
+          "settings": {
+            "key": "named_tags.kids",
+            "title": "Kids"
+          },
+          "type": "filter"
+        },
+        "cdbab38b-cfdf-45ae-a3f5-290878eb1f39": {
+          "settings": {
+            "key": "named_tags.dude",
+            "title": "Dude Perfect"
+          },
+          "type": "filter"
+        },
+        "d38f9e92-95ba-4ef8-9610-670e57cdcc5f": {
+          "settings": {
+            "key": "named_tags.pattern",
+            "title": "Pattern"
+          },
+          "type": "filter"
+        },
+        "d5905c7c-11b1-4576-a1f2-8f39a6605e47": {
+          "settings": {
+            "key": "named_tags.dc",
+            "title": "DC"
+          },
+          "type": "filter"
+        },
+        "f0a05409-9b48-4830-9500-48d4b5006db0": {
+          "settings": {
+            "key": "named_tags.ombre",
+            "title": "Ombre"
+          },
+          "type": "filter"
+        },
+        "f574cde7-1d02-4bcc-b9c3-ab2f8b5f2faa": {
+          "settings": {
+            "key": "named_tags.shimmering",
+            "title": "Shimmering"
+          },
+          "type": "filter"
+        }
+      },
+      "settings": {
+        "badge_background_color": "#f2f1f0",
+        "badge_color": "#000000",
+        "featured_column_position": "1",
+        "hits_per_page": 20,
+        "row_position": 2,
+        "title_color": "#ffffff"
+      },
+      "type": "collection-main"
+    }
+  },
+  "wrapper": "main.Collection[role='main']"
+}

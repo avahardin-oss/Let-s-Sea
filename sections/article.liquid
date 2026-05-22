@@ -1,0 +1,40 @@
+<article class="Article" role="main">
+  {% if article.image %}
+    {% capture article_image_sizes %}
+      {{ article.image | image_url: width: 100 }} 100w,
+      {{ article.image | image_url: width: 240 }} 240w,
+      {{ article.image | image_url: width: 480 }} 480w,
+      {{ article.image | image_url: width: 600 }} 600w,
+      {{ article.image | image_url: width: 1024 }} 1024w,
+      {{ article.image | image_url: width: 2048 }} 2048w
+    {% endcapture %}
+
+    <div class="Article-featuredIllustration">
+      <div
+        class="Article-featuredIllustrationPlaceholder o-placeholder lazyload"
+        data-bgset="{{ article_image_sizes | strip_newlines | strip }}"
+        data-sizes="auto"></div>
+    </div>
+  {% endif %}
+
+  <div class="Article-content">
+    <div class="o-rte">
+      {{ article.content }}
+    </div>
+  </div>
+</article>
+
+{% schema %}
+  {
+    "name": "Article",
+    "class": "Article-section",
+    "enabled_on": { "templates": ["article"] },
+    "settings": [],
+    "presets": [
+      {
+        "name": "Article",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

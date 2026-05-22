@@ -1,0 +1,26 @@
+{% comment %}Snippet Parameters -->{% endcomment %}
+{%- assign paginate = paginate -%}
+{% comment %}<-- Snippet Parameters{% endcomment %}
+
+{% comment %}
+  {% if paginate.pages > 1 %}
+  <div class="Pagination">
+    {% if paginate.next.is_link %}
+      <a class="Pagination-arrowLink btn white" href="{{ paginate.next.url }}" rel="next">
+        Load More
+      </a>
+    {% else %}
+    <a class="Pagination-arrowLink btn white" href="{{ paginate.previous.url }}" rel="next">
+      Load Less
+    </a>
+    {% endif %}
+  </div>
+  {% endif %}
+{% endcomment %}
+<div class="Pagination">
+  <div id="Collection-ajaxinate-pagination">
+    {% if paginate.next %}
+      <a class="btn" href="{{ paginate.next.url }}" rel="next" data-pagination-link>Load More</a>
+    {% endif %}
+  </div>
+</div>

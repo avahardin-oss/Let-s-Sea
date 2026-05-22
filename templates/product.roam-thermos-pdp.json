@@ -1,0 +1,479 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "ae0d69b6-0867-43af-aa4a-781a8e6b66ac",
+    "main",
+    "71bdd358-9849-4d3f-9d81-a44d323a0986",
+    "99f7f3c0-1ac1-4ac2-ae9d-0af9eec753c9",
+    "b0b99b70-950b-4f25-a120-32c4ec829deb",
+    "a096e61a-78e5-4851-8c62-6d28c835b5cc",
+    "fbd43b00-a368-4ab3-ab5a-70f894eff184",
+    "0882efb0-187a-40fe-b3bd-756934d5b5c6",
+    "38d2eb2d-f210-4bab-be1c-0a8651736a48",
+    "17479464116962c25e",
+    "f30c2ab1-79fd-46cf-95d8-ce3a41d9330d"
+  ],
+  "sections": {
+    "0882efb0-187a-40fe-b3bd-756934d5b5c6": {
+      "block_order": [
+        "497ee7c3-3fe6-48c7-b2b8-dcb76e4f4706",
+        "7082d4a2-def9-491b-a652-e05286f9f1bf",
+        "c1f8516c-5d94-4204-9015-2b1bb814ea72",
+        "84443870-5314-482c-b221-9a7f3a4b44d2",
+        "0dc25271-9e7b-4a50-93fb-7f0c9b838d39",
+        "c0b4dc14-e000-403f-be02-7d977e0a87c4"
+      ],
+      "blocks": {
+        "0dc25271-9e7b-4a50-93fb-7f0c9b838d39": {
+          "settings": {
+            "answer": "<p>Simple Modern takes product safety, quality and regulatory compliance very seriously, and we make sure our products meet or exceed industry safety standards and regulations.</p><p>Our products’ accessible components are made without BPA, regulated phthalates, lead or cadmium. We make sure our products meet all U.S. regulatory requirements, and Simple Modern tests products through independent, properly accredited testing labs to ensure this compliance. In addition, we meet the testing standards and independent review and approval of our many distribution and licensing partners.</p>",
+            "question": "Are Simple Modern products safe?"
+          },
+          "type": "question"
+        },
+        "497ee7c3-3fe6-48c7-b2b8-dcb76e4f4706": {
+          "disabled": true,
+          "settings": {
+            "answer": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>",
+            "question": "How do I use my Roam Bottle?"
+          },
+          "type": "question"
+        },
+        "7082d4a2-def9-491b-a652-e05286f9f1bf": {
+          "settings": {
+            "answer": "<p>Your purchase will be protected by our limited lifetime warranty. If your product is defective please email <a href=\"mailto:support@simplemodern.com\" title=\"link to email support@simplemodern.com\">support@simplemodern.com</a> for assistance.</p><p>Broken lids and drinkware that has lost its insulating properties are covered but general wear and tear like dents and scratches are not.</p>",
+            "question": "What if there is something wrong with my product?"
+          },
+          "type": "question"
+        },
+        "84443870-5314-482c-b221-9a7f3a4b44d2": {
+          "settings": {
+            "answer": "<p>Simple Modern will ship products to Canada, but these orders may be subject to import taxes, customs/duties, and other fees that are not included in the check out total.</p><p>Other international locations are not supported at this time.</p>",
+            "question": "Do you ship to international destinations?"
+          },
+          "type": "question"
+        },
+        "c0b4dc14-e000-403f-be02-7d977e0a87c4": {
+          "settings": {
+            "answer": "<p>Orders will typically ship in 3-5 business days. Depending on which products you order, products could come separately from different fulfillment centers.</p>",
+            "question": "When will my order ship?"
+          },
+          "type": "question"
+        },
+        "c1f8516c-5d94-4204-9015-2b1bb814ea72": {
+          "settings": {
+            "answer": "<p>Standard shipping orders average 4-8 business days from the time of shipment in the contiguous US.</p>",
+            "question": "How many days should I expect for shipping?"
+          },
+          "type": "question"
+        }
+      },
+      "settings": {
+        "navigation_id": "product-faq",
+        "title": "FAQ"
+      },
+      "type": "product-faqs"
+    },
+    "17479464116962c25e": {
+      "block_order": ["okendo_media_carousel_gU3D7T"],
+      "blocks": {
+        "okendo_media_carousel_gU3D7T": {
+          "settings": {
+            "product": "{{product}}"
+          },
+          "type": "shopify://apps/okendo/blocks/media-carousel/bb689e69-ea70-4661-8fb7-ad24a2e23c29"
+        }
+      },
+      "settings": {},
+      "type": "apps"
+    },
+    "38d2eb2d-f210-4bab-be1c-0a8651736a48": {
+      "settings": {
+        "coll": "best-sellers-adult",
+        "products": 6,
+        "sr_descriptive_text": "This is a carousel displaying products you may also like. Use the next and previous buttons to navigate through the slides. Each slide contains a product card with details about the product.",
+        "title": "You may also like"
+      },
+      "type": "products-ymal"
+    },
+    "71bdd358-9849-4d3f-9d81-a44d323a0986": {
+      "block_order": [
+        "1c4272a1-be21-4245-a31e-3b250bf37e13",
+        "3c5319b0-da34-45b5-b256-4d32cb9cf63c",
+        "03b6b742-3de6-4479-b472-66abd5747d26",
+        "52de29e4-0358-48c2-aaec-5317ed1d2def"
+      ],
+      "blocks": {
+        "03b6b742-3de6-4479-b472-66abd5747d26": {
+          "disabled": true,
+          "settings": {
+            "icon": "shopify://shop_images/icon-td-03.png",
+            "title": "Weight",
+            "value": "{{ product.metafields.technical_details.weight.value }}"
+          },
+          "type": "techincal"
+        },
+        "1c4272a1-be21-4245-a31e-3b250bf37e13": {
+          "disabled": true,
+          "settings": {
+            "icon": "shopify://shop_images/icon-td-01.png",
+            "title": "Mouth",
+            "value": "{{ product.metafields.technical_details.product_mouth.value }}"
+          },
+          "type": "techincal"
+        },
+        "3c5319b0-da34-45b5-b256-4d32cb9cf63c": {
+          "disabled": true,
+          "settings": {
+            "icon": "shopify://shop_images/icon-td-02.png",
+            "title": "Height",
+            "value": "{{ product.metafields.technical_details.tumbler_height.value }}"
+          },
+          "type": "techincal"
+        },
+        "52de29e4-0358-48c2-aaec-5317ed1d2def": {
+          "disabled": true,
+          "settings": {
+            "icon": "shopify://shop_images/icon-td-04.png",
+            "title": "Base",
+            "value": "{{ product.metafields.technical_details.tumbler_base.value }}"
+          },
+          "type": "techincal"
+        }
+      },
+      "settings": {
+        "navigation_id": "technical-details"
+      },
+      "type": "product-technical-details"
+    },
+    "99f7f3c0-1ac1-4ac2-ae9d-0af9eec753c9": {
+      "disabled": true,
+      "settings": {
+        "accessibility_text": "Product video",
+        "video": "shopify://files/videos/sm_360_final (1080p).mp4",
+        "video_type": "shopify",
+        "youtube_url": ""
+      },
+      "type": "full-bleed-video"
+    },
+    "a096e61a-78e5-4851-8c62-6d28c835b5cc": {
+      "block_order": [
+        "8ab5c0a7-348a-483c-a557-9b276ac70939",
+        "7e5e8be7-dba4-4fd4-874f-7976b899585f",
+        "c47ca9f8-8b51-4d85-b2dc-679c173ddefe",
+        "007b0b48-72ca-4f6d-b78e-3eb402a7ca3d",
+        "e720c72e-8cdd-421e-9b07-a8b42154dfa6",
+        "c9d3b4df-6910-4018-abae-785c7d06f578"
+      ],
+      "blocks": {
+        "007b0b48-72ca-4f6d-b78e-3eb402a7ca3d": {
+          "settings": {
+            "button_text": "",
+            "button_url": "",
+            "collection_title": "Vacuum Insulated",
+            "description": "<p>Double-walled vacuum insulation keeps beverages hot for 24+ hours, and cold for 48+ hours. </p>",
+            "image": "shopify://shop_images/Roam-Thermos-4.jpg",
+            "shadow_intensity": 35,
+            "stars": 0
+          },
+          "type": "text"
+        },
+        "7e5e8be7-dba4-4fd4-874f-7976b899585f": {
+          "settings": {
+            "button_text": "",
+            "button_url": "",
+            "collection_title": "Two Built in Cups",
+            "description": "<p>Sharing made easy with dual built in cups.</p>",
+            "image": "shopify://shop_images/Roam-Thermos-6_22952b9c-d566-415b-92e2-32a49d619b86.jpg",
+            "shadow_intensity": 35,
+            "stars": 0
+          },
+          "type": "text"
+        },
+        "8ab5c0a7-348a-483c-a557-9b276ac70939": {
+          "settings": {
+            "button_text": "",
+            "button_url": "",
+            "collection_title": "Holds up to 36 ounces",
+            "description": "<p>Take up to 36 ounces of your favorite hot or cold beverage with you, wherever you go. </p>",
+            "image": "shopify://shop_images/Roam-Thermos-8.jpg",
+            "shadow_intensity": 35,
+            "stars": 0
+          },
+          "type": "text"
+        },
+        "c47ca9f8-8b51-4d85-b2dc-679c173ddefe": {
+          "settings": {
+            "button_text": "",
+            "button_url": "",
+            "collection_title": "Locking Inner Lid",
+            "description": "<p>The inner lid locks at a 90 degree turn to pour, making it leakproof when locked.</p>",
+            "image": "shopify://shop_images/Roam-Thermos-17.jpg",
+            "shadow_intensity": 35,
+            "stars": 0
+          },
+          "type": "text"
+        },
+        "c9d3b4df-6910-4018-abae-785c7d06f578": {
+          "settings": {
+            "button_text": "",
+            "button_url": "",
+            "collection_title": "Easy to Hold handle",
+            "description": "",
+            "image": "shopify://shop_images/Roam-Thermos-14.jpg",
+            "shadow_intensity": 35,
+            "stars": 0
+          },
+          "type": "text"
+        },
+        "e720c72e-8cdd-421e-9b07-a8b42154dfa6": {
+          "settings": {
+            "button_text": "",
+            "button_url": "",
+            "collection_title": "Sleek, Durable Design",
+            "description": "",
+            "image": "shopify://shop_images/Roam-Thermos-5.jpg",
+            "shadow_intensity": 35,
+            "stars": 0
+          },
+          "type": "text"
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "title": "Features:"
+      },
+      "type": "discover-by-category"
+    },
+    "ae0d69b6-0867-43af-aa4a-781a8e6b66ac": {
+      "block_order": [
+        "0e33b9dd-386b-416a-a57f-9eb674bfa9ff",
+        "73b5831a-1d2e-47d1-bb5d-4a876232b483",
+        "8a2617d3-fc74-4032-91ae-b6d7a14e4c75",
+        "7f33c515-3df2-4746-aca4-c90a077096d1"
+      ],
+      "blocks": {
+        "0e33b9dd-386b-416a-a57f-9eb674bfa9ff": {
+          "settings": {
+            "section_anchor": "product-main",
+            "title": "Overview"
+          },
+          "type": "navigation"
+        },
+        "73b5831a-1d2e-47d1-bb5d-4a876232b483": {
+          "settings": {
+            "section_anchor": "product-details",
+            "title": "Details"
+          },
+          "type": "navigation"
+        },
+        "7f33c515-3df2-4746-aca4-c90a077096d1": {
+          "settings": {
+            "section_anchor": "product-faq",
+            "title": "FAQ"
+          },
+          "type": "navigation"
+        },
+        "8a2617d3-fc74-4032-91ae-b6d7a14e4c75": {
+          "settings": {
+            "section_anchor": "product-testimonials",
+            "title": "Learn More"
+          },
+          "type": "navigation"
+        }
+      },
+      "settings": {
+        "display_atc": true,
+        "display_reviews": true
+      },
+      "type": "product-navigation-bar"
+    },
+    "b0b99b70-950b-4f25-a120-32c4ec829deb": {
+      "block_order": [
+        "04d291d2-5470-4791-87cf-164f3137749c",
+        "1372a30a-2997-4790-a5d6-83b8af89c6ce",
+        "e15a0142-f1c3-483f-913e-71f6f675a427",
+        "fa8565ad-e738-478e-96db-8a94cbbdbbf1",
+        "3e6f6bc9-f9b5-4bc8-9b4d-1251d29573b0",
+        "d0a61b47-690b-44b8-a7f2-7e2267fe2467"
+      ],
+      "blocks": {
+        "04d291d2-5470-4791-87cf-164f3137749c": {
+          "settings": {
+            "article_overlay_color": "#000000",
+            "article_overlay_opacity": 0.5,
+            "articleimage": "shopify://shop_images/Roam-Thermos-8.jpg",
+            "articlelink": "",
+            "articlesubtitle": "",
+            "articletitle": "Hold up to 36 ounces",
+            "sr_text": ""
+          },
+          "type": "article"
+        },
+        "1372a30a-2997-4790-a5d6-83b8af89c6ce": {
+          "settings": {
+            "article_overlay_color": "#000000",
+            "article_overlay_opacity": 0.5,
+            "articleimage": "shopify://shop_images/Roam-Thermos-6_22952b9c-d566-415b-92e2-32a49d619b86.jpg",
+            "articlelink": "",
+            "articlesubtitle": "",
+            "articletitle": "Two Built in Cups",
+            "sr_text": ""
+          },
+          "type": "article"
+        },
+        "3e6f6bc9-f9b5-4bc8-9b4d-1251d29573b0": {
+          "settings": {
+            "article_overlay_color": "#000000",
+            "article_overlay_opacity": 0.5,
+            "articleimage": "shopify://shop_images/Roam-Thermos-5.jpg",
+            "articlelink": "",
+            "articlesubtitle": "",
+            "articletitle": "Sleek, Durable Design",
+            "sr_text": ""
+          },
+          "type": "article"
+        },
+        "d0a61b47-690b-44b8-a7f2-7e2267fe2467": {
+          "settings": {
+            "article_overlay_color": "#000000",
+            "article_overlay_opacity": 0.5,
+            "articleimage": "shopify://shop_images/Roam-Thermos-14.jpg",
+            "articlelink": "",
+            "articlesubtitle": "",
+            "articletitle": "Easy to Hold handle",
+            "sr_text": ""
+          },
+          "type": "article"
+        },
+        "e15a0142-f1c3-483f-913e-71f6f675a427": {
+          "settings": {
+            "article_overlay_color": "#000000",
+            "article_overlay_opacity": 0.5,
+            "articleimage": "shopify://shop_images/Roam-Thermos-17.jpg",
+            "articlelink": "",
+            "articlesubtitle": "",
+            "articletitle": "Locking Inner Lid",
+            "sr_text": ""
+          },
+          "type": "article"
+        },
+        "fa8565ad-e738-478e-96db-8a94cbbdbbf1": {
+          "settings": {
+            "article_overlay_color": "#000000",
+            "article_overlay_opacity": 0.5,
+            "articleimage": "shopify://shop_images/Roam-Thermos-4.jpg",
+            "articlelink": "",
+            "articlesubtitle": "",
+            "articletitle": "Vacuum Insulated",
+            "sr_text": ""
+          },
+          "type": "article"
+        }
+      },
+      "settings": {
+        "cta": "Features",
+        "featuredCardHeading": "Roam Bottle",
+        "featuredCardImage": "shopify://shop_images/Roam-Thermos-hero4.jpg",
+        "featuredCardSubHeading": "",
+        "featured_card_sr_text": "",
+        "featured_overlay_color": "#000000",
+        "featured_overlay_opacity": 0.5,
+        "link": "",
+        "scrollbar_background_color": "#aaaaaa",
+        "scrollbar_color": "#000000",
+        "text_color": "#ffffff"
+      },
+      "type": "blog-slider"
+    },
+    "f30c2ab1-79fd-46cf-95d8-ce3a41d9330d": {
+      "settings": {},
+      "type": "okendo-reviews"
+    },
+    "fbd43b00-a368-4ab3-ab5a-70f894eff184": {
+      "block_order": [
+        "ff1301f4-fb5d-4ff2-9bfd-a3502cc23ff4",
+        "1021ddd8-052f-4f5a-ba91-8fbed668bc7a"
+      ],
+      "blocks": {
+        "1021ddd8-052f-4f5a-ba91-8fbed668bc7a": {
+          "settings": {
+            "image": "shopify://shop_images/Roam-Thermos-9.jpg",
+            "link": ""
+          },
+          "type": "image"
+        },
+        "ff1301f4-fb5d-4ff2-9bfd-a3502cc23ff4": {
+          "settings": {
+            "image": "shopify://shop_images/Roam-Thermos-hero2.jpg",
+            "link": ""
+          },
+          "type": "image"
+        }
+      },
+      "disabled": true,
+      "settings": {},
+      "type": "two-images"
+    },
+    "main": {
+      "block_order": [
+        "accordion_description_jPBa8y",
+        "accordion_item_frwrKm",
+        "accordion_item_mb4qV7",
+        "accordion_item_iQdrek"
+      ],
+      "blocks": {
+        "accordion_description_jPBa8y": {
+          "settings": {
+            "accordion_title": "Description"
+          },
+          "type": "accordion_description"
+        },
+        "accordion_item_frwrKm": {
+          "settings": {
+            "accordion_content": "{{ product.metafields.custom.accordion_specs | metafield_tag }}",
+            "accordion_title": "Specs"
+          },
+          "type": "accordion_item"
+        },
+        "accordion_item_iQdrek": {
+          "settings": {
+            "accordion_content": "{{ product.metafields.custom.accordion_care_guide | metafield_tag }}",
+            "accordion_title": "Care Guide"
+          },
+          "type": "accordion_item"
+        },
+        "accordion_item_mb4qV7": {
+          "settings": {
+            "accordion_content": "{{ product.metafields.custom.accordion_materials | metafield_tag }}",
+            "accordion_title": "Materials"
+          },
+          "type": "accordion_item"
+        }
+      },
+      "settings": {
+        "customizer_desc": "Making your own personalized tumbler is easy. Click on the image to add a text and create the perfect tumbler.",
+        "customizer_title": "Personalize your product",
+        "details_title": "Details",
+        "enable_upsellpopup": true,
+        "font_size": 2.5,
+        "giveback_content": "",
+        "giveback_heading": "",
+        "navigation_id": "product-main",
+        "qty_selector": false,
+        "readmore_link": "/pages/warranty-1",
+        "social_sharing_enabled": false,
+        "upsell_title": "You May Also Like"
+      },
+      "type": "product-main"
+    }
+  }
+}

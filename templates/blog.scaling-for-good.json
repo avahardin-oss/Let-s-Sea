@@ -1,0 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": ["98e05240-5e90-45c1-a54f-3a3c74022e49", "main"],
+  "sections": {
+    "98e05240-5e90-45c1-a54f-3a3c74022e49": {
+      "settings": {
+        "banner_height": "small",
+        "color_palette": "dark",
+        "heading": "Scaling for Good",
+        "image_as_background": true,
+        "show_breadcrumbs": true,
+        "text": ""
+      },
+      "type": "image-text-banner"
+    },
+    "main": {
+      "settings": {},
+      "type": "blog-main"
+    }
+  },
+  "wrapper": "main.Blog[role='main']"
+}

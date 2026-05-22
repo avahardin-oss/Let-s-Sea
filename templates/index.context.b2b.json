@@ -1,0 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "all-b2b"
+  },
+  "order": [
+    "replo_b2b_hp_1_2026_ikKRY"
+  ],
+  "parent": "index.json",
+  "sections": {
+    "replo_b2b_hp_1_2026_ikKRY": {
+      "block_order": [],
+      "blocks": {},
+      "disabled": false,
+      "name": "B2B HP 1-2026",
+      "settings": {
+        "header-9febff656cd3b485672d5408693c5df9": null
+      },
+      "type": "replo-b2b-hp-1-2026"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{%- liquid
+  assign signature = false
+  for tag in product_tags
+    if tag == '_badge:signature'
+      assign signature = true
+      break
+    endif
+  endfor
+-%}
+<div class="ProductCard-Badge js-product-card-badge{% if isPlp != true %} pdpBadge{% endif %}">
+  {%- if badge != '' and isPlp == true -%}
+    <p {% if badge != 'Customizable' %}style="background-color: {{ badge_color }};"{%- else -%}class="ProductCard-Badge__Customizable"{%- endif -%}>{{ badge }}</p>
+{%- endif -%}
+    {%- if signature == true -%}
+      <div class="badge badge-signature{% if isPlp == true and badge == 'Customizable' %} u-hideMobile__flex{% endif %}">Signature</div>
+    {%- endif -%}
+</div>

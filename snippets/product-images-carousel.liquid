@@ -1,0 +1,252 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/snippets/product-images-carousel/snippet.liquid}] %}
+
+<div class="portable-snippet" data-snippet-name="product-images-carousel">
+
+<style>
+.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_grid{flex-direction:column;display:flex}
+.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_mainContainer{width:100%;margin-bottom:max(.625rem,.694444vw);position:relative}
+.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_imageCover{aspect-ratio:1;background-position:50%;background-size:cover;width:100%}
+.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_arrowPrev,.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_arrowNext{z-index:10;cursor:pointer;background:#fffc;border-radius:50%;justify-content:center;align-items:center;width:max(2.75rem,3.05556vw);height:max(2.75rem,3.05556vw);transition:opacity .3s;display:flex;position:absolute;top:50%;transform:translateY(-50%);box-shadow:0 .125rem .25rem #0000001a}
+.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_arrowPrev svg,.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_arrowNext svg{width:max(1.5rem,1.66667vw);height:max(1.5rem,1.66667vw)}
+.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_arrowPrev{left:max(.625rem,.694444vw)}
+.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_arrowNext{right:max(.625rem,.694444vw)}
+:is(.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_arrowPrev.swiper-button-disabled,.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_arrowNext.swiper-button-disabled){opacity:0;pointer-events:none}
+.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_thumbsContainer{width:100%;height:max(5rem,5.55556vw);overflow:hidden}
+.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_thumbSlide{box-sizing:border-box;border:.125rem solid #0000;border-radius:max(.5rem,.555556vw);width:max(3.75rem,4.16667vw);height:max(3.75rem,4.16667vw);margin-right:max(.625rem,.694444vw);transition:border-color .2s;overflow:hidden}
+.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_thumbSlide.swiper-slide-thumb-active{border-color:#000}
+.mod_product_images_carousel_lbwYxW_ProductImagesCarousel_thumbSlide img{object-fit:contain;width:100%;height:100%;display:block}
+</style>
+
+{%- comment -%}
+  Product images carousel (portable snippet source)
+
+  Notes:
+  - Avoid inline styles where possible (prefer SCSS module styles).
+  - Use style tags to ensure scoped, collision-free classes.
+  - Keep existing JS hooks (`js-*`) + Swiper classes intact.
+{%- endcomment -%}
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+{%- comment -%}
+  Keep `current_variant` assignment here since other consumers may extend this snippet,
+  but avoid unused variables to keep themecheck clean.
+{%- endcomment -%}
+
+<section
+  class="js-product-gallery-desktop ProductGallery desktop swiper-container-images"
+  data-product-id="{{ product.id }}"
+  aria-label="Desktop Gallery"
+>
+  <div class="js-product-gallery-images-desktop ProductGallery-images" data-product-id="{{ product.id }}">
+    {% render 'product-badges', product_tags: product.tags %}
+
+    <div class="ProductGallery-grid mod_product_images_carousel_lbwYxW_ProductImagesCarousel_grid">
+      <div
+        class="swiper-container swiper-container-desktop ProductGallery-mainContainer mod_product_images_carousel_lbwYxW_ProductImagesCarousel_mainContainer"
+      >
+        <p class="sr-only">This is a carousel with scrollable slides. Use Next and Previous buttons to navigate.</p>
+        <div class="swiper-wrapper">
+          <!-- videos -->
+          {%- assign first_desktop_image_rendered = false -%}
+          {%- for media in product.media -%}
+            {%- if media.media_type contains 'video' -%}
+              <div class="swiper-slide ProductGallery-mainSlide ProductGallery-video">
+                {{ media | video_tag: controls: true, autoplay: true, loop: true, muted: true }}
+              </div>
+            {%- elsif media.media_type contains 'image' -%}
+              {% capture other_image_sizes %}
+              {{ media | image_url: width: 640 }} 320w,
+              {{ media | image_url: width: 750 }} 375w,
+              {{ media | image_url: width: 960 }} 480w,
+              {{ media | image_url: width: 1024 }} 600w,
+              {{ media | image_url: width: 2048 }} 1024w
+              {% endcapture %}
+              <div class="swiper-slide ProductGallery-mainSlide js-m-slide">
+                {%- if first_desktop_image_rendered == false -%}
+                  <div
+                    tabindex="0"
+                    class="NewProductGallery-image NewProductGallery-item lazyloaded js-image-cover mod_product_images_carousel_lbwYxW_ProductImagesCarousel_imageCover"
+                    style="background-image: url('{{ media | image_url: width: 2048 }}')"
+                    data-bgset="{{ other_image_sizes | strip_newlines | strip }}"
+                    data-img-url="{{ media.preview_image | image_url: width: 2048 }}"
+                  >
+                    <div class="NewProductGallery-image-cover">
+                      <svg
+                        class="NewProductGallery-image-opener"
+                        viewBox="0 0 32 32"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="32" height="32" rx="16" fill="white"/>
+                        <path d="M19 8.5H23.5V13" stroke="#666666" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18.25 13.75L23.5 8.5" stroke="#666666" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13 23.5H8.5V19" stroke="#666666" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13.75 18.25L8.5 23.5" stroke="#666666" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                  {%- assign first_desktop_image_rendered = true -%}
+                {%- else -%}
+                  <div
+                    tabindex="0"
+                    class="NewProductGallery-image NewProductGallery-item lazyload js-image-cover mod_product_images_carousel_lbwYxW_ProductImagesCarousel_imageCover"
+                    data-sizes="auto"
+                    data-bgset="{{ other_image_sizes | strip_newlines | strip }}"
+                    data-img-url="{{ media.preview_image | image_url: width: 2048 }}"
+                  >
+                    <div class="NewProductGallery-image-cover">
+                      <svg
+                        class="NewProductGallery-image-opener"
+                        viewBox="0 0 32 32"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="32" height="32" rx="16" fill="white"/>
+                        <path d="M19 8.5H23.5V13" stroke="#666666" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18.25 13.75L23.5 8.5" stroke="#666666" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13 23.5H8.5V19" stroke="#666666" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13.75 18.25L8.5 23.5" stroke="#666666" stroke-width="1.125" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <div class="ProductGallery-actions">
+          <div class="swiper-button-prev swiper-button-prev-desktop mod_product_images_carousel_lbwYxW_ProductImagesCarousel_arrowPrev">
+            {%- render 'svg-arrow-prev' -%}
+          </div>
+          <div class="swiper-button-next swiper-button-next-desktop mod_product_images_carousel_lbwYxW_ProductImagesCarousel_arrowNext">
+            {%- render 'svg-arrow-next' -%}
+          </div>
+        </div>
+      </div>
+
+      <!-- Thumbnails below -->
+      <div
+        class="js-swiper-thumbs-pdp-desktop swiper-container-thumbs mod_product_images_carousel_lbwYxW_ProductImagesCarousel_thumbsContainer"
+      >
+        <div class="swiper-wrapper">
+          {%- for media in product.media -%}
+            <div class="swiper-slide ProductGallery-thumbSlide mod_product_images_carousel_lbwYxW_ProductImagesCarousel_thumbSlide">
+              <img
+                class="{% if is_replo %}js-replo-thumb{% endif %}"
+                src="{{ media | image_url: width: 120, height: 120, crop: 'center' }}"
+                data-replo-src="{{ media | image_url: width: 400, height: 400, crop: 'center' }}"
+                alt="{{ media.alt }}"
+                width="120"
+                height="120"
+              >
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mobile Gallery (Reuse existing structure) -->
+<section
+  class="js-product-gallery-mobile ProductGallery mobile swiper-container-images"
+  data-product-id="{{ product.id }}"
+  aria-label="Mobile Carousel"
+>
+  <div class="js-product-gallery-images-mobile ProductGallery-images" data-product-id="{{ product.id }}">
+    {% render 'product-badges', product_tags: product.tags %}
+
+    <div class="ProductGallery-grid">
+      {%- if product.tags contains 'badge:fits-car' -%}
+        {% assign badge_fits_cart = shop.metaobjects.product_badges['fits-car'].icon.value | image_url %}
+        {%- capture badge_image_sizes -%}
+        {%- render 'print-image-sizes' with badge_fits_cart -%}
+        {%- endcapture -%}
+        <div
+          class="ProductGallery-badge lazyload"
+          data-sizes="auto"
+          data-bgset="{{ badge_image_sizes | strip_newlines | strip }}"
+        ></div>
+      {%- endif -%}
+
+      <div class="swiper-container swiper-container-mobile ProductGallery-mainContainer">
+        <p class="sr-only">This is a carousel with scrollable slides. Use Next and Previous buttons to navigate.</p>
+        <div class="swiper-wrapper">
+          <!-- videos -->
+          {%- assign first_mobile_image_rendered = false -%}
+          {%- for media in product.media -%}
+            {%- if media.media_type contains 'video' -%}
+              <div class="swiper-slide ProductGallery-mainSlide ProductGallery-video">
+                {{ media | video_tag: controls: true, autoplay: true, loop: true, muted: true }}
+              </div>
+            {%- elsif media.media_type contains 'image' -%}
+              {% capture other_image_sizes %}
+              {{ media | image_url: width: 640 }} 320w,
+              {{ media | image_url: width: 750 }} 375w,
+              {{ media | image_url: width: 960 }} 480w,
+              {{ media | image_url: width: 1024 }} 600w,
+              {{ media | image_url: width: 2048 }} 1024w
+              {% endcapture %}
+              <div class="swiper-slide ProductGallery-mainSlide js-m-slide">
+                <div
+                  data-swiper-zoom="2"
+                  class="swiper-zoom-container js-product-gallery-image ProductGallery-image"
+                  data-image-variants="{{ media.variants | map: 'id' | join: ' ' | escape }}"
+                >
+                  {%- if first_mobile_image_rendered == false -%}
+                    <img
+                      tabindex="0"
+                      class="swiper-zoom-target ProductGallery-imagePlaceholder"
+                      title="{{ media.alt }}"
+                      aria-label="{{ media.alt }}"
+                      alt="{{ media.alt }}"
+                      src="{{ media | image_url: width: 750 }}"
+                      srcset="{{ other_image_sizes | strip_newlines | strip }}"
+                      sizes="100vw"
+                      width="{{ media.width }}"
+                      height="{{ media.height }}"
+                      loading="eager"
+                      fetchpriority="high"
+                    >
+                    {%- assign first_mobile_image_rendered = true -%}
+                  {%- else -%}
+                    <div
+                      tabindex="0"
+                      class="swiper-zoom-target ProductGallery-imagePlaceholder lazyload"
+                      title="{{ media.alt }}"
+                      aria-label="{{ media.alt }}"
+                      data-sizes="auto"
+                      data-bgset="{{ other_image_sizes | strip_newlines | strip }}"
+                    ></div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        <div class="ProductGallery-actions">
+          <div class="swiper-pagination"></div>
+        </div>
+        <div class="ProductGallery-abTestArrows">
+          <button
+            aria-label="Previous slide"
+            class="swiper-button-prev swiper-button-prev-mobile ab-test-arrows-show swiper-button-disabled"
+            style="opacity: 0"
+          >
+            {%- render 'svg-arrow-prev' -%}
+          </button>
+          <button
+            aria-label="Next slide"
+            class="swiper-button-next swiper-button-next-mobile ab-test-arrows-show"
+            style="opacity: 0"
+          >
+            {%- render 'svg-arrow-next' -%}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>

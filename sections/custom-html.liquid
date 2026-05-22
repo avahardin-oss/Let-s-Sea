@@ -1,0 +1,124 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/sections/custom-html/section.liquid}] %}
+
+<style>
+.mod_custom_html_9rW07a_CustomHTML{flex-direction:row;justify-content:center;align-items:center;width:100%;padding-left:max(1rem,1.11111vw);padding-right:max(1rem,1.11111vw);display:flex}
+.mod_custom_html_9rW07a_CustomHTML_container{flex-direction:column;justify-content:flex-start;align-items:center;display:flex}
+.mod_custom_html_9rW07a_CustomHTML_heading{color:#000;text-align:center;margin-bottom:max(1.5rem,1.66667vw);font-family:Gilroy,sans-serif;font-size:max(1.5rem,2.22222vw);font-style:normal;font-weight:600;line-height:120%}
+.mod_custom_html_9rW07a_CustomHTML .column-width-12{width:100%}
+.mod_custom_html_9rW07a_CustomHTML .column-width-10{width:100%}
+.mod_custom_html_9rW07a_CustomHTML .column-width-8{width:100%}
+.mod_custom_html_9rW07a_CustomHTML .column-width-6{width:100%}
+.mod_custom_html_9rW07a_CustomHTML .column-width-4{width:100%}
+@media print,screen and (width>=64em){.mod_custom_html_9rW07a_CustomHTML{padding-left:max(2.5rem,2.77778vw);padding-right:max(2.5rem,2.77778vw)}
+.mod_custom_html_9rW07a_CustomHTML_heading{line-height:110%}
+.mod_custom_html_9rW07a_CustomHTML .column-width-10{width:83.3333%}
+.mod_custom_html_9rW07a_CustomHTML .column-width-8{width:66.6667%}
+.mod_custom_html_9rW07a_CustomHTML .column-width-6{width:50%}
+.mod_custom_html_9rW07a_CustomHTML .column-width-4{width:33.3333%}
+}
+</style>
+
+{% for block in section.blocks limit:1 %}
+
+{%- assign col_size = "" -%}
+{%- case block.settings.col_size -%}
+  {%- when "12" -%}
+    {%- assign col_size = "column-width-12" -%}
+  {%- when "10" -%}
+    {%- assign col_size = "column-width-10" -%}
+  {%- when "8" -%}
+    {%- assign col_size = "column-width-8" -%}
+  {%- when "6" -%}
+    {%- assign col_size = "column-width-6" -%}
+  {%- when "4" -%}
+    {%- assign col_size = "column-width-4" -%}
+{%- endcase -%}
+
+<style>
+  {% if block.settings.padding_top %}
+    .section--{{block.id }} {padding-top:max(3rem, 5.55556vw);}
+  {% endif %}
+  {% if block.settings.padding_bottom %}
+    .section--{{block.id }} {padding-bottom:max(3rem, 5.55556vw);}
+  {% endif %}
+</style>
+
+<!-- {{ block.id }} -->
+<section class="mod_custom_html_9rW07a_CustomHTML section--{{block.id}}" style="background-color: {{block.settings.background}};">
+  <div class="mod_custom_html_9rW07a_CustomHTML_container {{col_size}}">
+    {% if block.settings.show_title %}
+      <h2 class="mod_custom_html_9rW07a_CustomHTML_heading">{{ block.settings.title }}</h2>
+    {% endif %}
+    <div class=" {{col_size}}">
+      {{ block.settings.content }}
+    </div>
+  </div>
+</section>
+
+{% endfor %}
+
+{% schema %}
+{
+  "name": "HTML Content",
+  "blocks": [
+    {
+      "type":"html_content",
+      "name": "Content",
+      "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_title",
+            "label": "Show Heading?",
+            "default": true
+          },
+          {
+            "type": "checkbox",
+            "id": "padding_top",
+            "label": "Top Padding",
+            "default": true,
+            "info": "Include White Space on top"
+          },
+          {
+            "type": "checkbox",
+            "id": "padding_bottom",
+            "label": "Bottom Padding",
+            "default": true,
+            "info": "Include White Space on bottom"
+          },
+          {
+            "type": "color",
+            "id": "background",
+            "label": "Background Color",
+            "default": "#F5F5F1"
+          },
+          {
+            "type": "select",
+            "id": "col_size",
+            "label": "Column Size",
+            "options":[
+              {"value":"12","label":"12 Columns (Full width)"},
+              {"value":"10","label":"10 Columns"},
+              {"value":"8","label":"8 Columns"},
+              {"value":"6","label":"6 Columns"},
+              {"value":"4","label":"4 Columns"}
+            ],
+            "default": "12"
+          },
+          {
+          "type": "html",
+          "label": "Content",
+          "id": "content"
+          }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "HTML Content"
+  }]
+}
+{% endschema %}

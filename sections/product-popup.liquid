@@ -1,0 +1,152 @@
+{%- comment %} Compiled from _js/sections/product-popup/section.liquid {%- endcomment %}
+
+<div id="upsellModal" class="mod_product_popup_11CuQW_upsellModal">
+  <div class="mod_product_popup_11CuQW_upsellModal_container">
+    <span class="mod_product_popup_11CuQW_upsellModal_close">{% render 'svg-close' %}</span>
+
+    <div class="mod_product_popup_11CuQW_upsellModal_notification">
+      <div class="mod_product_popup_11CuQW_upsellModal_notificationImage">
+        <span class="mod_product_popup_11CuQW_upsellModal_notificationBadge">{% render 'svg-check' %}</span>
+        <img
+          alt="{{ product.featured_image.alt }}"
+          src="{{ product.featured_image | img_url: '40x' }}"
+          loading="lazy"
+          width="{{ product.featured_image.width }}"
+          height="{{ product.featured_image.height }}"
+        >
+      </div>
+      <div class="mod_product_popup_11CuQW_upsellModal_notificationInfo">
+        <p>
+          <b>{{ product.title | split: '-' | first }}</b>
+          <br>
+          was added to the cart.
+        </p>
+      </div>
+    </div>
+
+    <div class="mod_product_popup_11CuQW_upsellModal_content">
+      <h2 class="mod_product_popup_11CuQW_upsellModal__title">Buy more and Save more</h2>
+    </div>
+
+    <div class="mod_product_popup_11CuQW_upsellModal_footer">
+      <a href="#" class="mod_product_popup_11CuQW_btn">Go to checkout</a>
+      <a href="#">Continue Shopping</a>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .mod_product_popup_11CuQW_upsellModal {
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    padding: vw-calc(16 16);
+    background-color: #7b7b74e6;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+  }
+  .mod_product_popup_11CuQW_upsellModal_close {
+    color: #000;
+    text-align: center;
+    width: max(1.5rem, 1.66667vw);
+    height: max(1.5rem, 1.66667vw);
+    cursor: pointer;
+    padding: max(0.3125rem, 0.347222vw);
+    font-weight: 300;
+    position: absolute;
+    top: max(0.5rem, 0.555556vw);
+    right: max(0.5rem, 0.555556vw);
+  }
+  .mod_product_popup_11CuQW_upsellModal_close:hover,
+  .mod_product_popup_11CuQW_upsellModal_close:focus {
+    text-decoration: none;
+  }
+  .mod_product_popup_11CuQW_upsellModal_container {
+    width: 100%;
+    height: 100%;
+    max-height: 85dvh;
+    max-width: max(22.5rem, 25vw);
+    background-color: #f5f5f5;
+    border-radius: max(0.5rem, 0.555556vw);
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .mod_product_popup_11CuQW_upsellModal_notification {
+    border-bottom: 1px solid #000;
+    align-items: center;
+    gap: max(0.625rem, 0.694444vw);
+    padding: max(1rem, 1.11111vw) max(2rem, 2.22222vw) max(1rem, 1.11111vw) max(1rem, 1.11111vw);
+    display: flex;
+    position: relative;
+  }
+  .mod_product_popup_11CuQW_upsellModal_notificationImage {
+    width: max(2.5rem, 2.77778vw);
+    height: max(2.5rem, 2.77778vw);
+    background-color: #e2e2db;
+    border-radius: max(0.25rem, 0.277778vw);
+  }
+  .mod_product_popup_11CuQW_upsellModal_notificationBadge {
+    width: max(1rem, 1.11111vw);
+    height: max(1rem, 1.11111vw);
+    background-color: #219653;
+    border-radius: max(3.125rem, 3.47222vw);
+    justify-content: center;
+    align-items: center;
+    padding: max(0.3125rem, 0.347222vw) max(0.1875rem, 0.208333vw);
+    display: flex;
+    position: absolute;
+    top: max(0.75rem, 0.833333vw);
+    left: max(0.75rem, 0.833333vw);
+  }
+  .mod_product_popup_11CuQW_upsellModal_notificationInfo p {
+    margin-bottom: 0;
+    font-size: max(0.875rem, 0.972222vw);
+    line-height: 130%;
+  }
+  .mod_product_popup_11CuQW_upsellModal_content {
+    text-align: center;
+    padding: max(1.5rem, 1.66667vw) max(1rem, 1.11111vw) max(4.375rem, 4.86111vw);
+    display: block;
+    position: relative;
+  }
+  .mod_product_popup_11CuQW_upsellModal__title {
+    font-size: max(1.5rem, 1.66667vw);
+    font-weight: 600;
+    line-height: 120%;
+  }
+  .mod_product_popup_11CuQW_upsellModal_footer {
+    width: 100%;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: center;
+    gap: max(1rem, 1.11111vw);
+    padding: max(1.25rem, 1.38889vw) max(1rem, 1.11111vw) max(1rem, 1.11111vw);
+    display: flex;
+    position: absolute;
+    bottom: 0;
+  }
+  .mod_product_popup_11CuQW_upsellModal_footerBtn {
+    width: 100%;
+    color: #fff;
+    background-color: #000;
+    font-size: max(0.875rem, 0.972222vw);
+  }
+  .mod_product_popup_11CuQW_upsellModal_footerBtn:hover,
+  .mod_product_popup_11CuQW_upsellModal_footerBtn:active,
+  .mod_product_popup_11CuQW_upsellModal_footerBtn:focus {
+    color: #fff;
+    background-color: #7b7b74;
+  }
+  .mod_product_popup_11CuQW_upsellModal_footer a:not(.mod_product_popup_11CuQW_btn) {
+    text-transform: uppercase;
+    letter-spacing: max(0.015625rem, 0.0173611vw);
+    font-size: max(0.625rem, 0.694444vw);
+    font-weight: 600;
+    line-height: 100%;
+    text-decoration: underline;
+  }
+{% endstylesheet %}

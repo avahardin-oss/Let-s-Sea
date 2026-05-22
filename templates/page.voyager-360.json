@@ -1,0 +1,292 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "main",
+    "0903376d-db6e-4a0f-8898-a4177eb2d2d9",
+    "ea42899a-43ce-4e24-9571-2ff2380cb209",
+    "42084564-db21-4bba-a9f0-5417425bd36c",
+    "ad000df8-3aca-4926-b7f7-d7cc624f7127",
+    "f89bf835-bf1d-4b08-8b11-f5f60b92f97e",
+    "d8b8bb00-3418-4fed-a784-dd72d1551878",
+    "89efd411-cf90-4926-885e-783772342e82",
+    "882a580c-8162-4ce8-8f4c-e8508aa4a050",
+    "b518a161-08a8-42ce-977f-7459e46d01cf"
+  ],
+  "sections": {
+    "0903376d-db6e-4a0f-8898-a4177eb2d2d9": {
+      "block_order": [
+        "template--14631570473032__0903376d-db6e-4a0f-8898-a4177eb2d2d9-image-3"
+      ],
+      "blocks": {
+        "template--14631570473032__0903376d-db6e-4a0f-8898-a4177eb2d2d9-image-3": {
+          "settings": {
+            "bg_color": "#dddedc",
+            "caption_position": "left bottom",
+            "cta": "",
+            "cta_bg_color": "#ffffff",
+            "cta_color": "#000000",
+            "cta_style": "solid",
+            "heading": "Voyager Tumbler <br> with 360° Lid",
+            "heading_color": "#ffffff",
+            "image": "shopify://shop_images/Voyager360-Hero-1.jpg",
+            "link": "",
+            "mobile_image": "shopify://shop_images/Voyager360-Hero-1.jpg",
+            "subhead": "",
+            "subhead_color": "",
+            "tint_color": "#000000",
+            "tint_strength": "0.2"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": "5000",
+        "slideshow_height": "1000",
+        "slideshow_width": "1920"
+      },
+      "type": "slideshow"
+    },
+    "42084564-db21-4bba-a9f0-5417425bd36c": {
+      "block_order": [
+        "4ceacc31-a6e0-4121-8419-807316487351",
+        "986c08d6-bcd2-47d5-815b-c0136eb7809b",
+        "14686d0a-0fd5-4a72-977c-f5633e34809c",
+        "70108480-aebb-4040-80a4-e8e0afeea575"
+      ],
+      "blocks": {
+        "14686d0a-0fd5-4a72-977c-f5633e34809c": {
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/voyager-with-360-lid-16oz-11",
+            "image": "shopify://shop_images/Voyager-360-25.jpg",
+            "label": "Take us with you",
+            "orientation": "left",
+            "stars": 0,
+            "testimonial_text": "<p>The Voyager’s unique shape makes it the perfect reusable travel mug as it fits in most cars’ cup holders.</p>",
+            "title": "Cupholder Friendly"
+          },
+          "type": "testimonial"
+        },
+        "4ceacc31-a6e0-4121-8419-807316487351": {
+          "settings": {
+            "button_label": "shop now",
+            "button_link": "shopify://products/voyager-with-360-lid-12oz-11",
+            "image": "shopify://shop_images/Voyager-360-12.jpg",
+            "label": "Sip from any Side",
+            "orientation": "left",
+            "stars": 0,
+            "testimonial_text": "<p>The lid is drinkable from any angle and is leak proof in the closed position.</p>",
+            "title": "360° Push Button Lid"
+          },
+          "type": "testimonial"
+        },
+        "70108480-aebb-4040-80a4-e8e0afeea575": {
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/voyager-with-360-lid-16oz-9",
+            "image": "shopify://shop_images/Voyager-360-21.jpg",
+            "label": "Variety of options",
+            "orientation": "right",
+            "stars": 0,
+            "testimonial_text": "<p>The Voyager 360° is our best coffee vessel ever, available in two sizes and a large assortment of colors to choose from. </p>",
+            "title": "Available in Two Sizes"
+          },
+          "type": "testimonial"
+        },
+        "986c08d6-bcd2-47d5-815b-c0136eb7809b": {
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/voyager-with-360-lid-16oz-4",
+            "image": "shopify://shop_images/Voyager-360-32.jpg",
+            "label": "True Taste",
+            "orientation": "right",
+            "stars": 0,
+            "testimonial_text": "<p>The tumbler is coated in a ceramic lining that preserves the integrity of your coffee's flavor for even the most discerning palates.</p>",
+            "title": "Ceramic Lined Interior"
+          },
+          "type": "testimonial"
+        }
+      },
+      "settings": {
+        "navigation_id": "product-testimonials"
+      },
+      "type": "testimonials"
+    },
+    "882a580c-8162-4ce8-8f4c-e8508aa4a050": {
+      "custom_css": [],
+      "settings": {
+        "coll": "voyager-tumbler-with-360-lid",
+        "products": 12,
+        "title": "Shop the Full Collection"
+      },
+      "type": "you-may-also-like"
+    },
+    "89efd411-cf90-4926-885e-783772342e82": {
+      "block_order": [
+        "9e3a75fc-3cbd-4418-8304-d9df921044cf",
+        "9eef4794-dad4-4952-9eb3-eabf4137459e",
+        "c376464b-8f82-4557-8659-2e0124dddd03",
+        "fc813f24-290a-4244-8c3e-2ee9f232b60d",
+        "47092c64-c588-47e8-8b11-35622c54a454",
+        "e4e3c919-492f-4fa7-8991-bf13afa192dc"
+      ],
+      "blocks": {
+        "47092c64-c588-47e8-8b11-35622c54a454": {
+          "settings": {
+            "articleimage": "shopify://shop_images/Voyager-360-10.jpg",
+            "articlelink": "shopify://products/voyager-with-360-lid-12oz-12",
+            "articletitle": ""
+          },
+          "type": "article"
+        },
+        "9e3a75fc-3cbd-4418-8304-d9df921044cf": {
+          "settings": {
+            "articleimage": "shopify://shop_images/Voyager-360-20_eacaa3a2-7a04-4ad2-bd9d-72dd62202c83.jpg",
+            "articlelink": "shopify://products/voyager-with-360-lid-16oz-9",
+            "articletitle": ""
+          },
+          "type": "article"
+        },
+        "9eef4794-dad4-4952-9eb3-eabf4137459e": {
+          "settings": {
+            "articleimage": "shopify://shop_images/Voyager-360-18_8d8e6ed3-7013-4931-8bfa-10d19fc99b2e.jpg",
+            "articlelink": "shopify://products/voyager-with-360-lid-12oz-12",
+            "articletitle": ""
+          },
+          "type": "article"
+        },
+        "c376464b-8f82-4557-8659-2e0124dddd03": {
+          "settings": {
+            "articleimage": "shopify://shop_images/Voyager-360-11_b40b0b2b-a364-472a-89d1-010657cb6fd1.jpg",
+            "articlelink": "shopify://products/voyager-with-360-lid-12oz-12",
+            "articletitle": ""
+          },
+          "type": "article"
+        },
+        "e4e3c919-492f-4fa7-8991-bf13afa192dc": {
+          "settings": {
+            "articleimage": "shopify://shop_images/Voyager360-Leakproof2_bf5444a3-7bdd-4bb4-86ab-60a162a3bd2c.jpg",
+            "articlelink": "shopify://products/voyager-with-360-lid-12oz-12",
+            "articletitle": ""
+          },
+          "type": "article"
+        },
+        "fc813f24-290a-4244-8c3e-2ee9f232b60d": {
+          "settings": {
+            "articleimage": "shopify://shop_images/Voyager-360-15.jpg",
+            "articlelink": "shopify://products/voyager-with-360-lid-16oz-9",
+            "articletitle": ""
+          },
+          "type": "article"
+        }
+      },
+      "settings": {
+        "cta": "Shop Now",
+        "featuredCardHeading": "Voyager Tumbler with 360° Lid",
+        "featuredCardImage": "shopify://shop_images/Voyager-360-9.jpg",
+        "featuredCardSubHeading": "",
+        "link": "shopify://products/voyager-with-360-lid-12oz-13"
+      },
+      "type": "blog-slider"
+    },
+    "ad000df8-3aca-4926-b7f7-d7cc624f7127": {
+      "block_order": [
+        "8529c069-3e89-4bef-8122-fd177071c87c",
+        "55f455b0-dbe6-4069-908d-0b04a33ebec8"
+      ],
+      "blocks": {
+        "55f455b0-dbe6-4069-908d-0b04a33ebec8": {
+          "settings": {
+            "image": "shopify://shop_images/Voyager-360-30.jpg",
+            "link": "shopify://products/voyager-with-360-lid-12oz-9"
+          },
+          "type": "image"
+        },
+        "8529c069-3e89-4bef-8122-fd177071c87c": {
+          "settings": {
+            "image": "shopify://shop_images/Voyager-360-5_213b8145-4b34-4842-b4e4-9b3164cb9046.jpg",
+            "link": "shopify://products/voyager-with-360-lid-12oz-12"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "b518a161-08a8-42ce-977f-7459e46d01cf": {
+      "block_order": ["aecbd98e-7903-4889-bf0f-bdcf5b79a74f"],
+      "blocks": {
+        "aecbd98e-7903-4889-bf0f-bdcf5b79a74f": {
+          "settings": {
+            "coll": "30oz-trek-tumbler",
+            "products": 11,
+            "title": "30oz Trek Tumbler"
+          },
+          "type": "collection"
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "header": ""
+      },
+      "type": "hp-featured-products"
+    },
+    "d8b8bb00-3418-4fed-a784-dd72d1551878": {
+      "block_order": [
+        "bf523725-9f49-4d33-aa49-aef48b099d91",
+        "a05fa6c0-20b6-4057-966a-ce8e0060a77b"
+      ],
+      "blocks": {
+        "a05fa6c0-20b6-4057-966a-ce8e0060a77b": {
+          "settings": {
+            "image": "shopify://shop_images/Voyager-360-27.jpg",
+            "link": "shopify://products/voyager-with-360-lid-12oz-12"
+          },
+          "type": "image"
+        },
+        "bf523725-9f49-4d33-aa49-aef48b099d91": {
+          "settings": {
+            "image": "shopify://shop_images/1B8A3363.jpg",
+            "link": "shopify://products/voyager-with-360-lid-12oz-6"
+          },
+          "type": "image"
+        }
+      },
+      "settings": {},
+      "type": "two-images"
+    },
+    "ea42899a-43ce-4e24-9571-2ff2380cb209": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": true,
+        "heading": "<h2>The Future of Sipping</h2>",
+        "richtext": "<p>Explore the world of versatile sipping with the Simple Modern Voyager 360! This insulated tumbler boasts a ceramic lining and an innovative 360-degree lid, making it perfect for your on-the-go lifestyle.</p>"
+      },
+      "type": "simple-text"
+    },
+    "f89bf835-bf1d-4b08-8b11-f5f60b92f97e": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": true,
+        "heading": "",
+        "richtext": "<p>The Voyager 360 is not just functional but also a true style statement. Its sleek and minimalist design complements any lifestyle, making it suitable for any occasion – whether you're driving, working, or just relaxing.</p>"
+      },
+      "type": "simple-text"
+    },
+    "main": {
+      "disabled": true,
+      "settings": {},
+      "type": "page"
+    }
+  },
+  "wrapper": "main.Page[role='main']"
+}

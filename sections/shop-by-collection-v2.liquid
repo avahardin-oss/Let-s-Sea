@@ -1,0 +1,171 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/sections/shop-by-collection-v2/section.liquid}] %}
+
+<style>
+.mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection{background-color:#f5f5f5;padding:max(2.125rem,2.77778vw) max(1rem,2.77778vw) max(1rem,4.16667vw)}
+.mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__header{color:#000;margin-bottom:2rem;font-family:Gilroy,sans-serif;font-size:max(1.5rem,2.22222vw);font-style:normal;font-weight:400;line-height:120%}
+.mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__nav{grid-template-columns:repeat(3,1fr);gap:max(1rem,1.11111vw);display:grid}
+.mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__navItem{filter:grayscale();aspect-ratio:104/87;cursor:pointer;box-sizing:border-box;border:1px solid #e2e2db;border-radius:max(.25rem,.277778vw);justify-content:center;align-items:center;width:100%;padding:1.5rem;transition:filter .5s;display:flex;overflow:hidden}
+.mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__navItem img{object-fit:contain;pointer-events:none;width:100%;height:100%;display:block}
+.mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__navItem:hover{color:#fff;filter:none;opacity:1;border-color:#000}
+.mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__cta{text-align:center;color:#fff;background:#000;border-radius:3.125rem;width:fit-content;margin-top:1.875rem;padding:.75rem 2.125rem;transition:background .25s,color .25s;display:block}
+.mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__cta:hover{color:#fff;background:#7b7b74}
+@media print,screen and (width>=64em){.mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__nav{grid-template-columns:repeat(6,1fr);gap:max(1.25rem,1.38889vw)}
+.mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__navItem{aspect-ratio:210/160;border-radius:max(.5rem,.555556vw);padding:2.8125rem}
+}
+</style>
+
+{% doc %}
+  @param section - {Section} The section object
+{% enddoc %}
+{%- liquid
+  assign header = section.settings.header
+-%}
+{%- if section.blocks.size > 0 -%}
+  <section class='mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection'>
+    {%- if header and header != blank -%}
+      <h2 class='mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__header'>
+        {{ header }}
+      </h2>
+    {%- endif -%}
+
+    <div class='mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__nav' role='tablist'>
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign nav_image = block.settings.mainCollectionImage
+          assign title = block.settings.title
+          assign link = block.settings.link
+        -%}
+        {%- if link and link != blank -%}
+          <a
+            class='mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__navItem js-favorite-slider-nav-item'
+            id='tab-{{ forloop.index0 }}'
+            role='tab'
+            aria-controls='tabpanel-{{ forloop.index0 }}'
+            aria-selected='{{ forloop.first | default: 'false' }}'
+            tabindex='0'
+            collection-name='{{ title }}'
+            href='{{ link }}'
+          >
+            {%- if nav_image and nav_image != blank -%}
+              <img
+                src='{{ nav_image | image_url }}'
+                width='{{ nav_image.width }}'
+                height='{{ nav_image.height }}'
+                alt='{{ title }} logo'
+                loading='lazy'
+              >
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.link and section.settings.link != blank -%}
+      <a
+        href='{{ section.settings.link }}'
+        class='mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__cta'
+      >
+        {{ section.settings.cta }}
+      </a>
+    {%- endif -%}
+  </section>
+{%- endif -%}
+
+{% style %}
+  #shopify-section-{{ section.id }} .mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__cta{
+    background-color: {{ section.settings.cta_background_color }};
+    color: {{ section.settings.cta_color }};
+  }
+   #shopify-section-{{ section.id }} .mod_shop_by_collection_v_2_2Fe8-G_ShopByCollection__cta:hover{
+    background-color: {{ section.settings.cta_background_color_hover }};
+    color: {{ section.settings.cta_color_hover }};
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Shop By Collection V2",
+  "class": "ShopByCollection-section js-shop-by-collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Header",
+      "default": "Find your Favorite Collection"
+    },
+    {
+      "type": "header",
+      "content": "CTA Settings"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "CTA URL",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "cta",
+      "label": "CTA Text",
+      "default": "Shop All Collections"
+    },
+    {
+      "type": "color",
+      "id": "cta_color",
+      "label": "CTA Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "cta_background_color",
+      "label": "CTA Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "cta_color_hover",
+      "label": "CTA Color Hover",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "cta_background_color_hover",
+      "label": "CTA Background Color Hover",
+      "default": "#40403d"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "header",
+          "content": "General settings"
+        },
+        {
+          "type": "image_picker",
+          "id": "mainCollectionImage",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop By Collection V2",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

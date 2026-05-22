@@ -1,0 +1,68 @@
+{%- liquid
+    assign catalog = 'retail'
+    if customer and customer.b2b? == true
+        assign catalog = 'wholesale'
+    endif
+-%}
+<div class="js-product-smp-container" data-handle="{{ product.handle }}" data-catalog="{{ catalog }}">
+{%- liquid  
+    assign current_size_tag = ''
+    assign current_size_name = ''
+    assign current_color = ''
+    assign current_color_title = ''
+    for tag in product.tags
+        if tag contains 'size_'
+          unless tag contains ':'
+              assign current_size_tag = tag
+          endunless
+        endif
+
+        if tag contains 'color_'
+          unless tag contains ':'
+              assign current_color = tag
+              assign color_metaobject_handle = tag | remove : "color_"
+              assign current_color_title = tag
+          endunless
+        endif
+    endfor 
+    if shop.metaobjects['product_colors'][color_metaobject_handle].color.value != blank
+        assign current_icon = shop.metaobjects['product_colors'][color_metaobject_handle].color.value | image_url: width: 128
+        assign current_color_title = shop.metaobjects['product_colors'][color_metaobject_handle].handle_name.value
+    else 
+        assign current_icon = product.featured_image | image_url: width: 600
+    endif
+    assign current_meta_size = current_size_tag | remove: 'size_' | strip
+    if shop.metaobjects['product_option'][current_meta_size].display_name.value != blank
+        assign current_size_name = shop.metaobjects['product_option'][current_meta_size].display_name.value
+    endif
+
+-%}
+
+<script id="js-color-json" type="application/json">
+    {
+      "current_size": {{ current_size_tag | json }},
+      "current_color": {{ current_color | json }},
+      "current_color_title": {{ current_color_title | json }},
+      "current_icon": {{ current_icon | json }},
+      "b2b_customer": {{ b2b | json }}
+    }
+</script>
+
+<script id="js-size-json" type="application/json">
+    {      
+      "current_size_name": {{ current_size_name | json }},
+      "current_size": {{ current_size_tag | json }},
+      "b2b_customer": {{ b2b | json }}
+    }
+</script>
+
+<script id="js-material-json" type="application/json">
+    {      
+      "material_title": {{ material_title | json }}
+    }
+</script>
+
+
+<div id="js-product-smp-temp" class="disabled"></div>
+<div id="js-product-smp" class="disabled"></div>
+</div>

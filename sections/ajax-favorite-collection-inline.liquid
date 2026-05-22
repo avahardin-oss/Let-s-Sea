@@ -1,0 +1,14 @@
+{%- assign availalble = 1 -%}
+{%- for product in collection.products limit: 10 -%}
+    {%- if product.available -%}
+    <div class="swiper-slide desktopSlide js-favorite-slider-carousel-slide swiper-lazy" data-collection="{{ collection.handle }}"role="group" aria-label="card {{ forloop.index }} of 10">
+        {% render 'product-card', product: product, title_tag: 'h2' %}
+    </div>
+    {%- liquid
+        assign availalble = availalble | plus: 1
+        if availalble > 10
+            break
+        endif
+    -%}
+    {%- endif -%}
+{%- endfor -%}

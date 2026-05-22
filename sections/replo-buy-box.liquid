@@ -1,0 +1,258 @@
+{% # DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets:source={_js/sections/replo-buy-box/section.liquid}] %}
+
+<script class="json-portable-section-assets" type="application/json">
+{"sectionName":"replo-buy-box"}
+</script>
+
+<style>
+.ReploBuyBox{color:#1d1d1d}
+:is(.ReploBuyBox a,.ReploBuyBox p,.ReploBuyBox h1,.ReploBuyBox h2,.ReploBuyBox h3,.ReploBuyBox h4,.ReploBuyBox h5,.ReploBuyBox h6,.ReploBuyBox li,.ReploBuyBox span){color:#1d1d1d}
+.mod_replo_buy_box_zJbjSq_icons{grid-template-columns:repeat(2,1fr);gap:max(1rem,1.11111vw);margin:max(1.25rem,1.38889vw) 0;padding:max(1rem,1.11111vw) 0 0;list-style:none;display:grid}
+.mod_replo_buy_box_zJbjSq_iconBox{text-align:center;flex-direction:column;align-items:center;display:flex}
+.mod_replo_buy_box_zJbjSq_iconImage{object-fit:contain;width:max(3rem,3.33333vw);height:max(3rem,3.33333vw);margin-bottom:max(.5rem,.555556vw)}
+.mod_replo_buy_box_zJbjSq_container .ProductGallery-mainContainer{max-width:none}
+.mod_replo_buy_box_zJbjSq_container .Product-section--details{margin-top:max(1.5rem,1.66667vw);padding-top:0}
+:is(.mod_replo_buy_box_zJbjSq_container .swiper-button-prev-desktop,.mod_replo_buy_box_zJbjSq_container .swiper-button-next-desktop){margin-top:0;top:50%;transform:translateY(-50%)}
+.mod_replo_buy_box_zJbjSq_container .js-swiper-thumbs-pdp-desktop{width:65%;height:auto;margin:0 auto}
+.mod_replo_buy_box_zJbjSq_container .ProductGallery-actions{margin-top:max(.75rem,.833333vw)}
+.mod_replo_buy_box_zJbjSq_container .ProductGallery-thumbSlide{aspect-ratio:1;border:max(.0625rem,.0694445vw) solid #0000;border-radius:0;height:auto}
+.mod_replo_buy_box_zJbjSq_container .ProductGallery-thumbSlide.swiper-slide-thumb-active{border-color:#000}
+.mod_replo_buy_box_zJbjSq_container .ProductGallery-thumbSlide img{object-fit:cover;width:100%;height:100%}
+@media print,screen and (width>=40em){.mod_replo_buy_box_zJbjSq_icons{grid-template-columns:repeat(4,1fr);padding-top:max(1.25rem,1.38889vw)}
+}
+@media print,screen and (width>=64em){.mod_replo_buy_box_zJbjSq_container .NewProductGallery-item:first-child{height:auto}
+.mod_replo_buy_box_zJbjSq_container .Product-sections{gap:max(1.25rem,1.38889vw)}
+.mod_replo_buy_box_zJbjSq_container .Product-section--details{margin-top:0}
+.mod_replo_buy_box_zJbjSq_container .ProductGallery-actions{z-index:10;width:95%;margin-top:0;bottom:50%;left:2.5%}
+}
+@media print,screen and (width>=64em) and (width<=90em){.mod_replo_buy_box_zJbjSq_container .Product-sections{justify-content:center;gap:max(.625rem,.694444vw)}
+.mod_replo_buy_box_zJbjSq_container .Product-section--details{flex:auto;max-width:45%}
+.mod_replo_buy_box_zJbjSq_container .Product-section--images-new{flex:auto;max-width:50%}
+}
+</style>
+
+{% comment %}
+  Replo Shoppable Buy Box (portable section source)
+  - Uses product picker
+  - Reuses PDP classes so existing product JS (gallery, swatches, ATC) can bind
+  - Includes guarded script tags for required bundles
+{% endcomment %}
+
+{% liquid
+  assign navigation_id = section.settings.navigation_id | default: section.id | handleize
+  assign material_title = section.settings.material_title
+  assign gallery_layout = section.settings.gallery_layout | default: 'grid'
+  assign customizable = false
+
+  comment
+    When fetching via /products/{handle}?section_id=, Shopify provides the `product` object.
+    Use that if available, or try to infer from URL. Otherwise fall back to section settings.
+  endcomment
+  assign target_product = product
+
+  if target_product.handle == blank and request.path contains '/products/'
+    assign path_handle = request.path | split: '/' | last
+    assign target_product = all_products[path_handle]
+  endif
+
+  if target_product != blank
+    assign product_handle = target_product.handle
+  else
+    assign selected_product = section.settings.product
+    assign product_handle = replo_buybox_product_handle | default: selected_product.handle | default: '' | strip
+    assign target_product = all_products[product_handle]
+  endif
+
+  if target_product and target_product.tags contains 'customize:engrave'
+    assign customizable = true
+  elsif target_product and target_product.tags contains 'customize:embroidery'
+    assign customizable = true
+  endif
+%}
+
+{%- comment -%}
+  Required bundles (guarded)
+  Note: We intentionally DON'T load product.js here because:
+  1. Our section-replo-buy-box.js imports renderSwatches directly from TS
+  2. product.js contains global SMP initializers that can conflict
+  3. This ensures we use the current v2 API instead of potentially cached v1
+{%- endcomment -%}
+{% unless content_for_header contains 'runtime.js' %}{{ 'runtime.js' | asset_url | script_tag }}{% endunless %}
+{% unless content_for_header contains 'shared-jquery.js' -%}
+  {{- 'shared-jquery.js' | asset_url | script_tag -}}
+{%- endunless %}
+{% unless content_for_header contains 'shared-swiper.js' -%}
+  {{- 'shared-swiper.js' | asset_url | script_tag -}}
+{%- endunless %}
+
+<section
+  id="replo-buy-box-{{ section.id }}"
+  class="ReploBuyBox Product {% if target_product == blank %}ReploBuyBox--empty{% endif %}"
+>
+  {% if product_handle == blank %}
+    <div class="Product-container">
+      <div class="Product-sections Product-sections--noImages">
+        <p class="ReploBuyBox-message">
+          {{ 'sections.replo_buy_box.missing_handle' | t }}
+        </p>
+      </div>
+    </div>
+  {% elsif target_product == blank %}
+    <div class="Product-container">
+      <div class="Product-sections Product-sections--noImages">
+        <p class="ReploBuyBox-message">
+          {{ 'sections.replo_buy_box.product_not_found' | t: handle: product_handle }}
+        </p>
+      </div>
+    </div>
+  {% else %}
+    {% liquid
+      assign product = target_product
+      assign current_variant = product.selected_or_first_available_variant
+    %}
+
+    <div tabindex="1" id="ProductGalleryModal" class="NewProductGallery-modal js-product-gallery-modal">
+      <img class="NewProductGallery-modal-content js-modal-image" id="img01" width="1024" height="1024" alt="">
+    </div>
+
+    <div class="Product-info-block pdp-info-mobile">
+      {% render 'okendo-reviews-product-rating-summary', product: product %}
+      <div class="Product-title-price">
+        <h2 class="Product-info-title">{{ product.title }}</h2>
+        <div class="Product-price-block">
+          <span class="Product-price">{{- current_variant.price | money -}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="Product-container js-navigation-id-{{ navigation_id }} mod_replo_buy_box_zJbjSq_container">
+      <div class="Product-sections {% if product.images.size == 0 %}Product-sections--noImages{% endif %}">
+        {% if product.images.size > 0 %}
+          <section class="Product-section--images-new pdp_gallery_ab_test__new">
+            {% if gallery_layout == 'carousel' %}
+              {% render 'product-images-carousel', product: product, is_replo: true %}
+            {% else %}
+              {% render 'product-images-new', product: product %}
+            {% endif %}
+          </section>
+        {% endif %}
+
+        <section class="Product-section Product-section--details">
+          <div class="Product-info-block pdp-info-desktop">
+            {% render 'okendo-reviews-product-rating-summary', product: product %}
+            <div class="Product-title-price">
+              <h2 class="Product-info-title">{{ product.title }}</h2>
+              <div class="Product-price-block">
+                <span class="Product-price">{{- current_variant.price | money -}}</span>
+              </div>
+            </div>
+            <div class="Product-shop-pay">
+              {% form 'product', product %}
+                {{ form | payment_terms }}
+              {% endform %}
+              <div class="js-product-form-error ProductForm-error"></div>
+            </div>
+          </div>
+
+          {% render 'product-details',
+            product: product,
+            customizable: customizable,
+            material_title: material_title,
+            is_replo: true
+          %}
+
+          {% if section.blocks.size > 0 %}
+            <ul class="ProductIcons ReploBuyBox-icons mod_replo_buy_box_zJbjSq_icons">
+              {% for block in section.blocks %}
+                {% if block.type == 'icon_callout' %}
+                  {% assign icon_image = block.settings.icon %}
+                  {% assign icon_text = block.settings.text %}
+                  <li class="ProductIcons-box mod_replo_buy_box_zJbjSq_iconBox">
+                    {% if icon_image != blank %}
+                      {% capture icon_image_sizes %}
+                        {% render 'print-image-sizes', image: icon_image %}
+                      {% endcapture %}
+                      <img
+                        class="ProductIcons-image lazyload mod_replo_buy_box_zJbjSq_iconImage"
+                        srcset="{{ icon_image_sizes | strip_newlines | strip }}"
+                        alt="{{ icon_text | strip_html | escape }}"
+                        loading="lazy"
+                        width="{{ icon_image.width }}"
+                        height="{{ icon_image.height }}"
+                      >
+                    {% endif %}
+                    {% if icon_text != blank %}
+                      <div class="ProductIcons-text">{{ icon_text }}</div>
+                    {% endif %}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </section>
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Replo Buy Box",
+  "tag": "section",
+  "class": "ReploBuyBox js-replo-buy-box-main Product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "select",
+      "id": "gallery_layout",
+      "label": "Desktop gallery layout",
+      "default": "grid",
+      "options": [
+        { "value": "grid", "label": "Grid" },
+        { "value": "carousel", "label": "Carousel" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "navigation_id",
+      "label": "Navigation anchor",
+      "default": "replo-buy-box"
+    },
+    {
+      "type": "text",
+      "id": "material_title",
+      "label": "Material title",
+      "default": "Materials"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon_callout",
+      "name": "Icon callout",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Callout copy"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Replo Buy Box"
+    }
+  ]
+}
+{% endschema %}

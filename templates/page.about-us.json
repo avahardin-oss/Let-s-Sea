@@ -1,0 +1,185 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "order": [
+    "image_text_banner_PPTjmX",
+    "simple_text_3kn6Gf",
+    "3a174a2d-2cb1-4098-ad83-e86490cee4da",
+    "8a8d8df3-e096-4327-a975-22cb10b2582c",
+    "ab7f2ca6-eba2-4a00-a165-5eb51a001fb1",
+    "f8ffeec0-871e-46a3-9bc0-aaa114be7329",
+    "full_bleed_video_dfKcNU",
+    "simple_text_cczkff",
+    "blog_slider_PXkjQz",
+    "d432ef01-1d89-414c-96f7-f7dc87b31268"
+  ],
+  "sections": {
+    "3a174a2d-2cb1-4098-ad83-e86490cee4da": {
+      "disabled": true,
+      "settings": {
+        "accessibility_text": "Product video",
+        "video": "shopify://files/videos/Why_We_Exist_-_Simple_Modern.mp4",
+        "video_type": "shopify",
+        "youtube_url": ""
+      },
+      "type": "full-bleed-video"
+    },
+    "8a8d8df3-e096-4327-a975-22cb10b2582c": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": false,
+        "heading": "<h2>We Exist to Give Generously</h2>",
+        "richtext": "<p>We give at least 10 percent of profits to nonprofit partners each year, and as part of this giving, about 12% of annual giving is employee-driven, meaning every Simple Modern employee helps determine where our impact is felt.<br/></p><p>During the last eight years, we've partnered with and helped impact more than 100 nonprofits and we've donated more than $6 million. Giving is why we exist, and we're both humbled and proud to be able to impact the communities we serve in a meaningful way.</p>"
+      },
+      "type": "simple-text"
+    },
+    "ab7f2ca6-eba2-4a00-a165-5eb51a001fb1": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": false,
+        "heading": "<h2>Who We Are</h2>",
+        "richtext": "<p>Simple Modern exists to give generously. As a leading drinkware and consumer goods company, Simple Modern gives at least 10% of annual profits to communities around the world, equally millions in donations since the company’s founding in 2015. The Oklahoma-owned company offers premium quality products and unique styles for adults and kids at generous prices. Mission-driven and values-based, Simple Modern has grown into a category leader for retail partners Amazon, Target, Sam’s Club and Walmart, serving customers in all 50 states and eight countries around the world. </p>"
+      },
+      "type": "simple-text"
+    },
+    "blog_slider_PXkjQz": {
+      "block_order": ["article_mcQKwG", "article_9BtYGh", "article_iEpAJV"],
+      "blocks": {
+        "article_9BtYGh": {
+          "settings": {
+            "articleimage": "shopify://shop_images/425718856_960710215426471_414941829316531039_n.jpg",
+            "articlelink": "shopify://blogs/why-we-exist/simple-modern-continues-sponsorship-of-thunder-youth-basketball-camps",
+            "articlesubtitle": "",
+            "articletitle": "Simple Modern Continues Sponsorship of Thunder Youth Basketball Camps"
+          },
+          "type": "article"
+        },
+        "article_iEpAJV": {
+          "settings": {
+            "articleimage": "shopify://shop_images/1B8A9284_67fe6252-83fd-4bfd-bd6e-1749f738053e.jpg",
+            "articlelink": "https://www.simplemodern.com/blogs/why-we-exist/simple-modern-announces-2024-giving-partners",
+            "articlesubtitle": "",
+            "articletitle": "Simple Modern Announces 2024 Giving Partners"
+          },
+          "type": "article"
+        },
+        "article_mcQKwG": {
+          "settings": {
+            "articleimage": "shopify://shop_images/1B8A9379-_2.jpg",
+            "articlelink": "shopify://blogs/why-we-exist/simple-modern-giving-summit-2024-showcases-okc-s-nonprofit-impact",
+            "articlesubtitle": "",
+            "articletitle": "Simple Modern Giving Summit 2024 Showcases OKC’s Nonprofit Impact"
+          },
+          "type": "article"
+        }
+      },
+      "settings": {
+        "cta": "Read More",
+        "featuredCardHeading": "We exist to give generously",
+        "featuredCardImage": "shopify://shop_images/Trek-Summer-Hero-Banner.jpg",
+        "featuredCardSubHeading": "",
+        "link": "shopify://blogs/why-we-exist"
+      },
+      "type": "blog-slider"
+    },
+    "d432ef01-1d89-414c-96f7-f7dc87b31268": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": true,
+        "heading": "<h2>Employment Opportunities</h2>",
+        "richtext": "<p>We are always looking to connect with talented, high-character individuals who align with our values. If you are excited about our products and our approach and interested in employment with Simple Modern, please send an introduction email and resume to <a href=\"mailto:jobs@simplemodern.com\" target=\"_blank\" title=\"Email us\">jobs@simplemodern.com</a>.</p><p>We strive to acknowledge each email received, but please note that due to the high volume of interest, an immediate response may not be feasible. We look forward to connecting with you!</p>"
+      },
+      "type": "simple-text"
+    },
+    "f8ffeec0-871e-46a3-9bc0-aaa114be7329": {
+      "block_order": [
+        "88f4b8dd-2558-4622-b48f-579f6e3a357e",
+        "160944cd-6da9-49ab-a712-569eb1512684",
+        "02838c22-1010-4db3-bccb-1cbffa9b8070",
+        "block_RB87fR"
+      ],
+      "blocks": {
+        "02838c22-1010-4db3-bccb-1cbffa9b8070": {
+          "settings": {
+            "icon": "shopify://shop_images/Group_1092.png",
+            "text": "<p>Nonprofits Partnered With</p>",
+            "title": "100+"
+          },
+          "type": "block"
+        },
+        "160944cd-6da9-49ab-a712-569eb1512684": {
+          "settings": {
+            "icon": "shopify://shop_images/Group_1091.png",
+            "text": "<p>In monetary donations</p>",
+            "title": "$6M+"
+          },
+          "type": "block"
+        },
+        "88f4b8dd-2558-4622-b48f-579f6e3a357e": {
+          "settings": {
+            "icon": "shopify://shop_images/Group_1093.png",
+            "text": "<p>Profits given away annually</p>",
+            "title": "10%"
+          },
+          "type": "block"
+        },
+        "block_RB87fR": {
+          "disabled": true,
+          "settings": {
+            "text": "<p>Nonprofits featured at Annual Giving Summit</p>",
+            "title": "20+"
+          },
+          "type": "block"
+        }
+      },
+      "settings": {},
+      "type": "featured-blocks"
+    },
+    "full_bleed_video_dfKcNU": {
+      "settings": {
+        "accessibility_text": "Product video",
+        "video_type": "shopify",
+        "youtube_url": ""
+      },
+      "type": "full-bleed-video"
+    },
+    "image_text_banner_PPTjmX": {
+      "settings": {
+        "banner_height": "small",
+        "color_palette": "dark",
+        "heading": "Good Everywhere™",
+        "image_as_background": true,
+        "show_breadcrumbs": true,
+        "text": ""
+      },
+      "type": "image-text-banner"
+    },
+    "simple_text_3kn6Gf": {
+      "disabled": true,
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": false,
+        "heading": "<h1>WHY WE EXIST</h1>",
+        "richtext": ""
+      },
+      "type": "simple-text"
+    },
+    "simple_text_cczkff": {
+      "settings": {
+        "background_color": "#e2e2db",
+        "custom_background_color": false,
+        "heading": "<h2>Our Giving Focus</h2>",
+        "richtext": "<p>Simple Modern focuses on five key areas of giving to determine which agencies to partner with each year. The company’s giving is centered around these broad categories: nonprofits focused on providing clean drinking water, furthering education, supporting marginalized communities, stopping human trafficking and addressing homelessness.The majority of Simple Modern’s giving stays in the company’s headquartered state: Oklahoma. Broken down, 87% of Simple Modern’s giving is local, with 7.2% considered national and 5.8% international giving.</p><p></p><p><strong>The 2024 Giving Partners:</strong></p><p>Water4</p><p>Restore OKC</p><p>Positive Tomorrows</p><p>Hope is Alive</p><p>St. Paul's Community School</p><p>The Pearl House</p><p>HopeHouse OKC</p><p>City Care</p><p>The Spero Project</p><p>The Dragonfly Home</p><p>Love Justice International</p><p>Abbott House Child Advocacy Center</p><p>Homeless Alliance</p><p>CASA of Oklahoma County, Inc.</p><p>Palomar</p><p>Guardian Group</p><p>Cristo Rey</p><p>Lilyfield, Inc</p><p>Halo Project</p><p>Not Your Average Joe</p><p>New Story</p><p>111Project</p><p>YWCA</p><p>Make-A-Wish Oklahoma</p><p>ReMerge</p><p>Wings</p><p>Christian Hands in Action</p><p>Mission of Hope</p><p>Hearts for Hearing Foundation</p><p>Leah's Hope, Inc.</p>"
+      },
+      "type": "simple-text"
+    }
+  },
+  "wrapper": "main.Page[role='main']"
+}

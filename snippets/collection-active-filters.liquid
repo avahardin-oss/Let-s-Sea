@@ -1,0 +1,60 @@
+{%- comment -%}
+  Collection active filter pills
+  Renders pills showing currently active filters with remove buttons
+
+  @param {array} active_filters - Array of active filter values
+  @param {string} clear_url - URL to clear all filters
+{%- endcomment -%}
+
+{%- liquid
+  assign has_active_filters = false
+  for filter in collection.filters
+    if filter.active_values.size > 0
+      assign has_active_filters = true
+      break
+    endif
+    if filter.type == 'price_range'
+      if filter.min_value.value != null or filter.max_value.value != null
+        assign has_active_filters = true
+        break
+      endif
+    endif
+  endfor
+-%}
+
+{%- if has_active_filters -%}
+  <div class="Filters-active" data-active-filters>
+    {%- comment -%} Clear all button first {%- endcomment -%}
+    <div class="Filter-active">
+      Clear all
+      <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="Filter-remove" data-filter-clear-all>
+        {% render 'svg-cart-qty-remove' %}
+      </a>
+    </div>
+
+    {%- comment -%} Individual filter pills {%- endcomment -%}
+    {%- for filter in collection.filters -%}
+      {%- if filter.type == 'price_range' -%}
+        {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+          <div class="Filter-active">
+            {%- assign min_value = filter.min_value.value | default: 0 -%}
+            {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+            {{ min_value | money }} - {{ max_value | money }}
+            <a class="Filter-remove" href="{{ filter.url_to_remove }}" data-filter-remove>
+              {% render 'svg-cart-qty-remove' %}
+            </a>
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        {%- for filter_value in filter.active_values -%}
+          <div class="Filter-active">
+            {{ filter.label }}: {{ filter_value.label }}
+            <a class="Filter-remove" href="{{ filter_value.url_to_remove }}" data-filter-remove>
+              {% render 'svg-cart-qty-remove' %}
+            </a>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{%- endif -%}

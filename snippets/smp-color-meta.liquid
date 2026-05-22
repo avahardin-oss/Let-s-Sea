@@ -1,0 +1,28 @@
+<script class="js-color-metaobject-json" type="application/json">
+    {
+{%- paginate shop.metaobjects.product_colors.values by 500 -%}
+    {%- for product_color in shop.metaobjects.product_colors.values -%}
+    {{ product_color.system.handle | json }}: [
+        {
+        "color_icon": {{ product_color.color | image_url: width: 128 | json }},
+        "color_name": {{ product_color.handle_name | json }}
+        }
+    ]{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+    {%- endpaginate -%}
+    }
+</script>
+<script class="js-swatches-metaobject-json" type="application/json">
+    {
+    {%- paginate shop.metaobjects.product_color_families.values by 500 -%}
+      {%- for product_color in shop.metaobjects.product_color_families.values -%}
+        {{ product_color.handle_name | json }}: [
+            {
+            "color_icon": {{ product_color.color_image | image_url: width: 128 | json }},
+            "color_name": {{ product_color.handle_name | json }}
+            }
+        ]{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    {%- endpaginate -%}
+    }
+</script>

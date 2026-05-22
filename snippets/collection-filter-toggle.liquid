@@ -1,0 +1,30 @@
+{%- comment -%}
+  Collection filter toggle button
+  Renders the button that opens the filter drawer
+
+  @param {number} active_filter_count - Number of currently active filters
+{%- endcomment -%}
+
+{%- liquid
+  assign active_filter_count = active_filter_count | default: 0
+-%}
+
+<div class="Collection__filters__wrapper">
+  <div class="Collection__filters__toggle">
+    <button
+      type="button"
+      id="open_filters"
+      aria-label="Open filters"
+      class="Collection__filters__toggle-btn"
+      data-filter-toggle
+    >
+      <span
+        class="Collection__filters__toggle-btn__counter{% if active_filter_count > 0 %} Collection__filters__toggle-btn__counter-active{% endif %}"
+        data-filter-count
+      >
+        {%- if active_filter_count > 0 -%}{{ active_filter_count }}{%- endif -%}
+      </span>
+      {%- render 'icon-filter-toggle' -%}
+    </button>
+  </div>
+</div>
