@@ -1,2 +1,0 @@
-"use strict";/*! DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets] */(self.webpackChunkshopify_theme=self.webpackChunkshopify_theme||[]).push([["8183"],{4284:function(__unused_webpack_module,__unused_webpack___webpack_exports__,__webpack_require__){
-(0,__webpack_require__(7112).initSnippet)("category-slider-card",()=>()=>{})}},function(__webpack_require__){__webpack_require__.O(0,["8345"],function(){return __webpack_require__(__webpack_require__.s=4284)}),__webpack_require__.O()}]);

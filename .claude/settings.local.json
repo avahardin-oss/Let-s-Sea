@@ -22,7 +22,11 @@
       "Bash(cp \"c:\\\\Users\\\\Ava Hardin\\\\Downloads\\\\SOHO STUDIOS.jpg\" \"C:\\\\Code\\\\Lets Sea\\\\images\\\\About\\\\soho-studios.jpg\")",
       "Bash(cp \"c:\\\\Users\\\\Ava Hardin\\\\Downloads\\\\Coastal granddaughter.jpg\" \"C:\\\\Code\\\\Lets Sea\\\\images\\\\About\\\\coastal.jpg\")",
       "Bash(cp \"c:\\\\Users\\\\Ava Hardin\\\\Downloads\\\\Cartier Eyewear - Première De Cartier Rimless Rectangle-frame Gold-tone Optical Glasses - One size.jpg\" \"C:\\\\Code\\\\Lets Sea\\\\images\\\\About\\\\cartier.jpg\")",
-      "Bash(cp \"c:\\\\Users\\\\Ava Hardin\\\\Downloads\\\\Lauren Elizabeth's Amazon Page - Southern Europe lookbook.jpg\" \"C:\\\\Code\\\\Lets Sea\\\\images\\\\About\\\\lauren-elizabeth.jpg\")"
+      "Bash(cp \"c:\\\\Users\\\\Ava Hardin\\\\Downloads\\\\Lauren Elizabeth's Amazon Page - Southern Europe lookbook.jpg\" \"C:\\\\Code\\\\Lets Sea\\\\images\\\\About\\\\lauren-elizabeth.jpg\")",
+      "Bash(Get-ChildItem -Path \"C:\\\\Code\\\\First Project\" -Force)",
+      "Bash(Select-Object Name, Mode)",
+      "Bash(Format-Table -AutoSize)",
+      "Bash(Remove-Item -Recurse -Force assets, config, layout, locales, sections, snippets, templates)"
     ]
   }
 }

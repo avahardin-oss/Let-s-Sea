@@ -1,7 +1,0 @@
-{% assign image_width = image.width | times: 1.0 %}
-{% assign image_height = image.height | times: 1.0 %}
-{% if image_width > image_height or image_height > 450 %}
-  padding-bottom: {{ image_height | divided_by: image_width | times: 100.0 }}%;
-{% else %}
-  padding-bottom: {{ image_width | divided_by: image_height | times: 100.0 }}%;
-{% endif %}

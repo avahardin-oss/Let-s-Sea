@@ -1,4 +1,0 @@
-"use strict";/*! DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets] */(self.webpackChunkshopify_theme=self.webpackChunkshopify_theme||[]).push([["846"],{7065:function(__unused_webpack_module,__unused_webpack___webpack_exports__,__webpack_require__){
-var _core_dom_events_index_js__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(3920);(0,__webpack_require__(4339).initSection)(".js-product-buy-box",section=>{let namespace=(0,_core_dom_events_index_js__WEBPACK_IMPORTED_MODULE_1__.makeEventNamespace)();
-return namespace.addDelegatedEventListener(section,".js-cta","click",target=>{console.log("Button clicked:",target)}),console.log("Section initialized:",section),{unload:()=>{console.log("Cleaning up section:",section),namespace.destroy()}}})}},
-function(__webpack_require__){__webpack_require__.O(0,["345"],function(){return __webpack_require__(__webpack_require__.s=7065)}),__webpack_require__.O()}]);

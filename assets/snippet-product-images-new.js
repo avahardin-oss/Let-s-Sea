@@ -1,4 +1,0 @@
-"use strict";/*! DO NOT EDIT: This file is auto-generated and will be overwritten. [build-fingerprint:assets] */(self.webpackChunkshopify_theme=self.webpackChunkshopify_theme||[]).push([["364"],{6944:function(__unused_webpack_module,__unused_webpack___webpack_exports__,__webpack_require__){
-var _core_dom_events_index_js__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(6915);(0,__webpack_require__(498).initSnippet)("product-images-new",snippet=>{let namespace=(0,_core_dom_events_index_js__WEBPACK_IMPORTED_MODULE_1__.makeEventNamespace)();
-return namespace.addDelegatedEventListener(snippet,".js-cta","click",target=>{console.log("Button clicked:",target)}),console.log("Snippet initialized:",snippet),()=>{console.log("Cleaning up snippet:",snippet),namespace.destroy()}})}},function(__webpack_require__){
-__webpack_require__.O(0,["249","453"],function(){return __webpack_require__(__webpack_require__.s=6944)}),__webpack_require__.O()}]);
