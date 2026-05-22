@@ -29,7 +29,8 @@
       "Bash(Remove-Item -Recurse -Force assets, config, layout, locales, sections, snippets, templates)",
       "Bash(gh auth *)",
       "PowerShell(gh auth *)",
-      "Bash(git remote *)"
+      "Bash(git remote *)",
+      "Bash(git push *)"
     ]
   }
 }
